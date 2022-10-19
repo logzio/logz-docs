@@ -266,13 +266,17 @@ firstLevel:
   - title: Navigating in Distributed Tracing
     thirdLevel:
     - title: The Grand Distributed Tracing Tour
-      url: /user-guide/distributed-tracing/tracing-tour/
+      url: /user-guide/distributed-tracing/tracing-tour.html
     - title: Trace Timeline
       url: /user-guide/distributed-tracing/trace-timeline/
     - title: Trace Graph
       url: /user-guide/distributed-tracing/trace-graph/
     - title: Trace Statistics
       url: /user-guide/distributed-tracing/trace-statistics/
+    - title: Trace Spans Table
+      url: /user-guide/distributed-tracing/trace-spans-table/
+    - title: Trace Flamegraph
+      url: /user-guide/distributed-tracing/trace-flamegraph/
     - title: Trace JSON
       url: /user-guide/distributed-tracing/trace-json/
     - title: Compare traces

@@ -78,6 +78,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
 [OUTPUT]
     Name  logzio
     Match *
+    Workers 1
     logzio_token <<LOG-SHIPPING-TOKEN>>
     logzio_url   https://<<LISTENER-HOST>>:8071
 ```
@@ -90,6 +91,7 @@ For a list of options, see the configuration parameters below the code block. ðŸ
 | logzio_url  | Listener URL and port. {% include log-shipping/listener-var.html %}  | `https://listener.logz.io:8071` |
 | logzio_type   | {% include log-shipping/type.md %} | `logzio-fluent-bit` |
 | logzio_debug    | Set to `true` to print debug messages to stdout. | `false` |
+| workers | Enables dedicated thread(s) for this output. | Default value is 1. To support more traffic, adjust this value accordingly. |
 
 
 ##### Run Fluent Bit with the Logz.io plugin

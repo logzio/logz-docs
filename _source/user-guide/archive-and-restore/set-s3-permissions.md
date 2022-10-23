@@ -15,6 +15,11 @@ contributors:
 
 Your AWS S3 bucket must grant Logz.io the right permissions to support Logz.io archiving and data restore.
 
+* [Minimal permissions]()
+* [AWS S3 bucket storage classes]()
+* [test your IAM permissions]()
+* [Power search]()
+
 ## Minimal permissions
 
 * **Archiving** - Logz.io requires `s3:PutObject` and `s3:GetBucketLocation` permissions to archive logs to an AWS S3 bucket.
@@ -35,7 +40,7 @@ and choose the right S3 object storage class for your needs.
 Buckets set to cold storage (**S3 Glacier** and **S3 Glacier Deep Archive** storage classes) cannot be restored from, as the files within them are not available for real-time access. See AWS documentation to learn more about [storage classes in general](https://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html)
 and [Amazon S3 Storage Classes](https://aws.amazon.com/s3/storage-classes/).
 
-## Sample policy
+### Sample policy
 
 This code block shows a policy with all three permissions enabled:
 
@@ -61,7 +66,7 @@ This code block shows a policy with all three permissions enabled:
 }
 ```
 
-## Testing your configuration
+### Testing your configuration
 
 To test `PutObject` permissions,
 you can fill in your credentials on the
@@ -114,3 +119,46 @@ Logz.io can archive and restore your logs with these credentials.
 
 
 ## Power search
+
+Setting up your Power search permissions:
+
+1. Navigate to your AWS account and search for S3
+
+![Select S3](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/select-s3.png)
+
+
+2. Choose on the relevant bucket on which you want to apply Power search. Once inside, click on Permissions, scroll down to **Bucket policy** and click on **Edit**.
+
+![Select S3](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/permission-policy.png)
+
+
+3. Paste the following code inside the policy. **Replace the `XXX` with your bucket's name.**
+
+*If you already have an exisiting policy in your bucket, add this code to the bottom of the page.*
+
+```yaml
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": "arn:aws:iam::406095609952:user/search-archive-restore-user"
+            },
+            "Action": [
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::XXX", #replace with your bucket's name
+                "arn:aws:s3:::XXX/*" #replace with your bucket's name
+            ]
+        }
+    ]
+}
+```
+
+
+![Edit bucket policy](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/edit-bucket-policy.png)
+
+5. Click on **Save changes** to apply the new policy. It might take a few minutes for Logz.io to identify the new policy, afterwhich you'll be able to [use Power search]() when restoring archived logs. 

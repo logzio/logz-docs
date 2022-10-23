@@ -19,7 +19,7 @@ Your AWS S3 bucket must grant Logz.io the right permissions to support Logz.io a
 * [Minimal permissions](/user-guide/archive-and-restore/set-s3-permissions.html#minimal-permissions)
 * [AWS S3 bucket storage classes](/user-guide/archive-and-restore/set-s3-permissions.html#aws-s3-bucket-storage-classes)
 * [Test your IAM permissions](/user-guide/archive-and-restore/set-s3-permissions.html#testing-your-configuration)
-* [Add Power search permissions](/user-guide/archive-and-restore/set-s3-permissions.html#power-search)
+* [Add Power search permissions](/user-guide/archive-and-restore/set-s3-permissions.html#add-power-search-permissions)
 
 ## Minimal permissions
 

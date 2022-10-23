@@ -94,7 +94,7 @@ If you want to remove one of the filters you've created, click on the **X** next
 ###### Add Power search
 
 
-Power search requires [additional permissions](/user-guide/archive-and-restore/set-s3-permissions.html#power-search) and an extra charge to operate. You'll be able to review and approve the additional costs before restoring your data.
+Power search requires [additional permissions](/user-guide/archive-and-restore/set-s3-permissions.html#add-power-search-permissions) and an extra charge to operate. You'll be able to review and approve the additional costs before restoring your data.
 {:.info-box.note}
 
 Power search lets you apply a text search directly on your archived data before restoring it, dramatically cutting down the time to restore. In addition, Power search allows you to focus on restoring only critical and insightful data.

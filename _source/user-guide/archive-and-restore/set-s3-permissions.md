@@ -111,3 +111,6 @@ If all the commands are successful,
 Logz.io can archive and restore your logs with these credentials.
 
 </div>
+
+
+## Power search

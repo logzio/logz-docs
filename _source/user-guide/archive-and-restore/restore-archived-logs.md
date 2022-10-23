@@ -94,10 +94,10 @@ If you want to remove one of the filters you've created, click on the **X** next
 ###### Add Power search
 
 
-Power search requires [additional permissions](/user-guide/archive-and-restore/set-s3-permissions.html#power-search), as well as an extra charge to operate . You'll be able to review and approve the additional costs before restoring your data.
+Power search requires [additional permissions](/user-guide/archive-and-restore/set-s3-permissions.html#power-search) and an extra charge to operate. You'll be able to review and approve the additional costs before restoring your data.
 {:.info-box.note}
 
-Power search lets you apply a text search directly on your arhived data, prior to restoring it, dramatically cutting down time-to-restore . Using Power search allows you to focus on restoring only critical and insightful data.
+Power search lets you apply a text search directly on your archived data before restoring it, dramatically cutting down the time to restore. In addition, Power search allows you to focus on restoring only critical and insightful data.
 
 Power search text search supports  `“`, `AND`, `OR`, and `()` operators, but you can’t use nested brackets `(())`. 
 
@@ -107,11 +107,11 @@ For example, you can run any of the following searches:
 * `"ATLAS" AND "Error"`
 * `"bucketName" AND ("Error" OR "Warning")`
 
-Once you enter your search query, click on the **Eastimate scan cost** to confirm the query and get an estimation of how much this search will cost. You cannot proceed without getting the estimate scan cost. The estimated price will appear at the top right corner of the section.
+Once you enter your search query, click on the **Estimate scan cost** to confirm the query and get an estimation of how much this search will cost. You cannot proceed without getting the estimated scan cost. The estimated price will appear at the top right corner of the section.
 
 ![Delete filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/restore-estimate.png)
 
-To continue, click on the **Proceed** button. You'll be once again asked to confirm the Power search search and its additional query.
+To continue, click on the **Proceed** button. You'll be once again asked to confirm the Power search text and its additional cost.
 
 If you do not wish to use the Power search query, delete your search query or toggle the activation button.
 

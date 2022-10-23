@@ -11,14 +11,15 @@ contributors:
   - imnotashrimp
   - schwin007
   - shalper
+  - hidan
 ---
 
 Your AWS S3 bucket must grant Logz.io the right permissions to support Logz.io archiving and data restore.
 
-* [Minimal permissions]()
-* [AWS S3 bucket storage classes]()
-* [test your IAM permissions]()
-* [Power search]()
+* [Minimal permissions](/user-guide/archive-and-restore/set-s3-permissions.html#minimal-permissions)
+* [AWS S3 bucket storage classes](/user-guide/archive-and-restore/set-s3-permissions.html#aws-s3-bucket-storage-classes)
+* [test your IAM permissions](/user-guide/archive-and-restore/set-s3-permissions.html#testing-your-configuration)
+* [Power search](/user-guide/archive-and-restore/set-s3-permissions.html#power-search)
 
 ## Minimal permissions
 
@@ -127,14 +128,14 @@ Setting up your Power search permissions:
 ![Select S3](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/select-s3.png)
 
 
-2. Choose on the relevant bucket on which you want to apply Power search. Once inside, click on Permissions, scroll down to **Bucket policy** and click on **Edit**.
+2. Choose the relevant bucket on which you want to apply Power search. Once inside, click on Permissions, scroll down to **Bucket policy** and click on **Edit**.
 
 ![Select S3](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/permission-policy.png)
 
 
 3. Paste the following code inside the policy. **Replace the `XXX` with your bucket's name.**
 
-*If you already have an exisiting policy in your bucket, add this code to the bottom of the page.*
+*If you already have an existing policy in your bucket, add this code to the bottom of the page.*
 
 ```yaml
 {
@@ -161,4 +162,4 @@ Setting up your Power search permissions:
 
 ![Edit bucket policy](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/edit-bucket-policy.png)
 
-5. Click on **Save changes** to apply the new policy. It might take a few minutes for Logz.io to identify the new policy, afterwhich you'll be able to [use Power search]() when restoring archived logs. 
+5. Click on **Save changes** to apply the new policy. It might take a few minutes for Logz.io to identify the new policy, after which you'll be able to [use Power search]() when restoring archived logs. 

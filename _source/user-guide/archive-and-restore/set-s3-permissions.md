@@ -119,7 +119,7 @@ Logz.io can archive and restore your logs with these credentials.
 </div>
 
 
-## Power search
+## Add Power search permissions
 
 Setting up your Power search permissions:
 

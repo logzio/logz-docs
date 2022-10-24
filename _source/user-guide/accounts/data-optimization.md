@@ -39,6 +39,12 @@ Shared volume can help cover your indexing needs across accounts instead of rese
 
 To manage access and permissions, define which data is accessible through the sub account, limiting or granting access to logs, dashboards, visualizations, and saved searches.
 
+In addition, if you have a flexible account, apply **[Utilization metrics](/user-guide/accounts/manage-account-usage.html#what-are-account-utilization-metrics)** to optimize it. You'll need to apply Utilization metrics per account, by clicking on **Settings > [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)** > choosing the relevant account and checking the **Save access utilization metrics** option.
+
+![Utilization metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/utilization--save-account-utilization-metrics.png)
+
+Enabling this option lets you save utilization metrics on a set schedule (every 10, 30, or 60 mins). These metrics include the used data volume for the account and the expected data volume for the current indexing rate.
+
 #### Optimize log data with Drop filters & Archive and restore
 
 **[Drop filters](https://docs.logz.io/user-guide/accounts/drop-filters/)** offer a great and easy way to filter out logs you don’t regularly need from your account, which can help reduce the account’s volume and costs.
@@ -57,12 +63,13 @@ Reasons to love Archive and restore:
 
 We know that sometimes you just need to have logs searchable for more extended periods of time, which is why we created **[Smart tiering](/user-guide/accounts/smart-tier/)**, which allows you to reduce storage costs as data ages. 
 
-[Learn how to set up your Drop filters](/user-guide/accounts/drop-filters/).
-[Learn how to set up your Archive and restore](/user-guide/archive-and-restore/).
+* [Learn how to set up your Drop filters](/user-guide/accounts/drop-filters/).
+* [Learn how to set up your Archive and restore](/user-guide/archive-and-restore/).
 
 #### Optimize metrics data 
 
-Your Infrastructure Monitoring (metrics) account can help you visualize the status of your services and operations.
+Your Infrastructure Monitoring (metrics) account can help you visualize the status of your services and operations. The account usage is [calculated based on Unique Time Series (UTS)](/user-guide/infrastructure-monitoring/metrics-explore-prometheus/#calculating-infrastructure-monitoring-usage), a collection of pairs, each including a timestamp and value. Time series is uniquely identified by its metric name and a set of labels.
+
 
 To gain quick insights into your metrics account, navigate to your **[Metrics](https://app.logz.io/#/dashboard/metrics)** account and run the following query to view the total unique metrics in the query’s timeframe:
 
@@ -72,15 +79,11 @@ Use the following query to view the top cardinality contributors:
 
 `topk(10, count by (__name__) ({__name__ != ""}))`
 
-If you have a flexible account, apply **[Utilization metrics](/user-guide/accounts/manage-account-usage.html#what-are-account-utilization-metrics)** to optimize it. You'll need to apply Utilization metrics per account, by clicking on **Settings > [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts)** > choosing the relevant account and checking the **Save access utilization metrics** option.
-
-![Utilization metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/utilization--save-account-utilization-metrics.png)
-
-Enabling this option lets you save utilization metrics on a set schedule (every 10, 30, or 60 mins). These metrics include the used data volume for the account and the expected data volume for the current indexing rate.
-
 ##### Import data volume dashboard
 
-Use these metrics to create an alert when a certain threshold is exceeded, create a dashboard monitoring your data volumes, and more. For example, import and use our [pre-built dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/data-volume-dashboard.ndjson) to monitor your metric data volume.
+Logz.io uses **ingestion** log measurements on your logs. The ingested data is measured as your logs are received after data parsing has been applied and before data indexing. This measurement does not change and provides a more accurate value for data usage. In addition, each Logz.io plan has the **On Demand** expansion, allowing you to ingest and analyze data past your daily volume limit. Using On Demand helps ensure you have access to your logs, metrics, and traces when you need them. [Learn more about On Demand](/user-guide/accounts/on-demand.html).
+
+You can use metrics to monitor and alert when a certain threshold is exceeded, create a dashboard monitoring your data volumes, and more. For example, import and use our [pre-built dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/data-volume-dashboard.ndjson) to monitor your metric data volume.
 
 To import the dashboard to your account, navigate to [Logs](https://app.logz.io/#/dashboard/kibana/discover/) > [Stack Management > Saved objects](https://app.logz.io/#/dashboard/kibana/visualize/) and click on the Import button. Next, import the [data-volume-dashboard.ndjson](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/data-volume-dashboard.ndjson) file you've downloaded.
 

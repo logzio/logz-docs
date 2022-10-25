@@ -25,7 +25,7 @@ To access these dashboards, login to your Logz.io account and navigate to [Setti
 The dashboards on this page represent the different Logz.io products you use: Log Management, Infrastructure Monitoring, and Distributed Tracing. 
 
 
-![Usage and info dashboards](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/usage-and-info.png)
+![Usage and info dashboards](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/usage-and-info-overview.png)
 
 The default view includes a 30 days overview of your Logs account, and you can change and adjust the filters according to your desired view. 
 

@@ -45,7 +45,12 @@ The chart displays the same information, divided into days and accounts. If you 
 
 ![Usage and info dashboards](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/usage-hover-multiple.png)
 
-To download your data, hover over the dashboard you're interested in, click on the top right menu and choose **Download data**. The .CSV file includes the date, account key number, account name, and the amount of GB used.
+To download your data, hover over the dashboard you're interested in, click on the top right menu and choose **Download data**. The .CSV file includes:
+
+* **Date**
+* **Account key number**
+* **Account name**
+* **Amount of GB used**
 
 ![Download your data](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/download-data.png)
 

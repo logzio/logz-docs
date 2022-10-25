@@ -66,22 +66,9 @@ We know that sometimes you just need to have logs searchable for more extended p
 * [Learn how to set up your Drop filters](/user-guide/accounts/drop-filters/).
 * [Learn how to set up your Archive and restore](/user-guide/archive-and-restore/).
 
-#### Optimize metrics data 
-
-Your Infrastructure Monitoring (metrics) account can help you visualize the status of your services and operations. The account usage is [calculated based on Unique Time Series (UTS)](/user-guide/infrastructure-monitoring/metrics-explore-prometheus/#calculating-infrastructure-monitoring-usage), a collection of pairs, each including a timestamp and value. Time series is uniquely identified by its metric name and a set of labels.
-
-
-To gain quick insights into your metrics account, navigate to your **[Metrics](https://app.logz.io/#/dashboard/metrics)** account and run the following query to view the total unique metrics in the query’s timeframe:
-
-`sum(count by (__name__) ({__name__ != ""}))`
-
-Use the following query to view the top cardinality contributors:
-
-`topk(10, count by (__name__) ({__name__ != ""}))`
-
 ##### Import data volume dashboard
 
-Logz.io uses **ingestion** log measurements on your logs. The ingested data is measured as your logs are received after data parsing has been applied and before data indexing. This measurement does not change and provides a more accurate value for data usage. In addition, each Logz.io plan has the **On Demand** expansion, allowing you to ingest and analyze data past your daily volume limit. Using On Demand helps ensure you have access to your logs, metrics, and traces when you need them. [Learn more about On Demand](/user-guide/accounts/on-demand.html).
+Logz.io uses [**ingestion** log measurements](/user-guide/log-usage-measurement/) on your logs. The ingested data is measured as your logs are received after data parsing has been applied and before data indexing. This measurement does not change and provides a more accurate value for data usage. In addition, each Logz.io plan has the **On Demand** expansion, allowing you to ingest and analyze data past your daily volume limit. Using On Demand helps ensure you have access to your logs, metrics, and traces when you need them. [Learn more about On Demand](/user-guide/accounts/on-demand.html).
 
 You can use metrics to monitor and alert when a certain threshold is exceeded, create a dashboard monitoring your data volumes, and more. For example, import and use our [pre-built dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/data-volume-dashboard.ndjson) to monitor your metric data volume.
 
@@ -96,6 +83,20 @@ After uploading the file, you might be asked to choose a new index pattern. Sele
 Once you import the file, navigate to [Visualize](https://app.logz.io/#/dashboard/kibana/visualize/) to view the newly added dashboard.
 
 ![View dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/data-optimization/dashboard-visualization.png)
+
+
+#### Optimize metrics data 
+
+Your Infrastructure Monitoring (metrics) account can help you visualize the status of your services and operations. The account usage is [calculated based on Unique Time Series (UTS)](/user-guide/infrastructure-monitoring/metrics-explore-prometheus/#calculating-infrastructure-monitoring-usage), a collection of pairs, each including a timestamp and value. Time series is uniquely identified by its metric name and a set of labels.
+
+
+To gain quick insights into your metrics account, navigate to your **[Metrics](https://app.logz.io/#/dashboard/metrics)** account and run the following query to view the total unique metrics in the query’s timeframe:
+
+`sum(count by (__name__) ({__name__ != ""}))`
+
+Use the following query to view the top cardinality contributors:
+
+`topk(10, count by (__name__) ({__name__ != ""}))`
 
 #### Data analytics - Find the needle in the haystack
 

@@ -123,6 +123,8 @@ Logz.io can archive and restore your logs with these credentials.
 
 Setting up your Power search permissions:
 
+<div class="tasklist">
+
 1. Navigate to your AWS account and search for S3
 
 ![Select S3](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/select-s3.png)
@@ -135,7 +137,7 @@ Setting up your Power search permissions:
 
 3. Paste the following code inside the policy. **Replace the `XXX` with your bucket's name.**
 
-*If you already have an existing policy in your bucket, add this code to the bottom of the page.*
+*If you don't have an existing policy, paste this code inside the editor. Otherwise, add this code to the bottom of the page.*
 
 ```yaml
 {
@@ -151,8 +153,8 @@ Setting up your Power search permissions:
                 "s3:ListBucket"
             ],
             "Resource": [
-                "arn:aws:s3:::XXX", #replace with your bucket's name
-                "arn:aws:s3:::XXX/*" #replace with your bucket's name
+                "arn:aws:s3:::XXX", #replace XXX with your bucket's name
+                "arn:aws:s3:::XXX/*" #replace XXX with your bucket's name
             ]
         }
     ]
@@ -162,4 +164,6 @@ Setting up your Power search permissions:
 
 ![Edit bucket policy](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/edit-bucket-policy.png)
 
-5. Click on **Save changes** to apply the new policy. It might take a few minutes for Logz.io to identify the new policy, after which you'll be able to [use Power search](/user-guide/archive-and-restore/restore-archived-logs.html#apply-power-search) when restoring archived logs. 
+4. Click on **Save changes** to apply the new policy. It might take a few minutes for Logz.io to identify the new policy, after which you'll be able to [use Power search](/user-guide/archive-and-restore/restore-archived-logs.html#apply-power-search) when restoring archived logs. 
+
+</div>

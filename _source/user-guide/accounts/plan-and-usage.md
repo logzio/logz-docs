@@ -13,6 +13,7 @@ tags:
   - main-account
   - timeless-accounts
 contributors:
+  - refaelmi
   - hidan
 ---
 
@@ -40,10 +41,14 @@ You can apply any of the following filters:
 
 The dashboard gives a quick overview of the current daily plan, the number of days you exceeded your plan, and the total GB consumed above the existing plan.
 
-The chart displays the same information, divided into days and accounts. If you choose to view multiple accounts, you'll be able to differentiate them according to their color. In addition, hovering over the chart provides a number representing how much GB was used daily.
+The chart displays the same information, divided into days and accounts. If you choose to view multiple accounts, you'll be able to differentiate them according to their color. You can hover over the different columns in each chart to get a detailed view of daily GB consumption.
 
 ![Usage and info dashboards](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/usage-hover-multiple.png)
 
-Periscope powers these dashboards, and you can view them separately from the Logz.io app by clicking on the **Open in a new tab** option located at the top right corner of the screen.
+To download your data, hover over the dashboard you're interested in, click on the top right menu and choose **Download data**. The .CSV file includes the date, account key number, and the amount of GB used.
+
+![Download your data](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/download-data.png)
+
+Periscope powers these dashboards, and you can view them separately from the Logz.io app by clicking on the **Open in a new tab** option at the screen's top right corner.
 
 ![New tab](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/new-tab.png)

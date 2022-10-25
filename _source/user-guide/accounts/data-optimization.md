@@ -132,9 +132,9 @@ Patterns can help you isolate unusual events from a mass of repetitive events, i
 
 Navigate to your Logz.io [account > Settings > Plan and Usage](https://app.logz.io/#/dashboard/settings/plan-and-billing/usage) and click on the **Usage & Info** tab. 
 
-![Plan and usage](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/data-optimization/planandusage.png)
+![Usage and info dashboards](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/usage-hover-multiple.png)
 
-The dashboard is a visual representation of your account, divided into the different products you use. These dashboards include your account’s daily data plan, how much you’ve used, and your overall usage pattern.
+The dashboard is a visual representation of your account, divided into the different products you use. These dashboards include your account’s daily data plan, how much you’ve used, and your overall usage pattern. [Read more on how to optimize your Usage & Info overview](/user-guide/accounts/plan-and-usage.html). 
 
 ###### If you have additional questions about optimizing your Logz.io data, [contact the Support team](mailto:help@logz.io).
 

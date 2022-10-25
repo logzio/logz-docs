@@ -125,17 +125,17 @@ Setting up your Power search permissions:
 
 <div class="tasklist">
 
-1. Navigate to your AWS account and search for S3
+  1. Navigate to your AWS account and search for S3
 
 ![Select S3](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/select-s3.png)
 
 
-2. Choose the relevant bucket on which you want to apply Power search. Once inside, click on Permissions, scroll down to **Bucket policy** and click on **Edit**.
+  2. Choose the relevant bucket on which you want to apply Power search. Once inside, click on Permissions, scroll down to **Bucket policy** and click on **Edit**.
 
 ![Select S3](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/permission-policy.png)
 
 
-3. Paste the following code inside the policy. **Replace the `XXX` with your bucket's name.**
+  3. Paste the following code inside the policy. **Replace the `XXX` with your bucket's name.**
 
 *If you don't have an existing policy, paste this code inside the editor. Otherwise, add this code to the bottom of the page.*
 
@@ -164,6 +164,6 @@ Setting up your Power search permissions:
 
 ![Edit bucket policy](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/edit-bucket-policy.png)
 
-4. Click on **Save changes** to apply the new policy. It might take a few minutes for Logz.io to identify the new policy, after which you'll be able to [use Power search](/user-guide/archive-and-restore/restore-archived-logs.html#apply-power-search) when restoring archived logs. 
+  4. Click on **Save changes** to apply the new policy. It might take a few minutes for Logz.io to identify the new policy, after which you'll be able to [use Power search](/user-guide/archive-and-restore/restore-archived-logs.html#apply-power-search) when restoring archived logs. 
 
 </div>

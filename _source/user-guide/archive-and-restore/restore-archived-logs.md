@@ -31,6 +31,10 @@ so you can investigate events in OpenSearch Dashboards that are older than your 
 * If the restore process exceeds the max, the process will fail.
 * Data can be restored from the **root of an S3 bucket**, but not a sub-bucket path.
 
+Starting December 1st, 2022, restored logs will become a part of your daily plan. You can use Filters and Power search only to restore critical and needed logs and minimize the impact on your daily plan. Exceeding your daily plan **will not** stop the ingestion of your data, and the additional GB will be added to your On Demand consumption.
+{:.info-box.note}
+
+
 #### To restore and view archived logs
 
 **Before you begin, you'll need**:
@@ -70,6 +74,10 @@ There are a few things you need to check before you begin the process.
 
 You can control and limit which data you'd like to restore by applying **filters**, or by using **Power search**. Your restored logs will only include data that matches all of your filters or your exact search term.
 
+Power search speeds the restore process dramatically by uploading only relevant data to the ingestion pipeline using general search strings.
+The filters allow more granular filtering on structured data per field and can further reduce the amount of restored data (that counts against the daily quota). Filters are applied after the Power search results are uploaded to the ingestion pipeline, and you can use both to optimize your restored data.
+
+
 ###### Add a filter
 
 To add a filter, click on **Add a filter** and choose the relevant field, operator, and value.
@@ -94,12 +102,18 @@ If you want to remove one of the filters you've created, click on the **X** next
 ###### Add Power search
 
 
-Power search requires [additional permissions](/user-guide/archive-and-restore/set-s3-permissions.html#add-power-search-permissions) and an extra charge to operate. You'll be able to review and approve the additional costs before restoring your data.
-{:.info-box.note}
+Power search lets you apply a text search directly on your archived data before restoring it, dramatically cutting down the time to restore. In addition, Power search allows you to focus on restoring only critical and insightful data. It uses scanned data and searches the string inside of that data.
 
-Power search lets you apply a text search directly on your archived data before restoring it, dramatically cutting down the time to restore. In addition, Power search allows you to focus on restoring only critical and insightful data.
+### Before using Power search:
 
-Power search text search supports  `“`, `AND`, `OR`, and `()` operators, but you can’t use nested brackets `(())`. 
+
+* Power search requires [additional permissions](/user-guide/archive-and-restore/set-s3-permissions.html#add-power-search-permissions) to run.
+* Make sure your restore time range is **at least 24 hours**. Otherwise, you won't be able to run the Power search.
+* Your archived data time zone is UTC, which might be different than your browser's time zone. Take that into consideration when choosing your restore duration.
+* Power search has an [additional charge](https://logz.io/pricing/) based on your current plan. You'll be able to review the charge before restoring your account.
+
+
+To use Power search, enter a text string you'd like to find in your archived logs. Power search supports  `“`, `AND`, `OR`, and `()` operators, but you can’t use nested brackets `(())`. 
 
 For example, you can run any of the following searches:
 
@@ -111,7 +125,7 @@ Next, click on the **Estimate scan cost**. This button also gives an estimation 
 
 ![Delete filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/restore-estimate.png)
 
-To continue, click on the **Proceed** button. You'll see a summary of your restore settings and be asked to approve them in order to continue with the process.
+To continue, click on the **Proceed** button. You'll see a summary of your restore settings and be asked to approve them to continue the process.
 
 If you do not wish to use the Power search query, toggle the activation button off.
 

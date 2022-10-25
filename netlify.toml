@@ -427,3 +427,9 @@
   to = "/user-guide/infrastructure-monitoring/"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/user-guide/distributed-tracing/trace-json"
+  to = "/user-guide/distributed-tracing/tracing-tour/"
+  status = 301
+  force = true

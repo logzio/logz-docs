@@ -108,8 +108,6 @@ By default, the trace opens in the timeline view. Select an option for different
 
 **[What can I do in the Trace Flamegraph?](/user-guide/distributed-tracing/trace-flamegraph)**
 
-**[What can I do in the Trace JSON?](/user-guide/distributed-tracing/trace-json)**
-
 
 ##### Find a specific trace. 
 After you log in to your Distributed Tracing account, if you need to view a specific trace, you can use trace ID lookup or upload a JSON file. 

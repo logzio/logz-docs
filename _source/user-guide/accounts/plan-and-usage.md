@@ -44,6 +44,6 @@ The chart displays the same information, divided into days and accounts. If you 
 
 ![Usage and info dashboards](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/usage-hover-multiple.png)
 
-Periscope powers these dashboards, and you can view them outside of the Logz.io app by clicking on the **Open in a new tab** option, located at the top right corner of the screen.
+Periscope powers these dashboards, and you can view them separately from the Logz.io app by clicking on the **Open in a new tab** option located at the top right corner of the screen.
 
 ![New tab](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/new-tab.png)

@@ -17,7 +17,7 @@ contributors:
   - hidan
 ---
 
-![Restore a new account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/restored-accounts-overview.png)
+![Restore a new account](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/restore-new-screen.png)
 
 When you restore archived logs,
 those logs are re-ingested into a temporary account. You can search restored accounts directly from your main Logs account.
@@ -107,13 +107,13 @@ For example, you can run any of the following searches:
 * `"ATLAS" AND "Error"`
 * `"bucketName" AND ("Error" OR "Warning")`
 
-Once you enter your search query, click on the **Estimate scan cost** to confirm the query and get an estimation of how much this search will cost. You cannot proceed without getting the estimated scan cost. The estimated price will appear at the top right corner of the section.
+Next, click on the **Estimate scan cost**. This button also gives an estimation of how much this search will cost. **You cannot proceed without getting the estimated scan cost**. The estimated price will appear at the top right corner of the section.
 
 ![Delete filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/restore-estimate.png)
 
-To continue, click on the **Proceed** button. You'll be once again asked to confirm the Power search text and its additional cost.
+To continue, click on the **Proceed** button. You'll see a summary of your restore settings and be asked to approve them in order to continue with the process.
 
-If you do not wish to use the Power search query, delete your search query or toggle the activation button.
+If you do not wish to use the Power search query, toggle the activation button off.
 
 ![Delete filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/toggle-on-off.gif)
 
@@ -124,14 +124,18 @@ If you do not wish to use the Power search query, delete your search query or to
 
 Click on **Restore** to begin the restoring process. It might take a while to restore your archived data, according to the number of logs and size. For example, an hour's worth of data might take a few minutes, while a day's worth of data could take up to a few hours.
 
-Once the restored account is ready, you'll receive a notification via email. 
+Once the restored account is ready, you'll receive a notification via email.
 
 Your restored account will remain available for 5 days. If you want to explore the data after the restore has expired, you'll have to restore it again.
 
 ##### Explore the restored account in OpenSearch Dashboards
 
-Open the email that says your restored account is ready for you and click **View in OpenSearch Dashboards**.
-This link takes you to OpenSearch Dashboards in your main account, but a view showing only the restored account's data.
+You can view your restored account directly from the Restored accounts page by clicking on the **View logs** option next to the relevant account.
+
+![View logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/restore-new-screen.png)
+
+In addition, you'll receive an email with a link to **View in OpenSearch Dashboards**.
+This link takes you to OpenSearch Dashboards in your main account, with a view showing only the restored account's data.
 
 
 If you need to filter OpenSearch Dashboards manually, choose the newly restored account in the **Selected Accounts** box,

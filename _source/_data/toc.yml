@@ -398,6 +398,8 @@ firstLevel:
       url: /user-guide/accounts/manage-the-main-account-and-sub-accounts.html
     - title: Optimizing your data and usage
       url: /user-guide/accounts/data-optimization.html
+    - title: Monitor account usage
+      url: /user-guide/accounts/plan-and-usage.html
     - title: Flexible volume log accounts
       url: /user-guide/accounts/flexible-volume.html
     #- title: Timeless log accounts

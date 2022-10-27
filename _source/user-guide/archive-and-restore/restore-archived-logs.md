@@ -30,15 +30,15 @@ so you can investigate events in OpenSearch Dashboards that are older than your 
 * If the restore process exceeds the max, the process will fail.
 * Data can be restored from the **root of an S3 bucket**, but not a sub-bucket path.
 
-Starting December 1st, 2022, restored logs will become a part of your daily plan. Use Power search and Filters to restore critical and needed logs and minimize the impact on your daily plan. Restoring more than your daily plan **will not** stop the ingestion of your data, and the additional GB will be added to your On Demand consumption.
-{:.info-box.note}
+Starting December 1st, 2022, restored logs will become a part of your daily plan. **Use Power search and Filters to restore critical and needed logs** and minimize the impact on your daily plan. Restoring more than your daily plan **will not** stop your data ingestion, and the additional GB will be added to your On Demand consumption.
+{:.info-box.tip}
 
 
 #### To restore and view archived logs
 
 **Before you begin, you'll need**:
 [Archiving enabled](https://app.logz.io/#/dashboard/tools/archive-and-restore),
-archived logs in your S3 bucket
+archived logs in your S3 bucket.
 
 Your existing drop filters **will not apply** when restoring data. Instead, use the optional filters to control which data to restore.
 {:.info-box.note}
@@ -71,10 +71,10 @@ There are a few things you need to check before you begin the process.
 
 ##### Filters and Power search (optional)
 
-You can control and limit which data you'd like to restore by applying **filters**, or by using **Power search**, or both. Your restored logs will only include data that matches all of your filters and your exact search term.
+You can control and limit which data you'd like to restore by applying **filters**, using **Power search**, or both. Your restored logs will only include data that matches all of your filters and your exact search term.
 
 Power search speeds the restore process dramatically by uploading and re-indexing only relevant data from your S3 archive, using general search strings.
-The filters allow more granular filtering on structured data per field and can further reduce the amount of restored data (that counts against the daily quota). Filters are applied after the Power search results are uploaded to the ingestion pipeline, and you can use both to optimize your restored data.
+In addition, the filters allow more granular filtering on structured data per field and can further reduce the amount of restored data (that counts against the daily quota). Filters are applied after the Power search results are uploaded to the ingestion pipeline, and you can use both to optimize your restored data.
 
 ###### Add a filter
 
@@ -89,7 +89,7 @@ You can choose between the following operators:
 * **exists** - Pull all logs that contain the selected field
 * **does not exist** - Pull all logs that don't contain the selected field
 
-Note that you can add **up to 7 filters** per restore process, and that they are not contradictory of each other. 
+Note that you can add **up to 7 filters** per restore process and that they are not contradictory to each other.
 
 ![Add filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/add-a-filter.png)
 
@@ -111,7 +111,7 @@ Power search lets you apply a text search directly on your archived data before 
 * Power search has an [additional charge](https://logz.io/pricing/) based on your current plan. You'll be able to review the charge before restoring your account.
 
 
-To use Power search, enter a text string you'd like to find in your archived logs. The search is **case sensitive**, and supports  `“`, `AND`, `OR`, and `()` operators, but you can’t use nested brackets `(())`. 
+To use Power search, enter a text string you'd like to find in your archived logs. The search is **case sensitive** and supports  `“`, `AND`, `OR`, and `()` operators, but you can’t use nested brackets `(())`. 
 
 
 For example, you can run any of the following searches:
@@ -120,7 +120,7 @@ For example, you can run any of the following searches:
 * `"ATLAS" AND "Error"`
 * `"bucketName" AND ("Error" OR "Warning")`
 
-Next, click on the **Estimate scan cost**. This button also gives an estimation of how much this search will cost. **You cannot proceed without getting the estimated scan cost**. The estimated price will appear at the top right corner of the section.
+Next, click on the **Estimate scan cost**. This button also gives an estimation of how much this search will cost. **You can only proceed by getting the estimated scan cost**. The estimated price will appear at the top right corner of the section.
 
 ![Delete filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/restore-estimate.png)
 
@@ -141,7 +141,7 @@ You can view your logs before the restore process is complete, by clicking on th
 
 ![View logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/restore-new-screen.png)
 
-You'll gain access to the data as it is reindexed and you'll be able to ensure that the search/filters were set correctly.
+You'll gain access to the data as it is re-indexed, and you'll be able to ensure that the search/filters were set correctly.
 
 Once the restored account is ready, you'll receive a notification via email.
 

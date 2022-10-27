@@ -60,7 +60,7 @@ This code block shows a policy with all three permissions enabled:
       ],
       "Resource": [
         "arn:aws:s3:::XXX", #replace XXX with your bucket's name
-        "arn:aws:s3:::xxx/*" #replace XXX with your bucket's name
+        "arn:aws:s3:::XXX/*" #replace XXX with your bucket's name
       ]
     }
   ]

@@ -45,7 +45,7 @@ and [Amazon S3 Storage Classes](https://aws.amazon.com/s3/storage-classes/).
 
 This code block shows a policy with all three permissions enabled:
 
-```json
+```yaml
 {
   "Version": "2012-10-17",
   "Statement": [
@@ -59,8 +59,8 @@ This code block shows a policy with all three permissions enabled:
         "s3:PutObject"
       ],
       "Resource": [
-        "arn:aws:s3:::<BUCKET-NAME>",
-        "arn:aws:s3:::<BUCKET-NAME>/*"
+        "arn:aws:s3:::XXX", #replace XXX with your bucket's name
+        "arn:aws:s3:::xxx/*" #replace XXX with your bucket's name
       ]
     }
   ]
@@ -127,8 +127,7 @@ Setting up your Power search permissions:
 1. Navigate to your AWS account and search for S3
 
   ![Select S3](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/select-s3.png)
-2. Choose the relevant bucket on which you want to apply Power search. Once inside, click on Permissions, scroll down to **Bucket policy** and click on **Edit**.
-
+2. Choose the relevant bucket on which you want to apply Power search. **It should be the same bucket you've used when setting up your S3 permissions.** Once inside, click on Permissions, scroll down to **Bucket policy** and click on **Edit**.
   ![Select S3](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/permission-policy.png)
 3. Paste the following code inside the policy. **Replace the `XXX` with your bucket's name.**
 

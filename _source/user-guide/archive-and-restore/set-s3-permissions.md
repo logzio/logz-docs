@@ -13,7 +13,7 @@ contributors:
   - shalper
 ---
 
-Your AWS S3 bucket must grant Logz.io the right permissions to support Logz.io archiving and data restore.
+Your AWS S3 bucket must grant Logz.io the right permissions to support Logz.io archiving and data restore. 
 
 ## Minimal permissions
 

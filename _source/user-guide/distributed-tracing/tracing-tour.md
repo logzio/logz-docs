@@ -111,14 +111,14 @@ By default, the trace opens in the timeline view. Select an option for different
 <!-- **[What can I do in the Trace JSON?](/user-guide/distributed-tracing/trace-json)** -->
 
 ##### Find a specific trace. 
-After you log in to your Distributed Tracing account, if you need to view a specific trace, you can use trace ID lookup or upload a JSON file. 
-  ![Look up a trace or load a JSON](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dist_trace-panel.png)
+After you log in to your Distributed Tracing account, if you need to view a specific trace, you can use trace ID lookup. <!-- or upload a JSON file. -->
+  <!-- ![Look up a trace or load a JSON](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/dist_trace-panel.png) -->
 
 * To investigate specific incidents identified by a unique trace ID, use the search box to retrieve the trace data.  Make sure to tag your logs with the proper context to be able to locate the trace ID.
   <br>If data sampling is configured to occur on the collector side, some traces may not be available in the Jaeger UI.  
   ![traceID lookup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/traceid.png)
 
-* To upload a JSON file, click or drag a JSON file that contains at least one trace to this area.  _Coming soon!_
+<!-- * To upload a JSON file, click or drag a JSON file that contains at least one trace to this area.  _Coming soon!_ -->
 
 ##### Compare traces
 [Select traces for comparison](/user-guide/distributed-tracing/compare-traces) and find out how they differ.

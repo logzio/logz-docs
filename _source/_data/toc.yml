@@ -118,7 +118,7 @@ firstLevel:
 
 
 
-    # ===== METRICS INFRASTRUCTURE MONITORING =====
+# ===== METRICS INFRASTRUCTURE MONITORING =====
     # the Prometheus remote write topic & dashboard import topic ==> permalink: /user-guide/metrics/p8s-remote-write.html, currently in no-search directory
 - title: Infrastructure Monitoring
   icon: fas fa-chart-pie

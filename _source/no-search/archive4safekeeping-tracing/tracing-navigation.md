@@ -11,7 +11,9 @@ tags:
 contributors:
   - yberlinger   
 ---
+
 This section includes the following topics: 
+
 * [Why Distributed Tracing?](/user-guide/distributed-tracing/tracing-overview): An overview of Logz.io's Jaeger-powered tracing solution
 * [Getting started](/user-guide/distributed-tracing/getting-started-tracing): What you need to decide and set up to use Logz.io Distributed Tracing
     * [Deploying components in your system](/user-guide/distributed-tracing/deploying-components): What you need to install on your end

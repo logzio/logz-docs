@@ -433,3 +433,9 @@
   to = "/user-guide/users/"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/user-guide/distributed-tracing/trace-json"
+  to = "/user-guide/distributed-tracing/tracing-tour/"
+  status = 301
+  force = true

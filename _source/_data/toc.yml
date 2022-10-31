@@ -101,6 +101,8 @@ firstLevel:
     url: /user-guide/live-tail/
   - title: Log usage measurement
     url: /user-guide/log-usage-measurement/
+  - title: Logs to metrics
+    url: /user-guide/infrastructure-monitoring/logstometrics.html
 
 
     # ===== METRICS INFRASTRUCTURE MONITORING =====

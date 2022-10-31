@@ -1,7 +1,7 @@
 ##### Pull the Docker image for the OpenTelemetry collector
 
 ```shell
-ddocker pull otel/opentelemetry-collector:0.60.0
+docker pull otel/opentelemetry-collector:0.60.0
 ```
 
 ##### Create a configuration file
@@ -62,7 +62,7 @@ service:
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [jaeger]
+      receivers: [otlp]
       processors: [tail_sampling, batch]
       exporters: [logzio/traces]
 
@@ -111,6 +111,25 @@ exporters:
 
 processors:
   batch:
+  tail_sampling:
+    policies:
+      [
+        {
+          name: policy-errors,
+          type: status_code,
+          status_code: {status_codes: [ERROR]}
+        },
+        {
+          name: policy-slow,
+          type: latency,
+          latency: {threshold_ms: 1000}
+        }, 
+        {
+          name: policy-random-ok,
+          type: probabilistic,
+          probabilistic: {sampling_percentage: 10}
+        }        
+      ]
 
 extensions:
   pprof:
@@ -137,6 +156,6 @@ service:
 Mount the `config.yaml` as volume to the `docker run` command and run it as follows:
 
 ```
-$ docker run -v $(pwd)/config.yaml:/etc/otelcol/config.yaml otel/opentelemetry-collector:0.63.0
+$ docker run -v $(pwd)/config.yaml:/etc/otelcol/config.yaml otel/opentelemetry-collector:0.60.0
 
 ```

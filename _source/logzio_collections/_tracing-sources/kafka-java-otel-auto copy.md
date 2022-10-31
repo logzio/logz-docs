@@ -136,7 +136,7 @@ Supported values for `otel.traces.sampler` are
 
 You can use a Helm chart to ship Traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of pre-configured Kubernetes resources that use charts.
 
-**logzio-otel-traces** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
+**logzio-k8s-telemetry** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 
 <!-- info-box-start:info -->
 This chart is a fork of the [opentelemtry-collector](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector) Helm chart. The main repository for Logz.io helm charts are [logzio-helm](https://github.com/logzio/logzio-helm).
@@ -167,16 +167,16 @@ helm repo update
 helm install  \
 --set config.exporters.logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
 --set config.exporters.logzio.account_token=<<TRACING-SHIPPING-TOKEN>> \
-logzio-otel-traces logzio-helm/logzio-otel-traces
+logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
 
 {% include /tracing-shipping/replace-tracing-token.html %}
 `<<LOGZIO_ACCOUNT_REGION_CODE>>` - (Optional): Your logz.io account region code. Defaults to "us". Required only if your logz.io region is [different than US East](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
 
 
-##### Define the logzio-otel-traces dns name
+##### Define the logzio-k8s-telemetry dns name
 
-In most cases, the dns name will be `logzio-otel-traces.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
+In most cases, the dns name will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
   
 If you are not sure what your cluster domain name is, you can run the following command to look it up: 
   
@@ -205,14 +205,14 @@ java -javaagent:<path/to>/opentelemetry-javaagent-all.jar \
      -Dotel.traces.exporter=otlp \
      -Dotel.metrics.exporter=none \
      -Dotel.resource.attributes=service.name=<<YOUR-SERVICE-NAME>> \
-     -Dotel.exporter.otlp.endpoint=http://<<logzio-otel-traces-service-dns>>:4317 \
+     -Dotel.exporter.otlp.endpoint=http://<<logzio-k8s-telemetry-service-dns>>:4317 \
      -Dotel.instrumentation.messaging.experimental.receive-telemetry.enabled=true
      -jar target/*.jar
 ```
 
 * Replace `<<path/to>>` with the path to the directory where you downloaded the agent.
 * Replace `<<YOUR-SERVICE-NAME>>` with a name for your service under which it will appear in Logz.io Jaeger UI.
-* Replace `<<logzio-otel-traces-service-dns>>` with the OpenTelemetry collector service dns obtained previously (service IP is also allowed here).
+* Replace `<<logzio-k8s-telemetry-service-dns>>` with the OpenTelemetry collector service dns obtained previously (service IP is also allowed here).
 
 ##### Check Logz.io for your traces
 
@@ -235,17 +235,17 @@ You can use the following options to update the Helm chart parameters:
 ###### Example
 
 ```
-helm install logzio-otel-traces logzio-helm/logzio-otel-traces -f my_values.yaml 
+helm install logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry -f my_values.yaml 
 ```
 
 #### Uninstalling the Chart
 
 The uninstall command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
 
-To uninstall the `logzio-otel-traces` deployment, use the following command:
+To uninstall the `logzio-k8s-telemetry` deployment, use the following command:
 
 ```shell
-helm uninstall logzio-otel-traces
+helm uninstall logzio-k8s-telemetry
 ```
 
 </div>

@@ -10,27 +10,36 @@ receivers:
         endpoint: "0.0.0.0:14250"
       thrift_http:
         endpoint: "0.0.0.0:14268"
-  opencensus:
-    endpoint: "0.0.0.0:55678"
-  otlp:
-    protocols:
-      grpc:
-        endpoint: "0.0.0.0:4317"
-      http:
-        endpoint: "0.0.0.0:4318"
-  zipkin:
-    endpoint: "0.0.0.0:9411"
+
 
 
 exporters:
   logzio/traces:
-    account_token: "<<TRACING-SHIPPING-TOKEN>>"
-    region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
-
-  logging:
-
+    account_token: <<TRACING-SHIPPING-TOKEN>>
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>>
+    
 processors:
   batch:
+  tail_sampling:
+    policies:
+      [
+        {
+          name: policy-errors,
+          type: status_code,
+          status_code: {status_codes: [ERROR]}
+        },
+        {
+          name: policy-slow,
+          type: latency,
+          latency: {threshold_ms: 1000}
+        }, 
+        {
+          name: policy-random-ok,
+          type: probabilistic,
+          probabilistic: {sampling_percentage: 10}
+        }        
+      ]
+
 
 extensions:
   pprof:
@@ -43,7 +52,7 @@ service:
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [opencensus, jaeger, zipkin, otlp]
-      processors: [batch]
-      exporters: [logging, logzio/traces]
+      receivers: [jaeger]
+      processors: [tail_sampling, batch]
+      exporters: [logzio/traces]
 ```

@@ -63,24 +63,53 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 
 ##### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.59.0) that is relevant to the operating system of your host.
+Create a dedicated directory on the host of your application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.60.0) that is relevant to the operating system of your host.
 
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
 
 ```yaml
 receivers:
-  zipkin:
-    endpoint: "0.0.0.0:9411"
+  jaeger:
+    protocols:
+      thrift_compact:
+        endpoint: "0.0.0.0:6831"
+      thrift_binary:
+        endpoint: "0.0.0.0:6832"
+      grpc:
+        endpoint: "0.0.0.0:14250"
+      thrift_http:
+        endpoint: "0.0.0.0:14268"
+
 
 
 exporters:
   logzio/traces:
-    account_token: "<<TRACING-SHIPPING-TOKEN>>"
-    region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
-
+    account_token: <<TRACING-SHIPPING-TOKEN>>
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>>
+    
 processors:
   batch:
+  tail_sampling:
+    policies:
+      [
+        {
+          name: policy-errors,
+          type: status_code,
+          status_code: {status_codes: [ERROR]}
+        },
+        {
+          name: policy-slow,
+          type: latency,
+          latency: {threshold_ms: 1000}
+        }, 
+        {
+          name: policy-random-ok,
+          type: probabilistic,
+          probabilistic: {sampling_percentage: 10}
+        }        
+      ]
+
 
 extensions:
   pprof:
@@ -93,12 +122,13 @@ service:
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [zipkin]
-      processors: [batch]
+      receivers: [jaeger]
+      processors: [tail_sampling, batch]
       exporters: [logzio/traces]
 ```
 
 {% include /tracing-shipping/replace-tracing-token.html %}
+{% include /tracing-shipping/tail-sampling.md %}
 
 
 ##### Start the collector

@@ -17,7 +17,7 @@ order: 1380
 
 You can use a Helm chart to ship Traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of pre-configured Kubernetes resources that use charts.
 
-**logzio-otel-traces** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
+**logzio-k8s-telemetry** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 
 <!-- info-box-start:info -->
 This chart is a fork of the [opentelemtry-collector](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector) Helm chart. The main repository for Logz.io helm charts are [logzio-helm](https://github.com/logzio/logzio-helm).
@@ -67,7 +67,7 @@ helm repo update
 helm install  \
 --set config.exporters.logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
 --set config.exporters.logzio.account_token=<<TRACING-SHIPPING-TOKEN>> \
-logzio-otel-traces logzio-helm/logzio-otel-traces
+logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
 
 {% include /tracing-shipping/replace-tracing-token.html %}
@@ -93,15 +93,15 @@ You can use the following options to update the Helm chart parameters:
 ###### Example
 
 ```
-helm install logzio-otel-traces logzio-helm/logzio-otel-traces -f my_values.yaml 
+helm install logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry -f my_values.yaml 
 ```
 
 #### Uninstalling the Chart
 
 The uninstall command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
 
-To uninstall the `logzio-otel-traces` deployment, use the following command:
+To uninstall the `logzio-k8s-telemetry` deployment, use the following command:
 
 ```shell
-helm uninstall logzio-otel-traces
+helm uninstall logzio-k8s-telemetry
 ```

@@ -73,7 +73,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 
 ##### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.59.0) that is relevant to the operating system of your host.
+Create a dedicated directory on the host of your application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.60.0) that is relevant to the operating system of your host.
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
 
@@ -119,6 +119,25 @@ exporters:
 
 processors:
   batch:
+  tail_sampling:
+    policies:
+      [
+        {
+          name: policy-errors,
+          type: status_code,
+          status_code: {status_codes: [ERROR]}
+        },
+        {
+          name: policy-slow,
+          type: latency,
+          latency: {threshold_ms: 1000}
+        }, 
+        {
+          name: policy-random-ok,
+          type: probabilistic,
+          probabilistic: {sampling_percentage: 10}
+        }        
+      ]
   spanmetrics:
     metrics_exporter: prometheus
     latency_histogram_buckets: [2ms, 6ms, 10ms, 100ms, 250ms, 500ms, 1000ms, 10000ms, 100000ms, 1000000ms]
@@ -174,6 +193,8 @@ service:
 {% include /tracing-shipping/replace-spm-token.html %}
   
 {% include /log-shipping/listener-var.html %}
+
+{% include /tracing-shipping/tail-sampling.md %}
 
 If you already have an OpenTelemetry installation, add to the configuration file of your existing OpenTelemetry collector the parameters described in the next steps.
 
@@ -535,10 +556,10 @@ helm repo add logzio-helm https://logzio.github.io/logzio-helm/logzio-otel-spm
 helm repo update
 ```
 
-##### Define the logzio-otel-traces service dns
+##### Define the logzio-k8s-telemetry service dns
 
 
-In most cases, the service name will be `logzio-otel-traces.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
+In most cases, the service name will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
   
 If you are not sure what your cluster domain name is, you can run the following command to look it up: 
   
@@ -549,9 +570,9 @@ sh -c 'nslookup kubernetes.default | grep Name | sed "s/Name:\skubernetes.defaul
   
 It will deploy a small pod that extracts your cluster domain name from your Kubernetes environment. You can remove this pod after it has returned the cluster domain name.
   
-##### Point your traces exporter to logzio-otel-traces
+##### Point your traces exporter to logzio-k8s-telemetry
 
-In the instrumentation code of your application, point the exporter to the service name defined in the previous step, for example `http://logzio-otel-traces.default.svc.cluster.local:4317`.
+In the instrumentation code of your application, point the exporter to the service name defined in the previous step, for example `http://logzio-k8s-telemetry.default.svc.cluster.local:4317`.
 
 ##### Run the Helm deployment code
 
@@ -593,7 +614,7 @@ You can use the following options to update the Helm chart parameters:
 ###### Example
 
 ```
-helm install logzio-otel-traces logzio-helm/logzio-otel-traces -f my_values.yaml 
+helm install logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry -f my_values.yaml 
 ```
   
 ###### Optional parameters
@@ -611,10 +632,10 @@ If required, you can add the following optional parameters as environment variab
 
 The uninstall command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
 
-To uninstall the `logzio-otel-traces` deployment, use the following command:
+To uninstall the `logzio-k8s-telemetry` deployment, use the following command:
 
 ```shell
-helm uninstall logzio-otel-traces
+helm uninstall logzio-k8s-telemetry
 ```
 
 </div>

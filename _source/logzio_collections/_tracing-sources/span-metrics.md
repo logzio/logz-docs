@@ -172,7 +172,7 @@ service:
   pipelines:
     traces:
       receivers: [jaeger]
-      processors: [spanmetrics,batch]
+      processors: [spanmetrics,tail_sampling,batch]
       exporters: [logzio/traces]
     metrics/spanmetrics:
       # This receiver is just a dummy and never used.
@@ -238,6 +238,25 @@ Add the following parameters to the configuration file of your OpenTelemetry col
 * Under the `processors` list:
 
 ```yaml
+  tail_sampling:
+    policies:
+      [
+        {
+          name: policy-errors,
+          type: status_code,
+          status_code: {status_codes: [ERROR]}
+        },
+        {
+          name: policy-slow,
+          type: latency,
+          latency: {threshold_ms: 1000}
+        }, 
+        {
+          name: policy-random-ok,
+          type: probabilistic,
+          probabilistic: {sampling_percentage: 10}
+        }        
+      ]
   spanmetrics:
     metrics_exporter: prometheus
     latency_histogram_buckets: [2ms, 6ms, 10ms, 100ms, 250ms, 500ms, 1000ms, 10000ms, 100000ms, 1000000ms]
@@ -267,7 +286,7 @@ Add the following parameters to the configuration file of your OpenTelemetry col
 pipelines:
     traces:
       receivers: [jaeger]
-      processors: [spanmetrics,batch]
+      processors: [spanmetrics,tail_sampling,batch]
       exporters: [logzio/traces]
     metrics/spanmetrics:
       # This receiver is just a dummy and never used.
@@ -332,6 +351,25 @@ exporters:
 
 processors:
   batch:
+  tail_sampling:
+    policies:
+      [
+        {
+          name: policy-errors,
+          type: status_code,
+          status_code: {status_codes: [ERROR]}
+        },
+        {
+          name: policy-slow,
+          type: latency,
+          latency: {threshold_ms: 1000}
+        }, 
+        {
+          name: policy-random-ok,
+          type: probabilistic,
+          probabilistic: {sampling_percentage: 10}
+        }        
+      ]
   spanmetrics:
     metrics_exporter: prometheus
     latency_histogram_buckets: [2ms, 6ms, 10ms, 100ms, 250ms, 500ms, 1000ms, 10000ms, 100000ms, 1000000ms]
@@ -366,7 +404,7 @@ service:
   pipelines:
     traces:
       receivers: [jaeger]
-      processors: [spanmetrics,batch]
+      processors: [spanmetrics,tail_sampling,batch]
       exporters: [logzio/traces]
     metrics/spanmetrics:
       # This receiver is just a dummy and never used.

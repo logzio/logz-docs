@@ -289,6 +289,15 @@ You can use the following options to update the Helm chart parameters:
 helm install logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry -f my_values.yaml 
 ```
 
+###### Optional parameters
+
+If required, you can add the following optional parameters as environment variables:
+  
+| Parameter | Description | 
+|---|---|
+| config.processors.tail_sampling.policies.latency.threshold_ms | Threshold for the spand latency - all traces slower than the threshold value will be filtered in. Default 1000. | 
+| config.processors.tail_sampling.policies.probabilistic.sampling_percentage | Sampling percentage for the probabilistic policy. Default 10. | 
+
 #### Uninstalling the Chart
 
 The uninstall command is used to remove all the Kubernetes components associated with the chart and to delete the release.  

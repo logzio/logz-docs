@@ -62,7 +62,7 @@ service:
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [otlp]
+      receivers: [opencensus, jaeger, zipkin, otlp]
       processors: [tail_sampling, batch]
       exporters: [logzio/traces]
 
@@ -88,7 +88,7 @@ If you already have an OpenTelemetry installation, add the following parameters 
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [otlp]
+      receivers: [opencensus, jaeger, zipkin, otlp]
       processors: [tail_sampling, batch]
       exporters: [logzio/traces]
 ```
@@ -142,7 +142,7 @@ service:
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [otlp]
+      receivers: [opencensus, jaeger, zipkin, otlp]
       processors: [tail_sampling, batch]
       exporters: [logzio/traces]
 ```

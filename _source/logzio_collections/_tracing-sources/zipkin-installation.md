@@ -70,24 +70,15 @@ After downloading the collector, create a configuration file `config.yaml` with 
 
 ```yaml
 receivers:
-  jaeger:
-    protocols:
-      thrift_compact:
-        endpoint: "0.0.0.0:6831"
-      thrift_binary:
-        endpoint: "0.0.0.0:6832"
-      grpc:
-        endpoint: "0.0.0.0:14250"
-      thrift_http:
-        endpoint: "0.0.0.0:14268"
-
+  zipkin:
+    endpoint: "0.0.0.0:9411"
 
 
 exporters:
   logzio/traces:
-    account_token: <<TRACING-SHIPPING-TOKEN>>
-    region: <<LOGZIO_ACCOUNT_REGION_CODE>>
-    
+    account_token: "<<TRACING-SHIPPING-TOKEN>>"
+    region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
+
 processors:
   batch:
   tail_sampling:
@@ -110,7 +101,6 @@ processors:
         }        
       ]
 
-
 extensions:
   pprof:
     endpoint: :1777
@@ -122,8 +112,8 @@ service:
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [jaeger]
-      processors: [tail_sampling, batch]
+      receivers: [zipkin]
+      processors: [batch]
       exporters: [logzio/traces]
 ```
 

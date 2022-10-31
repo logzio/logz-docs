@@ -128,6 +128,7 @@ service:
       processors: [tail_sampling, batch]
       exporters: [logging, logzio/traces]
 ```
+
   
 {% include /tracing-shipping/replace-tracing-token.html %}
 {% include /tracing-shipping/tail-sampling.md %}

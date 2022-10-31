@@ -10,14 +10,25 @@ receivers:
         endpoint: "0.0.0.0:14250"
       thrift_http:
         endpoint: "0.0.0.0:14268"
-
+  opencensus:
+    endpoint: "0.0.0.0:55678"
+  otlp:
+    protocols:
+      grpc:
+        endpoint: "0.0.0.0:4317"
+      http:
+        endpoint: "0.0.0.0:4318"
+  zipkin:
+    endpoint: "0.0.0.0:9411"
 
 
 exporters:
   logzio/traces:
-    account_token: <<TRACING-SHIPPING-TOKEN>>
-    region: <<LOGZIO_ACCOUNT_REGION_CODE>>
-    
+    account_token: "<<TRACING-SHIPPING-TOKEN>>"
+    region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
+
+  logging:
+
 processors:
   batch:
   tail_sampling:
@@ -39,7 +50,6 @@ processors:
           probabilistic: {sampling_percentage: 10}
         }        
       ]
-
 
 extensions:
   pprof:

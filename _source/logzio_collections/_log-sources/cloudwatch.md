@@ -33,7 +33,7 @@ order: 110
 <div id="automated-cloudformation-deployment">
 
 <!-- info-box-start:info -->
-By default we recommend Automated CloudFormation deployment as a default configuration. If you need to deploy this integration in a different way, please navigate to [Advanced configuration](#advanced).
+We recommend Automated CloudFormation deployment as a default configuration. If you need to deploy this integration in a different way, please navigate to [Advanced configuration](#advanced).
 {:.info-box.note}
 <!-- info-box-end -->
 
@@ -127,9 +127,9 @@ The advanced configuration settings for this integration include:
 
 
 * [Manual configuration with a Lambda function](#manual-configuration-with-a-lambda-function)
-* [Deployment using a module](deployment-using-a-module)
-* [Terraform deployment](terraform-deployment)
-* [Working with test events](working-with-test-events)
+* [Deployment using a module](#deployment-using-a-module)
+* [Terraform deployment](#terraform-deployment)
+* [Working with test events](#working-with-test-events)
 
 
 

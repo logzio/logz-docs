@@ -61,7 +61,7 @@ On deployment, your Jaeger instrumentation captures spans from your application 
 
 ##### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.59.0) that is relevant to the operating system of your host.
+Create a dedicated directory on the host of your application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.60.0) that is relevant to the operating system of your host.
 
 <!-- info-box-start:info -->
 This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Collector Core.
@@ -92,6 +92,26 @@ exporters:
     
 processors:
   batch:
+  tail_sampling:
+    policies:
+      [
+        {
+          name: policy-errors,
+          type: status_code,
+          status_code: {status_codes: [ERROR]}
+        },
+        {
+          name: policy-slow,
+          type: latency,
+          latency: {threshold_ms: 1000}
+        }, 
+        {
+          name: policy-random-ok,
+          type: probabilistic,
+          probabilistic: {sampling_percentage: 10}
+        }        
+      ]
+
 
 extensions:
   pprof:
@@ -105,13 +125,12 @@ service:
   pipelines:
     traces:
       receivers: [jaeger]
-      processors: [batch]
+      processors: [tail_sampling, batch]
       exporters: [logzio/traces]
-
 ```
 
 {% include /tracing-shipping/replace-tracing-token.html %}
-
+{% include /tracing-shipping/tail-sampling.md %}
 
 ##### Start the collector
 

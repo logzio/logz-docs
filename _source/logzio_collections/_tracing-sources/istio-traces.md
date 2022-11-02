@@ -13,7 +13,7 @@ shipping-tags:
 order: 1380
 ---
 
-Deploy this integration to send traces from your Istio service mesh layers to Logz.io via the OpenTelemetry collector using **logzio-otel-traces** Helm chart. The main repository for Logz.io helm charts are [logzio-helm](https://github.com/logzio/logzio-helm).
+Deploy this integration to send traces from your Istio service mesh layers to Logz.io via the OpenTelemetry collector using **logzio-k8s-telemetry** Helm chart. The main repository for Logz.io helm charts are [logzio-helm](https://github.com/logzio/logzio-helm).
 
 **Before you begin, you'll need**:
 
@@ -45,15 +45,15 @@ helm repo update
 helm install  \
 --set config.exporters.logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
 --set config.exporters.logzio.account_token=<<TRACING-SHIPPING-TOKEN>> \
-logzio-otel-traces logzio-helm/logzio-otel-traces
+logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
 
 {% include /tracing-shipping/replace-tracing-token.html %}
 
 
-##### Define the logzio-otel-traces service name
+##### Define the logzio-k8s-telemetry service name
 
-In most cases, the service name will be `logzio-otel-traces.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
+In most cases, the service name will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
   
 If you are not sure what your cluster domain name is, you can run the following command to look it up: 
   
@@ -67,10 +67,10 @@ It will deploy a small pod that extracts your cluster domain name from your Kube
 
 ##### Set Istio to send traces to Logz.io
 
-Replace `<<logzio-otel-traces-service-name>>` in the command below with the service name obtained in the previous step and run the command.
+Replace `<<logzio-k8s-telemetry-service-name>>` in the command below with the service name obtained in the previous step and run the command.
 
 ```
-istioctl install --set meshConfig.defaultConfig.tracing.zipkin.address=<<logzio-otel-traces-service-name>>:9411 --set values.pilot.traceSampling=100.0
+istioctl install --set meshConfig.defaultConfig.tracing.zipkin.address=<<logzio-k8s-telemetry-service-name>>:9411 --set values.pilot.traceSampling=100.0
 ```
 
 <!-- info-box-start:info -->

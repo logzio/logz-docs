@@ -68,7 +68,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 
 ##### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your ASP.NET or .NET Framework application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.59.0) that is relevant to the operating system of your host.
+Create a dedicated directory on the host of your ASP.NET or .NET Framework application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.60.0) that is relevant to the operating system of your host.
 
 
 
@@ -147,7 +147,7 @@ Give your traces some time to get from your system to ours, and then open [Traci
 
 You can use a Helm chart to ship Traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of pre-configured Kubernetes resources that use charts.
 
-**logzio-otel-traces** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
+**logzio-k8s-telemetry** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 
 <!-- info-box-start:info -->
 This chart is a fork of the [opentelemtry-collector](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector) Helm chart. The main repository for Logz.io helm charts are [logzio-helm](https://github.com/logzio/logzio-helm).
@@ -179,15 +179,15 @@ helm repo update
 helm install  \
 --set config.exporters.logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
 --set config.exporters.logzio.account_token=<<TRACING-SHIPPING-TOKEN>> \
-logzio-otel-traces logzio-helm/logzio-otel-traces
+logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
 
 {% include /tracing-shipping/replace-tracing-token.html %}
 `<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your Logz.io account region code. [Available regions](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
 
-##### Define the logzio-otel-traces service dns
+##### Define the logzio-k8s-telemetry service dns
 
-In most cases, the service name will be `logzio-otel-traces.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
+In most cases, the service name will be `logzio-k8s-telemetry.default.svc.cluster.local`, where `default` is the namespace where you deployed the helm chart and `svc.cluster.name` is your cluster domain name.
   
 If you are not sure what your cluster domain name is, you can run the following command to look it up: 
   
@@ -249,7 +249,7 @@ public class Global : HttpApplication
             .AddOtlpExporter(options =>
            {
                options.Endpoint =
-                   new Uri("http://<<logzio-otel-traces-service-dns>>:4317");
+                   new Uri("http://<<logzio-k8s-telemetry-service-dns>>:4317");
            })
             .Build();
     }
@@ -261,7 +261,7 @@ public class Global : HttpApplication
 }
 ```
 
-* Replace `<<logzio-otel-traces-service-dns>>` with the OpenTelemetry collector service dns obtained previously (service IP is also allowed here).
+* Replace `<<logzio-k8s-telemetry-service-dns>>` with the OpenTelemetry collector service dns obtained previously (service IP is also allowed here).
 
 
 
@@ -285,18 +285,31 @@ You can use the following options to update the Helm chart parameters:
 
 ###### Example
 
+You can run the logzio-k8s-telemetry chart with your custom configuration file that takes precedence over the `values.yaml` of the chart.
+
 ```
-helm install logzio-otel-traces logzio-helm/logzio-otel-traces -f my_values.yaml 
+helm install logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry -f <PATH-TO>/my_values.yaml 
 ```
+
+Replace `<PATH-TO>` with the path to your custom `values.yaml` file.
+
+###### Optional parameters
+
+If required, you can add the following optional parameters as environment variables:
+  
+| Parameter | Description | 
+|---|---|
+| secrets.SamplingLatency | Threshold for the spand latency - all traces slower than the threshold value will be filtered in. Default 500. | 
+| secrets.SamplingProbability | Sampling percentage for the probabilistic policy. Default 10. | 
 
 #### Uninstalling the Chart
 
 The uninstall command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
 
-To uninstall the `logzio-otel-traces` deployment, use the following command:
+To uninstall the `logzio-k8s-telemetry` deployment, use the following command:
 
 ```shell
-helm uninstall logzio-otel-traces
+helm uninstall logzio-k8s-telemetry
 ```
 
 </div>

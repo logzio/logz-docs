@@ -1,33 +1,187 @@
 ##### Pull the Docker image for the OpenTelemetry collector
 
 ```shell
-docker pull logzio/otel-collector-traces
+docker pull otel/opentelemetry-collector-contrib:0.60.0
 ```
 
-<!-- info-box-start:info -->
-This integration only works with an otel-contrib image. The logzio/otel-collector-traces image is based on otel-contrib.
-{:.info-box.important}
-<!-- info-box-end -->
+##### Create a configuration file
+
+Create a file `config.yaml` with the following contents:
+
+```yaml
+receivers:
+  jaeger:
+    protocols:
+      thrift_compact:
+        endpoint: "0.0.0.0:6831"
+      thrift_binary:
+        endpoint: "0.0.0.0:6832"
+      grpc:
+        endpoint: "0.0.0.0:14250"
+      thrift_http:
+        endpoint: "0.0.0.0:14268"
+  opencensus:
+    endpoint: "0.0.0.0:55678"
+  otlp:
+    protocols:
+      grpc:
+        endpoint: "0.0.0.0:4317"
+      http:
+        endpoint: "0.0.0.0:4318"
+  zipkin:
+    endpoint: "0.0.0.0:9411"
+
+
+exporters:
+  logzio/traces:
+    account_token: "<<TRACING-SHIPPING-TOKEN>>"
+    region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
+
+  logging:
+
+processors:
+  batch:
+  tail_sampling:
+    policies:
+      [
+        {
+          name: policy-errors,
+          type: status_code,
+          status_code: {status_codes: [ERROR]}
+        },
+        {
+          name: policy-slow,
+          type: latency,
+          latency: {threshold_ms: 1000}
+        }, 
+        {
+          name: policy-random-ok,
+          type: probabilistic,
+          probabilistic: {sampling_percentage: 10}
+        }        
+      ]
+
+extensions:
+  pprof:
+    endpoint: :1777
+  zpages:
+    endpoint: :55679
+  health_check:
+
+service:
+  extensions: [health_check, pprof, zpages]
+  pipelines:
+    traces:
+      receivers: [opencensus, jaeger, zipkin, otlp]
+      processors: [tail_sampling, batch]
+      exporters: [logging, logzio/traces]
+```
+
+
+{% include /tracing-shipping/replace-tracing-token.html %}
+{% include /tracing-shipping/tail-sampling.md %}
+
+
+If you already have an OpenTelemetry installation, add the following parameters to the configuration file of your existing OpenTelemetry collector:
+
+* Under the `exporters` list
+
+```yaml
+  logzio/traces:
+    account_token: <<TRACING-SHIPPING-TOKEN>>
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>>
+```
+
+* Under the `service` list:
+
+```yaml
+  extensions: [health_check, pprof, zpages]
+  pipelines:
+    traces:
+      receivers: [opencensus, jaeger, zipkin, otlp]
+      processors: [tail_sampling, batch]
+      exporters: [logzio/traces]
+```
+
+{% include /tracing-shipping/replace-tracing-token.html %}
+
+An example configuration file looks as follows:
+
+```yaml
+receivers:  
+  otlp:
+    protocols:
+      grpc:
+      http:
+
+exporters:
+  logzio/traces:
+    account_token: "<<TRACING-SHIPPING-TOKEN>>"
+    region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
+
+processors:
+  batch:
+  tail_sampling:
+    policies:
+      [
+        {
+          name: policy-errors,
+          type: status_code,
+          status_code: {status_codes: [ERROR]}
+        },
+        {
+          name: policy-slow,
+          type: latency,
+          latency: {threshold_ms: 1000}
+        }, 
+        {
+          name: policy-random-ok,
+          type: probabilistic,
+          probabilistic: {sampling_percentage: 10}
+        }        
+      ]
+
+extensions:
+  pprof:
+    endpoint: :1777
+  zpages:
+    endpoint: :55679
+  health_check:
+
+service:
+  extensions: [health_check, pprof, zpages]
+  pipelines:
+    traces:
+      receivers: [opencensus, jaeger, zipkin, otlp]
+      processors: [tail_sampling, batch]
+      exporters: [logzio/traces]
+```
+
+{% include /tracing-shipping/replace-tracing-token.html %}
+{% include /tracing-shipping/tail-sampling.md %}
 
 
 ##### Run the container
 
-When running on a Linux host, use the `--network host` flag to publish the collector ports:
+Mount the `config.yaml` as volume to the `docker run` command and run it as follows.
+
+###### Linux
 
 ```
-docker run \
--e LOGZIO_REGION=<<LOGZIO_ACCOUNT_REGION_CODE>> \
--e LOGZIO_TRACES_TOKEN=<<TRACING-SHIPPING-TOKEN>> \
+docker run  \
 --network host \
-logzio/otel-collector-traces
-```
-
-When running on MacOS or Windows hosts, publish the ports using the `-p` flag:
+-v <PATH-TO>/config.yaml:/etc/otelcol/config.yaml \
+otel/opentelemetry-collector-contrib:0.60.0
 
 ```
-docker run \
--e LOGZIO_REGION=<<LOGZIO_ACCOUNT_REGION_CODE>> \
--e LOGZIO_TRACES_TOKEN=<<TRACING-SHIPPING-TOKEN>> \
+
+Replace `<PATH-TO>` to the path to the `config.yaml` file on your system.
+
+###### Windows
+
+```
+docker run  \
+-v <PATH-TO>/config.yaml:/etc/otelcol/config.yaml \
 -p 55678-55680:55678-55680 \
 -p 1777:1777 \
 -p 9411:9411 \
@@ -37,7 +191,6 @@ docker run \
 -p 14250:14250 \
 -p 14268:14268 \
 -p 4317:4317 \
--p 4318:4318 \
 -p 55681:55681 \
-logzio/otel-collector-traces
+otel/opentelemetry-collector-contrib:0.60.0
 ```

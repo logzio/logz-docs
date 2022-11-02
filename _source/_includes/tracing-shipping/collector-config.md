@@ -31,6 +31,25 @@ exporters:
 
 processors:
   batch:
+  tail_sampling:
+    policies:
+      [
+        {
+          name: policy-errors,
+          type: status_code,
+          status_code: {status_codes: [ERROR]}
+        },
+        {
+          name: policy-slow,
+          type: latency,
+          latency: {threshold_ms: 1000}
+        }, 
+        {
+          name: policy-random-ok,
+          type: probabilistic,
+          probabilistic: {sampling_percentage: 10}
+        }        
+      ]
 
 extensions:
   pprof:
@@ -44,6 +63,6 @@ service:
   pipelines:
     traces:
       receivers: [opencensus, jaeger, zipkin, otlp]
-      processors: [batch]
+      processors: [tail_sampling, batch]
       exporters: [logging, logzio/traces]
 ```

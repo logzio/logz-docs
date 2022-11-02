@@ -63,51 +63,15 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 
 ##### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.59.0) that is relevant to the operating system of your host.
+Create a dedicated directory on the host of your application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.60.0) that is relevant to the operating system of your host.
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
 
-```yaml
-receivers:
-  jaeger:
-    protocols:
-      thrift_compact:
-        endpoint: "0.0.0.0:6831"
-      thrift_binary:
-        endpoint: "0.0.0.0:6832"
-      grpc:
-        endpoint: "0.0.0.0:14250"
-      thrift_http:
-        endpoint: "0.0.0.0:14268"
-
-
-
-exporters:
-  logzio/traces:
-    account_token: <<TRACING-SHIPPING-TOKEN>>
-    region: <<LOGZIO_ACCOUNT_REGION_CODE>>
-    
-processors:
-  batch:
-
-extensions:
-  pprof:
-    endpoint: :1777
-  zpages:
-    endpoint: :55679
-  health_check:
-
-service:
-  extensions: [health_check, pprof, zpages]
-  pipelines:
-    traces:
-      receivers: [jaeger]
-      processors: [batch]
-      exporters: [logzio/traces]
-
-```
+{% include /tracing-shipping/collector-config.md %}
 
 {% include /tracing-shipping/replace-tracing-token.html %}
+{% include /tracing-shipping/tail-sampling.md %}
+
 
 If you already have an OpenTelemetry installation, add the following parameters to the configuration file of your existing OpenTelemetry collector:
 
@@ -126,7 +90,7 @@ If you already have an OpenTelemetry installation, add the following parameters 
   pipelines:
     traces:
       receivers: [otlp]
-      processors: [batch]
+      processors: [tail_sampling, batch]
       exporters: [logzio/traces]
 ```
 
@@ -134,36 +98,7 @@ If you already have an OpenTelemetry installation, add the following parameters 
 
 An example configuration file looks as follows:
 
-```yaml
-receivers:  
-  otlp:
-    protocols:
-      grpc:
-      http:
-
-exporters:
-  logzio/traces:
-    account_token: "<<TRACING-SHIPPING-TOKEN>>"
-    region: "<<LOGZIO_ACCOUNT_REGION_CODE>>"
-
-processors:
-  batch:
-
-extensions:
-  pprof:
-    endpoint: :1777
-  zpages:
-    endpoint: :55679
-  health_check:
-
-service:
-  extensions: [health_check, pprof, zpages]
-  pipelines:
-    traces:
-      receivers: [otlp]
-      processors: [batch]
-      exporters: [logzio/traces]
-```
+{% include /tracing-shipping/collector-config.md %}
 
 ##### Instrument the application
 
@@ -240,7 +175,7 @@ Give your traces some time to get from your system to ours, and then open [Traci
 
 You can use a Helm chart to ship Traces to Logz.io via the OpenTelemetry collector. The Helm tool is used to manage packages of pre-configured Kubernetes resources that use charts.
 
-**logzio-otel-traces** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
+**logzio-k8s-telemetry** allows you to ship traces from your Kubernetes cluster to Logz.io with the OpenTelemetry collector.
 
 <!-- info-box-start:info -->
 This chart is a fork of the [opentelemtry-collector](https://github.com/open-telemetry/opentelemetry-helm-charts/tree/main/charts/opentelemetry-collector) Helm chart. The main repository for Logz.io helm charts are [logzio-helm](https://github.com/logzio/logzio-helm).
@@ -271,7 +206,7 @@ helm repo update
 helm install  \
 --set config.exporters.logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
 --set config.exporters.logzio.account_token=<<TRACING-SHIPPING-TOKEN>> \
-logzio-otel-traces logzio-helm/logzio-otel-traces
+logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
 
 {% include /tracing-shipping/replace-tracing-token.html %}
@@ -297,18 +232,31 @@ You can use the following options to update the Helm chart parameters:
 
 ###### Example
 
+You can run the logzio-k8s-telemetry chart with your custom configuration file that takes precedence over the `values.yaml` of the chart.
+
 ```
-helm install logzio-otel-traces logzio-helm/logzio-otel-traces -f my_values.yaml 
+helm install logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry -f <PATH-TO>/my_values.yaml 
 ```
+
+Replace `<PATH-TO>` with the path to your custom `values.yaml` file.
+
+###### Optional parameters
+
+If required, you can add the following optional parameters as environment variables:
+  
+| Parameter | Description | 
+|---|---|
+| secrets.SamplingLatency | Threshold for the spand latency - all traces slower than the threshold value will be filtered in. Default 500. | 
+| secrets.SamplingProbability | Sampling percentage for the probabilistic policy. Default 10. | 
 
 #### Uninstalling the Chart
 
 The uninstall command is used to remove all the Kubernetes components associated with the chart and to delete the release.  
 
-To uninstall the `logzio-otel-traces` deployment, use the following command:
+To uninstall the `logzio-k8s-telemetry` deployment, use the following command:
 
 ```shell
-helm uninstall logzio-otel-traces
+helm uninstall logzio-k8s-telemetry
 ```
 
 </div>

@@ -280,8 +280,8 @@ If required, you can add the following optional parameters as environment variab
   
 | Parameter | Description | 
 |---|---|
-| secrets.SamplingLatency | Threshold for the spand latency - all traces slower than the threshold value will be filtered in. Default 1000. | 
-| secrets.SamplingProbability | Sampling percentage for the probabilistic policy. Default 10. | 
+| secrets.SamplingLatency | Threshold for the spand latency - all traces slower than the threshold value will be filtered in. Default 0. | 
+| secrets.SamplingProbability | Sampling percentage for the probabilistic policy. Default 100. | 
 
 #### Uninstalling the Chart
 

@@ -478,9 +478,13 @@ You can use the following options to update the Helm chart parameters:
 
 ###### Example
 
+You can run the logzio-k8s-telemetry chart with your custom configuration file that takes precedence over the `values.yaml` of the chart.
+
 ```
-helm install logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry -f my_values.yaml 
+helm install logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry -f <PATH-TO>/my_values.yaml 
 ```
+
+Replace `<PATH-TO>` with the path to your custom `values.yaml` file.
 
 ###### Optional parameters
 
@@ -488,8 +492,8 @@ If required, you can add the following optional parameters as environment variab
   
 | Parameter | Description | 
 |---|---|
-| config.processors.tail_sampling.policies.latency.threshold_ms | Threshold for the spand latency - all traces slower than the threshold value will be filtered in. Default 1000. | 
-| config.processors.tail_sampling.policies.probabilistic.sampling_percentage | Sampling percentage for the probabilistic policy. Default 10. | 
+| secrets.SamplingLatency | Threshold for the spand latency - all traces slower than the threshold value will be filtered in. Default 1000. | 
+| secrets.SamplingProbability | Sampling percentage for the probabilistic policy. Default 10. | 
 
 #### Uninstalling the Chart
 

@@ -3,7 +3,7 @@ layout: article
 title: Kubernetes 360
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Logz.io intro to Kubernetes 360
-permalink: /user-guide/kibana/k360/overview.html
+permalink: /user-guide/k360/overview.html
 flags:
   logzio-plan: community
 tags:

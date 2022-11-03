@@ -653,6 +653,56 @@ You can use the following options to update the Helm chart parameters:
 
 You can run the logzio-k8s-telemetry chart with your custom configuration file that takes precedence over the `values.yaml` of the chart.
 
+For example:
+
+```yaml
+baseCollectorConfig:
+  processors:
+    tail_sampling:
+      policies:
+        [
+          {
+            name: error-in-policy,
+            type: status_code,
+            status_code: {status_codes: [ERROR]}
+          },
+          {
+            name: slow-traces-policy,
+            type: latency,
+            latency: {threshold_ms: 400}
+          },
+          {
+            name: health-traces,
+            type: and,
+            and: {
+              and_sub_policy:
+              [
+                {
+                  name: ping-operation,
+                  type: string_attribute,
+                  string_attribute: { key: http.url, values: [ /health ] }
+                },
+                {
+                  name: main-service,
+                  type: string_attribute,
+                  string_attribute: { key: service.name, values: [ main-service ] }
+                },
+                {
+                  name: probability-policy-1,
+                  type: probabilistic,
+                  probabilistic: {sampling_percentage: 1}
+                }
+              ]
+            }
+          },
+          {
+            name: probability-policy,
+            type: probabilistic,
+            probabilistic: {sampling_percentage: 20}
+          }
+        ] 
+```
+
 ```
 helm install logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry -f <PATH-TO>/my_values.yaml 
 ```

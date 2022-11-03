@@ -65,7 +65,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 * An application instrumented with an OpenTelemetry instrumentation or any other supported instrumentations based on OpenTracing, Zipkin or Jaeger 
 * Service Performance Monitoring dashboard [activated](https://docs.logz.io/user-guide/distributed-tracing/service-performance-monitoring-setup#activate-the-service-performance-monitoring-dashboard)
 * An active account with Logz.io
-* A Logz.io span metrics account
+* A Logz.io span metrics account 
 
 
 

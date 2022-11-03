@@ -619,6 +619,8 @@ helm install  \
 --set logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
 --set logzio.tracing_token=<<TRACING-SHIPPING-TOKEN>> \
 --set logzio.metrics_token=<<SPM-METRICS-SHIPPING-TOKEN>> \
+--set traces.enabled=true \
+--set spm.enabled=true \
 logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
 
@@ -653,7 +655,7 @@ You can use the following options to update the Helm chart parameters:
 
 You can run the logzio-k8s-telemetry chart with your custom configuration file that takes precedence over the `values.yaml` of the chart.
 
-For example, to add a custom tail sampling configuration, copy the configuration below and paste into a new file `my_values.yaml`:
+For example:
 
 ```yaml
 baseCollectorConfig:
@@ -703,13 +705,24 @@ baseCollectorConfig:
         ] 
 ```
 
-To apply this configuration to the Helm chart, run the following command:
-
 ```
-helm install logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry -f <PATH-TO>/my_values.yaml 
+helm install -f <PATH-TO>/my_values.yaml \
+--set logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
+--set logzio.tracing_token=<<TRACING-SHIPPING-TOKEN>> \
+--set logzio.metrics_token=<<SPM-METRICS-SHIPPING-TOKEN>> \
+--set traces.enabled=true \
+--set spm.enabled=true \
+logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
 
 Replace `<PATH-TO>` with the path to your custom `values.yaml` file.
+
+{% include /tracing-shipping/replace-tracing-token.html %}
+  
+{% include /tracing-shipping/replace-spm-token.html %} 
+
+
+`<<LOGZIO_ACCOUNT_REGION_CODE>>` - Your logz.io account region code. Defaults to "us". Required only if your logz.io region is [different than US East](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
 
 ###### Optional parameters
 

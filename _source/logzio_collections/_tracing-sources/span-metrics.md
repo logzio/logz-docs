@@ -583,14 +583,14 @@ This chart is a fork of the [opentelemtry-collector](https://github.com/open-tel
 ##### Deploy the Helm chart
 
 <!-- info-box-start:info -->
-If you are already running a Helm chart logzio/otel-collector-traces, the new image logzio/otel-collector-spm will replace it.
+If you are already running a Helm chart logzio/otel-collector-traces or logzio/otel-collector-spm, the new image logzio-k8s-telemetry will replace it.
 {:.info-box.note}
 <!-- info-box-end -->
 
 Add `logzio-helm` repo as follows:
  
 ```shell
-helm repo add logzio-helm https://logzio.github.io/logzio-helm/logzio-otel-spm
+helm repo add logzio-helm https://logzio.github.io/logzio-helm/logzio-k8s-telemetry
 helm repo update
 ```
 
@@ -619,7 +619,7 @@ helm install  \
 --set logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
 --set logzio.tracing_token=<<TRACING-SHIPPING-TOKEN>> \
 --set logzio.metrics_token=<<SPM-METRICS-SHIPPING-TOKEN>> \
-logzio-otel-spm logzio-helm/logzio-otel-spm
+logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
 
 

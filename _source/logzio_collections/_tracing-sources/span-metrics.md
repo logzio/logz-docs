@@ -477,36 +477,386 @@ If you are already running a Logz.io Docker image logzio/otel-collector-traces, 
 In the same Docker network as your application:
 
 ```shell
-docker pull logzio/otel-collector-spm
+docker pull otel/opentelemetry-collector-contrib:0.60.0
 ```
 
 
 <!-- info-box-start:info -->
-This integration only works with an otel-contrib image. The logzio/otel-collector-traces image is based on otel-contrib.
+This integration only works with a contrib image. 
 {:.info-box.important}
 <!-- info-box-end -->
+
+##### Create a configuration file
+
+Create a file `config.yaml` with the following contents:
+
+```yaml
+receivers:
+  jaeger:
+    protocols:
+      grpc:
+      thrift_binary:
+      thrift_compact:
+      thrift_http:
+
+  otlp/spanmetrics:
+    protocols:
+      grpc:
+        endpoint: :12345
+  otlp:
+    protocols:
+      grpc:
+        endpoint: :4317
+  prometheus:
+    config:
+      global:
+        external_labels:
+          p8s_logzio_name: spm-otel
+      scrape_configs: 
+      - job_name: 'spm'
+        scrape_interval: 15s
+        static_configs:
+        - targets: [ "0.0.0.0:8889" ]
+
+exporters:
+  logzio/traces:
+    account_token: <<TRACING-SHIPPING-TOKEN>>
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>>
+  prometheusremotewrite/spm:
+    endpoint: https://<<LISTENER-HOST>>:8053
+    headers:
+      Authorization: Bearer <<SPM-METRICS-SHIPPING-TOKEN>>
+  prometheus:
+    endpoint: "localhost:8889"
+  logging:
+
+processors:
+  batch:
+  tail_sampling:
+    policies:
+      [
+        {
+          name: policy-errors,
+          type: status_code,
+          status_code: {status_codes: [ERROR]}
+        },
+        {
+          name: policy-slow,
+          type: latency,
+          latency: {threshold_ms: 1000}
+        }, 
+        {
+          name: policy-random-ok,
+          type: probabilistic,
+          probabilistic: {sampling_percentage: 10}
+        }        
+      ]
+  spanmetrics:
+    metrics_exporter: prometheus
+    latency_histogram_buckets: [2ms, 6ms, 10ms, 100ms, 250ms, 500ms, 1000ms, 10000ms, 100000ms, 1000000ms]
+    # Additional list of dimensions on top of:
+    # - service.name
+    # - operation
+    # - span.kind
+    # - status.code
+    dimensions:
+      # If the span is missing http.method, the processor will insert
+      # the http.method dimension with value 'GET'.
+      # For example, in the following scenario, http.method is not present in a span and so will be added as a dimension to the metric with value "GET":
+      # - promexample_calls{http_method="GET",operation="/Address",service_name="shippingservice",span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_UNSET"} 1
+      - name: http.method
+        default: GET
+      # If a default is not provided, the http.status_code dimension will be omitted
+      # if the span does not contain http.status_code.
+      # For example, consider a scenario with two spans, one span having http.status_code=200 and another missing http.status_code. Two metrics would result with this configuration, one with the http_status_code omitted and the other included:
+      # - promexample_calls{http_status_code="200",operation="/Address",service_name="shippingservice",span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_UNSET"} 1
+      # - promexample_calls{operation="/Address",service_name="shippingservice",span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_UNSET"} 1
+      - name: http.status_code    
+
+extensions:
+  pprof:
+    endpoint: :1777
+  zpages:
+    endpoint: :55679
+  health_check:
+
+service:
+  extensions: [health_check, pprof, zpages]
+  pipelines:
+    traces:
+      receivers: [jaeger]
+      processors: [spanmetrics,tail_sampling,batch]
+      exporters: [logzio/traces]
+    metrics/spanmetrics:
+      # This receiver is just a dummy and never used.
+      # Added to pass validation requiring at least one receiver in a pipeline.
+      receivers: [otlp/spanmetrics]
+      exporters: [prometheus]
+    metrics:
+      receivers: [otlp,prometheus]
+      exporters: [logging,prometheusremotewrite/spm]      
+  telemetry:
+    logs:
+      level: "debug"
+
+```
+
+{% include /tracing-shipping/replace-tracing-token.html %}
+
+{% include /tracing-shipping/replace-spm-token.html %}
+  
+{% include /log-shipping/listener-var.html %}
+
+{% include /tracing-shipping/tail-sampling.md %}
+
+If you already have an OpenTelemetry installation, add to the configuration file of your existing OpenTelemetry collector the parameters described in the next steps.
+
+##### Add Logz.io exporter to your OpenTelemetry collector
+
+Add the following parameters to the configuration file of your OpenTelemetry collector:
+
+* Under the `receivers` list:
+
+```yaml
+  otlp/spanmetrics:
+    protocols:
+      grpc:
+        endpoint: :12345
+  prometheus:
+    config:
+      global:
+        external_labels:
+          p8s_logzio_name: spm-otel
+      scrape_configs: 
+      - job_name: 'spm'
+        scrape_interval: 15s
+        static_configs:
+        - targets: [ "0.0.0.0:8889" ]
+```
+
+* Under the `exporters` list:
+
+```yaml
+  logzio/traces:
+    account_token: <<TRACING-SHIPPING-TOKEN>>
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>>
+  prometheusremotewrite/spm:
+    endpoint: https://<<LISTENER-HOST>>:8053
+    headers:
+      Authorization: Bearer <<SPM-METRICS-SHIPPING-TOKEN>>
+  prometheus:
+    endpoint: "localhost:8889"
+```
+
+* Under the `processors` list:
+
+```yaml
+  tail_sampling:
+    policies:
+      [
+        {
+          name: policy-errors,
+          type: status_code,
+          status_code: {status_codes: [ERROR]}
+        },
+        {
+          name: policy-slow,
+          type: latency,
+          latency: {threshold_ms: 1000}
+        }, 
+        {
+          name: policy-random-ok,
+          type: probabilistic,
+          probabilistic: {sampling_percentage: 10}
+        }        
+      ]
+  spanmetrics:
+    metrics_exporter: prometheus
+    latency_histogram_buckets: [2ms, 6ms, 10ms, 100ms, 250ms, 500ms, 1000ms, 10000ms, 100000ms, 1000000ms]
+    # Additional list of dimensions on top of:
+    # - service.name
+    # - operation
+    # - span.kind
+    # - status.code
+    dimensions:
+      # If the span is missing http.method, the processor will insert
+      # the http.method dimension with value 'GET'.
+      # For example, in the following scenario, http.method is not present in a span and so will be added as a dimension to the metric with value "GET":
+      # - promexample_calls{http_method="GET",operation="/Address",service_name="shippingservice",span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_UNSET"} 1
+      - name: http.method
+        default: GET
+      # If a default is not provided, the http.status_code dimension will be omitted
+      # if the span does not contain http.status_code.
+      # For example, consider a scenario with two spans, one span having http.status_code=200 and another missing http.status_code. Two metrics would result with this configuration, one with the http_status_code omitted and the other included:
+      # - promexample_calls{http_status_code="200",operation="/Address",service_name="shippingservice",span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_UNSET"} 1
+      # - promexample_calls{operation="/Address",service_name="shippingservice",span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_UNSET"} 1
+      - name: http.status_code
+```
+
+* Under the `service: pipelines` list:
+
+```yaml
+pipelines:
+    traces:
+      receivers: [jaeger]
+      processors: [spanmetrics,tail_sampling,batch]
+      exporters: [logzio/traces]
+    metrics/spanmetrics:
+      # This receiver is just a dummy and never used.
+      # Added to pass validation requiring at least one receiver in a pipeline.
+      receivers: [otlp/spanmetrics]
+      exporters: [prometheus]
+    metrics:
+      receivers: [prometheus]
+      exporters: [logging,prometheusremotewrite]  
+```
+
+
+{% include /tracing-shipping/replace-tracing-token.html %}
+
+{% include /tracing-shipping/replace-spm-token.html %}
+  
+{% include /log-shipping/listener-var.html %}
+  
+
+An example configuration file looks as follows:
+
+```yaml
+
+receivers:
+  jaeger:
+    protocols:
+      grpc:
+      thrift_binary:
+      thrift_compact:
+      thrift_http:
+
+  otlp/spanmetrics:
+    protocols:
+      grpc:
+        endpoint: :12345
+  otlp:
+    protocols:
+      grpc:
+        endpoint: :4317
+  prometheus:
+    config:
+      global:
+        external_labels:
+          p8s_logzio_name: spm-otel
+      scrape_configs: 
+      - job_name: 'spm'
+        scrape_interval: 15s
+        static_configs:
+        - targets: [ "0.0.0.0:8889" ]
+
+exporters:
+  logzio/traces:
+    account_token: <<TRACING-SHIPPING-TOKEN>>
+    region: <<LOGZIO_ACCOUNT_REGION_CODE>>
+  prometheusremotewrite/spm:
+    endpoint: https://<<LISTENER-HOST>>:8053
+    headers:
+      Authorization: Bearer <<SPM-METRICS-SHIPPING-TOKEN>>
+  prometheus:
+    endpoint: "localhost:8889"
+  logging:
+
+processors:
+  batch:
+  tail_sampling:
+    policies:
+      [
+        {
+          name: policy-errors,
+          type: status_code,
+          status_code: {status_codes: [ERROR]}
+        },
+        {
+          name: policy-slow,
+          type: latency,
+          latency: {threshold_ms: 1000}
+        }, 
+        {
+          name: policy-random-ok,
+          type: probabilistic,
+          probabilistic: {sampling_percentage: 10}
+        }        
+      ]
+  spanmetrics:
+    metrics_exporter: prometheus
+    latency_histogram_buckets: [2ms, 6ms, 10ms, 100ms, 250ms, 500ms, 1000ms, 10000ms, 100000ms, 1000000ms]
+    # Additional list of dimensions on top of:
+    # - service.name
+    # - operation
+    # - span.kind
+    # - status.code
+    dimensions:
+      # If the span is missing http.method, the processor will insert
+      # the http.method dimension with value 'GET'.
+      # For example, in the following scenario, http.method is not present in a span and so will be added as a dimension to the metric with value "GET":
+      # - promexample_calls{http_method="GET",operation="/Address",service_name="shippingservice",span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_UNSET"} 1
+      - name: http.method
+        default: GET
+      # If a default is not provided, the http.status_code dimension will be omitted
+      # if the span does not contain http.status_code.
+      # For example, consider a scenario with two spans, one span having http.status_code=200 and another missing http.status_code. Two metrics would result with this configuration, one with the http_status_code omitted and the other included:
+      # - promexample_calls{http_status_code="200",operation="/Address",service_name="shippingservice",span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_UNSET"} 1
+      # - promexample_calls{operation="/Address",service_name="shippingservice",span_kind="SPAN_KIND_SERVER",status_code="STATUS_CODE_UNSET"} 1
+      - name: http.status_code    
+
+extensions:
+  pprof:
+    endpoint: :1777
+  zpages:
+    endpoint: :55679
+  health_check:
+
+service:
+  extensions: [health_check, pprof, zpages]
+  pipelines:
+    traces:
+      receivers: [jaeger]
+      processors: [spanmetrics,tail_sampling,batch]
+      exporters: [logzio/traces]
+    metrics/spanmetrics:
+      # This receiver is just a dummy and never used.
+      # Added to pass validation requiring at least one receiver in a pipeline.
+      receivers: [otlp/spanmetrics]
+      exporters: [prometheus]
+    metrics:
+      receivers: [otlp,prometheus]
+      exporters: [logging,prometheusremotewrite/spm]      
+  telemetry:
+    logs:
+      level: "debug"
+
+```
 
 
 ##### Run the container
   
-When running on a Linux host, use the `--network host` flag to publish the collector ports:
+##### Run the container
 
-```shell
-docker run --name logzio-spm \
--e LOGZIO_REGION=<<LOGZIO_ACCOUNT_REGION_CODE>> \
--e LOGZIO_TRACES_TOKEN=<<TRACING-SHIPPING-TOKEN>> \
--e LOGZIO_METRICS_TOKEN=<<SPM-METRICS-SHIPPING-TOKEN>> \
+Mount the `config.yaml` as volume to the `docker run` command and run it as follows.
+
+###### Linux
+
+```
+docker run  \
 --network host \
-logzio/otel-collector-spm
-```  
+-v <PATH-TO>/config.yaml:/etc/otelcol/config.yaml \
+otel/opentelemetry-collector-contrib:0.60.0
 
-When running on MacOS or Windows hosts, publish the ports using the `-p` flag:
+```
 
-```shell
-docker run --name logzio-spm \
--e LOGZIO_REGION=<<LOGZIO_ACCOUNT_REGION_CODE>> \
--e LOGZIO_TRACES_TOKEN=<<TRACING-SHIPPING-TOKEN>> \
--e LOGZIO_METRICS_TOKEN=<<SPM-METRICS-SHIPPING-TOKEN>> \
+Replace `<PATH-TO>` to the path to the `config.yaml` file on your system.
+
+###### Windows
+
+```
+docker run  \
+-v <PATH-TO>/config.yaml:/etc/otelcol/config.yaml \
 -p 55678-55680:55678-55680 \
 -p 1777:1777 \
 -p 9411:9411 \
@@ -517,12 +867,8 @@ docker run --name logzio-spm \
 -p 14268:14268 \
 -p 4317:4317 \
 -p 55681:55681 \
-logzio/otel-collector-spm
+otel/opentelemetry-collector-contrib:0.60.0
 ```
-  
-{% include /tracing-shipping/replace-tracing-token.html %}
-
-{% include /tracing-shipping/replace-spm-token.html %}
   
   
 ###### Optional parameters

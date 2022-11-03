@@ -71,6 +71,10 @@ There are a few things you need to check before you begin the process.
 
 ##### Filters and Power search (optional)
 
+The Power search feature is in Beta. Please contact the [Logz.io Support team](mailto:help@logz.io) or your account manager to request early access.
+{:.info-box.note}
+
+
 You can control and limit which data you'd like to restore by applying **filters**, using **Power search**, or both. Your restored logs will only include data that matches all of your filters and your exact search term.
 
 Power search speeds the restore process dramatically by uploading and re-indexing only relevant data from your S3 archive, using general search strings.

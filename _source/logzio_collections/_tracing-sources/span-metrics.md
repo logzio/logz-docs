@@ -455,7 +455,7 @@ Give your metrics some time to get from your system to ours, and then open [Trac
 **Before you begin, you'll need**:
 
 * An application instrumented with an OpenTelemetry instrumentation or any other supported instrumentations based on OpenTracing, Zipkin or Jaeger 
-* A metrics account [setup](https://docs.logz.io/user-guide/distributed-tracing/service-performance-monitoring-setup#create-a-metrics-account)
+* Service Performance Monitoring dashboard [activated](https://docs.logz.io/user-guide/distributed-tracing/service-performance-monitoring-setup#activate-the-service-performance-monitoring-dashboard)
 * An active account with Logz.io
 * A Logz.io span metrics account
 
@@ -575,7 +575,7 @@ This chart is a fork of the [opentelemtry-collector](https://github.com/open-tel
 **Before you begin, you'll need**:
 
 * An application instrumented with an OpenTelemetry instrumentation or any other supported instrumentations based on OpenTracing, Zipkin or Jaeger 
-* A metrics account [setup](https://docs.logz.io/user-guide/distributed-tracing/service-performance-monitoring-setup#create-a-metrics-account)
+* Service Performance Monitoring dashboard [activated](https://docs.logz.io/user-guide/distributed-tracing/service-performance-monitoring-setup#activate-the-service-performance-monitoring-dashboard)
 * An active account with Logz.io
 
 <div class="tasklist">

@@ -653,7 +653,7 @@ You can use the following options to update the Helm chart parameters:
 
 You can run the logzio-k8s-telemetry chart with your custom configuration file that takes precedence over the `values.yaml` of the chart.
 
-For example:
+For example, to add a custom tail sampling configuration, copy the configuration below and paste into a new file `my_values.yaml`:
 
 ```yaml
 baseCollectorConfig:
@@ -702,6 +702,8 @@ baseCollectorConfig:
           }
         ] 
 ```
+
+To apply this configuration to the Helm chart, run the following command:
 
 ```
 helm install logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry -f <PATH-TO>/my_values.yaml 

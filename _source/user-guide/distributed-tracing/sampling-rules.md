@@ -29,7 +29,7 @@ We recommend creating a set of rules for your account.
 
 To create Sampling rules, click on the screen's button at the top right corner.
 
-![Create a sampling rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/logs-edit-traceid.png)
+<!-- ![Create a sampling rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/logs-edit-traceid.png)-->
 
 Next, choose the services to which you'd like to apply this rule. To manually add your services, check the **These services** option and select the relevant services from the drop down menu.
 
@@ -65,7 +65,3 @@ To apply these suggested rules, click the **Next: configure OTEL** button.
 Creating your Sampling rules is the first step. Next, you need to configure them through the OTEL configuration wizard. You can access the wizard by clicking on the button at the top right corner of the screen.
 
 Select the configuration method based on your machine: Local host, Docker, or Kubernetes. Next, make sure you've chosen the relevant Tracing account, and follow the instructions to execute your rules.
-
-
-
-![Change format and open](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/logs-edit-traceid.png)

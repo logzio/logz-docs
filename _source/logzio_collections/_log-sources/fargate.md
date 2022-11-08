@@ -160,5 +160,44 @@ and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
 
 {% include /log-shipping/search-log-type.md type="fargate" %}
 
+</div>
+
+#### Adding extra configuration to your Fluent Bit task
+
+<div class="tasklist">
+
+##### Create an extra.conf file
+
+Create an `extra.conf` file with the extra configuration. For example:
+
+```conf
+[FILTER]
+    Name record_modifier
+    Match *
+    Record app-version ${APP_VERSION}
+```
+
+##### Upload the extra.conf file to S3 (if your Fluent Bit is on EC2)
+
+Upload the `extra.conf` file to the S3 bucket.
+
+##### Update the task definition file
+
+Add the path to the extra.conf file to the task definition file as follows:
+
+```json
+"firelensConfiguration": {
+				"type": "fluentbit",
+				"options": {
+					"config-file-type": "s3",
+					"config-file-value": "arn:aws:s3:::<<PATH-TO-YOUR-EXTRA-CONF>>/extra.conf"
+				}
+			}
+```
+
+Replace `<<PATH-TO-YOUR-EXTRA-CONF>>` with the path to the extra.conf file in your S3 bucket. For example, `yourbucket/yourdirectory/extra.conf`.
+
+
+
 
 </div>

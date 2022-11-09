@@ -15,76 +15,46 @@ contributors:
   - hidan
 ---
 
-Logz.io offers a quick and intuitive way to optimize your Metrics account with just a few clicks. You can view your unused metrics and perform bulk actions to allow an optimized account.
+Logz.io offers a quick and intuitive way to optimize your Metrics and Logs account with just a few clicks. You can view your unused data and perform bulk actions to allow an optimized account.
 
-To get started, navigate to **[Metrics > Data optimization hub](https://app.logz.io/#/dashboard/cost)**. On this page you'll be able to see a break down of your current Metrics, including:
+To get started, navigate to **[Metrics > Data optimization hub](https://app.logz.io/#/dashboard/cost)**. Choose whether you'd like to review your Metrics or Logs account.
 
-* Metric name and its related labels
-* Amount of Unique Time Series (UTS) each metric is using
-* Which accounts are using these metrics
-* How the metrics are being used; as part of a dashboard or an alert
-* Action you can take to optimize your metrics' usage
+Next, you'll be able to see your current data and its usage, including: 
 
-![Dashboard overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/)
+* Metric or log name and its related labels.
+* Amount of Unique Time Series (UTS) or Volume in use.
+* The accounts that are using the data.
+* The context in which the data is being used; in an alert or as part of a dashboard.
+* The actions you can take to optimize your usage.
+
+<!-- ![Dashboard overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/) -->
 
 #### Filter your view
 
-At the top of the table you'll find the two most important filters: **Account** and **Used**. 
+You have two primary filters that you can apply to your view: **Account** and **Used**.
 
-Use them to filter your view based on one of your accounts, or to view if and how the metrics are being used.
+The Account filter includes all of the accounts associated with your user, and the Used filter allows you to get a quick view of how the data is being used.
 
-![Filter view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/)
+You can also click on the account's name or one of the used options inside the table to apply them to your filters.
 
-For example, you can apply the **Not used** filter to view all metrics that are not assosiated with any dashboard or alerts.
+<!-- ![Filter view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/) -->
 
-![Drop all metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/)
+For example, you can apply the **Not used** filter to view all data not being used by any alerts or dashboards.
 
+<!-- ![Drop all metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/) -->
 
-#### Optimize your Metrics plan
-
-You can drop individual metrics, or perform a bulk-drop action by selecting a number of metrics.
-
-Once selected, click on the **Drop** button at the top of the table. You'll be able to review all of the metrics and filters before dropping them, to ensure you're not dropping any important data.
-
-![Drop all metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/)
+In addition, you can filter your view by clicking on the titles of the table to view by ascending or descending data.
 
 
+#### Actions and abilities
 
-#### View dropped metrics
+After filtering your view and analyzing how much data you’re using, you can optimize your usage by dropping unnecessary data.
 
+You can drop individual metrics or logs or perform a bulk-drop action by selecting several metrics or logs.
 
-You can filter your view according to an account, or by viewing which metrics are currently unused. Choosing the latter allows you to perform a bulk action of dropping these metrics, since they are not in used, freeing up used UTS.
+By selecting multiple lines from the table, a new **Drop** button will appear at the top of the table. Click on it to review all of the filters included in this process and estimate how much data you’ll save. Then, click **Drop** to drop these metrics or logs.
 
-Next to each metric you have the option to drop it, which opens up a menu asking you to choose the account. The filter is already there, according to the chosen metric. You can also add the option to drop specific labels inside the metric.
-
-Click apply the filter to drop these metrics.
-
-
-===
-
-//You can view your dropped metrics on the Dropped metrics page.
+<!-- ![Drop all metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/) -->
 
 
-
-
-## Volume settings
-
-
-### Account utilization notifications
-
-
-| Notifications | Low risk  | High risk |
-|---|----|---|
-| Shared volume | 80% of shared volume is spent for the day. | 100% of shared volume is spent for the day. Only accounts with available reserved volume can continue to index logs. No shared capacity will be available until the index switches at 00:00 UTC tonight. |
-| Account cap | Account has reached 80% of its daily cap. | Account has reached 100% of its daily cap. It will no longer accept data until the index switches at 00:00 UTC. |
-
-#### Configure flexible capacity accounts
-
-<div class="tasklist">
-
-##### Enable flexible volume for your plan
-
-
-##### Configure account capacity
-
-![Enable flexible storage](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/configure-flexible-volume.png)
+<!-- #### View dropped metrics -->

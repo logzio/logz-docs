@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Configure archiving
+title: Configure archiving and restoring
 permalink: /user-guide/archive-and-restore/configure-archiving.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Configuring long term log storage to an Amazon S3 bucket or a Microsoft Azure Storage container
@@ -122,4 +122,15 @@ From now on, Logz.io will archive your logs as they come in.
 You can stop archiving at any time.
 
 </div>
+
+
+#### Restore archived logs
+
+
+Restoring your archived logs will re-ingest them into a temporary account. You can search and navigate the restored account directly from your Logs account.
+
+Restoring archived logs lets you view data in its original detail, allowing you to investigate events that are older than your plan's retention period.
+
+[Learn more about how to manage your restored accounts.](https://docs.logz.io/user-guide/archive-and-restore/restore-archived-logs.html)
+
 

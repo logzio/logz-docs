@@ -84,6 +84,12 @@
 - escape-sequence: \e938
   class:  li-visualization
 
+- escape-sequence: \e9c1
+  class:  li-blob
+
+- escape-sequence: \e9cc
+  class:  li-points
+
 - escape-sequence: \e9d3
   class: li-repository
 

@@ -105,13 +105,14 @@ firstLevel:
 # ===== K360 =====
     # Kubernetes 360 platform topic & dashboard ==> These docs are generally in the /user-guide/k360 folder
 - title: Kubernetes 360
-  icon: fas fa-chart-pie
+  icon: li-points
 
   secondLevel:
-  - title: K360 overview
-    thirdLevel:
-    - title: Meet Kubernetes 360
-      url: /user-guide/k360/overview.html
+  - title: Meet Kubernetes 360
+    url: /user-guide/k360/overview.html
+    #thirdLevel:
+    #- title: Meet Kubernetes 360
+    #  url: 
 
 # ===== METRICS INFRASTRUCTURE MONITORING =====
     # the Prometheus remote write topic & dashboard import topic ==> permalink: /user-guide/metrics/p8s-remote-write.html, currently in no-search directory

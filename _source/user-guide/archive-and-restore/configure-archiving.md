@@ -43,7 +43,7 @@ Each account (or sub-account) should have its own archive configuration.
 
 You may also be interested in the API methods included in [**Archive logs**](https://docs.logz.io/api/#tag/Archive-logs) and [**Connect to AWS S3 Buckets**](https://docs.logz.io/api/#tag/Connect-to-S3-Buckets).
 
-#### To set up archiving in AWS
+#### To set up Archive and restore in AWS
 
 
 <!--info-box-start:info -->
@@ -53,7 +53,7 @@ Archiving with AWS S3 is only available for accounts in the following AWS region
 
 **Before you begin, you'll need**:
 
-* An AWS S3 bucket with appropriate permissions. The recommended permissions are `PutObject`, `ListBucket`, and `GetObject`. [Learn more](/user-guide/archive-and-restore/set-s3-permissions.html)
+* An AWS S3 bucket with appropriate permissions. The recommended permissions are `PutObject`, `ListBucket`, and `GetObject`. [Learn how to set up your **S3 permissions**](/user-guide/archive-and-restore/set-s3-permissions.html).
 
 <div class="tasklist">
 
@@ -96,7 +96,7 @@ and selecting **Remove my S3 settings** in the confirmation box.
 
 </div>
 
-#### To set up archiving in Microsoft Azure
+#### To set up Archive and restore in Microsoft Azure
 
 <!--info-box-start:info -->
 Archiving with Microsoft Azure is only available for accounts in the following Azure regions: West Europe (Netherlands) and West US 2 (Washington) 

@@ -82,7 +82,7 @@ order: 1380
 10. Select **Logz.io** from the **Endpoint name** menu.
    ![6](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven6.png)
 11. Click **Enable**. The integration status will appear on the screen.
-   ![7](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven6.png)
+   ![7](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven7.png)
 
 
 ##### Check Logz.io for your logs

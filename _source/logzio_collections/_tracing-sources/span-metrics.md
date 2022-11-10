@@ -997,6 +997,17 @@ You can use the following options to update the Helm chart parameters:
 * Overide default values with your own `my_values.yaml` and apply it in the `helm install` command. 
  
 
+If required, you can add the following optional parameters as environment variables:
+  
+| Parameter | Description | 
+|---|---|
+| config.processors.spanmetrics.latency_histogram_buckets | Comma separated list of durations defining the latency histogram buckets. Default: `2ms`, `8ms`, `50ms`, `100ms`, `200ms`, `500ms`, `1s`, `5s`, `10s`   | 
+| config.processors.spanmetrics.dimensions | Each metric will have at least the following dimensions that are common across all spans: `Service name`, `Operation`, `Span kind`, `Status code`. The input is comma separated list of dimensions to add together with the default dimensions, for example: `region,http.url`. Each additional dimension is defined by a name from the span's collection of attributes or resource attributes. If the named attribute is missing in the span, this dimension will be omitted from the metric.   | 
+| config.processors.spanmetrics.dimensions_cache_size | The maximum items number of `metric_key_to_dimensions_cache`. Default: `10000`. | 
+| config.processors.spanmetrics.aggregation_temporality | Defines the aggregation temporality of the generated metrics. One of either `cumulative` or `delta`. Default: `cumulative`. |
+| secrets.SamplingLatency | Threshold for the spand latency - all traces slower than the threshold value will be filtered in. Default 500. | 
+| secrets.SamplingProbability | Sampling percentage for the probabilistic policy. Default 10. | 
+
 ###### Example
 
 You can run the logzio-k8s-telemetry chart with your custom configuration file that takes precedence over the `values.yaml` of the chart.
@@ -1069,18 +1080,6 @@ Replace `<PATH-TO>` with the path to your custom `values.yaml` file.
 
 
 
-###### Optional parameters
-
-If required, you can add the following optional parameters as environment variables:
-  
-| Parameter | Description | 
-|---|---|
-| config.processors.spanmetrics.latency_histogram_buckets | Comma separated list of durations defining the latency histogram buckets. Default: `2ms`, `8ms`, `50ms`, `100ms`, `200ms`, `500ms`, `1s`, `5s`, `10s`   | 
-| config.processors.spanmetrics.dimensions | Each metric will have at least the following dimensions that are common across all spans: `Service name`, `Operation`, `Span kind`, `Status code`. The input is comma separated list of dimensions to add together with the default dimensions, for example: `region,http.url`. Each additional dimension is defined by a name from the span's collection of attributes or resource attributes. If the named attribute is missing in the span, this dimension will be omitted from the metric.   | 
-| config.processors.spanmetrics.dimensions_cache_size | The maximum items number of `metric_key_to_dimensions_cache`. Default: `10000`. | 
-| config.processors.spanmetrics.aggregation_temporality | Defines the aggregation temporality of the generated metrics. One of either `cumulative` or `delta`. Default: `cumulative`. |
-| secrets.SamplingLatency | Threshold for the spand latency - all traces slower than the threshold value will be filtered in. Default 500. | 
-| secrets.SamplingProbability | Sampling percentage for the probabilistic policy. Default 10. | 
 
 #### Uninstalling the Chart
 

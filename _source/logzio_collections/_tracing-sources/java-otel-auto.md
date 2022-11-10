@@ -314,6 +314,12 @@ You can use the following options to update the Helm chart parameters:
 
 * Overide default values with your own `my_values.yaml` and apply it in the `helm install` command. 
 
+If required, you can add the following optional parameters as environment variables:
+  
+| Parameter | Description | 
+|---|---|
+| secrets.SamplingLatency | Threshold for the spand latency - all traces slower than the threshold value will be filtered in. Default 500. | 
+| secrets.SamplingProbability | Sampling percentage for the probabilistic policy. Default 10. | 
 ###### Example
 
 You can run the logzio-k8s-telemetry chart with your custom configuration file that takes precedence over the `values.yaml` of the chart.
@@ -381,14 +387,7 @@ Replace `<PATH-TO>` with the path to your custom `values.yaml` file.
 {% include /tracing-shipping/replace-tracing-token.html %}
 
 
-###### Optional parameters
 
-If required, you can add the following optional parameters as environment variables:
-  
-| Parameter | Description | 
-|---|---|
-| secrets.SamplingLatency | Threshold for the spand latency - all traces slower than the threshold value will be filtered in. Default 500. | 
-| secrets.SamplingProbability | Sampling percentage for the probabilistic policy. Default 10. | 
 
 #### Uninstalling the Chart
 

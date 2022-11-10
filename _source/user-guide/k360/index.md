@@ -30,7 +30,34 @@ If you want to send your data [manually](https://app.logz.io/#/dashboard/send-yo
 
 And send the following metrics:
 
-* Pending list from Dima.
+|**Metric name**||**Labels**|
+|*||p8s_logzio_name|
+|kube_pod_status_phase||pod, uid, node, host_ip, phase, namespace|
+|kube_pod_info||pod,namespace,p8s_logzio_name,region|
+|container_cpu_usage_seconds_total||pod, region, topology_kubernetes_io_region, container|
+|container_memory_working_set_bytes||pod, container, resource|
+|kube_pod_container_resource_limits||pod|
+|kube_pod_container_info||pod|
+|container_network_transmit_bytes_total||pod|
+|container_network_receive_bytes_total||pod|
+|kube_pod_created||pod|
+|kube_pod_owner||pod, owner_kind, owner_name|
+|kube_pod_container_status_restarts_total||pod|
+|kube_pod_status_reason||pod, reason|
+|||
+|node_cpu_seconds_total||instance, mode|
+|node_memory_MemAvailable_bytes||instance|
+|node_memory_MemTotal_bytes||instance|
+|kube_node_role||node,role|
+|kube_node_status_condition||node, status, condition|
+|kube_node_created||node|
+|node_filesystem_avail_bytes||instance|
+|node_filesystem_size_bytes||instance|
+|kube_node_status_allocatable||resource, resource|
+|||
+|kube_replicaset_owner||owner_kind, owner_name,replicaset|
+|kube_deployment_created||deployment|
+|kube_deployment_status_condition||deployment,status|
 
 Once everything is up and running, you can view your data on the Kubernetes 360 dashboard.
 

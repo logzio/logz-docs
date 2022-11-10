@@ -60,7 +60,7 @@ You can also use the **Group by** option to bundle up to 6 fields together. This
 ##### Choose aggregations
 {:.no_toc}
 
-Next, choose how you would like to aggregate your data; by log count, fields, or both. Once you select your aggregation, you can preview how these aggregations will appear in your dashboard.
+Next, choose how you would like to aggregate your data; by log count, fields, or both. <!--Once you select your aggregation, you can preview how these aggregations will appear in your dashboard.-->
 
 ##### Add a description (optional)
 {:.no_toc}

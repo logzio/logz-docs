@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Configure archiving
+title: Configure archiving and restoring
 permalink: /user-guide/archive-and-restore/configure-archiving.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Configuring long term log storage to an Amazon S3 bucket or a Microsoft Azure Storage container
@@ -43,7 +43,7 @@ Each account (or sub-account) should have its own archive configuration.
 
 You may also be interested in the API methods included in [**Archive logs**](https://docs.logz.io/api/#tag/Archive-logs) and [**Connect to AWS S3 Buckets**](https://docs.logz.io/api/#tag/Connect-to-S3-Buckets).
 
-#### To set up archiving in AWS
+#### To set up Archive and restore in AWS
 
 
 <!--info-box-start:info -->
@@ -53,7 +53,7 @@ Archiving with AWS S3 is only available for accounts in the following AWS region
 
 **Before you begin, you'll need**:
 
-* An AWS S3 bucket with appropriate permissions. The recommended permissions are `PutObject`, `ListBucket`, and `GetObject`. [Learn more](/user-guide/archive-and-restore/set-s3-permissions.html)
+* An AWS S3 bucket with appropriate permissions. The recommended permissions are `PutObject`, `ListBucket`, and `GetObject`. [Learn how to set up your **S3 permissions**](/user-guide/archive-and-restore/set-s3-permissions.html).
 
 <div class="tasklist">
 
@@ -96,7 +96,7 @@ and selecting **Remove my S3 settings** in the confirmation box.
 
 </div>
 
-#### To set up archiving in Microsoft Azure
+#### To set up Archive and restore in Microsoft Azure
 
 <!--info-box-start:info -->
 Archiving with Microsoft Azure is only available for accounts in the following Azure regions: West Europe (Netherlands) and West US 2 (Washington) 
@@ -122,4 +122,15 @@ From now on, Logz.io will archive your logs as they come in.
 You can stop archiving at any time.
 
 </div>
+
+
+#### Restore archived logs
+
+
+Restoring your archived logs will re-ingest them into a temporary account. You can search and navigate the restored account directly from your Logs account.
+
+Restoring archived logs lets you view data in its original detail, allowing you to investigate events that are older than your plan's retention period.
+
+[Learn more about how to manage your restored accounts.](https://docs.logz.io/user-guide/archive-and-restore/restore-archived-logs.html)
+
 

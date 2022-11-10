@@ -492,7 +492,7 @@ firstLevel:
     thirdLevel:
       - title: Archive & Restore
         url: /user-guide/archive-and-restore/
-      - title: Configure archiving
+      - title: Configure archiving and restoring
         url: /user-guide/archive-and-restore/configure-archiving.html
       - title: Restore archived logs
         url: /user-guide/archive-and-restore/restore-archived-logs.html

@@ -28,14 +28,9 @@ order: 1380
 2. Select the project that you need to send logs from.
 3. Navigate to **Integration Endpoints**.
 4. Select **Syslog** and click **Create new**.
-
    ![1](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven1.png)
-
 5. Fill out the parameters as follows:
-
    ![2](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven2.png)
-
-
    * Endpoint name: Logz.io 
    * Server: The Logz.io listener URL: `https://<<LISTENER-HOST>>:8071` {% include log-shipping/listener-var.html %} 
    * Port: 5001 
@@ -79,23 +74,14 @@ order: 1380
 
 6. Click **Create**.
 7. Navigate to **Services** and select the service that you need to send logs from.
-
    ![3](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven3.png)
-
 8. Select **Set up integration**.
-
    ![4](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven4.png)
-
 9. Scroll down to **Rsyslog** and select **Use integration**.
-
    ![5](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven5.png)
-
 10. Select **Logz.io** from the **Endpoint name** menu.
-
    ![6](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven6.png)
-
-10. Click **Enable**. The integration status will appear on the screen.
-
+11. Click **Enable**. The integration status will appear on the screen.
    ![7](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven6.png)
 
 

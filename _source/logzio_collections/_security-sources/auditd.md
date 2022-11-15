@@ -62,7 +62,7 @@ Go back to the Auditbeat directory:
   cd /etc/auditbeat
   ```
 
-Wipe the file auditbeat.yml clean. In other words, delete its contents.
+Wipe the file auditbeat.yml clean. In other words, delete its content.
 
   ```shell
   su

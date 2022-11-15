@@ -101,7 +101,7 @@ Test `PutObject` permissions by moving your dummy file to the bucket:
 aws s3 mv DELETE-logzio-test.txt s3://<BUCKET-NAME>/
 ```
 
-Test `ListBucket` permissions by listing the bucket contents:
+Test `ListBucket` permissions by listing the bucket content:
 
 ```shell
 aws s3 ls s3://<BUCKET-NAME>/

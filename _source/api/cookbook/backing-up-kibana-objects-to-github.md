@@ -90,7 +90,7 @@ The `-o` flag in the request tells cURL to output the response to a file (in thi
 Because of this, you won't see a response in the command line.
 
 To check that the request worked, run `ls`.
-The contents of the folder should match this:
+The content of the folder should match this:
 
 ```
 kibana-backup/
@@ -98,7 +98,7 @@ kibana-backup/
   └╴kibana-search.json
 ```
 
-You can also check the contents of kibana-search.json.
+You can also check the content of kibana-search.json.
 If you have no saved searches in the account, you should see something like this:
 
 ```json
@@ -185,7 +185,7 @@ The visualizations are stored as objects in the `hits` array, like this:
 ```
 
 To check that the request worked, run `ls`.
-The contents of the folder should match this:
+The content of the folder should match this:
 
 ```
 kibana-backup/
@@ -241,7 +241,7 @@ The dashboards are stored as objects in the `hits` array, like this:
 ```
 
 To check that the request worked, run `ls`.
-The contents of the folder should match this:
+The content of the folder should match this:
 
 ```
 kibana-backup/

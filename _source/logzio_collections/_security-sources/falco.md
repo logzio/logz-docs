@@ -53,7 +53,7 @@ Copy the following directly below it:
 ###### Rule: Netcat Remote Code Execution in Container
 
 In the configuration file, find the line that begins `- rule: Netcat Remote Code Execution in Container`.
-Replace the entire contents of the rule with the following:
+Replace the entire content of the rule with the following:
 
 ```
 - rule: Netcat Remote Code Execution in Container
@@ -75,7 +75,7 @@ Replace the entire contents of the rule with the following:
 ###### Rule: Delete or rename shell history
 
 In the configuration file, find the line that begins `- rule: Delete or rename shell history`.
-Replace the entire contents of the rule with the following:
+Replace the entire content of the rule with the following:
 
 ```
 - rule: Delete or rename shell history
@@ -110,7 +110,7 @@ Replace the entire contents of the rule with the following:
 
 
 In the configuration file, find the line that begins `- rule: Delete Bash History`.
-Replace the entire contents of the rule with the following:
+Replace the entire content of the rule with the following:
 
 ```
 - rule: Delete Bash History
@@ -135,7 +135,7 @@ Replace the entire contents of the rule with the following:
 
 
 In the configuration file, find the line that begins `- rule: Clear Log Activities`.
-Replace the entire contents of the rule with the following:
+Replace the entire content of the rule with the following:
 
 ```
 - rule: Clear Log Activities
@@ -192,7 +192,7 @@ Save and exit the falco.yaml file.
 
 ##### Configure Filebeat
 
-Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor. Copy and paste the code block below, overwriting the previous contents. (You want to replace the file's contents with this code block.)
+Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor. Copy and paste the code block below, overwriting the previous content. (You want to replace the file's content with this code block.)
 
 This code block adds Falco as an input and sets Logz.io as the output.
 

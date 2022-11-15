@@ -488,7 +488,7 @@ This integration only works with a contrib image.
 
 ##### Create a configuration file
 
-Create a file `config.yaml` with the following contents:
+Create a file `config.yaml` with the following content:
 
 ```yaml
 receivers:

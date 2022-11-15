@@ -35,7 +35,7 @@ on your machine.
 
 ##### Configure Windows applications as an input
 
-If you're working with the default configuration file, clear the contents and start with a fresh file. (The location may be `C:\ProgramData\Elastic\Beats\winlogbeat\winlogbeat.yml` or `C:\Program Files\Winlogbeat\winlogbeat.yml`, depending on where you installed it.)
+If you're working with the default configuration file, clear the content and start with a fresh file. (The location may be `C:\ProgramData\Elastic\Beats\winlogbeat\winlogbeat.yml` or `C:\Program Files\Winlogbeat\winlogbeat.yml`, depending on where you installed it.)
 
 
 Paste this code block:

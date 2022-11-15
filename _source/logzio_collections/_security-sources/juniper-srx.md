@@ -47,7 +47,7 @@ See [Juniper SRX docs](https://kb.juniper.net/InfoCenter/index?page=content&id=K
 ##### Configure Filebeat
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
-Copy and paste the code block below, overwriting the previous contents. (You want to replace the file's contents with this code block.)
+Copy and paste the code block below, overwriting the previous content. (You want to replace the file's content with this code block.)
 
 This code block adds Juniper SRX as an input sent over UDP traffic.
 

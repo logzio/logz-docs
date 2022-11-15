@@ -39,7 +39,7 @@ order: 1380
    * Source Address - Any
    * IP Protocol - IPV4
    * Remote log servers - `<<ADDRESS-OF-YOUR-FILEBEAT-SERVER>>`:514. This is the address of your dedicated server running Filebeat.
-   * Remote Syslog Contents - Everything
+   * Remote Syslog Content - Everything
 ![Remote logging](https://dytvr9ot2sszz.cloudfront.net/logz-docs/pfsense/Pfsense_Remote_Logging_Config.png)
 
   

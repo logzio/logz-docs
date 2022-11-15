@@ -6,7 +6,7 @@ docker pull otel/opentelemetry-collector-contrib:0.60.0
 
 ##### Create a configuration file
 
-Create a file `config.yaml` with the following contents:
+Create a file `config.yaml` with the following content:
 
 ```yaml
 receivers:

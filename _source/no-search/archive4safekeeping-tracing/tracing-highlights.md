@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Distributed Tracing table of contents
+title: Distributed Tracing table of content
 permalink: /user-guide/distributed-tracing/tracing-highlights
 flags:
   logzio-plan: community

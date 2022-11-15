@@ -33,7 +33,7 @@ on your machine.
 
 If you're working with the default configuration file,
 (`C:\Program Files\Winlogbeat\winlogbeat.yml`)
-clear the contents and start with a fresh file.
+clear the content and start with a fresh file.
 
 Paste this code block.
 

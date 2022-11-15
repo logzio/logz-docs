@@ -43,7 +43,7 @@ sudo openssl req -newkey rsa:2048 -nodes \
 ##### Configure Filebeat
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
-Copy and paste the code block below, overwriting the previous contents.
+Copy and paste the code block below, overwriting the previous content.
 
 {% include log-shipping/filebeat-input-extension.md %}
 

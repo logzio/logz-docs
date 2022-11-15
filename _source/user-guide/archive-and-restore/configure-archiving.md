@@ -98,10 +98,6 @@ and selecting **Remove my S3 settings** in the confirmation box.
 
 #### To set up Archive and restore in Microsoft Azure
 
-<!--info-box-start:info -->
-Archiving with Microsoft Azure is only available for accounts in the following Azure regions: West Europe (Netherlands) and West US 2 (Washington) 
-{:.info-box.note}
-<!--info-box-end -->
 
 **Before you begin, you'll need**:
 

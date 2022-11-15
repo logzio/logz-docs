@@ -48,7 +48,7 @@ Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your pref
 {% include log-shipping/filebeat-input-extension.md %}
 
 
-Copy and paste the code block below, overwriting the previous contents, to replace the general configuration with the following settings:
+Copy and paste the code block below, overwriting the previous , to replace the general configuration with the following settings:
 
 ```yaml
 # ...

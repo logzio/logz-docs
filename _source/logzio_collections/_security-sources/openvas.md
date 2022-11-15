@@ -33,7 +33,7 @@ Once you start sending OpenVAS reports to your Cloud SIEM, you'll be able to rev
 ##### Configure Filebeat
 
 Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor.
-Copy and paste the code block below, overwriting the previous contents. (You want to replace the file's contents with this code block.)
+Copy and paste the code block below, overwriting the previous content. (You want to replace the file's content with this code block.)
 
 This code block adds OpenVAS as an input and sets Logz.io as the output.
 

@@ -42,7 +42,7 @@ on configuring your SonicWall firewall.
 
 ##### Configure Filebeat
 
-Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor. Copy and paste the code block below, overwriting the previous contents.
+Open the Filebeat configuration file (/etc/filebeat/filebeat.yml) with your preferred text editor. Copy and paste the code block below, overwriting the previous content.
 
 {% include log-shipping/filebeat-input-extension.md %}
 

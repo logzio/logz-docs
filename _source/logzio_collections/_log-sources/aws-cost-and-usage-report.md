@@ -204,7 +204,7 @@ If you are editing an existing stack:
 1. Select the stack.
 2. Select **Update**.
 3. Select **Edit template in designer**.
-4. Paste the contents of the yaml file into the **Resources** section of the template as follows:
+4. Paste the content of the yaml file into the **Resources** section of the template as follows:
 
    ```yaml
    "MyModule": {

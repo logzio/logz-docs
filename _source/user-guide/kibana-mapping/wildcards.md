@@ -33,7 +33,7 @@ For example, you can run a free text search for `string` but not for `*string`. 
 
 ##### Change the field mapping to an **analyzed field**
 
-If you want to search by partial field contents, you have the option to change the field mapping to **analyzed text**.
+If you want to search by partial field content, you have the option to change the field mapping to **analyzed text**.
 
 Analyzed fields support filtering for a value that contains a certain string and can replace the need for leading wildcards.
 

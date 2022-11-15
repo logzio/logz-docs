@@ -61,7 +61,7 @@ gem install fluentd fluent-plugin-logzio
 
 ##### Set up td-agent.conf
 
-Open C:/opt/td-agent/etc/td-agent/td-agent.conf and replace its contents with the following configuration:
+Open C:/opt/td-agent/etc/td-agent/td-agent.conf and replace its content with the following configuration:
 
 ```xml
 <source>

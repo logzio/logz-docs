@@ -70,7 +70,7 @@ Logz.io tracks the recurrence of each exception over time, and retains its **Fir
 ![Expand an exception for more details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/exception-overview.png)
 
 |---|---|
-|Exception| Concise title auto-detected by Logz.io based on the contents of the logs |
+|Exception| Concise title auto-detected by Logz.io based on the content of the logs |
 |Tag| Descriptive tags auto-detected by Logz.io that describe the exception type |
 |Log types| A list of all the log types found to be affected by the exception |
 |# of occurrences| The number of times logs associated with this exception were spotted in the given time frame |

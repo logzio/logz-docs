@@ -69,16 +69,46 @@ There are a few things you need to check before you begin the process.
     It's best to restore data for the smallest time frame, to ensure that the volume of data to be restored will not approach the max limit.
     {:.info-box.important} -->
 
-##### Filters and Power search (optional)
-
-The Power search feature is in Beta. Please contact the [Logz.io Support team](mailto:help@logz.io) or your account manager to request early access.
-{:.info-box.note}
+##### Filters and Power search (optional) 
 
 
 You can control and limit which data you'd like to restore by applying **filters**, using **Power search**, or both. Your restored logs will only include data that matches all of your filters and your exact search term.
 
 Power search speeds the restore process dramatically by uploading and re-indexing only relevant data from your S3 archive, using general search strings.
 In addition, the filters allow more granular filtering on structured data per field and can further reduce the amount of restored data (that counts against the daily quota). Filters are applied after the Power search results are uploaded to the ingestion pipeline, and you can use both to optimize your restored data.
+
+###### Add Power search
+
+<!-- info-box-start:info -->
+For a limited time we have removed the [additional charge](https://logz.io/pricing/) for the Power search. You can now get the benefits of this feature without worrying about any additional costs!
+{:.info-box.note}
+<!-- info-box-end -->
+
+Power search lets you apply a text search directly on your archived data before restoring it, dramatically cutting down the time to restore. In addition, Power search allows you to focus on restoring only critical and insightful data. It uses scanned data and searches the string inside of that data.
+
+### Before using Power search:
+
+
+* Power search requires [additional permissions](/user-guide/archive-and-restore/set-s3-permissions.html#add-power-search-permissions) to run.
+* Make sure your restore time range is **at most 24 hours**. Otherwise, you won't be able to run the Power search.
+* Your archived data time zone is UTC, which might be different than your browser's time zone. Take that into consideration when choosing your restore duration.
+
+
+To use Power search, enter a text string you'd like to find in your archived logs. The search is **case sensitive** and supports  `“`, `AND`, `OR`, and `()` operators, but you can’t use nested brackets `(())`. 
+
+
+For example, you can run any of the following searches:
+
+* `("blue sky" OR clouds) AND rain OR "thunder storms"`
+* `"ATLAS" AND "Error"`
+* `"bucketName" AND ("Error" OR "Warning")`
+
+
+![Delete filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/Restore-settings.png)
+
+To continue, click on the **Proceed** button. You'll see a summary of your restore settings and be asked to approve them to continue the process.
+
+
 
 ###### Add a filter
 
@@ -101,38 +131,6 @@ If you want to remove one of the filters you've created, click on the **X** next
 
 ![Delete filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/delete-filter.png)
 
-###### Add Power search
-
-
-Power search lets you apply a text search directly on your archived data before restoring it, dramatically cutting down the time to restore. In addition, Power search allows you to focus on restoring only critical and insightful data. It uses scanned data and searches the string inside of that data.
-
-### Before using Power search:
-
-
-* Power search requires [additional permissions](/user-guide/archive-and-restore/set-s3-permissions.html#add-power-search-permissions) to run.
-* Make sure your restore time range is **at most 24 hours**. Otherwise, you won't be able to run the Power search.
-* Your archived data time zone is UTC, which might be different than your browser's time zone. Take that into consideration when choosing your restore duration.
-* Power search has an [additional charge](https://logz.io/pricing/) based on your current plan. You'll be able to review the charge before restoring your account.
-
-
-To use Power search, enter a text string you'd like to find in your archived logs. The search is **case sensitive** and supports  `“`, `AND`, `OR`, and `()` operators, but you can’t use nested brackets `(())`. 
-
-
-For example, you can run any of the following searches:
-
-* `("blue sky" OR clouds) AND rain OR "thunder storms"`
-* `"ATLAS" AND "Error"`
-* `"bucketName" AND ("Error" OR "Warning")`
-
-Next, click on the **Estimate scan cost**. This button also gives an estimation of how much this search will cost. **You can only proceed by getting the estimated scan cost**. The estimated price will appear at the top right corner of the section.
-
-![Delete filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/restore-estimate.png)
-
-To continue, click on the **Proceed** button. You'll see a summary of your restore settings and be asked to approve them to continue the process.
-
-If you do not wish to use the Power search query, toggle the activation button off.
-
-![Delete filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/toggle-on-off.gif)
 
 
 

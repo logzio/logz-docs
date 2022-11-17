@@ -69,6 +69,7 @@ There are a few things you need to check before you begin the process.
     It's best to restore data for the smallest time frame, to ensure that the volume of data to be restored will not approach the max limit.
     {:.info-box.important} -->
 
+
 ##### Power search and Filters 
 
 
@@ -83,6 +84,7 @@ If you want to achieve maximum accuracy in retrieving the right logs from cold s
 Power search applies a general text search to your archive and looks for any occurrence of your search string. If know the exact fields where your data is located, you can apply filters to your parsed and structured data whilst focusing on specific fields. This will further reduce the amount of logs that you need to restore.
 
 Please note that only Power search actually speeds up the restore time. Filters are there to help you reduce the actual restored volume and deliver the most accurate results that match your search criteria.
+
 
 ###### Add Power search
 

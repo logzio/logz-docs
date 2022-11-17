@@ -67,6 +67,23 @@ That’s it! It might take a while for the Telemetry Collector to get up and run
 
 </div>
 
+#### Manage and remove a Telemetry Collector:
+
+
+To manage a Localhost Telemetry Collector on your **Windows** machine, you can use the following commands:
+
+| **Logz.io Helm:** | `C:\Users\<<USERNAME>>\AppData\Roaming\LogzioAgent\LogzioKubernetes\logzio_helm.txt` |
+| **Logz.io Agent Logs:** | `C:\Users\<<USERNAME>>\AppData\Roaming\LogzioAgent\logzio_agent.log` |
+| **Install Logz.io Helm::** | `Invoke-Expression -Command (Get-Content -Path C:\Users\<<USERNAME>>\AppData\Roaming\LogzioAgent\LogzioKubernetes\logzio_helm.txt)` |
+| **Uninstall Logz.io Helm:** | `helm uninstall -n monitoring logzio-monitoring` |
+| **Show Helm Status:** | `helm status -n monitoring logzio-monitoring` |
+| **Get Pods:** | `kubectl get pods -n monitoring` |
+| **Show Pod's Logs:** | `kubectl logs <<POD_NAME>> -n monitoring` |
+| **Show Pod's Info:** | `kubectl describe pod <<POD_NAME>> -n monitoring` |
+
+
+Replace `<<USERNAME>>` with your Windows user name and `<<POD_NAME>>` with the pod name. If you have additional questions about managing your Telemetry Collector, [contact Logz.io's Support team](mailto:help@logz.io).
+
 #### How to remove a Telemetry Collector:
 
 You can uninstall your Telemetry Collector from **Kubernetes** by running the following snippet in the same platform you've used to install it:

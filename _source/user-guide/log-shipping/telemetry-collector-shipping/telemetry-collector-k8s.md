@@ -70,7 +70,7 @@ That’s it! It might take a while for the Telemetry Collector to get up and run
 #### Manage and remove a Telemetry Collector:
 
 
-To manage a Localhost Telemetry Collector on your **Windows** machine, you can use the following commands:
+To manage a Telemetry Collector in your **Windows** Kubernetes environment, you can use the following commands:
 
 | **Logz.io Helm:** | `C:\Users\<<USERNAME>>\AppData\Roaming\LogzioAgent\LogzioKubernetes\logzio_helm.txt` |
 | **Logz.io Agent Logs:** | `C:\Users\<<USERNAME>>\AppData\Roaming\LogzioAgent\logzio_agent.log` |

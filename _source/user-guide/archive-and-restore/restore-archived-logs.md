@@ -145,6 +145,8 @@ If you want to remove one of the filters you've created, click on the **X** next
 
 To continue, click on the **Proceed** button. You'll see a summary of your restore settings and be asked to approve them to continue the process.
 
+Once approved, the restore process will start and you can check the progress in the **Restored accounts** tab.
+
 You can view your logs before the restore process is complete, by clicking on the **View logs** option next to the relevant restored account.
 
 ![View logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/restore-new-screen.png)

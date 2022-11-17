@@ -81,15 +81,17 @@ To manage a Localhost Telemetry Collector on your **Mac** or **Linux** machine, 
 
 To manage a Localhost Telemetry Collector on your **Windows** machine, you can use the following commands:
 
-| **Collector Binary:** | `C:\Users\LEKO\AppData\Roaming\LogzioOTELCollector\otelcol-logzio-windows_amd64.exe` |
-| **Collector Config:** | `C:\Users\LEKO\AppData\Roaming\LogzioOTELCollector\otel_config.yaml` |
+| **Collector Binary:** | `C:\Users\<<USERNAME>>\AppData\Roaming\LogzioAgent\LogzioOTELCollector\otelcol-logzio-windows_amd64.exe` |
+| **Collector Config:** | `C:\Users\<<USERNAME>>\AppData\Roaming\LogzioAgent\LogzioOTELCollector\otel_config.yaml` |
+| **Logz.io Agent Logs:** | `C:\Users\<<USERNAME>>\AppData\Roaming\LogzioAgent\logzio_agent.log` |
 | **Start Service Command:** | `Start-Service -Name LogzioOTELCollector` |
 | **Stop Service Command:** | `Stop-Service -Name LogzioOTELCollector` |
+| **Delete Service Command** | `sc.exe DELETE LogzioOTELCollector` (stop the service before deleting it) |
 | **Show Service Command:** | `Get-Service -Name LogzioOTELCollector` |
 | **Show Logs Command:** | `eventvwr.msc ('Windows Logs'->'Application' all logs with source 'LogzioOTELCollector')` |
-| **Kill Service Command** | `sc.exe DELETE LogzioOTELCollector` |
 
-If you have additional questions about managing your Telemetry Collector, [contact Logz.io's Support team](mailto:help@logz.io).
+
+Replace `<<USERNAME>>` with your Windows user name. If you have additional questions about managing your Telemetry Collector, [contact Logz.io's Support team](mailto:help@logz.io).
 
 
 ##### Additional resources

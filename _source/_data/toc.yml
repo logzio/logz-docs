@@ -21,8 +21,6 @@ firstLevel:
       url: /user-guide/kibana/
     - title: OpenSearch Dashboards best practices
       url: /user-guide/kibana/best-practices.html
-    - title: Exceptions
-      url: /user-guide/insights/exceptions/
     - title: Deployment markers
       url: /user-guide/kibana/exceptions-deployments
     - title: Patterns
@@ -83,6 +81,8 @@ firstLevel:
     thirdLevel:
     - title: Insights
       url: /user-guide/insights/
+    - title: Exceptions
+      url: /user-guide/insights/exceptions.html
     - title: Exploring insights
       url: /user-guide/insights/exploring-insights.html
     - title: Markers

@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Exceptions
-permalink: /user-guide/insights/exceptions/
+permalink: /user-guide/insights/exceptions.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Insight Engine and Exceptions in Logz.io
 flags:

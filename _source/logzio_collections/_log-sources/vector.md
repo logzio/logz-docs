@@ -46,7 +46,7 @@ Find the complete configuration docs at [http sink](https://vector.dev/docs/refe
   # REQUIRED - General
   type = "http" # Don't change this setting
   inputs = ["YOUR_SOURCE_ID"]
-  encoding = "json" # enum: "json" or "text"
+  encoding.codec = "json" # enum: "json" or "text"
 
   # More information on uri below this code block
   uri = "https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=vector"
@@ -62,8 +62,14 @@ Find the complete configuration docs at [http sink](https://vector.dev/docs/refe
   [sinks.logzio.buffer]
     type = "disk" # default, enum: "memory" or "disk"
     when_full = "block" # default, enum: "block" or "drop_newest"
-    max_size = 104900000 # no default, bytes(104.9mb), relevant when type = "disk"
+    max_size = 268435488 # no default, bytes(104.9mb), relevant when type = "disk"
 ```
+
+<!-- info-box-start:info -->
+If you get a 400 error when using `json` encoding, try use port 8081 instead of 8071. 
+{:.info-box.note}
+<!-- info-box-end -->
+
 
 ###### Parameters
 

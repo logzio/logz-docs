@@ -835,8 +835,6 @@ service:
 
 
 ##### Run the container
-  
-##### Run the container
 
 Mount the `config.yaml` as volume to the `docker run` command and run it as follows.
 

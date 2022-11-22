@@ -35,7 +35,7 @@ Go 1.x or higher
 
 Run the following command:
 
-`go get -u github.com/logzio/go-metrics-sdk`
+`go get github.com/logzio/go-metrics-sdk`
 
 ##### Configure the exporter
 
@@ -44,6 +44,8 @@ Add the exporter definition to your application code:
 ```go
 import (
     metricsExporter "github.com/logzio/go-metrics-sdk"
+    controller "go.opentelemetry.io/otel/sdk/metric/controller/basic"
+    semconv "go.opentelemetry.io/otel/semconv/v1.7.0"
     // ...
 )
 

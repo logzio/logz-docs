@@ -6321,6 +6321,64 @@ paths:
           type: string
           description: GUID of the lookup list.
           example: 7c985e09-3db6-5dc6-ae33-58403493e13f
+        - name: searchQuery
+          in: body
+          type: object
+          properties: 
+            query: 
+              type: string
+            filters: 
+              type: object
+              properties: 
+                bool: 
+                  type: object
+                  properties: 
+                    must: 
+                      type: array
+                      items: 
+                        type: object
+                        properties:  
+                    must_not: 
+                      type: array
+                      items: 
+                        type: object
+                        properties:  
+            groupBy: 
+              type: array
+              items: 
+                type: object
+                properties: 
+                  additionalProp1: 
+                    type: string
+                  additionalProp2: 
+                    type: string
+                  additionalProp3: 
+                    type: string
+            shouldQueryOnAllAccounts: 
+              type: boolean
+            accountIdsToQueryOn: 
+              type: array
+              items: 
+                type: integer
+                format: int32
+        - name: resultsFieldToPickFrom
+          in: body
+          type: string
+          minLength: 0
+          maxLength: 40
+          description: For future use - don’t use this field. Name of the fields in the query results from which you need to select values for the dynamic lookup list.
+        - name: timeframeToRunQueryOn
+          in: body
+          type: integer
+          description: For future use - don’t use this field. Time interval in seconds for running the query backwards starting from the present moment. The default value is `3600`, which is the past hour.
+        - name: updateInterval
+          in: body
+          type: string
+          minLength: 0
+          maxLength: 20
+          description: For future use - don’t use this field. Cron expression that represents the time between two consecutive updates of the dynamic lookup list. The default value is each day at 00:12 am, indicated as '0 12 0 * * ?'.
+
+
       responses:
         '200':
           description: successful operation
@@ -6368,6 +6426,66 @@ paths:
           type: string
           description: GUID of the lookup list.
           example: 7c985e09-3db6-5dc6-ae33-58403493e13f
+        - name: searchQuery
+          in: body
+          type: object
+          description: For future use - don’t use this field. Query that gets the values of the dynamic lookup lists. See `subComponents/queryDefinition` in [Alerts/createAlert](https://docs.logz.io/api/#operation/createAlert) for more details.
+          properties: 
+            query: 
+              type: string
+            filters: 
+              type: object
+              properties: 
+                bool: 
+                  type: object
+                  properties: 
+                    must: 
+                      type: array
+                      items: 
+                        type: object
+                        properties:  
+                    must_not: 
+                      type: array
+                      items: 
+                        type: object
+                        properties:  
+            groupBy: 
+              type: array
+              items: 
+                type: object
+                properties: 
+                  additionalProp1: 
+                    type: string
+                  additionalProp2: 
+                    type: string
+                  additionalProp3: 
+                    type: string
+            shouldQueryOnAllAccounts: 
+              type: boolean
+            accountIdsToQueryOn: 
+              type: array
+              items: 
+                type: integer
+                format: int32
+
+
+        - name: resultsFieldToPickFrom
+          in: body
+          type: string
+          minLength: 0
+          maxLength: 40
+          description: For future use - don’t use this field. Name of the fields in the query results from which you need to select values for the dynamic lookup list.
+        - name: timeframeToRunQueryOn
+          in: body
+          type: integer
+          description: For future use - don’t use this field. Time interval in seconds for running the query backwards starting from the present moment. The default value is `3600`, which is the past hour.
+        - name: updateInterval
+          in: body
+          type: string
+          minLength: 0
+          maxLength: 20
+          description: For future use - don’t use this field. Cron expression that represents the time between two consecutive updates of the dynamic lookup list. The default value is each day at 00:12 am, indicated as '0 12 0 * * ?'.
+
       responses:
         '200':
           description: successful operation
@@ -6634,6 +6752,60 @@ definitions:
         minLength: 0
         maxLength: 400
         description: Description of the lookup list.
+      searchQuery:
+        type: object
+        description: For future use - don’t use this field. Query that gets the values of the dynamic lookup lists. See `subComponents/queryDefinition` in [Alerts/createAlert](https://docs.logz.io/api/#operation/createAlert) for more details.
+        properties: 
+            query: 
+              type: string
+            filters: 
+              type: object
+              properties: 
+                bool: 
+                  type: object
+                  properties: 
+                    must: 
+                      type: array
+                      items: 
+                        type: object
+                        properties:  
+                    must_not: 
+                      type: array
+                      items: 
+                        type: object
+                        properties:  
+            groupBy: 
+              type: array
+              items: 
+                type: object
+                properties: 
+                  additionalProp1: 
+                    type: string
+                  additionalProp2: 
+                    type: string
+                  additionalProp3: 
+                    type: string
+            shouldQueryOnAllAccounts: 
+              type: boolean
+            accountIdsToQueryOn: 
+              type: array
+              items: 
+                type: integer
+                format: int32
+      resultsFieldToPickFrom:
+        type: string
+        minLength: 0
+        maxLength: 40
+        description: For future use - don’t use this field. Name of the fields in the query results from which you need to select values for the dynamic lookup list.
+      timeframeToRunQueryOn:
+        type: integer
+        description: For future use - don’t use this field. Time interval in seconds for running the query backwards starting from the present moment. The default value is `3600`, which is the past hour.
+      updateInterval:
+        type: string
+        minLength: 0
+        maxLength: 20
+        description: For future use - don’t use this field. Cron expression that represents the time between two consecutive updates of the dynamic lookup list. The default value is each day at 00:12 am, indicated as '0 12 0 * * ?'.
+
   LookupListCreateRequest:
     type: object
     properties:
@@ -6648,6 +6820,60 @@ definitions:
         minLength: 0
         maxLength: 400
         description: A place to add a free text description of the lookup list's purpose, uses and dependencies.
+      searchQuery:
+        type: object
+        description: For future use - don’t use this field. Query that gets the values of the dynamic lookup lists. See `subComponents/queryDefinition` in [Alerts/createAlert](https://docs.logz.io/api/#operation/createAlert) for more details.
+        properties: 
+            query: 
+              type: string
+            filters: 
+              type: object
+              properties: 
+                bool: 
+                  type: object
+                  properties: 
+                    must: 
+                      type: array
+                      items: 
+                        type: object
+                        properties:  
+                    must_not: 
+                      type: array
+                      items: 
+                        type: object
+                        properties:  
+            groupBy: 
+              type: array
+              items: 
+                type: object
+                properties: 
+                  additionalProp1: 
+                    type: string
+                  additionalProp2: 
+                    type: string
+                  additionalProp3: 
+                    type: string
+            shouldQueryOnAllAccounts: 
+              type: boolean
+            accountIdsToQueryOn: 
+              type: array
+              items: 
+                type: integer
+                format: int32
+      resultsFieldToPickFrom:
+        type: string
+        minLength: 0
+        maxLength: 40
+        description: For future use - don’t use this field. Name of the fields in the query results from which you need to select values for the dynamic lookup list.
+      timeframeToRunQueryOn:
+        type: integer
+        description: For future use - don’t use this field. Time interval in seconds for running the query backwards starting from the present moment. The default value is `3600`, which is the past hour.
+      updateInterval:
+        type: string
+        minLength: 0
+        maxLength: 20
+        description: For future use - don’t use this field. Cron expression that represents the time between two consecutive updates of the dynamic lookup list. The default value is each day at 00:12 am, indicated as '0 12 0 * * ?'.
+
   PagedSearchResponseLookupList:
     type: object
     properties:

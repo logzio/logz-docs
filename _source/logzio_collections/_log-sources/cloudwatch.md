@@ -27,8 +27,6 @@ order: 110
 * [Advanced configuration](#advanced)
 {:.branching-tabs}
 
-
-
 <!-- tab:start -->
 <div id="automated-cloudformation-deployment">
 

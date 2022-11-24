@@ -13,21 +13,6 @@ shipping-tags:
 order: 800
 ---
 
----
-title: Send Amazon CloudWatch metrics
-logo:
-  logofile: aws-cloudwatch.svg
-  orientation: vertical
-data-for-product-source: Metrics
-data-source: Amazon Cloudwatch Metrics Stream
-templates: ["docker"]
-contributors:
-  - nshishkin
-shipping-tags:  
-  - aws
-order: 800
----
-
 <!-- tabContainer:start -->
 <div class="branching-container">
 

@@ -27,6 +27,7 @@ order: 110
 * [Advanced configuration](#advanced)
 {:.branching-tabs}
 
+
 <!-- tab:start -->
 <div id="automated-cloudformation-deployment">
 
@@ -566,7 +567,7 @@ To run the test event, select **Test** in the **Test** tab. The Lambda function 
 `[ERROR] Logz.io cloudwatch test log1` `[ERROR] Logz.io cloudwatch test log2`
 
 </div>
-
+</div>
 </div>
 <!-- tab:end -->
 

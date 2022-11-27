@@ -27,13 +27,12 @@ order: 110
 * [Advanced configuration](#advanced)
 {:.branching-tabs}
 
+
 <!-- tab:start -->
 <div id="automated-cloudformation-deployment">
 
-<!-- info-box-start:info -->
 We recommend Automated CloudFormation deployment as a default configuration. If you need to deploy this integration in a different way, please navigate to [Advanced configuration](#advanced).
 {:.info-box.note}
-<!-- info-box-end -->
 
 #### Automated CloudFormation deployment
 
@@ -566,7 +565,6 @@ To run the test event, select **Test** in the **Test** tab. The Lambda function 
 `[ERROR] Logz.io cloudwatch test log1` `[ERROR] Logz.io cloudwatch test log2`
 
 </div>
-
 </div>
 <!-- tab:end -->
 

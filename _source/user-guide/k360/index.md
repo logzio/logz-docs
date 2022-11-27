@@ -31,7 +31,7 @@ If you want to send your data [manually](https://app.logz.io/#/dashboard/send-yo
 And send the following metrics:
 
 |**Metric name**||**Labels**|
-|*||p8s_logzio_name|
+|*||p8s_logzio_name `// this is needed for all used grouped metrics`|
 |kube_pod_status_phase||pod, uid, node, host_ip, phase, namespace|
 |kube_pod_info||pod,namespace,p8s_logzio_name,region|
 |container_cpu_usage_seconds_total||pod, region, topology_kubernetes_io_region, container|
@@ -44,6 +44,7 @@ And send the following metrics:
 |kube_pod_owner||pod, owner_kind, owner_name|
 |kube_pod_container_status_restarts_total||pod|
 |kube_pod_status_reason||pod, reason|
+|kube_pod_container_status_waiting_reason||pod, reason|
 |||
 |node_cpu_seconds_total||instance, mode|
 |node_memory_MemAvailable_bytes||instance|
@@ -63,9 +64,9 @@ Once everything is up and running, you can view your data on the Kubernetes 360 
 
 #### Meet the Kubernetes 360 dashboard
 
-Your Kubernetes 360 dashboard includes an overview of your clusters and pods' current status.
+Your Kubernetes 360 dashboard includes an overview of your clusters and deployments' current status.
 
-![K360 Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k8s-overview-nov9.png)
+![K360 Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-overview.png)
 
 <div class="tasklist">
 
@@ -73,15 +74,19 @@ Your Kubernetes 360 dashboard includes an overview of your clusters and pods' cu
 
 Kubernetes 360 dashboard provides a quick overview of your current deployments and nodes. 
 
-The default view shows deployments, and you can change it to display all of the nodes inside your system by clicking on the **Nodes** button at the top right of the screen.
+The default deployments view includes a summary of the aveage CPU and memory used in each deployment, with a rundown of pods that require your attention.
 
-Each dot represents a pod inside the cluster. You can change your view to display all of the nodes inside your system. The pods' colors indicate their current status. The index at the bottom of the screen correlates the colors and status.
+![deployments overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/deployment-overview.png)
 
-You can click on the deployments or a specific pod to get more information through the **[Quick view]()** menu. 
+You can switch your view by clicking on the **Node** button at the top right to view a summary of the nodes inside your chosen cluster.
+
+Click on each deployment or node to get a more information through the **[Quick view]()** menu. 
 
 ##### Clusters
 
-The dropdown menu includes all clusters in your Kubernetes account, bundled under their respective accounts.
+Choose which cluster you want to review. The dropdown menu includes all clusters in your Kubernetes account, bundled under their respective accounts.
+
+<!-- ![deployments overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/deployment-overview.png) -->
 
 ##### Namespace
 
@@ -89,23 +94,28 @@ Environments with many users, teams, or projects use a namespace to bundle relev
 
 ##### Auto refresh
 
-Your Kubernetes 360 dashboard is set to auto refresh every 30 seconds to provide you with the most recent data. You can hover over the button to see when the data was last updated. Clicking on the button stops the auto refresh, allowing you to investigate an issue or focus on the current state of your Kubernetes environment. Click on the button again to turn auto-refresh on.
+Your Kubernetes 360 dashboard is set to **auto refresh every 30 seconds** to provide you with the most recent data. Hover over the refresh button to see when was the data last updated.
 
-##### Choose your metrics
+Click on the button to stop the auto refresh. This allows you to investigate an issue or focus on the current shown state of your Kubernetes environment. Click on the button again to turn auto refresh on.
 
-You can select to focus on different metrics according to your monitoring needs. These metrics are:
+![deployments overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/autorefresh.png)
+
+##### Change your metrics view
+
+By default, Kubernetes 360 provides an overview of your current environemnt. Use the bottom menu to focus on different metrics according to your monitoring needs:
 
 * **Status** - Understand which pods are running, failing, pending, or which pods succeeded.
 * **CPU** - View CPU consumtions by percentage: 0-50%, 50%-80%, 80%-100%, or over 100%.
 * **Memory** - Know how much memory each pod uses: 0-50%, 50%-80%, 80%-100%, or over 100%.
 * **Restarts** - Get a numeric overview of how many restarts occurred in each pod: 0, 1-10, 11-20, or over 20 restarts.
+* **Log Error Rate** - Analyze a percentage of log errors that occurred, and how many pods were effected.
 
 
 ##### Quick view
 
-Click on a deployment, node, or pod to access the quick view menu and gain more information about each element.
+Click on a deployment, node, or pod to access the quick view menu. This menu gives more information about the chosen element, allowing you to investigate and understand what's happening in your environment.
 
-![K360 Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/quick-view.png)
+![K360 Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/quickview-menu.png)
 
 A node's quick view includes the following details:
 

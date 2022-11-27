@@ -568,7 +568,6 @@ To run the test event, select **Test** in the **Test** tab. The Lambda function 
 
 </div>
 </div>
-</div>
 <!-- tab:end -->
 
 </div>

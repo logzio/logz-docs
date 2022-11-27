@@ -14,7 +14,7 @@ contributors:
 
 Kubernetes 360 is a unified platform combining a true log analytics solution, the best Prometheus metrics monitoring, and the value of distributed tracing powered by Jaeger that enables DevOps teams to monitor applications deployed in Kubernetes environments.
 
-The platform utilizes Kubernetes' numerous advantages for dev and ops teams, allowing you to monitor application SLOs in a simple, efficient, and actionable manner. Kubernetes 360 offers flexibility and visibility while providing service discovery and load balancing and allowing developer autonomy and business agility.
+The platform utilizes Kubernetes' numerous advantages for dev and ops teams, allowing you to monitor application SLOs in a simple, efficient, and actionable manner. Kubernetes 360 offers flexibility and visibility while providing service discovery, balancing load, and allowing developer autonomy and business agility.
 
 #### Prerequisites
 
@@ -74,13 +74,13 @@ Your Kubernetes 360 dashboard includes an overview of your clusters and deployme
 
 Kubernetes 360 dashboard provides a quick overview of your current deployments and nodes. 
 
-The default deployments view includes a summary of the aveage CPU and memory used in each deployment, with a rundown of pods that require your attention.
+The default deployments view includes a summary of the average CPU and memory used in each deployment, with a rundown of pods that require your attention.
 
 ![deployments overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/deployment-overview.png)
 
 You can switch your view by clicking on the **Node** button at the top right to view a summary of the nodes inside your chosen cluster.
 
-Click on each deployment or node to get a more information through the **[Quick view]()** menu. 
+Click on each deployment or node to get more information through the **[Quick view](/user-guide/k360/overview.html#quick-view)** menu. 
 
 ##### Clusters
 
@@ -94,54 +94,99 @@ Environments with many users, teams, or projects use a namespace to bundle relev
 
 ##### Auto refresh
 
-Your Kubernetes 360 dashboard is set to **auto refresh every 30 seconds** to provide you with the most recent data. Hover over the refresh button to see when was the data last updated.
+Your Kubernetes 360 dashboard is set to **auto refresh every 30 seconds** to provide you with the most recent data. Hover over the refresh button to see when the data was last updated.
 
-Click on the button to stop the auto refresh. This allows you to investigate an issue or focus on the current shown state of your Kubernetes environment. Click on the button again to turn auto refresh on.
+Click on the button to stop the auto refresh. This allows you to investigate an issue or focus on your Kubernetes environment's current state. Click on the button again to turn auto refresh on.
 
 ![autorefresh button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/autorefresh.png)
 
 ##### Change your metrics view
 
-By default, Kubernetes 360 provides an overview of your current environemnt. Use the bottom menu to focus on different metrics according to your monitoring needs:
+By default, Kubernetes 360 provides an overview of your current environment. Use the bottom menu to focus on different metrics according to your monitoring needs:
 
 * **Status** - Understand which pods are running, failing, pending, or which pods succeeded.
 * **CPU** - View CPU consumtions by percentage: 0-50%, 50%-80%, 80%-100%, or over 100%.
 * **Memory** - Know how much memory each pod uses: 0-50%, 50%-80%, 80%-100%, or over 100%.
 * **Restarts** - Get a numeric overview of how many restarts occurred in each pod: 0, 1-10, 11-20, or over 20 restarts.
-* **Log Error Rate** - Analyze a percentage of log errors that occurred, and how many pods were effected. [_How do we calculate the error rate?_]()
+* **Log Error Rate** - Analyze the percentage of log errors that occurred and how many pods were affected. [_How do we calculate the log error rate?_](/user-guide/k360/overview.html#calculating-log-error-rate)
 
 
 ##### Quick view
 
-Click on a deployment, node, or pod to access the quick view menu. This menu gives more information about the chosen element, allowing you to investigate and understand what's happening in your environment.
+Click on a deployment, node, or pod to open the quick view menu and get more information about each element. The menu allows you to investigate and understand what’s happening inside your Kubernetes environment by adding more helpful information.
 
-![K360 Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/quickview-menu.png)
+###### Deployment quick view
 
-A node's quick view includes the following details:
+A **deployment** quick view includes the following fields:
 
-* Role - Master or worker.
-* Status - Indicates whether that condition is applicable, with possible values **True**, **False**, or **Unknown**.
-* Cluster - The cluster to which this node belongs.
-* Region - The node's region.
-* Namespace - Node's unique namespace.
-* Uptime - The number of hours this node has been running.
-* CPU - The amount of CPU used.
-* Memory - Memory consumption for this node.
-* Disk - The amount of disk space taken up by this node.
+* **Name** - The name of the deployment you're focusing on.
+* **Status** - An indicator of the deployment's status. It can be **True**, **False**, or **Unknown**. 
+* **Cluster** - The cluster that this deployment is a part of.
+* **Region**- Your deployment's region.
+* **Namespace** - The deployment's unique namespace.
+* **Uptime** - The duration of how long this deployment has been running.
+* **CPU** - Amount of CPU used by this deployment. If the CPU is not capped, you'll see an indicator stating that there's **no limit**.
+* **Memory** - An average calculation of how much memory this deployment has been using.
+* **Disk** - The amount of disk space taken up by this node.
 
-A pod's quick view includes the following added information:
+The deployment quick view menu includes the related pods, and you can see their status, the number of containers they’re in, and how much CPU and memory they’re using.
 
-* Node - To which node this pod belongs.
-<!-- * Containers number - ? -->
-* Restarts - How many restarts happened in this pod.
+![Quick menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/quick-view-open-menu.png)
 
+###### Node quick view
 
-In addition, you can use the **Locate** button to focus your view on the specific node or pod you're investigating. 
+A node quick view menu includes the following fields: 
 
+* **Name** - The name of the node you're focusing on.
+* **Role** - Master or worker.
+* **Status** - Indicates whether that condition is applicable, with possible values **True**, **False**, or **Unknown**.
+* **Cluster** - The cluster to which this node belongs.
+* **Region** - The node's region.
+* **Uptime** - The number of hours this node has been running.
+* **CPU** - A percentile average of how much CPU has been used.
+* **Memory** - An average percentage of how much memory was consumed.
+* **Disk** - The amount of disk space taken up by this node, and how much is left.
+
+The node quick view menu also includes a list of the pods related to it. The list indicates each pod’s status, the number of containers they’re in, and how much CPU and memory they use.
+
+![Node menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/node-quick-view-menu.png)
+
+###### Pod quick view
+
+Click on a pod to access its quick view menu and gain access to this additional information:
+
+* **Name** - The name of the pod you're focusing on. 
+* **Status** - Indicates whether that condition is applicable, with possible values **True**, **False**, or **Unknown**.
+* **Node** - The node that this pod is a part of.
+* **Deployment** - The deployment related to this pod.
+* **Cluster** - The cluster in which this pod resided. 
+* **Containers number** - Number of containers in which this pod exists.
+* **Region** - This pod's region.
+* **Namespace** - The pod's unique namespace.
+* **Uptime** - The duration of how long this pod has been up and running. 
+* **Restarts** - The number of restarts that have happened in this pod since it’s been running.
+* **CPU** - A percentile average of how much CPU has been used.
+* **Memory** - An average percentage of how much memory was consumed.
+
+![Pod menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/pod-quick-view-menu.png)
 
 </div>
 
+##### Investigate through quick view 
 
+Whether you’re viewing a deployment, node, or pod, you can easily investigate the different issues you might encounter. Each quick view menu contains the **View Metrics** button, allowing you to view the relevant information in a Grafana dashboard. This can provide a focused overview of the chosen element, allowing you to pinpoint what happened and when it started quickly.
+
+Node and pod views include the **View Logs** button. Click on it to view the relevant logs in OpenSearch Dashboards. 
+
+You might not see the View Logs button if you’ve manually configured your Kubernetes data. Instead, you can use the following query in OpenSearch Dashboards to view your Kubernetes related logs: For **Node** view, use `kubernetes.host`. For **Pod** view, use `kubernetes.pod_name`.
+{:.info-box.note}
+
+
+In addition, if you dive too deep into the data, you can use the **Locate** button to focus your view on the specific deployment, node, or pod you're investigating.
+
+![quick view more buttons](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/node-dive-deeper.png)
+
+##### Additional information
 
 ###### Calculating Log error rate
 
@@ -163,11 +208,11 @@ So the log error rate you'll see will be 177.7%, based on the following formula:
 
 Additional examples: 
 
-* Last 15 minutes = 5 error logs out of 50 total logs = 5/50 * 100 = 10%.
-* Last 2 hours = 6 error logs out of 800 total logs = 6/800 * 100 = 0.75%.
-* Error rate = (10/0.75 * 100) - 100 = 1233.3%.
+* Last 15 minutes = 5 error logs out of 50 total logs = 5/50 * 100 = 10%
+* Last 2 hours = 6 error logs out of 800 total logs = 6/800 * 100 = 0.75%
+* Error rate = (10/0.75 * 100) - 100 = 1233.3%
 
-
+Or:
 
 * Last 15 minutes = 2 error logs out of 100 total logs = 2/100 * 100 = 2%
 * Last 2 hours = 2 error logs out of 800 total logs = 2/800 * 100 = 0.25%

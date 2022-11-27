@@ -98,7 +98,7 @@ Your Kubernetes 360 dashboard is set to **auto refresh every 30 seconds** to pro
 
 Click on the button to stop the auto refresh. This allows you to investigate an issue or focus on the current shown state of your Kubernetes environment. Click on the button again to turn auto refresh on.
 
-![deployments overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/autorefresh.png)
+![autorefresh button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/autorefresh.png)
 
 ##### Change your metrics view
 
@@ -108,7 +108,7 @@ By default, Kubernetes 360 provides an overview of your current environemnt. Use
 * **CPU** - View CPU consumtions by percentage: 0-50%, 50%-80%, 80%-100%, or over 100%.
 * **Memory** - Know how much memory each pod uses: 0-50%, 50%-80%, 80%-100%, or over 100%.
 * **Restarts** - Get a numeric overview of how many restarts occurred in each pod: 0, 1-10, 11-20, or over 20 restarts.
-* **Log Error Rate** - Analyze a percentage of log errors that occurred, and how many pods were effected.
+* **Log Error Rate** - Analyze a percentage of log errors that occurred, and how many pods were effected. [_How do we calculate the error rate?_]()
 
 
 ##### Quick view
@@ -140,6 +140,39 @@ In addition, you can use the **Locate** button to focus your view on the specifi
 
 
 </div>
+
+
+
+###### Calculating Log error rate
+
+To calculate percentage error, we take the percentage of errors in the last 15 minutes and the percentage of errors in the last 2 hours:
+
+`Errors in the last 15 minutes <= Amount of errors in the last 2 hours`
+
+For example, if in the last 15 minutes there were 10 log errors out of 200 total logs, it means that there's a total of 5% errors:
+
+`10/200 * 100 = 5%`
+
+And if in the last 2 hours there were 15 log errors out of 800 total logs, the percentage of errors will be 1.8%:
+
+`15/800 * 100 = 1.8%`
+
+So the log error rate you'll see will be 177.7%, based on the following formula:
+
+`(5/1.8 * 100) - 100 = 177.7%`
+
+Additional examples: 
+
+* Last 15 minutes = 5 error logs out of 50 total logs = 5/50 * 100 = 10%.
+* Last 2 hours = 6 error logs out of 800 total logs = 6/800 * 100 = 0.75%.
+* Error rate = (10/0.75 * 100) - 100 = 1233.3%.
+
+
+
+* Last 15 minutes = 2 error logs out of 100 total logs = 2/100 * 100 = 2%
+* Last 2 hours = 2 error logs out of 800 total logs = 2/800 * 100 = 0.25%
+* Error rate = (2/0.25 * 100) - 100 = 700%
+
 
 
 ###### Additional resources

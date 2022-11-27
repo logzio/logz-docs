@@ -18,15 +18,16 @@ Sampling rules let you choose which traces you want to index and monitor inside 
 
 The Sampling rules screen has these main components:
 
-* **Choose an account** - Choose between your Tracing accounts and can set a different set of rules per each account.
+* **Choose an account** - Choose the Tracing accounts for which you'd like to create and apply your rules. You’ll need to create a different set of rules for each one of your accounts.
 <!-- * **Insights** - Logz.io provides recommended rules to help you optimize your span usage. -->
-* **Main table** - Your Sampling rules will appear in this table. Each rule includes a description and a list of the services it's running on.
+* **Main table** - Your Sampling rules will appear in this table. Each rule includes a description and a list of the services it's running on. If no services appear, it means that the rule applies to all of the spans.
+
 
 ![Sampling rules overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/sampling-rules/sampling-rules.png)
 
 ### Create custom Sampling rules
 
-We recommend creating a set of rules for your account.
+By creating a separate set of rules per each tracing account, you can control the span volume more accurately.
 {:.info-box.tip}
 
 To create Sampling rules, click on the **New rule** button at the top right corner.
@@ -62,14 +63,16 @@ Click on **Review recommendations** to view the suggested rules. You cannot edit
 To apply these suggested rules, click the **Next: configure OTEL** button. -->
 
 
-### Configure and run your Sampling rules
+### Configure and apply your Sampling rules
 
 Creating your Sampling rules is the first step. Once you've finished creating a set of rules for your chosen account, you need to configure them through the OTEL configuration generator. 
 
+The OTEL configuration generator creates a YAML config file for your collector, which you’ll need to run for the rules to take effect.
+
 You can access the generator by clicking on the button at the top right corner of the screen or navigating to the page by clicking **[Tracing > OTEL configuration](https://app.logz.io/#/dashboard/settings/tracing-yaml-configuration/)**.
 
-Select the configuration method based on your machine. You can currently choose Localhost; Docker and Kubernetes support is coming soon.
+Select the configuration method based on your OTEL deployment strategy. You can currently choose Localhost; Docker and Kubernetes support is coming soon.
 
-Next, make sure you’ve chosen the relevant Tracing account, and follow the instructions to execute your rules.
+Once you have selected the appropriate Tracing account, follow the instructions to apply your rules to your collector.
 
 ![Create a sampling rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/sampling-rules/otel-configuration-screen.png)

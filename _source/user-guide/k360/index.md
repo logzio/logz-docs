@@ -180,7 +180,7 @@ Click on a pod to access its quick view menu and gain access to this additional 
 * **Node** - The node that this pod is a part of.
 * **Deployment** - The deployment related to this pod.
 * **Cluster** - The cluster in which this pod resided. 
-* **Containers number** - Number of containers in which this pod exists.
+* **Containers number** - Number of containers inside the pod.
 * **Region** - This pod's region.
 * **Namespace** - The pod's unique namespace.
 * **Uptime** - The duration of how long this pod has been up and running. 

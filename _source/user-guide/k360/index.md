@@ -17,6 +17,8 @@ Kubernetes 360 is part of Logz.io's Open 360, a unified platform combining a tru
 Kubernetes 360 lets R&D and engineering teams monitor and troubleshoot applications deployed in Kubernetes environments.
 
 The platform utilizes Kubernetes' numerous advantages for R&D and dev teams, allowing you to monitor application SLOs in a simple, efficient, and actionable manner. Kubernetes 360 offers flexibility and visibility while providing service discovery, balancing load, and allowing developer autonomy and business agility.
+
+
 ###### On this page
 {:.no_toc}
 

@@ -39,7 +39,7 @@ In addition, you'll need to ship your cluster metrics from the following sources
 And send the following metrics:
 
 |**Metric name**||**Labels**|
-|*||p8s_logzio_name `// You need to ship all metrics with the Logz.io label, as these are needed for all grouped metrics`|
+|*||p8s_logzio_name `// Equivalent to a Cluster's name`|
 |kube_pod_status_phase||pod, uid, node, host_ip, phase, namespace|
 |kube_pod_info||pod,namespace,p8s_logzio_name,region|
 |container_cpu_usage_seconds_total||pod, region, topology_kubernetes_io_region, container|

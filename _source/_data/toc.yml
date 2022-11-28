@@ -102,8 +102,19 @@ firstLevel:
   - title: Log usage measurement
     url: /user-guide/log-usage-measurement/
 
+# ===== K360 =====
+    # Kubernetes 360 platform topic & dashboard ==> These docs are generally in the /user-guide/k360 folder
+- title: Kubernetes 360
+  icon: li-points
 
-    # ===== METRICS INFRASTRUCTURE MONITORING =====
+  secondLevel:
+  - title: Meet Kubernetes 360
+    url: /user-guide/k360/overview.html
+    #thirdLevel:
+    #- title: Meet Kubernetes 360
+    #  url: 
+
+# ===== METRICS INFRASTRUCTURE MONITORING =====
     # the Prometheus remote write topic & dashboard import topic ==> permalink: /user-guide/metrics/p8s-remote-write.html, currently in no-search directory
 - title: Infrastructure Monitoring
   icon: fas fa-chart-pie

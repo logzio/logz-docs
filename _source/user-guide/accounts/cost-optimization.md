@@ -68,6 +68,9 @@ To identify which metrics can be optimized, apply the **Not used** filter. The r
 
 After viewing and analyzing your data, it's time to optimize your usage by using the drop action.
 
+
+##### Metrics optimization
+
 You can drop individual metrics or logs or perform a bulk-drop action by selecting several metrics or logs.
 
 By clicking on the checkbox next to each metric, you can select it. To select all metrics on the page, click on the checkbox at the top of the table. To select all metrics that match your filter, click on the link at the top of the table. 
@@ -77,3 +80,17 @@ By clicking on the checkbox next to each metric, you can select it. To select al
 Once selected, a new **Drop** button will appear at the top of the table. Click on it to review all metrics that will be dropped and to get a percentage estimation of how much you'll save.
 
 ![Drop all metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/optimization-hub/drop-metrics-overview.png)
+
+Manage your dropped metrics by navigating to **[Data Hub > Drop filters > Metrics](https://app.logz.io/#/dashboard/tools/metrics-drop-filters)**.
+
+##### Logs optimization
+
+You can drop different types of logs by hovering over its line and clicking on the **Drop** button.
+
+![Hover to drop](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/optimization-hub/hover-to-drop.png)
+
+The button opens a dialog where you can customize your drop filter. Select the log type, field, and value you'd like to include in your drop filter, check the acknowledgment button and click **Apply filter**. 
+
+![drop log dialog](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/optimization-hub/new-drop-filter.png)
+
+Manage your dropped logs by navigating to **[Data Hub > Drop filters > Logs](https://app.logz.io/#/dashboard/tools/logs-drop-filters)**.

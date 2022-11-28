@@ -68,7 +68,7 @@ And send the following metrics:
 |kube_deployment_created||deployment|
 |kube_deployment_status_condition||deployment,status|
 
-Once everything is up and running, you can view your data on the Kubernetes 360 dashboard.
+Once everything is up and running, you can view your data on the Kubernetes 360 application.
 
 <!-- #### Meet your dashboard
 
@@ -76,9 +76,9 @@ Your Kubernetes 360 dashboard includes an overview of your clusters and deployme
 
 ![K360 Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-overview.png) -->
 
-#### Kubernetes 360 dashboard
+#### Kubernetes 360 application
 
-Kubernetes 360 dashboard provides a quick overview of your current deployments and nodes.
+Kubernetes 360 application provides a quick overview of your current deployments and nodes.
 
 You can switch your view to focus on **Deployments** or **Nodes** using the buttons at the top right.
 
@@ -94,9 +94,9 @@ The **node view** includes a summary of each node's physical CPU, memory, and di
 
 Click on the cards or the elements inside them to get more information through the **[Quick view](/user-guide/k360/overview.html#quick-view)** menu.
 
-#### Customize your dashboard
+#### Customize your application
 
-You can change and adjust Kubernetes 360 dashboard to match your monitoring and troubleshooting needs. To help you get started, we'll break down the different options, how you can access them, and how they can help you and your team.
+You can change and adjust Kubernetes 360 application to match your monitoring and troubleshooting needs. To help you get started, we'll break down the different options, how you can access them, and how they can help you and your team.
 
 ![Dashboard breakdown](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/overview-k360.png)
 
@@ -112,7 +112,7 @@ Environments with many users, teams, or projects use a namespace to bundle relev
 
 ##### Auto refresh
 
-Your Kubernetes 360 dashboard is set to **auto refresh every 60 seconds** to provide you with the most recent data. Hover over the refresh button to see when the data was last updated.
+Your Kubernetes 360 application is set to **auto refresh every 60 seconds** to provide you with the most recent data. Hover over the refresh button to see when the data was last updated.
 
 Click on the button to stop the auto refresh. This allows you to investigate an issue or focus on your Kubernetes environment's current state. Click on the button again to turn auto refresh on.
 
@@ -191,7 +191,7 @@ Click on a pod to access its quick view menu and gain access to this additional 
 ![Pod menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/pod-quick-view-menu.png)
 
 
-###### Cluster quick view
+<!-- ###### Cluster quick view
 
 To access a cluster quick view, click the cluster's name in a deployment, node, or pod quick view menu. A cluster quick view menu includes the following:
 
@@ -205,7 +205,7 @@ To access a cluster quick view, click the cluster's name in a deployment, node, 
 
 
 ![Cluster menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/deployment-to-cluster.gif)
-
+-->
 
 #### Investigate through quick view 
 
@@ -213,7 +213,7 @@ To access a cluster quick view, click the cluster's name in a deployment, node, 
 
 Whether you’re viewing a deployment, node, or pod, you can easily investigate the different issues you might encounter. 
 
-Each quick view menu contains the **View Metrics** button, allowing you to view the relevant information in a Grafana dashboard. This can provide a focused overview of the chosen element, allowing you to pinpoint what happened and when it started quickly.
+Each quick view menu contains the **View Metrics** button, allowing you to view the relevant information in a Grafana application. This can provide a focused overview of the chosen element, allowing you to pinpoint what happened and when it started quickly.
 
 ##### See Logs
 

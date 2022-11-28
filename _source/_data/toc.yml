@@ -400,7 +400,7 @@ firstLevel:
       url: /user-guide/accounts/
     - title: Manage Log, Metrics, Tracing, and SIEM accounts
       url: /user-guide/accounts/manage-the-main-account-and-sub-accounts.html
-    - title: Optimizing your Logz.io data and usage
+    - title: Logz.io advanced features
       url: /user-guide/accounts/data-optimization.html
     - title: Optimize your account's cost
       url: /user-guide/accounts/cost-optimization.html

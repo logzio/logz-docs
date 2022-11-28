@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Log Metrics
+title: LogMetrics
 permalink: /user-guide/infrastructure-monitoring/logstometrics.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Turn your logs into insightful metrics dashboards
@@ -13,7 +13,7 @@ contributors:
 
 Create graphs and dashboards directly from your log files.
 
-Log Metrics utilizes the full power of PromQL, letting you visualize numeric-based data inside your logs, including latency, request time, volumes of data sent, and more.
+LogMetrics utilizes the full power of PromQL, letting you visualize numeric-based data inside your logs, including latency, request time, volumes of data sent, and more.
 
 By converting log data into metrics, you get a visual representation of your logs which you can monitor in real-time without paying for growing data volumes.
 
@@ -26,7 +26,7 @@ By converting log data into metrics, you get a visual representation of your log
 
 #### Which types of metrics can you create?
 
-With Log Metrics, you can create the following types of metrics:
+With LogMetrics, you can create the following types of metrics:
 
 |**Metric**|**Type**|**Example query**|
 |----------|--------|-----------------|
@@ -37,27 +37,35 @@ With Log Metrics, you can create the following types of metrics:
 |Maximum|Gauge|`max(metric_name_field_max{}) by (foo)`|
 
 
-#### Configure Log Metrics
-
-To create your Log Metrics, navigate to [**Logs > Log Metrics > New Metric**](https://app.logz.io/#/dashboard/logs-to-metrics/new).
+#### Configure LogMetrics
 
 
 <div class="tasklist">
 
 
-##### Name the metric
+##### Find the relevant logs
+{:.no_toc}
+
+You can create a LogMetric from OpenSearch Dashboards by clicking the **Create Metric** button at the top. This button is enabled whenever you apply a filter to your search, and currently, it does not support Lucene queries, free text search, or "is between" filters.
+
+![OSD to metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/logs2metrics/osd-to-metric.png)
+
+You can also create a custom LogMetrics by navigating to [**Data Hub > LogMetrics > New Metric**](https://app.logz.io/#/dashboard/logs-to-metrics/new).
+
+
+##### Name your LogMetric
 {:.no_toc}
 
 Give your metric a meaningful name. You can use letters, numbers, and underscore.
 
 
-##### Apply filters
+<!-- ##### Apply filters
 {:.no_toc}
 
 Choose the **Filters** you want to use to create your metrics. All filters are accepted, including: is, is not, is one of, is not one of, exists, and does not exist.
 
 
-<!--![Add a filter](https://dytvr9ot2sszz.cloudfront.net/logz-docs/logs2metrics/logmetric-filters.png)-->
+![Add a filter](https://dytvr9ot2sszz.cloudfront.net/logz-docs/logs2metrics/logmetric-filters.png)-->
 
 ##### Set the metric
 {:.no_toc}
@@ -72,21 +80,21 @@ Next, choose how you would like to aggregate your data; by log count, fields, or
 Use the dropdown to select which Metrics account will store the metrics output. The metrics are saved in 1-minute granularity and downsampled later for best performance. Retention is based on the settings of the chosen metrics account.
 
 
-Next, you can add a description. The description is visible on the main Log Metrics page. We recommend making your description helpful so both you and your team members will be able to understand what’s their purpose.
+Next, you can add a description. The description is visible on the main LogMetrics page. We recommend making your description helpful so both you and your team members will be able to understand what’s their purpose.
 
 Finally, you can add labels to your metrics. Labels are static values that can be helpful for filtering. For example, you can use labels to create filtered visualizations and dashboards.
 
-Click **Save** to create your Log Metrics. 
+Click **Save** to create your LogMetrics. 
 
 </div>
 
-#### View and manage your Log Metrics
+#### View and manage your LogMetrics
 
-After saving your Log Metrics, you'll be able to view and manage it on the main [Log Metrics](https://app.logz.io/#/dashboard/logs-to-metrics/definitions) page. 
+After saving your LogMetrics, you'll be able to view and manage it on the main [Log Metrics](https://app.logz.io/#/dashboard/logs-to-metrics/definitions) page. 
 
-![Logs to metrics main page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/logs2metrics/logstometrics-main.png)
+![Logs to metrics main page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/logs2metrics/logmetrics-main.png)
 
-Toggle the **Status** button to disable/enable the Log Metrics. In addition, you can hover over the relevant metric to view additional abilities, including:
+Toggle the **Status** button to disable/enable the LogMetrics. In addition, you can hover over the relevant metric to view additional abilities, including:
 
 * **Explore in metrics** - view the dashboard in Grafana.
 * **Edit** - Edit the existing metric.
@@ -96,7 +104,7 @@ Toggle the **Status** button to disable/enable the Log Metrics. In addition, you
 
 ### Additional information
 
-Log Metrics has the following requirements:
+LogMetrics has the following requirements:
 
 * You can only use field filters. Lucene's free text is not supported.
 * The values are case-sensitive. Make sure you’re using the correct values.

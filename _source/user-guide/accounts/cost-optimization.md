@@ -1,9 +1,9 @@
 ---
 layout: article
-title: Optimize and save your Logz.io costs
+title: Optimize your Logz.io data
 permalink: /user-guide/accounts/cost-optimization.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Logz.io's guide to optimizing your costs
+description: The complete guide to optimizing your Logz.io data
 flags:
   admin: true
   logzio-plan: pro
@@ -15,11 +15,30 @@ contributors:
   - hidan
 ---
 
-Logz.io offers a quick and intuitive way to optimize your Metrics and Logs account with just a few clicks. You can view your unused data and perform bulk actions to allow an optimized account.
+Logz.io Data Optimization helps you manage and optimize your Logz.io products, by offering tailored recommendations and a quick and easy way to drop or rollup your logs and metrics. 
 
-To get started, navigate to **[Metrics > Data optimization hub](https://app.logz.io/#/dashboard/cost)**. Choose whether you'd like to review your Metrics or Logs account.
 
-Next, you'll be able to see your current data and its usage, including: 
+To get started, navigate to **[Data hub](https://app.logz.io/#/dashboard/cost)**.
+
+#### Explore Metrics and Logs
+
+You can switch between your **Logs** and **Metrics** overview.
+
+
+The **Metrics** table includes the following details:
+
+* **Name** - The name of the main metric and its related labels. Click on the labels to view the complete list included in this metric.
+* **UTS** - Amount of unique time series used by this metric, and a percentage representation of how much it's using.
+
+
+
+The **Logs** table includes the following details:
+
+
+
+
+Both views include the total number of logs or metrics, and a table with the following details:
+
 
 * Metric or log name and its related labels.
 * Amount of Unique Time Series (UTS) or Volume in use.

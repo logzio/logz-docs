@@ -233,7 +233,7 @@ To re-focus your view, click on the **Locate** button at the top of the quick vi
 
 ##### Logs tab
 
-Nodes quick view menu has an additional **Logs** tab that contains a table with all of the logs related to the chosen node. The table includes the total number of logs, the time they were ingested, the log level, and its message.
+Nodes and pods quick view menu has an additional **Logs** tab that contains a table with all of the logs related to the chosen node or pod. The table includes the total number of logs, the time they were ingested, the log level, and its message.
 
 ![Logs inside nodes](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/logs-inside-nodes.png)
 

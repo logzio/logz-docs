@@ -225,11 +225,19 @@ Click on **Add filter** at the top of the screen. The fields vary according to y
 
 Next, choose the operator. For example, you can select **exists** to view all of the related logs.
 
-##### See Logs
+##### Locate
 
 To re-focus your view, click on the **Locate** button at the top of the quick view menu. This will scroll back to the specific deployment, node, or pod you're investigating.
 
 ![Locate button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/locate-button.gif)
+
+##### Logs tab
+
+Nodes quick view menu has an additional **Logs** tab that contains a table with all of the logs related to the chosen node. The table includes the total number of logs, the time they were ingested, the log level, and its message.
+
+![Logs inside nodes](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/logs-inside-nodes.png)
+
+You can sort the table by clicking on each header: **Time**, **Log level**, or **Message**. Click on the same header again to change your view to ascending/descending.
 
 #### Additional information
 

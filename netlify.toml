@@ -417,12 +417,6 @@
   force = true
 
 [[redirects]]
-  from = "/user-guide/infrastructure-monitoring/data-rollups.html"
-  to = "/user-guide/infrastructure-monitoring/"
-  status = 301
-  force = true
-
-[[redirects]]
   from = "/user-guide/infrastructure-monitoring/metrics-explore/"
   to = "/user-guide/infrastructure-monitoring/"
   status = 301

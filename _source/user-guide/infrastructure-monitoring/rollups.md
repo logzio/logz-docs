@@ -1,9 +1,9 @@
 ---
 layout: article
-title: Data Rollups
+title: Metrics Rollups
 permalink: /user-guide/infrastructure-monitoring/data-rollups.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Create and manage your data Rollups
+description: Create and manage your metrics Rollups
 flags:
   logzio-plan: community
 tags:

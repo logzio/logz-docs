@@ -432,6 +432,8 @@ firstLevel:
       url: /user-guide/accounts/audit-trail.html
     - title: Update billing info
       url: /user-guide/accounts/update-billing.html
+    - title: Metric Rollups
+      url: /user-guide/infrastructure-monitoring/data-rollups.html
     - title: On Demand pricing FAQ
       url: /user-guide/accounts/on-demand.html
       # - title: Usage and billing

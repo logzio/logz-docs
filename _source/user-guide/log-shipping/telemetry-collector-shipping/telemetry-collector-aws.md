@@ -26,7 +26,7 @@ To start sending your AWS data through the Telemetry Collector, Log into your Lo
 
 Select the AWS platform and the relevant sub-type through which you want to send your data.
 
-![Select platform](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-collector-aws-main.png)
+![Select platform](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/aws-agent.png)
 
 ##### Select data sources
 

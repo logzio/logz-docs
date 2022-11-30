@@ -30,9 +30,9 @@ The **Metrics** table includes the following details:
 * **Name** - Metric's name and its related labels. Click on the labels to view the complete list included in this metric.
 * **UTS** - Amount of unique time series used by this metric and a percentage representation of how much it's using.
 * **Account** - The accounts that are using this metric.
-* **Used** - An indication of how you're using this metric; in a dashboard or an alert.
+* **Used** - An indication of how you're using this metric in the account you are signed in to.
 * **Actions** - Hover over each metric to reveal the **Drop** button. 
-* **Explore** - Clicking on the three dots <i class="li li-ellipsis-v"></i> lets you explore this in the Metrics dashboard.
+* **Explore** - Clicking on the three dots <i class="li li-ellipsis-v"></i> lets you Rollup or explore this in the Metrics dashboard.
 
 ![Optimization hub overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/optimization-hub/optimization-hub-overview.png)
 
@@ -41,7 +41,7 @@ The **Logs** table includes the following details:
 * **Type** - The type of the log.
 * **Structure** - An overview of the log's build. Click on it to open a side menu with the complete log and its items.
 * **Usage** - Amount of GB used by this log and a percentage representation of how much it's using.
-* **# of logs** - A numeric value of how many logs exist inside this specific type.
+* **# of logs** - A numeric value of how many logs exist inside this specific type. The number is updated every 24 hours.
 * **Actions** - Hover over each line to reveal the **Drop** button. 
 * **Explore** - Clicking on the three dots <i class="li li-ellipsis-v"></i> lets you explore this in OpenSearch Dashboards.
 

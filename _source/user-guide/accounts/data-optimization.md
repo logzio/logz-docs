@@ -1,9 +1,9 @@
 ---
 layout: article
-title: Optimizing your data and usage in Logz.io
+title: Advanced Logz.io optimization features
 permalink: /user-guide/accounts/data-optimization.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Optimize your Logz.io data; the complete guide
+description: Learn about additional features and abilities to Optimize your Logz.io data
 flags:
   logzio-plan: community
 tags:

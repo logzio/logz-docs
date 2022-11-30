@@ -79,7 +79,7 @@ By clicking on the checkbox next to each metric, you can select it. To select al
 
 Once selected, a new **Drop** button will appear at the top of the table. Click on it to review all metrics that will be dropped and to get a percentage estimation of how much you'll save.
 
-![Drop all metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/optimization-hub/drop-metrics-overview.png)
+![Drop all metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/optimization-hub/drop-metrics-bundle.png)
 
 Manage your dropped metrics by navigating to **[Data Hub > Drop filters > Metrics](https://app.logz.io/#/dashboard/tools/metrics-drop-filters)**.
 

@@ -1,96 +1,50 @@
 ---
 layout: article
-title: Data rollups
+title: Metrics Rollups
 permalink: /user-guide/infrastructure-monitoring/data-rollups.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Create and manage your metrics Rollups
 flags:
   logzio-plan: community
 tags:
 contributors:
   - shalper
+  - hidan
 ---
 
-Your metrics data is compacted as it becomes older
-in a process known as **data rollups**.
-
-Data rollups help you identify your baseline, spot changes, and focus on larger trends so you don't miss the forest for the trees. Take CPU usage for example, you probably don't need the exact CPU usage at 10 second intervals once a week has passed.
-But you would want to see CPU usage steadily creep up at a 1.5% increase per hour over a week.
-
-Your Metrics account offers 18 month data retention, by default. This extended retention is important to help you to establish your baseline and make comparisons over a substantial time frame.
-
+You can compact and discard some of your metrics as it ages to focus on the data that matters. **Rollups** let you aggregate many time series by excluding labels, optimizing your costs and performance.
 
 ###### On this page
 {:.no_toc}
 
-1. toc list
+* toc list
 {:toc}
 
+### Create a Rollup
 
-### Rollups explained
+To create a Metric Rollup, navigate to **[Data Hub > Rollups](https://app.logz.io/#/dashboard/tools/metrics-rollups)** and click on the **Add a Rollup rule** button.
 
-Data rollups offer an effective process for compressing metrics without losing the original extremes. Rollups always keep the original max, min, and average values of your metrics so you can graph the data more accurately despite its compression.
+Choose the Metrics account you'd like to use. Next, select the metric. The dropdown menu includes all of the metrics inside the chosen account.
 
-When compacting the metrics, Logz.io calculates 4 indicators for each unique data point (UDP):
+Then you'll need to select the labels inside the metrics you'd like to ignore. The dropdown will auto-generate the available labels inside the chosen metric.
 
-* Average
-* Max
-* Min
-* Sum
+Finally, choose the type of metric. Choosing **Gauge** requires an additional step of selecting the aggregation function.
 
-When graphing a data point, you can select either the raw value or the rollup average, max, min, or sum. For example, here are the options for graphing the number of CPU cores per request.
+Once your Rollup is ready, click on **Create Rollup**.
 
-![Select Grafana data point as average/max/min/sum in Logz.io](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/rollups-dp.png)
+![Rollup table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/rollups/rollup-dialog.png)
 
-The method of calculating the rollups is explained in the next section.
+### View and manage your Rollups
 
-### Data granularity over time
+Once you've created one or more Rollups, they'll appear in a table view.
 
-When you're investigating incidents, the granularity of the data will vary depending on how much time has passed, as shown in the table below.
+The table includes the following details:
 
-| Time since data was first indexed          | Maximum granularity|
-|-----------------------|--------------------------------------------|
-| Up to 72 hours (3 days)| Raw data (1 second interval between data points, at minimum)|
-| 3 - 7 days            | 1 minute rollups             |
-| 7 - 30 days           | 10 minute rollups            |
-| 30 day or more        | 1 hour rollups               |
-
-As long as you're within 3 days of the incident, you can drill down on the raw data points. As you move past the 3 day mark, you'll be able to drill down on the data at a granularity of 1 minute intervals. Once a week has passed, you'll be able to drill down to a maximum resolution of 10 minute intervals. Once a month or more has passed, the data is at its maximum compaction, and you can drill down on the hourly metrics.
-
-### Default rollups
-
-If you are using Metricbeat (or another method that relies on Metricbeat) as your shipper, Logz.io will apply a default rollup config to compress your metrics.
-
-The following is a list of rollup configs that are pre-configured and available by default:
-
-* AWS services and namespaces
-* Azure services
-* Consul
-* Docker
-* Elasticsearch
-* Etcd
-* Jolokia
-* Kubernetes
-* Mongodb
-* MySQL
-* Nginx
-* PHP_FPM
-* Postgresql
-* Prometheus
-* Redis
-* System
-* vSphere
-* Windows
-
-### Requesting a custom rollups config
-
-Configuring the rollups for your custom metrics is included in your package and we're happy to offer it!
+* **Metric name** - The name of the metric chosen for this Rollup.
+* **Account name** - The account to which this metric is related.
+* **Excluded labels** - The labels to which you've decided to apply the Rollup.
+* **Metric type** - An indication of the chosen metric's type.
+* **Rollup function** - This column indicates the selected function for gauge metric types.
 
 
-To kick off this process, <a href="mailto:help@logz.io?subject=Requesting a custom metrics rollup config &body= Hi! I'd like to send custom metrics. Here's my info: 1. Logz.io Metrics account ID or token. 2. 5 sample JSONs 3. Dimensions associated with each Metricset.">email Support</a> to request a custom rollups config.
-
-Include the following details in your message:
-
-1. Your Logz.io Metrics account ID or [token](/user-guide/accounts/finding-your-metrics-account-token/).
-2. At least 5 sample JSONs of your custom metrics.
-3. If you are sending multiple metricsets,
-add descriptions to clarify which dimensions are associated with each metricset.
-
+![Rollup table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/rollups/rollup-table.png)

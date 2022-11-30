@@ -101,9 +101,6 @@ firstLevel:
     url: /user-guide/live-tail/
   - title: Log usage measurement
     url: /user-guide/log-usage-measurement/
-  - title: LogMetrics
-    url: /user-guide/infrastructure-monitoring/logstometrics.html
-
 # ===== K360 =====
     # Kubernetes 360 platform topic & dashboard ==> These docs are generally in the /user-guide/k360 folder
 - title: Kubernetes 360
@@ -437,6 +434,8 @@ firstLevel:
       url: /user-guide/accounts/audit-trail.html
     - title: Update billing info
       url: /user-guide/accounts/update-billing.html
+    - title: Metrics Rollups
+      url: /user-guide/infrastructure-monitoring/data-rollups.html
     - title: On Demand pricing FAQ
       url: /user-guide/accounts/on-demand.html
       # - title: Usage and billing
@@ -452,8 +451,6 @@ firstLevel:
       url: /user-guide/accounts/manage-account-usage.html
     - title: Smart tier
       url: /user-guide/accounts/smart-tier/
-    - title: Drop filters
-      url: /user-guide/accounts/drop-filters/
 
   - title: Users
     thirdLevel:

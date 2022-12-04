@@ -1,9 +1,9 @@
 ---
-title: Ship logs from G Suite
+title: Ship logs from Google Workspace
 logo:
-  logofile: gsuite-logo.svg
+  logofile: google-workspace.svg
   orientation: horizontal
-data-source: G Suite
+data-source: Google Workspace
 data-for-product-source: Cloud SIEM
 templates: ["network-device-filebeat"]
 contributors:
@@ -12,7 +12,7 @@ shipping-tags:
   - gcp
 order: 630
 ---
-G Suite a suite of web applications created by Google for businesses. You can ship G Suite logs to Logz.io using Filebeat and Google Reports API.
+Google Workspace is a collection of cloud computing, productivity and collaboration tools, software and products developed and marketed by Google. You can ship Google Workspace logs to Logz.io using Filebeat and Google Reports API.
 
 
 **Before you begin, you'll need**: [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation-configuration.html) installed
@@ -24,19 +24,19 @@ The GSuite module was [deprecated as of Filebeat 7.12](https://www.elastic.co/gu
 
 <div class="tasklist">
 
-#### G Suite setup
+#### Google Workspace setup
 
 ##### Set up a Service Account
 
-Follow the official G Suite [tutorial](https://support.google.com/gsuitemigrate/answer/9222993?hl=en) for setting up a service account.
+Follow the official Google Workspace [tutorial](https://support.google.com/gsuitemigrate/answer/9222993?hl=en) for setting up a service account.
 
 ##### Grant access to the Admin SDK API
 
-Follow the official G Suite [tutorial](https://support.google.com/gsuitemigrate/answer/9222865?hl=en) for granting access to the Admin API.
+Follow the official Google Workspace [tutorial](https://support.google.com/gsuitemigrate/answer/9222865?hl=en) for granting access to the Admin API.
 
 ##### Delegate domain-wide authority to your service account
 
-* Open your G Suite domain’s [Admin console](http://admin.google.com/).
+* Open your Google Workspace domain’s [Admin console](http://admin.google.com/).
 * Go to **Main menu** > **Security** > **API controls**.
 * In the Domain-wide delegation pane, select **Manage Domain Wide Delegation**.
 * Click **Add new**, and fill in the details:
@@ -64,14 +64,14 @@ Copy and paste the code block below, overwriting the previous contens.
 fields:
   logzio_codec: json
   token: <<LOG-SHIPPING-TOKEN>>
-  type: gsuite
+  type: google_workspace
 fields_under_root: true
 encoding: utf-8
 ignore_older: 3h
 
 ### Modules
 filebeat.modules:
-- module: gsuite
+- module: google_workspace
   saml:
     enabled: true
     var.jwt_file: "<<PATH_TO_CERDNTIALS_FILE>>"
@@ -122,6 +122,7 @@ processors:
     - from: "log.file.path"
       to: "source"
     ignore_missing: true
+- add_id: ~
 
 ### Output 
 output.logstash:
@@ -130,7 +131,7 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-For a full list of available Filebeat configuration options for the G Suite module, please see Filebeat's [documentation](https://www.elastic.co/guide/en/beats/filebeat/current/_configure_the_module.html).
+For a full list of available Filebeat configuration options for the Google Workspace module, please see Filebeat's [documentation](https://www.elastic.co/guide/en/beats/filebeat/current/_configure_the_module.html).
 
 
 
@@ -142,7 +143,7 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 * Replace `<<PATH_TO_CREDENTIALS_FILE>>` with the path to the credentials file (for example `./credentials_file.json` if the credentials file is in the same path as `filebeat.yml`).
 
-* Replace `<<DELEGATED_ACCOUNT_EMAIL>>` with the email address of the admin G Suite user (for example `user@example.com`).
+* Replace `<<DELEGATED_ACCOUNT_EMAIL>>` with the email address of the admin Google Workspace user (for example `user@example.com`).
 
 ##### Start Filebeat
 

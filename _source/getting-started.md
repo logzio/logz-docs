@@ -33,11 +33,15 @@ Whether you are a new user or looking for a refresher on Logz.io, you are invite
 
 #### Send your data to Logz.io
 
-Once you’ve set up your account, you are ready to start sending your data.
+Once you’ve set up your account, you can start sending your data.
 
-Logz.io provides various tools, integrations, and methods to send your data and monitor your Logs, Metrics, Traces, and SIEM.
+Logz.io provides various tools, integrations, and methods to send data and monitor your Logs, Metrics, Traces, and SIEM.
 
-There are numerous methods to send your data, and here are some of the more popular ones, based on what you'd like to monitor:
+The fastest and most seamless way to send your data is through our **Telemetry Collector**. It lets you easily configure your data-sending process by executing a single line of code, providing a complete observability platform to monitor and improve your logs, metrics, and traces.
+
+[**Get started with Telemetry Collector**](https://app.logz.io/#/dashboard/send-your-data/agent/new).
+
+If you prefer to send your data manually, Logz.io offers numerous methods to do so, and here are some of the more popular ones based on what you’d like to monitor:
 
 |**Logs**|**Metrics**|**Traces**|**Cloud SIEM**
 |[Filebeat](https://app.logz.io/#/dashboard/send-your-data/log-sources/filebeat)|[.NET](https://app.logz.io/#/dashboard/send-your-data/prometheus-sources/dotnet-custom)|[Jaeger installation](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/jaeger_collector)|[Cloudflare](https://app.logz.io/#/dashboard/send-your-data/security-sources/cloudflare)

@@ -81,19 +81,28 @@ After downloading the collector, create a configuration file `config.yaml` with 
 receivers:
   jaeger:
     protocols:
-      grpc:
-      thrift_binary:
       thrift_compact:
+        endpoint: "0.0.0.0:6831"
+      thrift_binary:
+        endpoint: "0.0.0.0:6832"
+      grpc:
+        endpoint: "0.0.0.0:14250"
       thrift_http:
-
+        endpoint: "0.0.0.0:14268"
+  opencensus:
+    endpoint: "0.0.0.0:55678"
+  otlp:
+    protocols:
+      grpc:
+        endpoint: "0.0.0.0:4317"
+      http:
+        endpoint: "0.0.0.0:4318"
+  zipkin:
+    endpoint: "0.0.0.0:9411"
   otlp/spanmetrics:
     protocols:
       grpc:
         endpoint: :12345
-  otlp:
-    protocols:
-      grpc:
-        endpoint: :4317
   prometheus:
     config:
       global:
@@ -171,7 +180,7 @@ service:
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [jaeger]
+      receivers: [otlp,jaeger,opencensus,zipkin]
       processors: [spanmetrics,tail_sampling,batch]
       exporters: [logzio/traces]
     metrics/spanmetrics:
@@ -180,7 +189,7 @@ service:
       receivers: [otlp/spanmetrics]
       exporters: [prometheus]
     metrics:
-      receivers: [otlp,prometheus]
+      receivers: [prometheus]
       exporters: [logging,prometheusremotewrite/spm]      
   telemetry:
     logs:
@@ -285,7 +294,7 @@ Add the following parameters to the configuration file of your OpenTelemetry col
 ```yaml
 pipelines:
     traces:
-      receivers: [jaeger]
+      receivers: [otlp,jaeger,opencensus,zipkin]
       processors: [spanmetrics,tail_sampling,batch]
       exporters: [logzio/traces]
     metrics/spanmetrics:
@@ -313,19 +322,28 @@ An example configuration file looks as follows:
 receivers:
   jaeger:
     protocols:
-      grpc:
-      thrift_binary:
       thrift_compact:
+        endpoint: "0.0.0.0:6831"
+      thrift_binary:
+        endpoint: "0.0.0.0:6832"
+      grpc:
+        endpoint: "0.0.0.0:14250"
       thrift_http:
-
+        endpoint: "0.0.0.0:14268"
+  opencensus:
+    endpoint: "0.0.0.0:55678"
+  otlp:
+    protocols:
+      grpc:
+        endpoint: "0.0.0.0:4317"
+      http:
+        endpoint: "0.0.0.0:4318"
+  zipkin:
+    endpoint: "0.0.0.0:9411"
   otlp/spanmetrics:
     protocols:
       grpc:
         endpoint: :12345
-  otlp:
-    protocols:
-      grpc:
-        endpoint: :4317
   prometheus:
     config:
       global:
@@ -403,7 +421,7 @@ service:
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [jaeger]
+      receivers: [otlp,jaeger,opencensus,zipkin]
       processors: [spanmetrics,tail_sampling,batch]
       exporters: [logzio/traces]
     metrics/spanmetrics:
@@ -412,7 +430,7 @@ service:
       receivers: [otlp/spanmetrics]
       exporters: [prometheus]
     metrics:
-      receivers: [otlp,prometheus]
+      receivers: [prometheus]
       exporters: [logging,prometheusremotewrite/spm]      
   telemetry:
     logs:
@@ -494,19 +512,28 @@ Create a file `config.yaml` with the following content:
 receivers:
   jaeger:
     protocols:
-      grpc:
-      thrift_binary:
       thrift_compact:
+        endpoint: "0.0.0.0:6831"
+      thrift_binary:
+        endpoint: "0.0.0.0:6832"
+      grpc:
+        endpoint: "0.0.0.0:14250"
       thrift_http:
-
+        endpoint: "0.0.0.0:14268"
+  opencensus:
+    endpoint: "0.0.0.0:55678"
+  otlp:
+    protocols:
+      grpc:
+        endpoint: "0.0.0.0:4317"
+      http:
+        endpoint: "0.0.0.0:4318"
+  zipkin:
+    endpoint: "0.0.0.0:9411"
   otlp/spanmetrics:
     protocols:
       grpc:
         endpoint: :12345
-  otlp:
-    protocols:
-      grpc:
-        endpoint: :4317
   prometheus:
     config:
       global:
@@ -584,7 +611,7 @@ service:
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [jaeger]
+      receivers: [otlp,jaeger,opencensus,zipkin]
       processors: [spanmetrics,tail_sampling,batch]
       exporters: [logzio/traces]
     metrics/spanmetrics:
@@ -593,11 +620,12 @@ service:
       receivers: [otlp/spanmetrics]
       exporters: [prometheus]
     metrics:
-      receivers: [otlp,prometheus]
+      receivers: [prometheus]
       exporters: [logging,prometheusremotewrite/spm]      
   telemetry:
     logs:
       level: "debug"
+
 
 ```
 
@@ -698,7 +726,7 @@ Add the following parameters to the configuration file of your OpenTelemetry col
 ```yaml
 pipelines:
     traces:
-      receivers: [jaeger]
+      receivers: [otlp,jaeger,opencensus,zipkin]
       processors: [spanmetrics,tail_sampling,batch]
       exporters: [logzio/traces]
     metrics/spanmetrics:
@@ -722,23 +750,31 @@ pipelines:
 An example configuration file looks as follows:
 
 ```yaml
-
 receivers:
   jaeger:
     protocols:
-      grpc:
-      thrift_binary:
       thrift_compact:
+        endpoint: "0.0.0.0:6831"
+      thrift_binary:
+        endpoint: "0.0.0.0:6832"
+      grpc:
+        endpoint: "0.0.0.0:14250"
       thrift_http:
-
+        endpoint: "0.0.0.0:14268"
+  opencensus:
+    endpoint: "0.0.0.0:55678"
+  otlp:
+    protocols:
+      grpc:
+        endpoint: "0.0.0.0:4317"
+      http:
+        endpoint: "0.0.0.0:4318"
+  zipkin:
+    endpoint: "0.0.0.0:9411"
   otlp/spanmetrics:
     protocols:
       grpc:
         endpoint: :12345
-  otlp:
-    protocols:
-      grpc:
-        endpoint: :4317
   prometheus:
     config:
       global:
@@ -816,7 +852,7 @@ service:
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [jaeger]
+      receivers: [otlp,jaeger,opencensus,zipkin]
       processors: [spanmetrics,tail_sampling,batch]
       exporters: [logzio/traces]
     metrics/spanmetrics:
@@ -825,7 +861,7 @@ service:
       receivers: [otlp/spanmetrics]
       exporters: [prometheus]
     metrics:
-      receivers: [otlp,prometheus]
+      receivers: [prometheus]
       exporters: [logging,prometheusremotewrite/spm]      
   telemetry:
     logs:

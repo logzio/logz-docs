@@ -65,6 +65,7 @@ And send the following metrics:
 |node_filesystem_avail_bytes||instance|
 |node_filesystem_size_bytes||instance|
 |kube_node_status_allocatable||resource, resource|
+|kube_node_labels||logzio_p8s_name|
 |||
 |kube_replicaset_owner||owner_kind, owner_name,replicaset|
 |kube_deployment_created||deployment|

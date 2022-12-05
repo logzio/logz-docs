@@ -11,6 +11,16 @@ contributors:
   - shalper
 ---
 
+<!-- tabContainer:start -->
+<div class="branching-container">
+
+* [Archive to Blob](#permissions)
+* [Limit access to trusted networks](#limits)
+{:.branching-tabs}
+
+<!-- tab:start -->
+<div id="permissions">
+
 You can archive your logs for long-term storage by sending them to a Microsoft Azure Storage container.
 
 ### Minimal permissions
@@ -104,4 +114,37 @@ In the **Archive configuration** tab, select the **Azure** tab, and fill in the 
 ![Configure Logz.io connection to Azure](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/archive-to-azure.png)
 
 </div>
+
+</div>
+<!-- tab:end -->
+<!-- tab:start -->
+<div id="limits">
+
+
+
+To make sure that your Azure Blob storage cannot be accessed by malicious actors who get hold of the access credentials, you can configure the Azure Blob account to only allow logins from trusted networks. Every storage account in Azure has Security rules, which define the access permissions. By default, the storage account is accessible by any network as long as the user has the access credentials.
+
+#### Limiting access to trusted networks
+
+**Before you begin, you'll need**: Azure CLI installed
+
+To limit the access to trusted networks, add the network rules as follows:
+
+
+```shell
+az storage account network-rule add --subnet /subscriptions/ac7ee52c-3b51-43b5-b667-2498be58418b/resourceGroups/logzio-<REGION>-prod/providers/Microsoft.Network/virtualNetworks/logzio-westeurope-prod-vnet/subnets/logzio-westeurope-prod-vnet-subnet-archivers --account-name <CUSTOMER_STORAGE_ACCOUNT_NAME>
+
+az storage account network-rule add --subnet /subscriptions/ac7ee52c-3b51-43b5-b667-2498be58418b/resourceGroups/logzio-<REGION>-prod/providers/Microsoft.Network/virtualNetworks/logzio-westeurope-prod-vnet/subnets/logzio-westeurope-prod-vnet-subnet-default --account-name <CUSTOMER_STORAGE_ACCOUNT_NAME>
+
+az storage account network-rule add --subnet /subscriptions/ac7ee52c-3b51-43b5-b667-2498be58418b/resourceGroups/logzio-<REGION>-prod/providers/Microsoft.Network/virtualNetworks/logzio-westeurope-prod-vnet/subnets/logzio-westeurope-prod-vnet-subnet-aks-services --account-name <CUSTOMER_STORAGE_ACCOUNT_NAME>
+```
+
+Replace `<REGION>` with the region of your account and `<CUSTOMER_STORAGE_ACCOUNT_NAME>` with the name of your storage account.
+
+
+</div>
+<!-- tab:end -->
+
+</div>
+<!-- tabContainer:end -->
 

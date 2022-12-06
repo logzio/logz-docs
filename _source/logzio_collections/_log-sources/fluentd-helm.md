@@ -185,6 +185,27 @@ my-custom-conf-name2.conf: |-
 	# .....
 ```
 
+#### Adding a custom log_type field from attribute
+
+To add a `log_type` field with a custom value to each log, you can use the annotation key `log_type` with a custom value. The annotation will be automatically parsed into a `log_type` field with the provided value. e.g:
+
+```yaml
+...
+  metadata:
+    annotations:
+      log_type: "my_type"
+```
+
+Will result with the following log (json):
+
+```json
+{
+...
+,"log_type": "my_type"
+...
+}
+```
+
 #### Uninstalling the Chart
 
 The command removes all the k8s components associated with the chart and deletes the release.  

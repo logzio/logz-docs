@@ -32,7 +32,6 @@ order: 110
 <div id="automated-cloudformation-deployment">
 
 We recommend Automated CloudFormation deployment as a default configuration. If you need to deploy this integration in a different way, please navigate to [Advanced configuration](#advanced).
-{:.info-box.note}
 
 #### Automated CloudFormation deployment
 

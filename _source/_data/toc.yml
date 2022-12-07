@@ -439,6 +439,22 @@ firstLevel:
     - title: On Demand pricing FAQ
       url: /user-guide/accounts/on-demand.html
       # - title: Usage and billing
+  - title: Data Hub
+    thirdLevel:
+    - title: Data optimization
+      url: /user-guide/accounts/cost-optimization.html
+    - title: Drop filters
+      url: /user-guide/accounts/drop-filters/
+    - title: LogMetrics
+      url: /user-guide/infrastructure-monitoring/logstometrics.html
+    - title: Archive and restore
+      url: /user-guide/archive-and-restore/
+    - title: Metrics Rollups
+      url: /user-guide/infrastructure-monitoring/data-rollups.html
+    - title: Data parsing
+      url: /user-guide/log-shipping/built-in-log-types.html
+    - title: Field mapping
+      url: /user-guide/kibana/mapping/
   - title: Hosting Regions
     thirdLevel:
     - title: Hosting regions

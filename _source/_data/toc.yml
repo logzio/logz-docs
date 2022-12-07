@@ -429,7 +429,7 @@ firstLevel:
         url: /user-guide/archive-and-restore/azure-blob-permissions/
 
   - title: Metrics Rollups
-    url: /user-guide/infrastructure-monitoring/logstometrics.html
+    url: /user-guide/infrastructure-monitoring/data-rollups.html
 
   - title: Log Parsing
     thirdLevel:

@@ -21,7 +21,7 @@ You can share your highlighted logs with your team members or save them for futu
 
 ## Using Log Highlighter
 
-Navigate to your [Log analytics](https://app.logz.io/#/dashboard/kibana/discover/) dashboard.
+Navigate to your [Log analytics](https://app.logz.io/#/dashboard/kibana/discover/) Discover view.
 
 Filter or search for the relevant logs you want to view.
 
@@ -38,16 +38,11 @@ To remove a log line from your highlighted logs, click on the push pin icon or h
 
 ## Sharing highlighted logs
 
-You can share your highlighted logs from the main log analytics view or your **Show highlights** dashboard.
+You can share your highlighted logs from the main log analytics Discover view or from the **Show highlights** dashboard.
 
 Click on **Share > Copy Link** to share your current view. If you want to share the data with members outside your team, ensure you toggle the **Share Public** option before copying the link.
 
-If you're viewing your logs in a short timeframe, such as **Last 15 minutes**, it's best to share only your highlighted logs dashboard. Sharing the main log analytics dashboard with the highlighted logs inside it may require users to scroll down and search for the highlighted logs. 
+If you're viewing your logs in a short timeframe, such as **Last 15 minutes**, it's best to share only your highlighted logs dashboard. Sharing the main log analytics Discover view with the highlighted logs inside it may require users to scroll down and search for the highlighted logs. 
 {:.info-box.note}
 
 ![Share log highlights](https://dytvr9ot2sszz.cloudfront.net/logz-docs/share-highlights.png)
-
-
-===
-![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/patterns-in-discover.png)
-

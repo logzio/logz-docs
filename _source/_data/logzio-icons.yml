@@ -33,6 +33,8 @@
   additional-css: |
     padding-left: .2rem;
     padding-right: .2rem;
+- escape-sequence: \e904
+  class: li-data
 - escape-sequence: \e907
   class: li-pencil
 - escape-sequence: \e912

@@ -27,12 +27,12 @@ firstLevel:
       url: /user-guide/kibana/log-patterns.html
     - title: Wildcard searches
       url: /kibana/wildcards/
-  - title: Field Mapping
-    thirdLevel:
-    - title: Field Mapping
-      url: /user-guide/kibana/mapping/
-    - title: Field not indexed
-      url: /user-guide/kibana/mapping/field-not-indexed/
+  #- title: Field Mapping
+  #  thirdLevel:
+  #  - title: Field Mapping
+  #    url: /user-guide/kibana/mapping/
+  #  - title: Field not indexed
+  #    url: /user-guide/kibana/mapping/field-not-indexed/
   - title: Troubleshooting
     thirdLevel:
     - title: Log shipping troubleshooting
@@ -434,27 +434,11 @@ firstLevel:
       url: /user-guide/accounts/audit-trail.html
     - title: Update billing info
       url: /user-guide/accounts/update-billing.html
-    - title: Metrics Rollups
-      url: /user-guide/infrastructure-monitoring/data-rollups.html
+    #- title: Metrics Rollups
+    #  url: /user-guide/infrastructure-monitoring/data-rollups.html
     - title: On Demand pricing FAQ
       url: /user-guide/accounts/on-demand.html
       # - title: Usage and billing
-  - title: Data Hub
-    thirdLevel:
-    - title: Data optimization
-      url: /user-guide/accounts/cost-optimization.html
-    - title: Drop filters
-      url: /user-guide/accounts/drop-filters/
-    - title: LogMetrics
-      url: /user-guide/infrastructure-monitoring/logstometrics.html
-    - title: Archive and restore
-      url: /user-guide/archive-and-restore/
-    - title: Metrics Rollups
-      url: /user-guide/infrastructure-monitoring/data-rollups.html
-    - title: Data parsing
-      url: /user-guide/log-shipping/built-in-log-types.html
-    - title: Field mapping
-      url: /user-guide/kibana/mapping/
   - title: Hosting Regions
     thirdLevel:
     - title: Hosting regions
@@ -518,6 +502,36 @@ firstLevel:
     - title: Unified Filters
       url: /user-guide/accounts/unified_filters.html
 
+  #- title: Archive & Restore
+  #  thirdLevel:
+  #    - title: Archive & Restore
+  #      url: /user-guide/archive-and-restore/
+  #    - title: Configure archiving and restoring
+  #      url: /user-guide/archive-and-restore/configure-archiving.html
+  #    - title: Restore archived logs
+  #      url: /user-guide/archive-and-restore/restore-archived-logs.html
+  #    - title: Setting S3 permissions in AWS
+  #      url: /user-guide/archive-and-restore/set-s3-permissions.html
+  #    - title: Setting permissions in Microsoft Azure
+  #      url: /user-guide/archive-and-restore/azure-blob-permissions/
+
+  - title: PCI compliance
+    url: /user-guide/accounts/pci-compliance.html
+  - title: Granting access to Logz.io Support
+    url: /user-guide/accounts/support-access.html
+
+  # ===== Data Hub =====
+- title: Data Hub
+  icon: li-data
+  
+  secondLevel:
+  - title: Data optimization
+    url: /user-guide/accounts/cost-optimization.html
+  - title: Drop filters
+    url: /user-guide/accounts/drop-filters/
+  - title: LogMetrics
+    url: /user-guide/infrastructure-monitoring/logstometrics.html
+
   - title: Archive & Restore
     thirdLevel:
       - title: Archive & Restore
@@ -531,10 +545,27 @@ firstLevel:
       - title: Setting permissions in Microsoft Azure
         url: /user-guide/archive-and-restore/azure-blob-permissions/
 
-  - title: PCI compliance
-    url: /user-guide/accounts/pci-compliance.html
-  - title: Granting access to Logz.io Support
-    url: /user-guide/accounts/support-access.html
+  - title: Metrics Rollups
+    url: /user-guide/infrastructure-monitoring/logstometrics.html
+
+  - title: Log Parsing
+    thirdLevel:
+    - title: Default parsing
+      url: /user-guide/log-shipping/built-in-log-types.html
+    - title: Split an array
+      url: /user-guide/mapping-and-parsing/split-json-array.html
+    - title: Logz.io DIY Data Parsing
+      url:  /user-guide/mapping-and-parsing/sawmill-parsing.html
+    - title: Parsing Wizard (deprecated)
+      url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
+
+  - title: Field Mapping
+    thirdLevel:
+    - title: Field Mapping
+      url: /user-guide/kibana/mapping/
+    - title: Field not indexed
+      url: /user-guide/kibana/mapping/field-not-indexed/
+
 
   # ===== SHIPPING AND PARSING =====
 - title: Shipping & Parsing
@@ -574,16 +605,16 @@ firstLevel:
     - title: Hosting regions
       url: /user-guide/accounts/account-region.html
 
-  - title: Log Parsing
-    thirdLevel:
-    - title: Default parsing
-      url: /user-guide/log-shipping/built-in-log-types.html
-    - title: Split an array
-      url: /user-guide/mapping-and-parsing/split-json-array.html
-    - title: Logz.io DIY Data Parsing
-      url:  /user-guide/mapping-and-parsing/sawmill-parsing.html
-    - title: Parsing Wizard (deprecated)
-      url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
+  #- title: Log Parsing
+  #  thirdLevel:
+  #  - title: Default parsing
+  #    url: /user-guide/log-shipping/built-in-log-types.html
+  #  - title: Split an array
+  #    url: /user-guide/mapping-and-parsing/split-json-array.html
+  #  - title: Logz.io DIY Data Parsing
+  #    url:  /user-guide/mapping-and-parsing/sawmill-parsing.html
+  #  - title: Parsing Wizard (deprecated)
+  #    url: /user-guide/mapping-and-parsing/data-parsing-wizard.html
 
   # ===== INTEGRATIONS =====
 - title: Integrations

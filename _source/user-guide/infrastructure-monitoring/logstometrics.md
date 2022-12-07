@@ -6,7 +6,10 @@ image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.
 description: Turn your logs into insightful metrics dashboards
 flags:
   logzio-plan: community
-tags: log metrics, logmetrics, logs metrics
+tags: 
+  - log metrics
+  - logs metrics
+  - logmetrics
 contributors:
   - hidan
 ---

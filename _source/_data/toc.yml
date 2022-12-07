@@ -37,6 +37,8 @@ firstLevel:
     thirdLevel:
     - title: Log shipping troubleshooting
       url: /user-guide/log-shipping/log-shipping-troubleshooting.html
+    - title: Understanding invalid log errors
+      url: /user-guide/invalid_logs/
     - title: Troubleshooting Fluentd for Kubernetes logs
       url: /user-guide/kubernetes-troubleshooting/
     - title: Troubleshooting Filebeat
@@ -65,9 +67,6 @@ firstLevel:
 
   - title: Reports
     url: /user-guide/reports/  
-
-  - title: Understanding invalid log errors
-    url: /user-guide/invalid_logs/
   
   - title: Long term storage for select logs
     thirdLevel:
@@ -99,6 +98,8 @@ firstLevel:
       url: /user-guide/kibana/share-import-export
   - title: Live Tail
     url: /user-guide/live-tail/
+  - title: Log highlighter
+    url: /user-guide/log-highlighter.html
   - title: Log usage measurement
     url: /user-guide/log-usage-measurement/
 # ===== K360 =====

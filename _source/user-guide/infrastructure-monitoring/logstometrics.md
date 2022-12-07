@@ -6,7 +6,10 @@ image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.
 description: Turn your logs into insightful metrics dashboards
 flags:
   logzio-plan: community
-tags:
+tags: 
+  - log metrics
+  - logs metrics
+  - logmetrics
 contributors:
   - hidan
 ---
@@ -109,3 +112,5 @@ LogMetrics has the following requirements:
 * You can only use field filters. Lucene's free text is not supported.
 * The values are case-sensitive. Make sure you’re using the correct values.
 * The Group by option can group up to 6 fields.
+
+<!-- Log metrics -->

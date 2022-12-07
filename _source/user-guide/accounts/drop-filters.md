@@ -29,7 +29,9 @@ In general, drop filters are recommended for logs that are needed infrequently, 
 
 <!-- ![Drop filters list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/drop-filters/drop-filters.png) -->
 
-To set up your Drop filters, select [**Logs > Manage Data > Drop filters**](https://app.logz.io/#/dashboard/tools/drop-filters) from the navigation menu.
+To set up your Drop filters, select [**Data Hub > Drop filters > Logs**](https://app.logz.io/#/dashboard/tools/drop-filters) from the navigation menu.
+
+You can apply Drop filters to your logs, metrics, and traces. 
 
 
 

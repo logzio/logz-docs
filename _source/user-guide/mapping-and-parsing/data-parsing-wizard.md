@@ -27,7 +27,7 @@ parsing can be an invaluable tool.
 You can analyze a set of sample logs for a Community (free) account in the data parsing wizard,
 to simplify the process.
 
-When you're logged into a Community account, you can find the data parsing wizard by selecting [**Logs > Data Parsing**](https://app.logz.io/#/dashboard/data-parsing/step1) from the menu.
+When you're logged into a Community account, you can find the data parsing wizard by selecting [**Data Hub > Data Parsing**](https://app.logz.io/#/dashboard/data-parsing/step1) from the menu.
 
 
 <!-- info-box-start:info -->

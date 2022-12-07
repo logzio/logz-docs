@@ -24,7 +24,7 @@ Restored accounts are complimentary, and do not count against your daily log vol
 {:.info-box.tip}
 <!--info-box-end -->
 
-To get to the **Archive and restore** page, select **Logs > Archive and restore**, (in **MANAGE DATA**).
+To get to the **Archive and restore** page, select **Data Hub > Archive and restore**.
 
 ![Navigate to Archive and Restore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/archive-restore_nav.png)
 

@@ -114,7 +114,7 @@ Instead of refreshing the mapping in bulk, you can add specific fields to your d
 #### Explicitly map a field 
 
 To manually edit a field mapping,
-Select [Logs > MANAGE DATA > Field mappings](https://app.logz.io/#/dashboard/tools/field-mapping)
+Select [Data Hub > Field mappings](https://app.logz.io/#/dashboard/tools/field-mapping)
 from the navigation menu. 
 
 To change the field mapping type, hover over the field, click **edit** <i class="li li-pencil"></i>, make your changes, and click **Save**.

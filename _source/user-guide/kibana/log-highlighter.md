@@ -25,7 +25,7 @@ Navigate to your [Log analytics](https://app.logz.io/#/dashboard/kibana/discover
 
 Filter or search for the relevant logs you want to view.
 
-You can highlight a log by clicking on the thumb pin icon next to it or by holding CTRL/CMD + right mouse click.
+You can highlight a log by clicking on the thumb pin icon next to it or by holding CTRL/CMD + mouse click.
 
 Once you have one or more log lines highlighted, a menu will pop up where you can view all logs, view just the highlighted logs, or clear your selection.
 
@@ -33,7 +33,7 @@ Click on **Show highlights** to focus your view on your highlighted logs.
 
 ![Log highlight to dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/highlighting.gif)
 
-To remove a log line from your highlighted logs, click on the push pin icon or hold the CTRL/CMD + right mouse click. You can clear all highlighted logs by clicking on **Clear highlights**.
+To remove a log line from your highlighted logs, click on the push pin icon or hold the CTRL/CMD + mouse click. You can clear all highlighted logs by clicking on **Clear highlights**.
 
 
 ## Sharing highlighted logs

@@ -9235,6 +9235,7 @@ definitions:
           - UNIQUE_COUNT
           - NONE
           - PERCENTAGE
+          - PERCENTILE
       fieldToAggregateOn:
         type: string
         description: >-

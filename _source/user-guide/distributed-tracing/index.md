@@ -26,10 +26,6 @@ Logz.io gives you the ability to look under the hood at how your microservices a
 
 Gain a system-wide view of your distributed architecture, detect failed or high latency requests, and quickly drill into end-to-end call sequences of selected requests of intercommunicating microservices. Logz.io Distributed Tracing provides Jaeger as a fully managed service - so DevOps teams can use the best cloud-native open source tracing tool - without managing or having to scale it themselves. 
 
-
-<iframe width="560" height="315" src="https://play.vidyard.com/NA62kgFX2mLFsvkdMaJ9Kn" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
 ### Yes, you _can_ have it all!
 
 Maximize value with Logz.io's observability platform and use your favorite open source tools delivered as a service to provide: 

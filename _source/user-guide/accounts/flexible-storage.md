@@ -19,7 +19,9 @@ Flexible volume gives you more control over how you allocate space between your 
 With flexible volume, accounts can share indexing capacity and use it as needed. Instead of reserving capacity in advance, you can rely on shared volume to cover your indexing needs across accounts. When properly configured, shared volume can help to optimize distribution and minimize the risk of running out of space.
 
 
-<iframe class="vidyard_iframe" src="//play.vidyard.com/Na9xMCntQUJFTVy3SXq4kd.html?" width="600" height="270" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe>
+<!-- <iframe class="vidyard_iframe" src="//play.vidyard.com/591a863d4a0861c2c2c09b30e085266a.html?" width="600" height="270" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe> -->
+
+![Enable flexible volume](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/flexy-vol.gif)
 
 
 

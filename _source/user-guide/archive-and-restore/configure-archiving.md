@@ -3,7 +3,7 @@ layout: article
 title: Configure archiving and restoring
 permalink: /user-guide/archive-and-restore/configure-archiving.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Configuring long term log storage to an Amazon S3 bucket or a Microsoft Azure Storage container
+description: Configuring archiving and restoring to an Amazon S3 bucket or a Microsoft Azure Storage container
 flags:
   admin: true
   logzio-plan: pro
@@ -16,6 +16,7 @@ contributors:
   - schwin007
   - shalper
   - yberlinger
+  - hidan
 ---
 
 ![Archive settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-azure/archive-settings_dec2021.png)

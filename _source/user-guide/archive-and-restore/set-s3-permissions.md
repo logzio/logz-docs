@@ -121,8 +121,6 @@ Logz.io can archive and restore your logs with these credentials.
 
 ## Add Power search permissions
 
-{% include page-info/early-access.md type="Beta" %}
-
 Setting up your Power search permissions:
 
 

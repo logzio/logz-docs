@@ -432,4 +432,4 @@
   from = "/user-guide/distributed-tracing/trace-json"
   to = "/user-guide/distributed-tracing/tracing-tour/"
   status = 301
-  force = true
+  force = true 

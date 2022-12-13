@@ -27,7 +27,7 @@ This can be useful for communicating with clients outside your organization or i
 Open the dashboard you would like to share.
 When you share a dashboard, you can decide whether to share the dashboard with a relative or fixed timeframe.
 
-* **Snapshot** - Converts the time selection to absolute dates. Your recipients will view the exact same data that you are viewing right now. For example, if you send out a snapshot when viewing the dashboard for the last 24 hours, your  recipients will receive the dashboard with a fixed date range selection.
+* **Snapshot** - Converts the time selection to absolute dates. Your recipients will view the same data you are viewing now. For example, if you send out a snapshot when viewing the dashboard for the last 24 hours, your recipients will receive the dashboard with a fixed date range selection.
 
   Of course, this type of permalink is short lived, as it depends on your log retention policy. Once the logs are too old, they will no longer feed the dashboard and your recipients won't have anything to see.
 
@@ -46,11 +46,30 @@ When you share a dashboard, you can decide whether to share the dashboard with a
 
 ##### What your recipients will see
 
-Your recipients will receive a link to the dashboard you've shared with them. The dashboard will appear without the top and side navigation bars, and without the OpenSearch Dashboards time filtering options.
+When you choose to **Share Public**, your recipients will receive a link to the dashboard you've shared with them. The dashboard will appear without the top and side navigation bars, and without the OpenSearch Dashboards time filtering options.
 
-Note that your recipients will not see the time frame selected for the dashboard. Instead, you will need to communicate it to them in another way.
-{:.info-box.note}
+However, you can edit the link to **include the time frame** by adding the following string to the end of the link:
+
+`&forceShowQueryBar=true`
+
+For example, if your public link is:
+
+`https://app.logz.io/?embed=true&shareToken=8d90-fbe1c84836d3#/dashboard/kibana/discover/?=&_a=(columns%3A!(message)%2Cfilters%3A!()%2Cindex%3A'logzioCustomerIndex*'%2Cinterval%3Aauto%2Cquery%3A(language%3Alucene%2Cquery%3A'')%2Csort%3A!())&_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))`
+
+This is how users will see it:
+
+![public share no time](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sharing-logs/share-public-link.png)
+
+
+When you add the time frame string to the end of the URL, it changes the view and includes the time frame and search abilities:
+
+
+`https://app.logz.io/?embed=true&shareToken=8d90-fbe1c84836d3#/dashboard/kibana/discover/?=&_a=(columns%3A!(message)%2Cfilters%3A!()%2Cindex%3A'logzioCustomerIndex*'%2Cinterval%3Aauto%2Cquery%3A(language%3Alucene%2Cquery%3A'')%2Csort%3A!())&_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))&forceShowQueryBar=true`
+
+![public share with time](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sharing-logs/share-with-time.png)
+
+
 
 ##### Testing your permalink
 
-You can open your sharing link in an incognito browser window to try it out.
+You can open your sharing link in an incognito browser window to test it and verify it's working.

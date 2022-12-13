@@ -32,7 +32,7 @@ On this page:
 ### Minimal permissions
 {:.no_toc}
 
-Logz.io will need:
+Logz.io will need the following:
 
 * **Storage Blob Data Contributor** permissions to archive data to a Microsoft Azure Storage account.
 * **Storage Blob Data Reader** permissions to restore data from a Microsoft Azure Storage account.
@@ -40,7 +40,7 @@ Logz.io will need:
 
 #### Setting up a Storage container and App registration {#grant-access-to-azure-storage}
 
-**Before you begin, you'll need**: Permissions to manage a Storage container and App registration in Microsoft Azure.
+**Before you begin, you'll need**: Permission to manage a Storage container and App registration in Microsoft Azure.
 
 <div class="tasklist">
 
@@ -131,16 +131,16 @@ In the **Archive configuration** tab, select the **Azure** tab, and fill in the 
 
 #### Rehydrate Azure Blob Archive
 
-Once you set up your Azure blob archive, it’s considered offline and can’t be read or modified.
+If you're using Azure Blob Archive tier, there is an additional step you need to take before you can search or restore it to Logz.io.
 
-If you want to read or modify its data, you will need to rehydrate the blob to an online tier; either the Hot or Cool tier.
+Azure Blob Archive tier is an offline tier mainly used to store data you rarely need access to. If you want to read or modify its data, you will need to rehydrate the blob to an online tier, and set it to either Hot or Cool.
 
-To rehydrate a blob stored in the Archive tier, you can:
+To access data stored in the archive tier, you'll need to rehydrate it through one of the following options:
 
 * Copy an archived blob to an online tier - Use the **Copy Blob** option to copy it to a Hot or Cool tier. This is Microsoft's recommended option for most scenarios.
 * Change an archived blob's access tier to an online tier - Use the **Set Blob** option to change the tier to Hot or Cool, which will rehydrate an archived blob. This option usually takes a few hours to complete.
 
-You can read more about rehydrating a blob in Microsoft's [Blob rehydration from the Archive tier](https://learn.microsoft.com/en-us/azure/storage/blobs/archive-rehydrate-overview) guide.
+Read more about rehydrating a blob in Microsoft's [**Blob rehydration from the Archive tier**](https://learn.microsoft.com/en-us/azure/storage/blobs/archive-rehydrate-overview) guide.
 
 
 <!--</div>-->

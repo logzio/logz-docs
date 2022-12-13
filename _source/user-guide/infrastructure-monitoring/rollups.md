@@ -32,7 +32,7 @@ Finally, choose the type of metric. Choosing **Gauge** requires an additional st
 
 Once your Rollup is ready, click on **Create Rollup**.
 
-![Rollup table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/rollups/rollup-dialog.png)
+![Rollup table](https://dytvr9ot2sszz.cloudfront.net/logz-docs/Infrastructure-monitoring/rollups/rollup-dialog-2.png)
 
 ### View and manage your Rollups
 

@@ -135,7 +135,12 @@ The **Show dates** option lets you set a start and end time. In the popup, selec
 
 In the following video, you'll be able to see how to create a visualization dashboard based on your logs:
 
-<iframe class="vidyard_iframe" src="https://fast.wistia.com/embed/iframe/velcfd5tpr?" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe>
+<!-- <iframe class="vidyard_iframe" src="https://fast.wistia.com/embed/iframe/velcfd5tpr?" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe> -->
+
+<video autoplay loop>
+  <source src="https://fast.wistia.com/embed/iframe/velcfd5tpr?" type="video/mp4" />
+  </video>
+
 
 
 ###### Additional resources

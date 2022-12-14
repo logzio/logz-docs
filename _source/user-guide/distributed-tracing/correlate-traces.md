@@ -42,7 +42,7 @@ Contact <a class="intercom-launch" href="mailto:help@logz.io">the Support team f
 5. Using your main account, insert the following template in the **URL template** field of the Jaeger user interface (UI), and **Save field**.
   
 ```bash
-https://app.logz.io/#/dashboard/jaeger/trace//{/{/value/}/}/
+https://app.logz.io/#/dashboard/jaeger/trace/&lcub;&lcub;value&rcub;&rcub;
 ```
 
 Each traceID attribute functions as a drill down link that leads you to the correlated trace view in Jaeger. 

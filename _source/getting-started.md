@@ -55,7 +55,7 @@ Browse the complete list of available shipping methods [here](https://docs.logz.
 To learn more about shipping your data, check out **Shipping Log Data to Logz.io**:
 
 <video controls width=640 height=360>
-  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/build-metrics-w7lkltrofb.mp4" type="video/mp4" />
+  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/shipping-logs-oi6qydmyk6.mp4" type="video/mp4" />
   </video>
 
 <!-- <iframe class="vidyard_iframe" src="https://fast.wistia.com/embed/iframe/w7lkltrofb?" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe> -->

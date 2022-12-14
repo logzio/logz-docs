@@ -2,6 +2,8 @@
 layout: article
 title: Getting started with Prometheus 
 permalink: /user-guide/infrastructure-monitoring/prometheus-getting-started.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Getting started with Prometheus and Infrastructure Monitoring
 flags:
   logzio-plan: pro
 tags:
@@ -24,7 +26,7 @@ You can continue using Prometheus Alert Manager: You'll simply store the metrics
 All it takes to ship your metrics data to Logz.io is to use Remote Write on each Prometheus server, with Logz.io configured as the endpoint: By adding a few lines of code, Remote Write ensures that your metrics are written to Logz.io. 
 
 
-<iframe width="560" height="315" src="https://play.vidyard.com/eyLtidmJn1Ad1e2UA1Pjxi" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://fast.wistia.com/embed/iframe/w2lic9vv1z" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 Your data is formatted as JSON documents by the Logz.io listener. 

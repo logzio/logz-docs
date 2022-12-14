@@ -54,7 +54,7 @@ Browse the complete list of available shipping methods [here](https://docs.logz.
 
 To learn more about shipping your data, check out **Shipping Log Data to Logz.io**:
 
-<iframe class="vidyard_iframe" src="//play.vidyard.com/73rC8a2eWGzarBuUrSmuqu.html?" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe>
+<iframe class="vidyard_iframe" src="https://fast.wistia.com/embed/iframe/w7lkltrofb?" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe>
 
 
 ##### Parsing your data

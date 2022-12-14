@@ -87,7 +87,7 @@ However, you can still use reserved characters by applying a backslash or double
 
 Learn how to search and filter your log data with Logz.io.
 
-<iframe class="vidyard_iframe" src="https://fast.wistia.com/embed/iframe/kq0z0sux4d?" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe>
+<iframe class="vidyard_iframe" src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/searching-and-filtering.mp4" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe>
 
 ##### Add more columns to your view results
 

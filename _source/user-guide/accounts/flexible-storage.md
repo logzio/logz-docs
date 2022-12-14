@@ -2,6 +2,8 @@
 layout: article
 title: Flexible volume
 permalink: /user-guide/accounts/flexible-volume.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn about Flexible volume and how it helps manage your accounts 
 flags:
   admin: true
   logzio-plan: pro
@@ -19,7 +21,7 @@ Flexible volume gives you more control over how you allocate space between your 
 With flexible volume, accounts can share indexing capacity and use it as needed. Instead of reserving capacity in advance, you can rely on shared volume to cover your indexing needs across accounts. When properly configured, shared volume can help to optimize distribution and minimize the risk of running out of space.
 
 
-<!-- <iframe class="vidyard_iframe" src="//play.vidyard.com/591a863d4a0861c2c2c09b30e085266a.html?" width="600" height="270" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe> -->
+<!-- <iframe class="vidyard_iframe" src="https://fast.wistia.com/embed/iframe/2r7h1tywdm?" width="600" height="270" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe> -->
 
 ![Enable flexible volume](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/flexy-vol.gif)
 

@@ -92,7 +92,7 @@ Learn how to search and filter your log data with Logz.io.
   </video>
 
 <!-- 
-<iframe class="vidyard_iframe" src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/searching-and-filtering.mp4" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe> -->
+<iframe class="vidyard_iframe" src="https://fast.wistia.com/embed/iframe/kq0z0sux4d" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe> -->
 
 ##### Add more columns to your view results
 
@@ -139,6 +139,10 @@ The **Show dates** option lets you set a start and end time. In the popup, selec
 #### Create Log Visualizations with Logz.io
 
 In the following video, you'll be able to see how to create a visualization dashboard based on your logs:
+
+<video controls width=640 height=360>
+  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/log-visualizations-velcfd5tpr.mp4" type="video/mp4" />
+  </video>
 
 <!-- <iframe class="vidyard_iframe" src="https://fast.wistia.com/embed/iframe/velcfd5tpr?" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe> -->
 

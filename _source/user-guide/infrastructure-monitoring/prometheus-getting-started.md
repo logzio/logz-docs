@@ -26,7 +26,7 @@ You can continue using Prometheus Alert Manager: You'll simply store the metrics
 All it takes to ship your metrics data to Logz.io is to use Remote Write on each Prometheus server, with Logz.io configured as the endpoint: By adding a few lines of code, Remote Write ensures that your metrics are written to Logz.io. 
 
 
-<video controls width=640 height=360>
+<video controls width=640 height=360 poster="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/start-with-metrics.png">
   <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/prometheus-as-a-service-w2lic9vv1z.mp4" type="video/mp4" />
   </video>
 

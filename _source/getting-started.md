@@ -54,7 +54,7 @@ Browse the complete list of available shipping methods [here](https://docs.logz.
 
 To learn more about shipping your data, check out **Shipping Log Data to Logz.io**:
 
-<video controls width=640 height=360>
+<video controls width=640 height=360 poster="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/shipping-log-data.png">
   <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/shipping-logs-oi6qydmyk6.mp4" type="video/mp4" />
   </video>
 

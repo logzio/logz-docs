@@ -54,7 +54,7 @@ Browse the complete list of available shipping methods [here](https://docs.logz.
 
 To learn more about shipping your data, check out **Shipping Log Data to Logz.io**:
 
-<video controls width=640 height=360>
+<video controls width=640 height=360 poster="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/shipping-log-data.png">
   <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/shipping-logs-oi6qydmyk6.mp4" type="video/mp4" />
   </video>
 
@@ -106,7 +106,11 @@ Once you've sent your metrics to Logz.io, you can:
 
 ##### Build Metrics visualizations with Logz.io
 
-<iframe class="vidyard_iframe" src="//play.vidyard.com/JbB9wzNxqfRqDP2nyNGdvA.html?" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe>
+<video controls width=640 height=360 poster="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/build-metrics-visualizations.png">
+  <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/build-metrics-w7lkltrofb.mp4" type="video/mp4" />
+  </video>
+
+<!-- <iframe class="vidyard_iframe" src="//play.vidyard.com/JbB9wzNxqfRqDP2nyNGdvA.html?" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe> -->
 
 You can also:
 

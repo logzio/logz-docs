@@ -75,21 +75,21 @@ There are a few things you need to check before you begin the process.
 
 You can control and limit which data you'd like to restore by applying **filters**, using **Power search**, or both. Your restored logs will only include data that matches all of your filters and your exact search term.
 
-Power search speeds the restore process dramatically by uploading and re-indexing only relevant data from your S3 archive, using general search strings.
+Power search speeds the restore process dramatically by uploading and re-indexing only relevant data from your S3 archive, using exact match text search strings.
 In addition, the filters allow more granular filtering on structured data per field and can further reduce the amount of restored data (that counts against the daily quota). Filters are applied after the Power search results are uploaded to the ingestion pipeline, and you can use both to optimize your restored data.
 
 ###### When to use Power search and filters together
 
-If you want to achieve maximum accuracy in retrieving the right logs from cold storage, you can use **Power search** together with **filters**.
-Power search applies a general text search to your archive and looks for any occurrence of your search string. If know the exact fields where your data is located, you can apply filters to your parsed and structured data whilst focusing on specific fields. This will further reduce the amount of logs that you need to restore.
+To achieve maximum accuracy in retrieving the right logs from cold storage, you can use **Power search** together with **filters**.
+Power search applies an exact match text search to your archive and looks for any occurrence of your search string. If you know the exact fields where your data is located, you can apply filters to your parsed and structured data while focusing on specific fields. This will further reduce the amount of logs that you need to restore.
 
-Please note that only Power search actually speeds up the restore time. Filters are there to help you reduce the actual restored volume and deliver the most accurate results that match your search criteria.
+**Only Power search actually speeds up the restore time**. Filters help you reduce the restored volume and deliver the most accurate results that match your search criteria.
 
 
 ###### Add Power search
 
 <!-- info-box-start:info -->
-For a limited time we have removed the [additional charge](https://logz.io/pricing/) for the Power search. You can now get the benefits of this feature without worrying about any additional costs!
+For a limited time we have removed the [additional charge](https://logz.io/pricing/) for the Power search. So you can now get this feature's benefits without worrying about additional costs!
 {:.info-box.note}
 <!-- info-box-end -->
 
@@ -100,7 +100,7 @@ Power search lets you apply a text search directly on your archived data before 
 
 * Power search requires [additional permissions](/user-guide/archive-and-restore/set-s3-permissions.html#add-power-search-permissions) to run.
 * Make sure your restore time range is **at most 24 hours**. Otherwise, you won't be able to run the Power search.
-* Your archived data time zone is UTC, which might be different than your browser's time zone. Take that into consideration when choosing your restore duration.
+<!--* Your archived data time zone is UTC, which might be different than your browser's time zone. Take that into consideration when choosing your restore duration.-->
 
 
 To use Power search, enter a text string you'd like to find in your archived logs. The search is **case sensitive** and supports  `“`, `AND`, `OR`, and `()` operators, but you can’t use nested brackets `(())`. 

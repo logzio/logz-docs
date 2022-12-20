@@ -69,29 +69,38 @@ There are a few things you need to check before you begin the process.
     It's best to restore data for the smallest time frame, to ensure that the volume of data to be restored will not approach the max limit.
     {:.info-box.important} -->
 
-##### Filters and Power search (optional) 
+
+##### Power search and Filters 
 
 
 You can control and limit which data you'd like to restore by applying **filters**, using **Power search**, or both. Your restored logs will only include data that matches all of your filters and your exact search term.
 
-Power search speeds the restore process dramatically by uploading and re-indexing only relevant data from your S3 archive, using general search strings.
+Power search speeds the restore process dramatically by uploading and re-indexing only relevant data from your S3 archive, using exact match text search strings.
 In addition, the filters allow more granular filtering on structured data per field and can further reduce the amount of restored data (that counts against the daily quota). Filters are applied after the Power search results are uploaded to the ingestion pipeline, and you can use both to optimize your restored data.
+
+###### When to use Power search and filters together
+
+To achieve maximum accuracy in retrieving the right logs from cold storage, you can use **Power search** together with **filters**.
+Power search applies an exact match text search to your archive and looks for any occurrence of your search string. If you know the exact fields where your data is located, you can apply filters to your parsed and structured data while focusing on specific fields. This will further reduce the amount of logs that you need to restore.
+
+**Only Power search actually speeds up the restore time**. Filters help you reduce the restored volume and deliver the most accurate results that match your search criteria.
+
 
 ###### Add Power search
 
 <!-- info-box-start:info -->
-For a limited time we have removed the [additional charge](https://logz.io/pricing/) for the Power search. You can now get the benefits of this feature without worrying about any additional costs!
+For a limited time we have removed the [additional charge](https://logz.io/pricing/) for the Power search. So you can now get this feature's benefits without worrying about additional costs!
 {:.info-box.note}
 <!-- info-box-end -->
 
 Power search lets you apply a text search directly on your archived data before restoring it, dramatically cutting down the time to restore. In addition, Power search allows you to focus on restoring only critical and insightful data. It uses scanned data and searches the string inside of that data.
 
-### Before using Power search:
+**Before using Power search:**
 
 
 * Power search requires [additional permissions](/user-guide/archive-and-restore/set-s3-permissions.html#add-power-search-permissions) to run.
 * Make sure your restore time range is **at most 24 hours**. Otherwise, you won't be able to run the Power search.
-* Your archived data time zone is UTC, which might be different than your browser's time zone. Take that into consideration when choosing your restore duration.
+<!--* Your archived data time zone is UTC, which might be different than your browser's time zone. Take that into consideration when choosing your restore duration.-->
 
 
 To use Power search, enter a text string you'd like to find in your archived logs. The search is **case sensitive** and supports  `“`, `AND`, `OR`, and `()` operators, but you can’t use nested brackets `(())`. 
@@ -105,9 +114,6 @@ For example, you can run any of the following searches:
 
 
 ![Delete filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/Restore-settings.png)
-
-To continue, click on the **Proceed** button. You'll see a summary of your restore settings and be asked to approve them to continue the process.
-
 
 
 ###### Add a filter
@@ -137,7 +143,9 @@ If you want to remove one of the filters you've created, click on the **X** next
 ##### Restore your data
 
 
-Click on **Restore** to begin the restoring process.
+To continue, click on the **Proceed** button. You'll see a summary of your restore settings and be asked to approve them to continue the process.
+
+Once approved, the restore process will start and you can check the progress in the **Restored accounts** tab.
 
 You can view your logs before the restore process is complete, by clicking on the **View logs** option next to the relevant restored account.
 

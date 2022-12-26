@@ -48,7 +48,7 @@ kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.tain
 
 ###### Enabling multiline logs parser
 
-If you want to enable parsing for multiline logs, add the following code to `valus.yaml` under the `customParsers` parameter:
+If you want to enable parsing for multiline logs, add the following code to `values.yaml` under the `customParsers` parameter:
   
 ```yaml
 customParsers:

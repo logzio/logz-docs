@@ -440,5 +440,9 @@
   status = 301
   force = true
 
-
+[[redirects]]
+  from = "/user-guide/insights/exceptions/deployments"
+  to = "/user-guide/kibana/exceptions-deployments.html"
+  status = 301
+  force = true
   

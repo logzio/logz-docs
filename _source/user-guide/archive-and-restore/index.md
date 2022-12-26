@@ -26,7 +26,7 @@ Restored accounts are complimentary, and do not count against your daily log vol
 
 To get to the **Archive and restore** page, select **Data Hub > Archive and restore**.
 
-![Navigate to Archive and Restore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/archive-restore_nav.png)
+![Navigate to Archive and Restore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/archive-and-restore-menu.png)
 
 
 
@@ -36,13 +36,13 @@ To get to the **Archive and restore** page, select **Data Hub > Archive and rest
 ## Overview
 
 
-![Archive and restore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/arch-res_config.gif)
+![Archive and restore](https://dytvr9ot2sszz.cloudfront.net/logz-docs/archive-and-restore/azure-aws-archive.png)
 
-Archive settings
+Archive configuration
 : You can configure Logz.io to archive your logs to either an AWS S3 bucket or a Microsoft Azure Storage container. [Learn more](/user-guide/archive-and-restore/configure-archiving.html)
 
-Restore archived logs
-: Re-ingest up to 24 hours of archived logs.
+Restore data
+: Re-ingest up to 24 hours of archived logs. Restoring data might require additional permissions. [Learn more](/user-guide/archive-and-restore/configure-archiving.html).
 
 Restored accounts
 : Data is restored to a temporary account. The list of Restored accounts includes information about who made the request and its status. [Learn more](/user-guide/archive-and-restore/restore-archived-logs.html)

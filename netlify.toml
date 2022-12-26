@@ -433,3 +433,12 @@
   to = "/user-guide/distributed-tracing/tracing-tour/"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/user-guide/insights/exceptions/deployments.html"
+  to = "/user-guide/kibana/exceptions-deployments.html"
+  status = 301
+  force = true
+
+
+  

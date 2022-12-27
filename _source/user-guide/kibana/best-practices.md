@@ -91,7 +91,7 @@ Learn how to search and filter your log data with Logz.io.
   <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/searching-and-filtering.mp4" type="video/mp4" />
   </video> -->
 
-<p><a href="https://logz.io/learn/searching-and-filtering/?wvideo=kq0z0sux4d" target="_blank"><img src="https://embed-ssl.wistia.com/deliveries/85a9f0ce258469f578667f35bf61baba.jpg?image_play_button_size=2x&amp;image_crop_resized=960x540&amp;image_play_button=1&amp;image_play_button_color=112031e0" width="640" height="360" style="width: 640px; height: 360px;"></a></p><p><a href="https://logz.io/learn/searching-and-filtering/?wvideo=kq0z0sux4d"></a></p>
+<p><a href="https://logz.io/learn/searching-and-filtering/?wvideo=kq0z0sux4d" target="_blank"><img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/search-and-filter.png" width="640" height="360" style="width: 640px; height: 360px;"></a></p><p><a href="https://logz.io/learn/searching-and-filtering/?wvideo=kq0z0sux4d"></a></p>
 
 <!-- 
 <iframe class="vidyard_iframe" src="https://fast.wistia.com/embed/iframe/kq0z0sux4d" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe> -->

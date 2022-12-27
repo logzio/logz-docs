@@ -87,9 +87,11 @@ However, you can still use reserved characters by applying a backslash or double
 
 Learn how to search and filter your log data with Logz.io.
 
-<video controls width=640 height=360 poster="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/search-and-filter.png">
+<!-- <video controls width=640 height=360 poster="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/search-and-filter.png">
   <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/searching-and-filtering.mp4" type="video/mp4" />
-  </video>
+  </video> -->
+
+<p><a href="https://logz.io/learn/searching-and-filtering/?wvideo=kq0z0sux4d" target="_blank"><img src="https://embed-ssl.wistia.com/deliveries/85a9f0ce258469f578667f35bf61baba.jpg?image_play_button_size=2x&amp;image_crop_resized=960x540&amp;image_play_button=1&amp;image_play_button_color=112031e0" width="640" height="360" style="width: 640px; height: 360px;"></a></p><p><a href="https://logz.io/learn/searching-and-filtering/?wvideo=kq0z0sux4d"></a></p>
 
 <!-- 
 <iframe class="vidyard_iframe" src="https://fast.wistia.com/embed/iframe/kq0z0sux4d" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe> -->
@@ -140,9 +142,11 @@ The **Show dates** option lets you set a start and end time. In the popup, selec
 
 In the following video, you'll be able to see how to create a visualization dashboard based on your logs:
 
-<video controls width=640 height=360 poster="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/log-visualization.png">
+<!-- <video controls width=640 height=360 poster="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/log-visualization.png">
   <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/log-visualizations-velcfd5tpr.mp4" type="video/mp4" />
-  </video>
+  </video> -->
+
+<p><a href="https://logz.io/learn/create-log-visualizations-with-logzio/?wvideo=velcfd5tpr" target="_blank"><img src="https://embed-ssl.wistia.com/deliveries/774d461a24dc9987250d3482a54375be.jpg?image_play_button_size=2x&amp;image_crop_resized=960x540&amp;image_play_button=1&amp;image_play_button_color=112031e0" width="640" height="360" style="width: 640px; height: 360px;"></a></p><p><a href="https://logz.io/learn/create-log-visualizations-with-logzio/?wvideo=velcfd5tpr"></a></p>
 
 <!-- <iframe class="vidyard_iframe" src="https://fast.wistia.com/embed/iframe/velcfd5tpr?" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe> -->
 

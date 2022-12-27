@@ -54,9 +54,11 @@ Browse the complete list of available shipping methods [here](https://docs.logz.
 
 To learn more about shipping your data, check out **Shipping Log Data to Logz.io**:
 
-<video controls width=640 height=360 poster="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/shipping-log-data.png">
-  <source src="https://logz.wistia.com/medias/oi6qydmyk6" type="video/mp4" />
-  </video>
+<!-- <video controls width=640 height=360 poster="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/shipping-log-data.png">
+  <source src="https://logz.wistia.com/medias/oi6qydmyk6" type="video/mp4" /></video> -->
+
+<p><a href="https://logz.wistia.com/medias/oi6qydmyk6?wvideo=oi6qydmyk6" target="_blank"><img src="https://embed-ssl.wistia.com/deliveries/fc8d5085a3c84cbedec362979bc54c15.jpg?image_play_button_size=2x&amp;image_crop_resized=960x540&amp;image_play_button=1&amp;image_play_button_color=112031e0" width="640" height="360" style="width: 640px; height: 360px;"></a></p><p><a href="https://logz.wistia.com/medias/oi6qydmyk6?wvideo=oi6qydmyk6"></a></p>
+  
 
 <!-- <iframe class="vidyard_iframe" src="https://fast.wistia.com/embed/iframe/w7lkltrofb?" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe> -->
 
@@ -106,9 +108,12 @@ Once you've sent your metrics to Logz.io, you can:
 
 ##### Build Metrics visualizations with Logz.io
 
-<video controls width=640 height=360 poster="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/build-metrics-visualizations.png">
+<!-- <video controls width=640 height=360 poster="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/build-metrics-visualizations.png">
   <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/build-metrics-w7lkltrofb.mp4" type="video/mp4" />
-  </video>
+  </video> -->
+
+<p><a href="https://logz.io/learn/build-metrics-visualizations-with-logzio/?wvideo=w7lkltrofb" target="_blank"><img src="https://embed-ssl.wistia.com/deliveries/b75a3d62969c76220f70325dda6e6a3a.jpg?image_play_button_size=2x&amp;image_crop_resized=960x540&amp;image_play_button=1&amp;image_play_button_color=112031e0" width="640" height="360" style="width: 640px; height: 360px;"></a></p><p><a href="https://logz.io/learn/build-metrics-visualizations-with-logzio/?wvideo=w7lkltrofb"></a></p>
+
 
 <!-- <iframe class="vidyard_iframe" src="//play.vidyard.com/JbB9wzNxqfRqDP2nyNGdvA.html?" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe> -->
 

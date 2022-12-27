@@ -16,7 +16,7 @@
 #       padding-left: .2rem;
 #       padding-right: .2rem;
 
-- escape-sequence: \1f31b
+- escape-sequence: \f154 #
   class: li-bar-graph
 - escape-sequence: \1f366
   class: li-eye
@@ -24,17 +24,25 @@
   class: li-left-arrow
 - escape-sequence: \e5c8
   class: li-right-arrow
-- escape-sequence: \e9ac
-  class:  li-logz
-  additional-css: |
-    font-size: 45px;
+
+- escape-sequence: \f15e #
+  class: li-logz
+
+#- escape-sequence: \e9ac
+#  class:  li-logz
+#  additional-css: |
+#    font-size: 45px;
 - escape-sequence: \e906
   class: li-ellipsis-v
   additional-css: |
     padding-left: .2rem;
     padding-right: .2rem;
-- escape-sequence: \e904
+
+- escape-sequence: \f18b #
   class: li-data
+
+#- escape-sequence: \e904
+#  class: li-data
 - escape-sequence: \e907
   class: li-pencil
 - escape-sequence: \e912
@@ -47,11 +55,15 @@
   class: li-x
 - escape-sequence: \e927
   class: li-clear
-- escape-sequence: \e93b
+
+- escape-sequence: \f15b
   class: li-plane
+
+#- escape-sequence: \e93b
+#  class: li-plane
 - escape-sequence: \e93c
   class: li-bell
-- escape-sequence: \e93d
+- escape-sequence: \f122 #
   class: li-code
 - escape-sequence: \e93f
   class: li-signal
@@ -80,7 +92,7 @@
 - escape-sequence: \e966
   class:  li-kibana
 
-- escape-sequence: \e92f
+- escape-sequence: \f1Bd #
   class:  li-stars
 
 - escape-sequence: \e93a
@@ -92,8 +104,11 @@
 - escape-sequence: \e9c1
   class:  li-blob
 
-- escape-sequence: \e9cc
-  class:  li-points
+- escape-sequence: \f155 #
+  class: li-points
+
+#- escape-sequence: \e9cc
+#  class:  li-points
 
 - escape-sequence: \e9d3
   class: li-repository

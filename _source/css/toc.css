@@ -87,7 +87,7 @@ nav.all-pages-toc a {
 }
 .external-link::after {
   font-family: "Logzio Icons";
-  content: "\e921";
+  content: "\f13d";
   margin-left: .25rem;
 }
 

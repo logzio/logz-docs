@@ -60,6 +60,145 @@ cards:
     url: /user-guide/accounts/
     li-class: li-gear
 
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-eye
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-left-arrow
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-right-arrow
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-ellipsis-v
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-pencil
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-trash
+
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-plus
+
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-x
+
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-clear
+
+
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-plane
+
+
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-signal
+
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-minus
+
+
+
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-scroll
+
+
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-play
+
+
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-stop
+
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-pie_chart
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-donut_small
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-donut_large
+
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-kibana
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-dashboard
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-visualization
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-blob
+
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-repository
+
+  - title: eye
+    description: hello
+    url: /user-guide/kibana/
+    li-class: li-infinity
+
+
 half-cards:
   - title: Free trial
     url: "https://logz.io/freetrial/"

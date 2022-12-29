@@ -16,87 +16,102 @@
 #       padding-left: .2rem;
 #       padding-right: .2rem;
 
-- escape-sequence: \1f31b
+- escape-sequence: \f154 #
   class: li-bar-graph
-- escape-sequence: \1f366
+- escape-sequence: \f192 #
   class: li-eye
-- escape-sequence: \e5c4
+- escape-sequence: \f10d #
   class: li-left-arrow
-- escape-sequence: \e5c8
+- escape-sequence: \f10f #
   class: li-right-arrow
-- escape-sequence: \e9ac
-  class:  li-logz
-  additional-css: |
-    font-size: 45px;
-- escape-sequence: \e906
+
+- escape-sequence: \f15e #
+  class: li-logz
+
+#- escape-sequence: \e9ac
+#  class:  li-logz
+#  additional-css: |
+#    font-size: 45px;
+- escape-sequence: \f164 #
   class: li-ellipsis-v
   additional-css: |
     padding-left: .2rem;
     padding-right: .2rem;
-- escape-sequence: \e904
+
+- escape-sequence: \f18b #
   class: li-data
-- escape-sequence: \e907
+
+#- escape-sequence: \e904
+#  class: li-data
+- escape-sequence: \f135 #
   class: li-pencil
-- escape-sequence: \e912
+- escape-sequence: \f1b1 #
   class: li-trash
-- escape-sequence: \e913
+- escape-sequence: \f17b #
   class: li-plus
-- escape-sequence: \e915
+- escape-sequence: \f106 #
   class: li-wrench
-- escape-sequence: \e918
+- escape-sequence: \f121 #
   class: li-x
-- escape-sequence: \e927
+- escape-sequence: \f11e #
   class: li-clear
-- escape-sequence: \e93b
+
+- escape-sequence: \f15b
   class: li-plane
-- escape-sequence: \e93c
+
+#- escape-sequence: \e93b
+#  class: li-plane
+- escape-sequence: \f10a #
   class: li-bell
-- escape-sequence: \e93d
+- escape-sequence: \f122 #
   class: li-code
-- escape-sequence: \e93f
+- escape-sequence: \f159 #
   class: li-signal
-- escape-sequence: \e940
+- escape-sequence: \f18c #
   class: li-gear
   
-- escape-sequence: \e943
+- escape-sequence: \f167 #
   class: li-minus
-- escape-sequence: \e953
+- escape-sequence: \f189 #
   class: li-scroll
   additional-css: |
     font-size: 1.1rem;
-- escape-sequence: \e956
+- escape-sequence: \f177 #
   class: li-play
-- escape-sequence: \e957
+- escape-sequence: \f19c #
   class: li-stop
-- escape-sequence: \e6c4
+- escape-sequence: \f175 #
   class:  li-pie_chart
 
-- escape-sequence: \e954
+- escape-sequence: \f12e #
   class:  li-donut_small
 
-- escape-sequence: \e955
+- escape-sequence: \f12f #
   class:  li-donut_large
 
-- escape-sequence: \e966
+- escape-sequence: \f153 #
   class:  li-kibana
 
-- escape-sequence: \e92f
+- escape-sequence: \f1Bd #
   class:  li-stars
 
-- escape-sequence: \e93a
+- escape-sequence: \f129 #
   class:  li-dashboard
 
-- escape-sequence: \e938
+- escape-sequence: \f1ba #
   class:  li-visualization
 
-- escape-sequence: \e9c1
+- escape-sequence: \f141 #
   class:  li-blob
 
-- escape-sequence: \e9cc
-  class:  li-points
+- escape-sequence: \f155 #
+  class: li-points
 
-- escape-sequence: \e9d3
+#- escape-sequence: \e9cc
+#  class:  li-points
+
+- escape-sequence: \f180 #
   class: li-repository
 
-- escape-sequence: \ebd3
+- escape-sequence: \f137 #
   class: li-infinity

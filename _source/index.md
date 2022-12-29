@@ -60,6 +60,7 @@ cards:
     url: /user-guide/accounts/
     li-class: li-gear
 
+
 half-cards:
   - title: Free trial
     url: "https://logz.io/freetrial/"

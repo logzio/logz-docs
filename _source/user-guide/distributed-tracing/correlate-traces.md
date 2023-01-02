@@ -41,7 +41,7 @@ Contact <a class="intercom-launch" href="mailto:help@logz.io">the Support team f
     ![Change format and open](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/logs-edit-traceid.png)
 5. Using your main account, insert the following template in the **URL template** field of the Jaeger user interface (UI), add `{% raw %}{{value}}{% endraw %}` to **Label template** and **Save field**.
   
-`{% raw %}https://app.logz.io/#/dashboard/jaeger/trace/{{value}}{% endraw %}`
+`https://app.logz.io/#/dashboard/jaeger/trace/{{value}}`
 
 
 Each traceID attribute functions as a drill down link that leads you to the correlated trace view in Jaeger. 

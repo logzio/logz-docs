@@ -9321,7 +9321,7 @@ definitions:
         type: object
         description: Defines the intervals in which an alert will be evaluated. This feature is still in production, but the payload already contains the data.
         properties:
-          cron:
+          cronExpression:
             type: string
             description: Cron job for the intervals schedule.
           timezone:
@@ -9747,7 +9747,7 @@ definitions:
         type: object
         description: Defines the intervals in which an alert will be evaluated. This feature is still in production, but the payload already contains the data.
         properties:
-          cron:
+          cronExpression:
             type: string
             description: Cron job for the intervals schedule.
           timezone:

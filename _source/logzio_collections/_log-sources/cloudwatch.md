@@ -27,8 +27,8 @@ order: 110
 * [Advanced configuration](#advanced)
 {:.branching-tabs}
 
-
 <!-- tab:start -->
+
 <div id="automated-cloudformation-deployment">
 
 We recommend Automated CloudFormation deployment as a default configuration. If you need to deploy this integration in a different way, please navigate to [Advanced configuration](#advanced).
@@ -124,6 +124,9 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 </div>
 </div>
 <!-- tab:end -->
+
+
+<div></div>
 
 <!-- tab:start -->
 <div id="advanced">

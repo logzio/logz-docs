@@ -24,7 +24,7 @@ A: You will have two options to track your On Demand usage. First, you can navig
 
 ### Q: When will my account start paying for On Demand?
 
-A: On Demand charges will start on **June 10, 2022**. The On Demand volume will be any usage above the daily plan. For example, if your daily plan is 10GB, and you send us 12GB in a day you will be charged for 2GB overage for that day. 
+A: On Demand charges started on **June 10, 2022**. The On Demand volume will be any usage above the daily plan. For example, if your daily plan is 10GB, and you send us 12GB in a day you will be charged for 2GB overage for that day. 
 
 ### Q: How do you calculate On Demand?
 

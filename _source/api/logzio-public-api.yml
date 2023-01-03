@@ -518,9 +518,9 @@ paths:
                   example: The contact point was deleted successfully.
     get:
       operationId: RouteGetPolicyTree
-      summary: Set notification policy tree
+      summary: Get notification policy tree
       description: >-
-         Set notification policy tree.
+         Get notification policy tree.
       tags:
           - Grafana contact points
       responses:

@@ -140,7 +140,7 @@ It can take a few minutes after the stack creation for EventBridge rule to be tr
 
 <!-- info-box-start:info -->
 If want to delete the S3 Hook Stack - you'll need to detach the policy "LambdaAccessBuckets" first.
-{:.info-box.note}
+{:.info-box.important}
 <!-- info-box-end -->
 
 ##### Check Logz.io for your logs

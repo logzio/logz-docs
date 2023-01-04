@@ -39,7 +39,7 @@ Here are some of the **common mapping errors** you might encounter and why they 
 |object mapping for [FIELD_NAME] tried to parse field [FIELD_NAME] as object, but found a concrete value|Field is mapped as a JSON object but is being sent as a string (or is being stringified by other means)|
 |Can't get text on a START_OBJECT|Field is mapped as a string, but is sent as a JSON object|
 |failed to parse field [FIELD_NAME] of type [DATA_TYPE]|Field is being mapped as one data type but being sent as another|
-|Index -1 out of bounds for length 0|A field exists in the log with the name "."|
+|Index -1 out of bounds for length 0|A field exists in the log with a dot "." in its name. For these cases, the system treats the field as an object when mapping it. For example: `log.level`, `app.kubernetes`, etc.|
 |Numeric value (NUMBER) out of range of long (-9223372036854775808 - 9223372036854775807)|Field mapped as a number, but its value is outside the range of the "Long" data type|
 
 ### Invalid logs

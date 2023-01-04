@@ -47,7 +47,7 @@ The latest version pulls the image from `logzio/logzio-fluentd`. Previous versio
 
 <!-- info-box-start:info -->
 Fluentd will fetch all existing logs, as it is not able to ignore older logs.
-{:.info-box.note}
+{:.info-box.important}
 <!-- info-box-end -->
 
 For troubleshooting this solution, see our [user guide](https://docs.logz.io/user-guide/kubernetes-troubleshooting/).

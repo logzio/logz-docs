@@ -29,12 +29,12 @@ parsing can be an invaluable tool.
 {:toc}
 
 
-## Video: Parsing your data with Logz.io
+<!-- ## Video: Parsing your data with Logz.io
 
 The following video will walk you through Logz.io's parsing capabilities, focusing on Parsing-as-a-service and self-service data parsing wizard:
 
 <video src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-mapping/parsing-your-data-with-logzio.mp4" controls>
-  </video>
+  </video> -->
 
 
 ## Customize your log parsing with Logz.io Data Parsing

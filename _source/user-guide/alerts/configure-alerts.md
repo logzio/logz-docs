@@ -40,7 +40,7 @@ Next, set the search components. This determines which logs to look for and in w
 If you intend to create a correlated alert with 2 queries, see [this guide](/user-guide/alerts/correlated-alert/).
 
 
-![Alert group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alert-search-component_aug2021.gif)
+![Alert group by settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alert-filter-component.gif)
 
 
 <!-- info-box-start:info -->

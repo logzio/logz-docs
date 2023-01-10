@@ -2,6 +2,8 @@
 layout: article
 title: Log shipping troubleshooting
 permalink: /user-guide/log-shipping/log-shipping-troubleshooting.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Troubleshooting log shipping to Logz.io
 tags:
   - log-shipping
   - troubleshooting
@@ -136,7 +138,7 @@ If the tokens don't match, your logs won't be sent to your account.
 Copy your acount token to your shipper configuration,
 and restart your shipper if you need to.
 
-If your logs still don't appear in Kibana after a few minutes,
+If your logs still don't appear in OpenSearch Dashboards after a few minutes,
 move on to the next troubleshooting step.
 
 ##### Check your log shipper's logs

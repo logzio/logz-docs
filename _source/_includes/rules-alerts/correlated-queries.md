@@ -24,7 +24,7 @@ For example, "Brute-force attack from malicious address followed by malware down
 
 Click **+ Add another query** to add the option to correlate queries.
 
-![Add another query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/add-another-query_aug2021.png)
+![Add another query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/add-another-query.png)
 
 ##### Query 1 & Query 2
 
@@ -41,7 +41,7 @@ The following criteria are similar for both the single-query and multi-query {{i
 * You can preview the results in OpenSearch Dashboards for each query independently. Click **Preview in OpenSearch Dashboards** to open the results for the past 24 hours in another tab.
 * If you change your mind, you can delete either of the queries. Click **X Delete query** to return to a single-query form.
 
-![empty alert form with 2 queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/query1and2.png)
+![empty alert form with 2 queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/multiple-queries.png)
 
 ##### Joining the queries (_optional_)
 
@@ -65,11 +65,11 @@ If you opt to join the queries, you must first add **group by** fields that will
 
   You do not have to join all of the **group by** fields, and the queries can have a different number of **group by** fields.
 
-![{{include.name}} with 2 queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/2-queries.png)
+![{{include.name}} with 2 queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/both-queries.png)
 
 When joined, the {{include.name}} looks for values that are common to the field pairs selected for joining the queries. This means the {{include.name}} will only trigger if it finds matching values for the join field pairs.
 
-![Add a group by field function for both queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/correlated-join-queries.png)
+![Add a group by field function for both queries](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/group-by-join.png)
 
 Joined fields are indicated by the **link icon <i class="fas fa-link"></i>**.
 
@@ -84,7 +84,7 @@ When the {{include.name}} has 2 queries, you can set a single condition for each
 
 As usual, each query can take a different condition for a field of your choice.
 
-![Conditions and severity for correlated {{include.name}}](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/correlated-trigger-conditions.png)
+![Conditions and severity for correlated {{include.name}}](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/join-trigger.png)
 
 The {{include.name}} conditions are evaluated over regular intervals. The time frame for evaluating the conditions is the same for both queries. It can range between a minimum of 5 minutes and a maximum of 24 hours/1 day.
 
@@ -97,9 +97,9 @@ It's a good idea to add a description that works for both queries and what they 
 You have the option to send notification sample data in **JSON** or **Table** format.
 Toggle the button to select your preferred format.
 
-Next, select the output fields for each query, as applicable. As usual, if the query has aggregations (or group-by fields) definted, the output will be auto-selected, and the aggregated results will be sent by default. Otherwise, you can select which fields to include. [Learn more](/user-guide/alerts/configure-an-alert.html#output-format--content)
+Next, select the output fields for each query, as applicable. As usual, if the query has aggregations (or group-by fields) definted, the output will be auto-selected, and the aggregated results will be sent by default. Otherwise, you can select which fields to include. [Learn more](/user-guide/alerts/configure-an-alert.html#output-format--content).
 
-![Notifications are auto-configured](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/correlated-output-options.png)
+![Notifications are auto-configured](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/join-notification.png)
 
 ##### Save it!
 

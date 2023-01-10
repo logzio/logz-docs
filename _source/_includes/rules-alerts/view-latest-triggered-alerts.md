@@ -2,7 +2,7 @@
 
 You can easily view the event logs written by the alert over the last 36 hours, regardless of notification suppression.
 
-* Open the [**Logs > Alert definitions**](https://app.logz.io/#/dashboard/triggers/alert-definitions)
+* Open the [**Logs > Alerts**](https://app.logz.io/#/dashboard/triggers/alert-definitions)
 page from the navigation menu.
 * Hover over an alert and click its **Menu button <i class="li li-ellipsis-v"></i>**.
 * Select **View last events**.

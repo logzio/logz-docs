@@ -54,7 +54,7 @@ However, you can edit the link to **include the time frame** by adding the follo
 
 For example, if your public link is:
 
-`https://app.logz.io/?embed=true&shareToken=8d90-fbe1c84836d3#/dashboard/kibana/discover/?=&_a=(columns%3A!(message)%2Cfilters%3A!()%2Cindex%3A'logzioCustomerIndex*'%2Cinterval%3Aauto%2Cquery%3A(language%3Alucene%2Cquery%3A'')%2Csort%3A!())&_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))`
+`https://app.logz.io/?embed=true&shareToken=8d90-fbe1c84836d3#/dashboard/osd/discover/?=&_a=(columns%3A...15m%2Cto%3Anow))`
 
 This is how users will see it:
 
@@ -64,7 +64,7 @@ This is how users will see it:
 When you add the time frame string to the end of the URL, it changes the view and includes the time frame and search abilities:
 
 
-`https://app.logz.io/?embed=true&shareToken=8d90-fbe1c84836d3#/dashboard/kibana/discover/?=&_a=(columns%3A!(message)%2Cfilters%3A!()%2Cindex%3A'logzioCustomerIndex*'%2Cinterval%3Aauto%2Cquery%3A(language%3Alucene%2Cquery%3A'')%2Csort%3A!())&_g=(filters%3A!()%2CrefreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-15m%2Cto%3Anow))&forceShowQueryBar=true`
+`https://app.logz.io/?embed=true&shareToken=8d90-fbe1c84836d3#/dashboard/osd/discover/?=&_a=(columns%3A...15m%2Cto%3Anow))&forceShowQueryBar=true`
 
 ![public share with time](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sharing-logs/share-with-time.png)
 

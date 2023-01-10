@@ -18,7 +18,7 @@ The **Triggered alerts** page offers an updated list of notifications of recentl
 You can think of it as a live dashboard summary of all the triggered alert notifications sent.
 So that even if you're not on the recipients list, you can still know which events occurred.
 
-![Triggered alerts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/triggered-log-alerts_aug2021.png)
+![Triggered alerts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/triggered-alerts-main.png)
 
 To view the **Triggered alerts** page,
 select [**Logs > Triggered alerts**](https://app.logz.io/#/dashboard/triggers/triggered-alerts)

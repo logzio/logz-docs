@@ -23,7 +23,7 @@ To schedule your report:
 
 * From **Logs > Reports** in the navigation menu, click the yellow <i class="fas fa-plus"></i> icon to open the **Create a report** page. 
 
-![Create a report from navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/reports-side-menu.png)
+![Create a report from navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/reports-from-navigation.png)
 
 #### Configuring a report
 
@@ -56,7 +56,7 @@ Use **Who to send it to** to choose the report's email and Slack recipients.
 
 ##### Custom logo & sharing link
 
-![Logz.io report scheduling form](https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/report-form2_aug2021.png)
+![Logz.io report scheduling form](https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/new-report.png)
 
 You will find more options at the bottom of the form:
 
@@ -74,6 +74,6 @@ View in OpenSearch Dashboards link
 
 Here's an example of what the report email might look like.
 
-![Example of Logz.io report email](https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/logo-for-report.png)
+![Example of Logz.io report email](https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/demo-report-email.png)
 
 </div>

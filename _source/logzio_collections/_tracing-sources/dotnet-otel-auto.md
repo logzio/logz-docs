@@ -80,9 +80,7 @@ After downloading the collector, create a configuration file `config.yaml` with 
 
 ##### Start the collector
 
-Run the following command:
-
-{% include /tracing-shipping/collector-config.md %}
+{% include /tracing-shipping/collector-run.md %}
 
 
 ##### Run the application

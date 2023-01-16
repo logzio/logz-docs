@@ -360,7 +360,7 @@ firstLevel:
     thirdLevel:
     - title: Investigate security events
       url: /user-guide/cloud-siem/security-events.html
-    - title: Research in Kibana
+    - title: Research in OpenSearch Dashboards
       url: /user-guide/cloud-siem/understanding-your-security-logs.html
     - title: Drilldown links
       url: /user-guide/cloud-siem/drilldown-links/

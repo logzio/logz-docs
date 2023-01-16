@@ -29,7 +29,7 @@ include descriptions for each field column in event table
 * [Search events](/user-guide/cloud-siem/siem-event-management.html#searching-for-events) - Where to set your criteria to find specific events.
 * [Edit an event](/user-guide/cloud-siem/siem-event-management.html#editing-an-event) - Update who the event is assigned to or add comments with additional information and priority handling decisions. 
 * [Edit the event rule](/user-guide/cloud-siem/siem-event-management.html#editing-an-event-rule) - Fine tune your security rule to improve event management.
-* [Investigate an event](/user-guide/cloud-siem/siem-event-management.html#investigating-an-event) -  Harness Kibana to see the related event logs for more powerful insights.
+* [Investigate an event](/user-guide/cloud-siem/siem-event-management.html#investigating-an-event) -  Harness OpenSearch Dashboards to see the related event logs for more powerful insights.
 * [Viewing the event history](/user-guide/cloud-siem/siem-event-management.html#viewing-the-event-history) - View the rule information for the triggered event.
 * [Viewing grouped events](/user-guide/cloud-siem/siem-event-management.html#viewing-grouped-events) - What those event counts mean. 
 
@@ -110,9 +110,9 @@ To fine tune event management, go back to a source rule and edit it!
 
 
 ## Investigating an event
-This option opens the Kibana interface, where you can view the related logs for the triggered event, according to the time frame you selected to display your events.
+This option opens the OpenSearch Dashboards interface, where you can view the related logs for the triggered event, according to the time frame you selected to display your events.
 
-![Investigate an event](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem-3investigate.gif)
+<!-- ![Investigate an event](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem-3investigate.gif) -->
 
 ## Viewing the event history
 View the rule information for the triggered event, including the:
@@ -128,7 +128,7 @@ View the rule information for the triggered event, including the:
 To view all the events grouped in the **Count** field, select **View all occurrences** in the **More actions**  menu for the event.
 ![View grouped events](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/view_grouped.png)
 
-In addition to the name, ID, and description of the triggered rule, the list also displays the date, time, and unique Event ID for each occurence , as well as the [**Investigate**](/user-guide/cloud-siem/siem-event-management.html#investigating-an-event) link to take you to the relevant logs in Kibana. 
+In addition to the name, ID, and description of the triggered rule, the list also displays the date, time, and unique Event ID for each occurence , as well as the [**Investigate**](/user-guide/cloud-siem/siem-event-management.html#investigating-an-event) link to take you to the relevant logs in OpenSearch Dashboards. 
 ![View list of grouped events](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/view_all_occurences_nov2021.png)
 
 

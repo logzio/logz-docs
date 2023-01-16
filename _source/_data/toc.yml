@@ -148,7 +148,7 @@ firstLevel:
       url: /user-guide/infrastructure-monitoring/metrics-correlations/ ##url
     - title: Annotations
       url: /user-guide/infrastructure-monitoring/annotations/
-    - title: Explore in Kibana
+    - title: Explore in OpenSearch Dashboards
       url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
   - title: Pre-built metrics dashboards
     thirdLevel:
@@ -299,13 +299,14 @@ firstLevel:
     url: /user-guide/distributed-tracing/service-performance-monitoring-setup
   - title: Correlate logs and traces
     url:  /user-guide/distributed-tracing/correlate-traces/
-  - title: Visualize traces in Kibana
-    url: /user-guide/distributed-tracing/visualize-traces/
+  #- title: Visualize traces in OpenSearch Dashboards
+  #  url: /user-guide/distributed-tracing/visualize-traces/
   - title: Sampling rules
     url: /user-guide/distributed-tracing/sampling-rules.html
-  - title: Distributed Tracing troubleshooting
-    url: /user-guide/distributed-tracing/tracing-troubleshooting.html
+  - title: Troubleshooting
     thirdLevel:
+    - title: Distributed Tracing troubleshooting
+      url: /user-guide/distributed-tracing/tracing-troubleshooting.html
     - title: OpenTelemetry troubleshooting
       url: /user-guide/distributed-tracing/otel-troubleshooting.html
   

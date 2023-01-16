@@ -446,3 +446,8 @@
   status = 301
   force = true
   
+[[redirects]]
+  from = "/user-guide/distributed-tracing/visualize-traces"
+  to = "https://docs.logz.io"
+  status = 301
+  force = true

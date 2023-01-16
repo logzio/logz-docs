@@ -1,9 +1,9 @@
 ---
 layout: article
-title: Explore in Kibana
+title: Explore in OpenSearch Dashboards
 permalink: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Explore in Kibana drilldown overview
+description: Explore in OpenSearch Dashboards drilldown overview
 flags:
   logzio-plan: community
 tags:
@@ -14,9 +14,9 @@ contributors:
   - daniel-tk
 ---
 
-**Explore in Kibana** are drilldown links that give you a direct shortcut from your Metrics' visualizations to the relevant logs in Kibana.
+**Explore in OpenSearch Dashboards** are drilldown links that give you a direct shortcut from your Metrics' visualizations to the relevant logs in OpenSearch Dashboards.
 
-A few dashboards provided out-of-the-box by Logz.io come with **Explore in Kibana** drilldown links preconfigured. But generally speaking, these are very user-specific, so you'll want to set them up for yourself to suit your particular implementation.
+A few dashboards provided out-of-the-box by Logz.io come with **Explore in OpenSearch Dashboards** drilldown links preconfigured. But generally speaking, these are very user-specific, so you'll want to set them up for yourself to suit your particular implementation.
 
 Drilldown links help you go straight to the related logs whenever you identify an issue in your Metrics graphs and see a need to investigate it further. They are a powerful observability tool that gives you context and visibility into the logs that coincided with the Metrics events.
 
@@ -67,17 +67,17 @@ If you plan to add alerts to the visualization, note that only **Time series** i
 Go to **Panel options** located at the right side of the screen, and click the **Panel links** section. 
 Click **+ Add link**.
 
-![Add panel link in Grafana](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/im-edit-link.png)
+![Add panel link in Grafana](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/explore-in-osd.png)
 
-* Set the **Title** to **Explore in Kibana**, unless you want to name it something else.
+* Set the **Title** to **Explore in OpenSearch Dashboards**, unless you want to name it something else.
 * Copy this endpoint to the **URL**:
 
   ```
   /#/explore-kibana-from-grafana?$__url_time_range&query=
   ```
-* Write your Kibana query in Lucene syntax. Make sure there are no spaces before and after the `=` operator.
+* Write your OpenSearch Dashboards query in Lucene syntax. Make sure there are no spaces before and after the `=` operator.
 
-  It is a good idea to test your query in Kibana Discover to make sure you're getting the intended results.
+  It is a good idea to test your query in OpenSearch Dashboards to make sure you're getting the intended results.
 
 ##### Query syntax and tips
 
@@ -108,6 +108,6 @@ Save your dashboard.
 Test your new drilldown link
 by hovering over <i class="fas fa-external-link-alt"></i>
 (upper left corner of the panel),
-and clicking **Explore in Kibana**.
+and clicking **Explore in OpenSearch Dashboards**.
 
-![Drilldown link](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/im-send-to-kibana.png)
+![Drilldown link](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/explore-in-osd-link.png)

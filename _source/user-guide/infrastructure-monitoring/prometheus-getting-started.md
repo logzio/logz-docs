@@ -25,7 +25,7 @@ You can continue using Prometheus Alert Manager: You'll simply store the metrics
 ## One small step
 All it takes to ship your metrics data to Logz.io is to use Remote Write on each Prometheus server, with Logz.io configured as the endpoint: By adding a few lines of code, Remote Write ensures that your metrics are written to Logz.io. 
 
-<p><a href="https://logz.io/learn/getting-started-prometheus-as-a-service/?wvideo=w2lic9vv1z" target="_blank"><img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/start-with-metrics.png" width="640" height="360" style="width: 640px; height: 360px;"></a></p><p><a href="https://logz.io/learn/getting-started-prometheus-as-a-service/?wvideo=w2lic9vv1z"></a></p>
+<p><a href="https://logz.io/learn/getting-started-prometheus-as-a-service/?wvideo=w2lic9vv1z" target="_blank"><img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/prom-as-a-service-w2lic9vv1z.png" width="640" height="360" style="width: 640px; height: 360px;"></a></p><p><a href="https://logz.io/learn/getting-started-prometheus-as-a-service/?wvideo=w2lic9vv1z"></a></p>
 
 <!-- <iframe width="560" height="315" src="https://fast.wistia.com/embed/iframe/w2lic9vv1z" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 

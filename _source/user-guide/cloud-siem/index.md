@@ -3,7 +3,7 @@ layout: article
 title: Getting started with Cloud SIEM
 permalink: /user-guide/cloud-siem/
 image:  https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Cloud SIEM - security analytics in combination with Kibana for identifying, investigating, and remediating threats
+description: Cloud SIEM - security analytics in combination with OSD for identifying, investigating, and remediating threats
 flags:
   logzio-plan: pro
 tags:
@@ -18,7 +18,7 @@ contributors:
   - danielberman
 ---
 
-Logz.io Cloud SIEM combines the power of Kibana with advanced security analytics tools
+Logz.io Cloud SIEM combines the power of OpenSearch Dashboards with advanced security analytics tools
 to help you identify, investigate, and remediate threats quickly and efficiently.
 
 To open your Cloud SIEM account,
@@ -40,8 +40,8 @@ Dashboards
 Threats Overview & Threat Intelligence feeds
 : The Threats dashboard shows you potential threats by correlating your logs with lists of known threats using public and private threat feeds. [Learn more](/user-guide/cloud-siem/threat-intelligence.html)
 
-Kibana
-: Use Kibana to drill down into your logs, or select dashboards to review events by specific Security products. Your Cloud SIEM is pre-loaded with a large library of dashboards curated by Logz.io. [Learn more](/user-guide/cloud-siem/understanding-your-security-logs.html)
+OpenSearch Dashboards
+: Use OpenSearch Dashboards to drill down into your logs, or select dashboards to review events by specific Security products. Your Cloud SIEM is pre-loaded with a large library of dashboards curated by Logz.io. [Learn more](/user-guide/cloud-siem/understanding-your-security-logs.html)
 
 Reports
 : Schedule dashboards to be sent out as reports on a regular basis. [Learn more](/user-guide/cloud-siem/dashboards/)

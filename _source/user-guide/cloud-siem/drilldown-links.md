@@ -2,6 +2,8 @@
 layout: article
 title: Add drilldown links
 permalink: /user-guide/cloud-siem/drilldown-links/
+image:  https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Add drilldown links in Cloud SIEM
 flags:
   logzio-plan: pro
 tags:
@@ -26,7 +28,7 @@ click [**SIEM > MORE OPTIONS > Drilldowns**](https://app.logz.io/#/dashboard/set
 
 1. Click **+ Add drilldown**.
 2. Select the **Source field** from the dropdown list. This is the field that will become a hyperlink.
-3. Select a **Dashboard** from the dropdown list. This is the target destination of the drilldown link. When users click the log field in a dashboard or Kibana Discover, it will direct them to this dashboard.
+3. Select a **Dashboard** from the dropdown list. This is the target destination of the drilldown link. When users click the log field in a dashboard or OpenSearch Dashboards, it will direct them to this dashboard.
 4. Click **Add** to confirm the new drilldown link.
 
 ### Edit or delete a drilldown link

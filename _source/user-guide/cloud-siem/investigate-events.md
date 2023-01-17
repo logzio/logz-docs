@@ -2,6 +2,8 @@
 layout: article
 title: Investigate events
 permalink: /user-guide/cloud-siem/investigate-events.html
+image:  https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Investigating events in Cloud SIEM
 flags:
   logzio-plan: pro
 tags:
@@ -25,6 +27,6 @@ To see and to investigate events displayed on the **Summary** dashboard:
 
    ![Investigate_events](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/events-1.png)
 
-4. Click the **Investigate** tab next to the event that you want to see more data on. It will build a Kibana search showing the logs that have contributed to this event getting executed.
+4. Click the **Investigate** tab next to the event that you want to see more data on. It will build an OpenSearch Dashboards search showing the logs that have contributed to this event getting executed.
 
-   ![Investigate_events](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/events-2.png)
+   ![Investigate_events](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/main-siem-to-log.png)

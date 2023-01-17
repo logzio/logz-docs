@@ -2,6 +2,8 @@
 layout: article
 title: Creating security rules
 permalink: /user-guide/cloud-siem/create-rules.html
+image:  https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Create a security rule in Logz.io
 flags:
   logzio-plan: pro
 tags:
@@ -30,12 +32,12 @@ The first way is creating a rule from scratch. To do this:
 
 4. Fill out the rule details as follows:
 
-   ![Rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/rule-4.png)
+   ![Rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/create-a-siem-rule.png)
 
 
    * Give the rule a required name.
    
-   * Define a query for the rule. You can do it directly in the **Create a rule** window and then preview it in Kibana. Alternatively, you can define the query in Kibana and copy it across.
+   * Define a query for the rule. You can do it directly in the **Create a rule** window and then preview it in OpenSearch Dashboards. Alternatively, you can define the query in OpenSearch Dashboards and copy it across.
    
    * Define what fields the query needs to be grouped by.
    
@@ -72,15 +74,15 @@ The other way is creating a rule from an existing rule. In this case, the rule b
 
 5. Select **Create rule**.
 
-   ![Rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/rule-5.png)
+   ![Rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/create-rule-from-query.png)
 
 6. Fill out the rule details as follows:
 
-   ![Rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/rule-6.png)
+   ![Rules](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/create-rule-from-query-2.png)
 
    * Give the rule a required name.
    
-   * Define a query for the rule. You can do it directly in the **Create a rule** window and then preview it in Kibana. Alternatively, you can define the query in Kibana and copy it across.
+   * Define a query for the rule. You can do it directly in the **Create a rule** window and then preview it in OpenSearch Dashboards. Alternatively, you can define the query in OpenSearch Dashboards and copy it across.
    
    * Define what fields the query needs to be grouped by.
    

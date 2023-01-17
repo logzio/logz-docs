@@ -19,11 +19,11 @@ contributors:
 ---
 
 
-Lookup lists are custom lists that you can use for simpler, easier query filtering in Kibana. 
+Lookup lists are custom lists that you can use for simpler, easier query filtering in OpenSearch Dashboards. 
 Instead of adding a long list of elements to your query, you can create lookup lists and use them to filter results by adding the operator `in lookups` or `not in lookups`. For example, you can create lookup lists of allowlisted or blocklisted usernames, IP addresses, regions, or domains. 
 
 <!-- info-box-start:info -->
-Lookup list values are only string-based and do not support ranges. Kibana, however, supports range-based searches, such as IP: [127.0.0.0 TO 127.*].
+Lookup list values are only string-based and do not support ranges. OpenSearch Dashboards, however, supports range-based searches, such as IP: [127.0.0.0 TO 127.*].
 {:.info-box.note}
 <!-- info-box-end -->
 
@@ -45,17 +45,17 @@ Learn more about the two lookup lists and how to use them:
 
 * **[Create a Static lookup](/user-guide/lookups/static-lookup.html)**
 * **[Create a Dynamic lookup](/user-guide/lookups/dynamic-lookup.html)**
-* [Filter by lookup lists in Kibana](/user-guide/lookups/#filter-by-lookup-lists-in-kibana)
+* [Filter by lookup lists in OpenSearch Dashboards](/user-guide/lookups/#filter-by-lookup-lists-in-kibana)
 * [Add a lookup list filter to a security rule](/user-guide/lookups/#add-a-lookup-list-filter-to-a-security-rule)
 * [Delete a lookup list](/user-guide/lookups/#delete-a-lookup-list)
 
-## Filter by lookup lists in Kibana
+## Filter by lookup lists in OpenSearch Dashboards
 
-You can filter by lookup lists in Kibana dashboards, security rules, and searches.
+You can filter by lookup lists in OpenSearch Dashboards, security rules, and searches.
 
-For example, go to the SIEM [Kibana](https://app.logz.io/#/dashboard/security/research) page or open a Dashboard. Click **Add a filter** to show the filter dialog box.
+For example, go to the SIEM [OpenSearch Dashboards](https://app.logz.io/#/dashboard/security/research) page or open a Dashboard. Click **Add a filter** to show the filter dialog box.
 
-![Filter by lookup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/lookup_filter-kibana_or_dashbd.gif)
+![Filter by lookup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/siem-osd-filter.png)
 
 * **Field** - Select a field to filter by.
 * **Operator** - Select the operator **in lookups** or **not in lookups**.
@@ -69,7 +69,7 @@ Select the field you want to filter by, and select whether it's included or excl
 
 Next, select the lookup list you'd like to refer to from the dropdown menu.
 
-![Select a filter](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/filter-with-lookup_rules.png)
+![Select a filter](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/filter-in-lookup.png)
 
 **Save** your filter, and continue editing the rule.
 

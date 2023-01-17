@@ -106,7 +106,7 @@ After an investigator edits an event, the date and user are automatically displa
 
 To fine tune event management, go back to a source rule and edit it! 
 
-![Edit the event rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siemanagement_edit_rule2_dec2021.png)
+![Edit the event rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/edit-rule-from-event.gif)
 
 
 ## Investigating an event

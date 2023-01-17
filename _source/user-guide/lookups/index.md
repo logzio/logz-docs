@@ -55,7 +55,7 @@ You can filter by lookup lists in OpenSearch Dashboards, security rules, and sea
 
 For example, go to the SIEM [OpenSearch Dashboards](https://app.logz.io/#/dashboard/security/research) page or open a Dashboard. Click **Add a filter** to show the filter dialog box.
 
-![Filter by lookup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/lookup_filter-kibana_or_dashbd.gif)
+![Filter by lookup](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/siem-osd-filter.png)
 
 * **Field** - Select a field to filter by.
 * **Operator** - Select the operator **in lookups** or **not in lookups**.
@@ -69,7 +69,7 @@ Select the field you want to filter by, and select whether it's included or excl
 
 Next, select the lookup list you'd like to refer to from the dropdown menu.
 
-![Select a filter](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/filter-with-lookup_rules.png)
+![Select a filter](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-lookups/filter-in-lookup.png)
 
 **Save** your filter, and continue editing the rule.
 

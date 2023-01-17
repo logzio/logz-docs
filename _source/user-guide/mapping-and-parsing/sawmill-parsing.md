@@ -79,7 +79,7 @@ The Logz.io Data Parsing Editor tool works with the Logz.io public API and lets 
 
 ### Field mapping data types
 
-Field data type determines how each field is indexed and shown in Kibana. Account admins can change the data types according to a predefined set of options:
+Field data type determines how each field is indexed and shown in OpenSearch Dashboards. Account admins can change the data types according to a predefined set of options:
 
 ![Choose field data type](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-mapping/mapping-fields-main-.png)
 

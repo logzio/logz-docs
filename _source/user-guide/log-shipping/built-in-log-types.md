@@ -2,6 +2,8 @@
 layout: article
 title: Default parsing
 permalink: /user-guide/log-shipping/built-in-log-types.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Parse your logs with Logz.io
 tags:
   - log-shipping
   - log-types
@@ -15,7 +17,7 @@ contributors:
 
 Logz.io automatically parses logs shipped from many platforms, services, containers, servers, and more.
 
-The shipping configuration includes a log **type** parameter that determines which pipeline is used to parse the data. In Kibana, it is indicated by a field named `type`.
+The shipping configuration includes a log **type** parameter that determines which pipeline is used to parse the data. In OpenSearch Dashboards, it is indicated by a field named `type`.
 
 Logz.io offers many pre-built parsing pipelines for a large number of log sources, as shown below. If you need a new pipeline created or want a customized version of an existing pipeline, contact Logz.io Support. Parsing-as-a-service is included in your package and we're happy to offer it.
 

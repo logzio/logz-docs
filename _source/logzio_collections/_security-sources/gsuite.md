@@ -131,7 +131,7 @@ output.logstash:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
 
-For a full list of available Filebeat configuration options for the Google Workspace module, please see Filebeat's [documentation](https://www.elastic.co/guide/en/beats/filebeat/current/_configure_the_module.html).
+For a full list of available Filebeat configuration options for the Google Workspace module, please see Filebeat's [documentation](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-google_workspace.html).
 
 
 

@@ -81,7 +81,7 @@ That’s it! It might take a while for the Telemetry Collector to get up and run
 
 </div>
 
-#### Manage and remove a Telemetry Collector:
+#### Manage your Telemetry Collector:
 
 
 To manage a Kubernetes Telemetry Collector, you can use the following commands:
@@ -107,7 +107,7 @@ _Replace `<<USERNAME>>` with your Windows user name._
 If you have additional questions about managing your Telemetry Collector, [contact Logz.io's Support team](mailto:help@logz.io).
 
 
-#### How to remove a Telemetry Collector:
+#### Remove your Telemetry Collector:
 
 You can uninstall your Telemetry Collector from **Kubernetes** by running the following snippet in the same platform you've used to install it:
 

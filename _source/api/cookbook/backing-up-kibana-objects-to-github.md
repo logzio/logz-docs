@@ -2,6 +2,8 @@
 layout: article
 title: Backing up Kibana objects to GitHub
 permalink: /api/cookbook/backing-up-kibana-objects-to-github.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: How to backup objects to GitHub
 flags:
   logzio-plan: pro
 tags:

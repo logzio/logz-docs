@@ -2,6 +2,8 @@
 layout: article
 title: Distributed Tracing table of content
 permalink: /user-guide/distributed-tracing/tracing-highlights
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Meet Logz.io Distributed Tracing solution
 flags:
   logzio-plan: community
 sitemap: false

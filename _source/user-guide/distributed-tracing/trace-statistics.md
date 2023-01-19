@@ -2,6 +2,8 @@
 layout: article
 title: What can I do in the Trace Statistics?
 permalink: /user-guide/distributed-tracing/trace-statistics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Logz.io Distributed Tracing Trace Statistics view
 flags:
   logzio-plan: pro enterprise
 tags:

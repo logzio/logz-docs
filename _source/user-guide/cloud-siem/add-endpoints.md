@@ -2,6 +2,8 @@
 layout: article
 title: Adding notification and SOAR endpoints
 permalink: /user-guide/cloud-siem/add-endpoints.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: How to add notification and SOAR endpoints
 flags:
   logzio-plan: pro
 tags:

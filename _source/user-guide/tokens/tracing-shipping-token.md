@@ -2,6 +2,8 @@
 layout: article
 title: Distributed Tracing shipping token
 permalink: /user-guide/accounts/finding-your-tracing-account-token/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Manage your Tracing shipping token
 flags:
   admin: true
   logzio-plan: community

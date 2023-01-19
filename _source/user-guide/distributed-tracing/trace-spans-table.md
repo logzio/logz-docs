@@ -2,6 +2,8 @@
 layout: article
 title: What can I do in the Trace Spans Table?
 permalink: /user-guide/distributed-tracing/trace-spans-table
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Logz.io Distributed Tracing Spans Table view
 flags:
   logzio-plan: pro enterprise
 tags:

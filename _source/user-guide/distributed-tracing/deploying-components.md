@@ -2,6 +2,8 @@
 layout: article
 title: Deploying components in your system
 permalink: /user-guide/distributed-tracing/deploying-components
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: How to deploy tracing components in your system
 flags:
   logzio-plan: pro enterprise
 tags:

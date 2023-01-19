@@ -2,6 +2,8 @@
 layout: article
 title: What is Distributed Tracing? 
 permalink: /user-guide/distributed-tracing/what-is-tracing
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Meet Logz.io's Distributed Tracing solution
 flags:
   logzio-plan: pro enterprise
 tags:

@@ -2,6 +2,8 @@
 layout: article
 title: Investigate security events
 permalink: /user-guide/cloud-siem/security-events.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Review and manage your security events with Logz.io
 flags:
   logzio-plan: pro
 tags:

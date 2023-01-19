@@ -2,6 +2,8 @@
 layout: article
 title: PCI compliance and log redaction
 permalink: /user-guide/accounts/pci-compliance.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Logz.io PCI compliance solution
 flags:
   admin: true
   logzio-plan: enterprise

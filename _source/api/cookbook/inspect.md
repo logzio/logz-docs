@@ -2,6 +2,8 @@
 layout: article
 title: Using Inspect feature on Kibana UI
 permalink: /api/cookbook/inspect.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Using Kibana UI Inspect
 flags:
   logzio-plan: pro
 tags:

@@ -2,6 +2,8 @@
 layout: article
 title: Getting started with Logz.io Distributed Tracing
 permalink: /user-guide/distributed-tracing/getting-started-tracing
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Set up your Logz.io Distributed Tracing solution
 flags:
   logzio-plan: pro enterprise
 tags:

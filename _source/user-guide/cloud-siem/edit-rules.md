@@ -2,6 +2,8 @@
 layout: article
 title: Edit rules and protected rules
 permalink: /user-guide/cloud-siem/edit-rules.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Edit and protect SIEM rules
 flags:
   logzio-plan: pro
 tags:

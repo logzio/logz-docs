@@ -2,6 +2,8 @@
 layout: article
 title: Working with lookups
 permalink: /user-guide/cloud-siem/work-lookups.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Review and manage your lookups
 flags:
   logzio-plan: pro
 tags:

@@ -2,6 +2,8 @@
 layout: article
 title: Integrate with Cortex xSOAR
 permalink: /user-guide/cloud-siem/xsoar-integration/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Integrate your Cloud SIEM with Cortex xSOAR
 flags:
   logzio-plan: pro
 tags:

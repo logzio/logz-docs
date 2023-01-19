@@ -2,6 +2,8 @@
 layout: article
 title: Why Cloud SIEM
 permalink: /user-guide/siem/intro/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Meet Logz.io Cloud SIEM solution
 flags:
   logzio-plan: pro
 tags:

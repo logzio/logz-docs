@@ -13,7 +13,15 @@ contributors:
 Telemetry Collector is currently **available in all regions** except for Japan and Australia. If you're located in these regions, you can use **[Logz.io’s data shippers](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=all)** to send your data.
 {:.info-box.note}
 
-To start sending your Kubernetes data through the Telemetry Collector, Log into your Logz.io account, navigate to [Send your data](https://app.logz.io/#/dashboard/send-your-data), and click on **Start collecting**.
+To start sending your Kubernetes data through the Telemetry Collector, you'll need the following:
+
+* Admin privileges in your Logz.io account
+* Outgoing traffic to destination port `8053` allowed
+
+_If you're unsure whether traffic is allowed to this port, continue the process, and Logz.io will notify you if access is restricted._
+
+
+Navigate to [Send your data](https://app.logz.io/#/dashboard/send-your-data), and click on **Start collecting**.
 
 
 ![Start collecting button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/send-data-collector.png)
@@ -21,7 +29,7 @@ To start sending your Kubernetes data through the Telemetry Collector, Log into 
 
 <div class="tasklist">
 
-##### Select platform
+##### Select your platform
 
 
 Select the platform through which you’d like to ship your data. Then, if required, select the relevant sub-type.
@@ -48,7 +56,7 @@ Click **Generate snippet** to continue.
 
 Next, review your collector. The Summary, located on the left side of the screen, includes all of the data in the collector.
 
-##### Choose a platform and run the Telemetry Collector
+##### Choose a platform
 
 Choose the platform on which you want to run the Telemetry Collector. You can choose between **Mac**, **Windows**, or **Linux**. 
 
@@ -61,6 +69,12 @@ Some platforms might require additional details, such as admin privileges or pas
 
 ![Review collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-snippet-last-step.png)
 
+##### Run the Telemetry Collector
+
+The Telemetry Collector will create all setters needed for the Helm install command to install Logz.io Helm chart and deploy the chart with the relevant parameters. Once running, the Telemetry Collector will continuously collect the relevant data from your end, and you'll be able to view and manage it in Logz.io.
+
+You can review the complete list of parameters and commands that Logz.io runs in the background [on the **Logzio Monitoring GitHub repository**](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-monitoring).
+
 ##### Collect data
 
 That’s it! It might take a while for the Telemetry Collector to get up and running, after which you’ll be able to view your logs, metrics, or traces and get full observability into your system.
@@ -70,10 +84,8 @@ That’s it! It might take a while for the Telemetry Collector to get up and run
 #### Manage and remove a Telemetry Collector:
 
 
-To manage a Kubernetes Telemetry Collector from your **Windows** machine, you can use the following commands:
+To manage a Kubernetes Telemetry Collector, you can use the following commands:
 
-| **Logz.io Helm:** | `C:\Users\<<USERNAME>>\AppData\Roaming\LogzioAgent\LogzioKubernetes\logzio_helm.txt` |
-| **Logz.io Agent Logs:** | `C:\Users\<<USERNAME>>\AppData\Roaming\LogzioAgent\logzio_agent.log` |
 | **Install Logz.io Helm::** | `Invoke-Expression -Command (Get-Content -Path C:\Users\<<USERNAME>>\AppData\Roaming\LogzioAgent\LogzioKubernetes\logzio_helm.txt)` |
 | **Uninstall Logz.io Helm:** | `helm uninstall -n monitoring logzio-monitoring` |
 | **Show Helm Status:** | `helm status -n monitoring logzio-monitoring` |
@@ -81,8 +93,19 @@ To manage a Kubernetes Telemetry Collector from your **Windows** machine, you ca
 | **Show Pod's Logs:** | `kubectl logs <<POD_NAME>> -n monitoring` |
 | **Show Pod's Info:** | `kubectl describe pod <<POD_NAME>> -n monitoring` |
 
+_Replace `<<POD_NAME>>` with your pod's name._
 
-Replace `<<USERNAME>>` with your Windows user name and `<<POD_NAME>>` with the pod name. If you have additional questions about managing your Telemetry Collector, [contact Logz.io's Support team](mailto:help@logz.io).
+
+If you're running your Kubernetes Telemetry Collector from a **Windows** machine, you can use the following commands to gain access to the Helm chart and Logz.io's logs:
+
+| **Logz.io Helm:** | `C:\Users\<<USERNAME>>\AppData\Roaming\LogzioAgent\LogzioKubernetes\logzio_helm.txt` |
+| **Logz.io Telemetry Collector Logs:** | `C:\Users\<<USERNAME>>\AppData\Roaming\LogzioAgent\logzio_agent.log` |
+
+_Replace `<<USERNAME>>` with your Windows user name._
+
+
+If you have additional questions about managing your Telemetry Collector, [contact Logz.io's Support team](mailto:help@logz.io).
+
 
 #### How to remove a Telemetry Collector:
 

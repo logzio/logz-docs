@@ -86,7 +86,6 @@ That’s it! It might take a while for the Telemetry Collector to get up and run
 
 To manage a Kubernetes Telemetry Collector, you can use the following commands:
 
-| **Install Logz.io Helm::** | `Invoke-Expression -Command (Get-Content -Path C:\Users\<<USERNAME>>\AppData\Roaming\LogzioAgent\LogzioKubernetes\logzio_helm.txt)` |
 | **Uninstall Logz.io Helm:** | `helm uninstall -n monitoring logzio-monitoring` |
 | **Show Helm Status:** | `helm status -n monitoring logzio-monitoring` |
 | **Get Pods:** | `kubectl get pods -n monitoring` |
@@ -100,6 +99,7 @@ If you're running your Kubernetes Telemetry Collector from a **Windows** machine
 
 | **Logz.io Helm:** | `C:\Users\<<USERNAME>>\AppData\Roaming\LogzioAgent\LogzioKubernetes\logzio_helm.txt` |
 | **Logz.io Telemetry Collector Logs:** | `C:\Users\<<USERNAME>>\AppData\Roaming\LogzioAgent\logzio_agent.log` |
+| **Install Logz.io Helm::** | `Invoke-Expression -Command (Get-Content -Path C:\Users\<<USERNAME>>\AppData\Roaming\LogzioAgent\LogzioKubernetes\logzio_helm.txt)` |
 
 _Replace `<<USERNAME>>` with your Windows user name._
 

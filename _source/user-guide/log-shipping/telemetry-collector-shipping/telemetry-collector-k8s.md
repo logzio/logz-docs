@@ -16,9 +16,9 @@ Telemetry Collector is currently **available in all regions** except for Japan a
 To start sending your Kubernetes data through the Telemetry Collector, you'll need the following:
 
 * Admin privileges in your Logz.io account
-* Outgoing traffic to destination port `8053` allowed
+* Outgoing traffic to destination ports `8053` and `8071` allowed
 
-_If you're unsure whether traffic is allowed to this port, continue the process, and Logz.io will notify you if access is restricted._
+_If you're unsure whether traffic is allowed to these ports, continue the process, and Logz.io will notify you if access is restricted._
 
 
 Navigate to [Send your data](https://app.logz.io/#/dashboard/send-your-data), and click on **Start collecting**.

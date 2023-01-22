@@ -451,3 +451,27 @@
   to = "https://docs.logz.io"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/shipping/prometheus-sources/prometheus-remote-write-shipping.html"
+  to = "/user-guide/infrastructure-monitoring/prometheus-remote-write.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/accounts/flexible-volume-announcement/"
+  to = "https://docs.logz.io"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/beta-api/"
+  to = "/api"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/distributed-tracing/local-jaeger_transition"
+  to = "/user-guide/distributed-tracing/"
+  status = 301
+  force = true

@@ -39,7 +39,7 @@ The following Logz.io API endpoints are supported by this provider:
 * [Restore logs](https://docs.logz.io/api/#tag/Restore-logs)
 * [Authentication groups](https://docs.logz.io/api/#tag/Authentication-groups)
 * [OpenSearch Dashboards objects](https://docs.logz.io/api/#tag/Import-or-export-Kibana-objects)
-* [Log-based alerts v1](https://github.com/logzio/public-api/tree/master/alerts) (deprecated)
+* [S3 Fetcher](https://docs.logz.io/api/#tag/Connect-to-S3-Buckets)
 
 #### Working with Terraform
 

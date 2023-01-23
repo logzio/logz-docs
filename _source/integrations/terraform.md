@@ -2,6 +2,8 @@
 layout: article
 title: Terraform Logz.io Provider
 permalink: /integrations/terraform/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Configure Terraform with Logz.io API
 flags:
   logzio-plan: pro
 open-source:

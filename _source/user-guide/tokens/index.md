@@ -2,6 +2,8 @@
 layout: article
 title: Tokens
 permalink: /user-guide/tokens/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Manage your Logz.io tokens
 flags:
   admin: true
   logzio-plan: community

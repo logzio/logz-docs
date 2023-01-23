@@ -2,6 +2,8 @@
 layout: article
 title: Give AWS access with IAM roles
 permalink: /user-guide/give-aws-access-with-iam-roles/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Connect Logz.io to your AWS account to control IAM roles
 flags:
   admin: true
   logzio-plan: community

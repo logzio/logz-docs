@@ -1,7 +1,9 @@
 ---
 layout: article
 title: Amazon Kinesis Firehose
-permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-firehose.html 
+permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-firehose.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: View and analyze metrics with Amazon Kinesis Firehose
 flags:
   logzio-plan: pro
 tags:

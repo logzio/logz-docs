@@ -2,6 +2,8 @@
 layout: article
 title: Getting started with Logz.io Metrics
 permalink: /user-guide/infrastructure-monitoring/getting-started
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Meet Logz.io's Infrastructure Monitoring solution
 flags:
   logzio-plan: community
 tags:

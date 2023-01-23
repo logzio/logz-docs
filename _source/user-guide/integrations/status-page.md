@@ -2,6 +2,8 @@
 layout: article
 title: Create an integration with StatusPage
 permalink: /user-guide/integrations/status-page.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Configure StatusPage with Logz.io
 tags:
   - alerts
   - endpoints

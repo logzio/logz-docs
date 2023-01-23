@@ -2,6 +2,8 @@
 layout: article
 title: Jenkins
 permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/jenkins.html 
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: View and analyze metrics with Jenkins
 flags:
   logzio-plan: pro
 tags:

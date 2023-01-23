@@ -2,6 +2,8 @@
 layout: article
 title: Correlated rules
 permalink: /user-guide/siem/security-correlated-queries/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Investigating correlated rules in Logz.io's Cloud SIEM
 flags:
   logzio-plan: pro
 tags:

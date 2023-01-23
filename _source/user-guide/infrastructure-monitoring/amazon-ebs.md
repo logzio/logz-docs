@@ -2,6 +2,8 @@
 layout: article
 title: Amazon EBS
 permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-ebs.html 
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: View and analyze metrics with Amazon EBS
 flags:
   logzio-plan: pro
 tags:

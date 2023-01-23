@@ -2,6 +2,8 @@
 layout: article
 title: MongoDB
 permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/mongodb.html 
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: View and analyze metrics with MongoDB
 flags:
   logzio-plan: pro
 tags:

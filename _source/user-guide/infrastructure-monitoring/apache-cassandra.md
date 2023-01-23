@@ -2,6 +2,8 @@
 layout: article
 title: Apache Cassandra
 permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/apache-cassandra.html 
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: View and analyze metrics with Apache Cassandra
 flags:
   logzio-plan: pro
 tags:

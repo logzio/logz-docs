@@ -2,6 +2,8 @@
 layout: article
 title: PostgreSQL
 permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/postgresql.html 
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: View and analyze metrics with PostgresSQL
 flags:
   logzio-plan: pro
 tags:

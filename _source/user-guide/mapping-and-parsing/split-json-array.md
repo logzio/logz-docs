@@ -2,6 +2,8 @@
 layout: article
 title: Split an array
 permalink: /user-guide/mapping-and-parsing/split-json-array.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Parsing JSON arrays in Logz.io
 flags:
   logzio-plan: community
 tags:

@@ -2,6 +2,8 @@
 layout: article
 title: Amazon Network ELB 
 permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-network-elb.html 
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: View and analyze metrics with Amazon Network ELB
 flags:
   logzio-plan: pro
 tags:

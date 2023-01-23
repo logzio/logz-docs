@@ -2,6 +2,8 @@
 layout: article
 title: Distributed Tracing table of content
 permalink: /user-guide/distributed-tracing/tracing-highlights
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Meet Logz.io Distributed Tracing solution
 flags:
   logzio-plan: community
 sitemap: false
@@ -14,7 +16,7 @@ contributors:
 
 This section includes the following topics: 
 
-* [Why Distributed Tracing?](/user-guide/distributed-tracing/tracing-overview): An overview of Logz.io's Jaeger-powered tracing solution
+* [Why Distributed Tracing?](/user-guide/distributed-tracing/getting-started-tracing/): An overview of Logz.io's Jaeger-powered tracing solution
 * [Getting started](/user-guide/distributed-tracing/getting-started-tracing): What you need to decide and set up to use Logz.io Distributed Tracing
     * [Deploying components in your system](/user-guide/distributed-tracing/deploying-components): What you need to install on your end
     * [Kubernetes deployment reference](/user-guide/distributed-tracing/k8s-deployment): A yaml file to deploy the collector/agent for Kubernetes

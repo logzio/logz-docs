@@ -2,6 +2,8 @@
 layout: article
 title: Create sub accounts as a Managed Security Service Provider (MSSP)
 permalink: /user-guide/cloud-siem/mssp-accounts.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Create and manage sub accounts as an MSSP
 flags:
   logzio-plan: pro
 tags:

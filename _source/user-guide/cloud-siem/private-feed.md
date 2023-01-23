@@ -2,6 +2,8 @@
 layout: article
 title: Adding a private feed
 permalink: /user-guide/cloud-siem/private-feeds.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Enrich log threat detection by adding your own private feeds
 flags:
   logzio-plan: pro
 tags:

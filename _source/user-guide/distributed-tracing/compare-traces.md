@@ -2,6 +2,8 @@
 layout: article
 title: Compare traces
 permalink: /user-guide/distributed-tracing/compare-traces
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Compare your traces with Logz.io
 flags:
   logzio-plan: pro enterprise
 tags:

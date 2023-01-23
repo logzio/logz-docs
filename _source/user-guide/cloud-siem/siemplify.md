@@ -2,6 +2,8 @@
 layout: article
 title: Integrate with Siemplify
 permalink: /user-guide/cloud-siem/integration/siemplify/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Integrate your Logz.io Cloud SIEM with Siemplify
 flags:
   logzio-plan: pro
 open-source:

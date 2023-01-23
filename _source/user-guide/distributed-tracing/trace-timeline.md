@@ -2,6 +2,8 @@
 layout: article
 title: What can I do in the Trace Timeline?
 permalink: /user-guide/distributed-tracing/trace-timeline
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Logz.io Distributed Tracing Timeline view
 flags:
   logzio-plan: pro enterprise
 tags:

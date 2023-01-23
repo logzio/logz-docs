@@ -2,6 +2,8 @@
 layout: article
 title: Summary dashboard
 permalink: /user-guide/cloud-siem/summary-dashboard.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Meet Logz.io summary dashboard
 flags:
   logzio-plan: pro
 tags:

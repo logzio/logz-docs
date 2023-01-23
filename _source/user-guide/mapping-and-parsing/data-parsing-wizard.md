@@ -83,7 +83,7 @@ Type your grok pattern in the **Parse method** text box.
 </div>
 
 To help make the best grok pattern for your logs,
-use the [Grok Debugger](https://grokdebug.herokuapp.com/).
+use the [Grok Debugger](https://grokdebugger.com/).
 For reference,
 see [grok patterns](https://logz.io/blog/logstash-grok/)
 from Elastic.

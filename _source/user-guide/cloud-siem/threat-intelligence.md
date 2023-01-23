@@ -2,6 +2,8 @@
 layout: article
 title: Threat Intelligence feeds
 permalink: /user-guide/cloud-siem/threat-intelligence.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Research and review threat intelligence feeds
 flags:
   logzio-plan: pro
 tags:

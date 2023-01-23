@@ -2,6 +2,8 @@
 layout: article
 title: What can I do in the Trace JSON?
 permalink: /user-guide/distributed-tracing/trace-json
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Logz.io Distributed Tracing JSON view
 flags:
   logzio-plan: pro enterprise
 tags:

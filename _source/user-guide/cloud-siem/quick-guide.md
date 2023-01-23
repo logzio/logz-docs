@@ -2,6 +2,8 @@
 layout: article
 title: Cloud SIEM - Quick start guide
 permalink: /user-guide/cloud-siem/quick-guide.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Getting started with Logz.io Cloud SIEM
 flags:
   logzio-plan: pro
 tags:

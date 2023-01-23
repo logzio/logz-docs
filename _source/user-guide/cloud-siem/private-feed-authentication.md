@@ -2,6 +2,8 @@
 layout: article
 title: Authorization headers
 permalink: /user-guide/encoding-authorization-header.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Logz.io Distributed Tracing Flamegraph view
 flags:
   logzio-plan: pro
 tags:

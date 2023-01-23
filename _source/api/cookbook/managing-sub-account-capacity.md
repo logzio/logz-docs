@@ -2,6 +2,8 @@
 layout: article
 title: Managing sub account capacity
 permalink: /api/cookbook/managing-sub-account-capacity.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: How to use Logz.io API to manage accounts
 flags:
   logzio-plan: pro
 tags:

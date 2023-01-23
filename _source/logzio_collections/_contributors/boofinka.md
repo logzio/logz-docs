@@ -1,9 +1,9 @@
 ---
 title: Yotam Bernaz
-website: https://yotam.bernaz.co.il/
+website: https://www.linkedin.com/in/yotambernaz/
 linkedin: yotambernaz
 github: boofinka
 
-logzio-role: Customer Care Engineer
+logzio-role: DevOps Engineer
 sitemap: false
 ---

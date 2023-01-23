@@ -2,6 +2,8 @@
 layout: article
 title: Metrics shipping token
 permalink: /user-guide/accounts/finding-your-metrics-account-token/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Manage your Metrics shipping token
 flags:
   admin: true
   logzio-plan: community

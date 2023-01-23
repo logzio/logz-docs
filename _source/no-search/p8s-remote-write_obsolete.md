@@ -59,7 +59,7 @@ After your Prometheus metrics begin to arrive to Logz.io:
   ![Import dashboards from your Grafana](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8simport-option1.png)
 
     5. To import your saved Prometheus dashboards: Click **Upload json file** and select the JSON files you saved in step 1. 
-        For more information see [Upload JSON logs]({{site.baseurl}}/user-guide/shipping/log-sources/json-uploads.html). 
+        For more information see [Upload JSON logs]({{site.baseurl}}/shipping/log-sources/json-uploads.html). 
 
 2. To import dashboards from Grafana.com    
     Enter the relevant dashboard URL or ID in the **Import via grafana.com** field and click **Load**.  ![Import dashboards from your Grafana](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana/p8simport-dashbd.png)

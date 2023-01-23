@@ -2,6 +2,8 @@
 layout: article
 title: Managing security events
 permalink: /user-guide/cloud-siem/manage-security-events.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Meet Logz.io Threats overview dashboard
 flags:
   logzio-plan: pro
 tags:

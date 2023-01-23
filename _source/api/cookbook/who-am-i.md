@@ -2,6 +2,8 @@
 layout: article
 title: Who am I?
 permalink: /api/cookbook/who-am-i.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Meet Logz.io API
 flags:
   logzio-plan: pro
 tags:

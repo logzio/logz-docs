@@ -2,6 +2,8 @@
 layout: article
 title: Configure SIEM to automatically create JIRA tickets by alert
 permalink: /user-guide/cloud-siem/create-jira-ticket-alert.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Create JIRA tickets from Logz.io SIEM alerts
 flags:
   logzio-plan: pro
 tags:

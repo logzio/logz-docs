@@ -2,6 +2,8 @@
 layout: article
 title: Manage your threat feeds
 permalink: /user-guide/cloud-siem/manage-feeds.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: How to manage your Cloud SIEM threat feeds
 flags:
   logzio-plan: pro
 tags:

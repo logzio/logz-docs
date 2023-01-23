@@ -2,6 +2,8 @@
 layout: article
 title: Select dashboards for your Cloud SIEM Summary page
 permalink: /user-guide/cloud-siem/select-dashboards.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: View and manage your Cloud SIEM dashboards
 flags:
   logzio-plan: pro
 tags:

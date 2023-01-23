@@ -2,6 +2,8 @@
 layout: article
 title: View the "Send your data" options
 permalink: /user-guide/cloud-siem/send-data-options.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Send your data to Logz.io
 flags:
   logzio-plan: pro
 tags:

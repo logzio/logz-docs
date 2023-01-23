@@ -2,6 +2,8 @@
 layout: article
 title: Dashboards & Reports
 permalink: /user-guide/cloud-siem/dashboards/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Create and view SIEM dashboards and reports
 flags:
   logzio-plan: pro
 tags:

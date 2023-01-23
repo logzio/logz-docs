@@ -28,7 +28,7 @@ For more information on exporting kAudit findings, see the official [Alcide docs
 
 **Before you begin, you'll need**:
 
-* Access to [Alcide kAudit](https://www.alcide.io/kaudit-K8s-forensics/) platform
+* Access to [Alcide kAudit](https://github.com/alcideio/kaudit) platform
 * A shipping token and listener host information for your [Logz.io Operations account](https://app.logz.io/)
 
 <div class="tasklist">

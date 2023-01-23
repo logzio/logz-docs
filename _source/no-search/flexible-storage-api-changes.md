@@ -16,7 +16,7 @@ The new flexible volume plan configuration supports capacity sharing between mul
 
 With flexible volume enabled, you can reserve a portion of your plan for specific accounts and cap the total volume an account can use per day.
 
-As a result, there have been some updates affecting existing API endpoints described in detail below. Please reference the post-update API documentation for the relevant endpoints [here](/beta-api-flexible-storage/).
+As a result, there have been some updates affecting existing API endpoints described in detail below. 
 
 
 #### What's changed in the API

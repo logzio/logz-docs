@@ -1,0 +1,1719 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
+<url>
+  <loc>http://docs.logz.io/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/api/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/kibana/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/kibana/best-practices.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/kibana/exceptions-deployments.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/kibana/log-patterns.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/kibana/wildcards/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/invalid_logs/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/kubernetes-troubleshooting/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/log-troubleshooting/filebeat-troubleshooting.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/log-shipping/rsyslog-selinux-troubleshooting.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/log-troubleshooting/python-troubleshooting.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/alerts/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/alerts/configure-an-alert.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/alerts/correlated-alert/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/alerts/new-alert.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/alerts/view-triggered-alerts.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/alerts/regex-filters.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/alerts/suppress-notifications/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/reports/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/optimizers/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/optimizers/configure-optimizers.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/insights/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/insights/exceptions.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/insights/exploring-insights.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/insights/markers.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/insights/insights-notifications.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/tokens/collaboration</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/tokens/sharing-links.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/kibana/share-import-export</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/live-tail/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/log-highlighter.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/log-usage-measurement/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/k360/overview.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-logzio</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/prometheus-getting-started.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/prometheus-remote-write.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/prometheus-promql-queries.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/prometheus-importing-dashbds.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-explore-prometheus</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/alerts.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/configure-metrics-drilldown-links.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-correlations/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/annotations/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/amazon-mq.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/aws-api-gateway.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/aws-app-elb.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/amazon-auto-scaling.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/amazon-ebs.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/amazon-ec2.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/amazon-classic-elb.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/amazon-dynamodb.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/amazon-firehose.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/amazon-kinesis.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/amazon-lambda.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/amazon-nat.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/amazon-network-elb.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/amazon-rds.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/amazon-route-53.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/amazon-s3.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/amazon-ses.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/amazon-sns.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/amazon-sqs.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/amazon-vpn.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/apache-tomcat.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/apache-cassandra.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/etcd.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/jenkins.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/mongodb.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/mysql.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/nginx.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/postgresql.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/redis.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/sysmetrics.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-dashboards/vmware.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/k8-helm-opentelemetry-troubleshooting.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/aks-helm-opentelemetry-troubleshooting.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/eks-helm-opentelemetry-troubleshooting.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/gke-helm-opentelemetry-troubleshooting.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/dotnet-helm-troubleshooting.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/troubleshooting/dotnet-core-troubleshooting.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/distributed-tracing/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/distributed-tracing/what-is-tracing</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/distributed-tracing/getting-started-tracing/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/distributed-tracing/k8s-deployment</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/distributed-tracing/trace-hotrod-demo</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/distributed-tracing/tracing-tour/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/distributed-tracing/trace-timeline/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/distributed-tracing/trace-graph/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/distributed-tracing/trace-statistics/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/distributed-tracing/trace-spans-table/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/distributed-tracing/trace-flamegraph/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/distributed-tracing/compare-traces</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/distributed-tracing/topology-system_architecture</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/distributed-tracing/service-performance-monitoring</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/distributed-tracing/service-performance-monitoring-setup</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/distributed-tracing/correlate-traces/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/distributed-tracing/sampling-rules.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/distributed-tracing/tracing-troubleshooting.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/distributed-tracing/otel-troubleshooting.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/siem/intro/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/siem/highlights/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/mssp-accounts.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/send-data-options.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/summary-dashboard.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/investigate-events.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/create-rules.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/add-endpoints.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/create-jira-ticket-alert.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/edit-rules.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/manage-security-events.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/manage-feeds.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/select-dashboards.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/security-events.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/understanding-your-security-logs.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/drilldown-links/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/siem-event-management.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/threat-intelligence.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/private-feeds.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/siem/ioc-types/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/malicious-IPs.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/intro-security-rules.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/manage-security-rules.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/siem/security-correlated-queries/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/lookups/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/lookups/static-lookup.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/lookups/dynamic-lookup.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/dashboards/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/integrations/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/integration/siemplify/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/cloud-siem/xsoar-integration/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/cost-optimization.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/drop-filters/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/logstometrics.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/archive-and-restore/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/archive-and-restore/configure-archiving.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/archive-and-restore/restore-archived-logs.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/archive-and-restore/set-s3-permissions.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/archive-and-restore/azure-blob-permissions/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/data-rollups.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/log-shipping/built-in-log-types.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/mapping-and-parsing/split-json-array.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/mapping-and-parsing/sawmill-parsing.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/mapping-and-parsing/data-parsing-wizard.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/kibana/mapping/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/kibana/mapping/field-not-indexed/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/manage-the-main-account-and-sub-accounts.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/data-optimization.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/plan-and-usage.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/flexible-volume.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/shared_repository.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/audit-trail.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/update-billing.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/on-demand.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/account-region.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/migration.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/manage-account-usage.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/smart-tier/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/users/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/users/multi-factor-authentication.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/users/single-sign-on/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/users/single-sign-on/azure-sso.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/users/single-sign-on/azure_marketplace_liftr.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/users/single-sign-on/okta-sso.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/users/single-sign-on/onelogin-sso.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/users/single-sign-on/auth0-sso-guide.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/users/single-sign-on/google-workspace-sso.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/users/single-sign-on/aws-sso.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/tokens/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/tokens/log-shipping-tokens/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/finding-your-tracing-account-token/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/tokens/shared-tokens.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/tokens/api-tokens.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/unified_dashboards.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/unified_variables.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/unified_filters.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/pci-compliance.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/support-access.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/log-shipping/telemetry-collector.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/log-shipping/telemetry-collector-aws.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/log-shipping/telemetry-collector-k8s.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/log-shipping/telemetry-collector-localhost.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/log-shipping/faqs-logs/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/log-shipping/listener-ip-addresses.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/integrations/endpoints.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/integrations/servicenow.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/integrations/resolved-metrics-alerts.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/integrations/custom-endpoints.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/integrations/ms-teams.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/integrations/status-page.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/integrations/terraform/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/api/cookbook/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/api/cookbook/who-am-i.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/api/cookbook/managing-sub-account-capacity.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/api/cookbook/backing-up-kibana-objects-to-github.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/api/cookbook/inspect.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/report-a-security-issue/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/getting-started.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/docs-admin/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/credits.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/dotnet.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/aiven.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/amplify.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/apache.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/apache-storm.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/apprunner.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/aws-control-tower.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/aws-cost-and-usage-report.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/azure-blob-trigger.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/azure-diagnostic-logs.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/aks.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/azure-native.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/azure-nsg.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/azure-vm-extension.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/beats.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/bitbucket.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/bunny-net.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/cisco-securex.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/cloudfront.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/cloudwatch.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/curl.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/docker.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/docker-performance.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/docker-swarm.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/fargate.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/elastic-container-service.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/elastic-kubernetes-service.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/elastic-load-balancing.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/filebeat.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/filebeat-kubernetes.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/fluent-bit.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/fluentbit-helm-chart.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/fluentd.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/fluentd-windows.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/kubernetes.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/fluentd-docker.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/github.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/gitlab.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/go.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/haproxy.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/heroku.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/iks.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/intercom.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/file-upload.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/java.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/jenkins.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/json-uploads.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/kinesis.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/k8s-events.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/k8s-over-helm.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/fluentd-helm.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/lambda-extensions.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/linux.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/logstash.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/azure-graph.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/iis.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/mongo.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/aws-cross-account.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/mysql.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/network-device.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/nodejs.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/openshift.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/oracle-kubernetes-engine.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/puppet.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/python.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/rds.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/rsyslog.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/s3-access.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/s3-bucket.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/s3-hook.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/salesforce.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/salesforce-commerce-cloud.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/stackdriver.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/vector.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/vpc.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/windows.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/dotnet-custom.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/dotnet-helm-chart.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-activemq.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-aerospike.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-apigateway-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-app-elb-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-apprunner-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-athena-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-classic-elb-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-cloudfront-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/prometheus-cloudwatch-exporter.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-cloudwatch-fsx-lustre.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-cloudwatch-kafka.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-cloudwatch.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-dynamodb-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-ebs-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-ec2-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-ec2-auto-scaling-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-ecs-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-efs-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-elasticache-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-elasticache-redis.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-kinesis-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-kinesis-firehose-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/otel-metrics-eks-helm.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-lambda-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-amazonmq-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-msk.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-nat-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-network-elb-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-rds-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-redshift-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-route53-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-s3-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-ses-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-sns-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-sqs-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/aws-vpn-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/apache-aurora-telegraf.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-cassandra.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/apache-http-telegraf.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/kafka-telegraf.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/apache-mesos-telegraf.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/apache-solr-telegraf.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/apache-tomcat-telegraf.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-zookeeper.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-argo.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/otel-metrics-aks-helm.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-bcache.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-beanstalkd.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-bigbluebutton.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-bond.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-burrow.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-ceph.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-clickhouse.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-couchdb.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-disque.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-docker.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-docker-swarm.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-dovecot.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-elasticsearch.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-etcd.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-github.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/go-custom-metrics.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/ml.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/api-gateway.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/apigee.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/app-engine.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/actions.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/bigquery.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/bigquerybiengine.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/bigquerydatatransfer.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/privateca.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/serviceruntime.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/networksecurity.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/bigtable.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/composer.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/dlp.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/dns.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/cloudfunctions.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/healthcare.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/ids.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/interconnect.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/loadbalancing.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/logging.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/monitoring.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/router.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/run.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/cloudsql.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/storage.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/cloudtasks.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/tpu.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/cloudtrace.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/vpn.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/compute.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/autoscaler.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/contactcenterinsights.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/dataflow.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/dataproc.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/metastore.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/datastore.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/datastream.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/file.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/firebase.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/firestore.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/firewallinsights.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/iam.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/cloudiot.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/otel-metrics-gke-helm.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/container.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/managedidentities.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/memcache.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/redis.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/networking.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/pubsub.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/recaptchaenterprise.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/recommendationengine.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/storagetransfer.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/vertex-ai.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/vpc.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/osconfig.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/workflows.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-haproxy.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/consul.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/heroku-telegraf.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-ipmi.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/java-custom-metrics.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/java-custom-metrics-via-micrometer.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-jenkins.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-juniper.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/otel-metrics-k8s-helm.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-mailchimp.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-marklogic.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-mcrouter.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-memcached.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-ds.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-mongo.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/mongodb-atlas-otel.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-mysql.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-neptune.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-nginx.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-nsd.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/nodejs-custom-metrics.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-nsq.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-nsq-consumer.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-nvidia.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/prometheus-otel-output.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-pgbouncer.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-phpfpm.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-passenger.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-postgresql.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/python-custom-prometheus.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-rabbitmq.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-ravendb.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-redfish.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-redis.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/prometheus-remote-write-shipping.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-riak.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-sql.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-suricata.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-synproxy.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-sysmetrics.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-teamcity.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/prometheus-telegraf-output.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-tengine.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-unbound.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-uwsgi.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-vsphere.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-windows-performance.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-windows.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-wireguard.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-youtube.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/prometheus-sources/telegraf-zfs.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/tracing-sources/dotnet-otel-auto.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/tracing-sources/dotnet-framework-otel-auto.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/tracing-sources/opentelemetry-nodejs-lambda.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/tracing-sources/java-otel-auto.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/tracing-sources/kafka-java-otel-auto-copy.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/tracing-sources/nestjs-otel-auto.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/tracing-sources/nodejs-otel-auto.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/tracing-sources/python-otel-auto.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/tracing-sources/ruby-otel-auto.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/tracing-sources/docker-otel.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/tracing-sources/go-otel.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/tracing-sources/istio-traces.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/tracing-sources/jaeger-collector.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/tracing-sources/otel-traces-helm.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/tracing-sources/opentelemetry.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/tracing-sources/span-metrics.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/tracing-sources/zipkin-installation.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/active-directory-winserver.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/alcide.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/auditd.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/auth0.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/avast.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/aws-security-hub.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/aws-waf.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/axonius.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/azure-activity-logs.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/microsoft-graph-asc.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/bitdefender.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/carbon-black.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/check-point.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/cisco-asa.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/cisco-meraki.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/cloudflare.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/cloudtrail.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/crowdstrike.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/cynet.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/eset.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/fail2ban.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/falco.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/fortigate.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/gsuite.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/guardduty.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/hashicorp-vault.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/juniper-srx.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/mcafee-epolicy-orchestrator.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/office365.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/microsoft-graph.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/modsecurity.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/nginx.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/okta.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/onelogin.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/openvas.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/openvpn.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/ossec.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/palo-alto-networks.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/pfsense.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/sentinelone.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/sonicwall.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/sophos.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/stormshield.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/sysmon.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/trendmicro.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/wazuh.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/windows-defender.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/security-sources/zeek.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/synthetic-monitoring-sources/api-status.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/synthetic-monitoring-sources/ping-statistics.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/synthetic-monitoring-sources/x509.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/insights/exceptions/</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/kibana/best-practices.html#search-your-logs</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/kibana/best-practices.html#use-lucene--kibana-query-language-kql</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/kibana/best-practices.html#how-to-use-regex-in-log-management</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/kibana/best-practices.html#searching-and-filtering-in-log-management</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/kibana/best-practices.html#add-more-columns-to-your-view-results</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/kibana/best-practices.html#filter-your-log-results</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/kibana/best-practices.html#select-the-time-frame-for-your-logs</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/kibana/best-practices.html#create-log-visualizations-with-logzio</loc>
+</url>
+<url>
+  <loc>https://docs.logz.io/user-guide/alerts/configure-an-alert.html</loc>
+</url>
+<url>
+  <loc>https://docs.logz.io/user-guide/insights/</loc>
+</url>
+<url>
+  <loc>https://docs.logz.io/user-guide/live-tail/</loc>
+</url>
+<url>
+  <loc>https://docs.logz.io/api/#tag/Deployments</loc>
+</url>
+<url>
+  <loc>https://docs.logz.io/user-guide/accounts/manage-account-usage.html#enabling-account-utilization-metrics-and-log-size</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/log-troubleshooting/filebeat-troubleshooting.html#problem-path-is-locked</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/log-troubleshooting/filebeat-troubleshooting.html#problem-old-logs-are-not-visible</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/log-troubleshooting/filebeat-troubleshooting.html#problem-invalid-yaml</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/log-troubleshooting/filebeat-troubleshooting.html#problem-elasticsearchoutput-issue</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/log-troubleshooting/filebeat-troubleshooting.html#problem-not-outputs-defined</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/log-troubleshooting/filebeat-troubleshooting.html#problem-connection-error</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/log-troubleshooting/filebeat-troubleshooting.html#problem-operation-not-permitted</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/log-troubleshooting/filebeat-troubleshooting.html#zero-metrics-in-the-last-30-seconds</loc>
+</url>
+<url>
+  <loc>https://docs.logz.io/api/#operation/createAlert</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/alerts/configure-an-alert.html#output-format--content</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/accounts/manage-timeless-accounts.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/insights/exceptions/deployments.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/k360/overview.html#quick-view</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/k360/overview.html#calculating-log-error-rate</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/getting-started</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/configure-grafana-drilldown-links.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/prometheus-remote-write#configuring-remote-write-to-logzio)</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/prometheus-importing-dashbds</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/grafana-explore-prometheus/</loc>
+</url>
+<url>
+  <loc>https://docs.logz.io/user-guide/accounts/account-region.html#available-regions</loc>
+</url>
+<url>
+  <loc>https://docs.logz.io/user-guide/accounts/finding-your-metrics-account-token/</loc>
+</url>
+<url>
+  <loc>https://docs.logz.io/user-guide/infrastructure-monitoring/metrics-explore-prometheus/</loc>
+</url>
+<url>
+  <loc>https://docs.logz.io/user-guide/infrastructure-monitoring/prometheus-importing-dashbds.html</loc>
+</url>
+<url>
+  <loc>https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/shipping/log-sources/json-uploads</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-explore-prometheus/#exploring-your-metrics</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-explore-prometheus/#prometheus-metrics-metadata-labels</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-explore-prometheus/#split-and-sync-explore-screens</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/metrics-explore-prometheus/#calculating-infrastructure-monitoring-usage</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/alerts.html#define-alert-conditions</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/alerts.html#add-details-for-your-alert</loc>
+</url>
+<url>
+  <loc>https://docs.logz.io/user-guide/infrastructure-monitoring/prometheus-promql-queries.html</loc>
+</url>
+<url>
+  <loc>http://docs.logz.io/user-guide/infrastructure-monitoring/configure-grafana-drilldown-links</loc>
+</url>
+</urlset>

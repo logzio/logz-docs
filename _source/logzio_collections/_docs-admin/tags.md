@@ -3,6 +3,8 @@ layout: article
 title: Tags
 permalink: /tags.html
 community-info: false
+sitemap: false 
+noindex: true
 ---
 
 <script>

@@ -6,7 +6,8 @@ flags:
   admin: true
   beta: true
   logzio-plan: enterprise
-sitemap: false
+sitemap: false 
+noindex: true
 open-source:
   - title: Logz.io docs
     github-repo: logz-docs

@@ -2,6 +2,8 @@
 layout: article
 title: System metrics over Telegraf
 permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/sysmetrics.html 
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: View and analyze metrics with Telegraf
 flags:
   logzio-plan: pro
 tags:

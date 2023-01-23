@@ -2,6 +2,8 @@
 layout: article
 title: AWS Cloudwatch - API Gateway
 permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/aws-api-gateway.html 
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: View and analyze metrics with AWS Cloudwatch - API Gateway
 flags:
   logzio-plan: pro
 tags:

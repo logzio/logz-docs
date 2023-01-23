@@ -2,6 +2,8 @@
 layout: article
 title: Amazon SQS
 permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-sqs.html 
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: View and analyze metrics with Amazon SQS
 flags:
   logzio-plan: pro
 tags:

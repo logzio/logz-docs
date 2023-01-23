@@ -2,6 +2,8 @@
 layout: article
 title: Opsgenie notifications for resolved metrics alerts
 permalink: /user-guide/integrations/resolved-metrics-alerts.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Configure Opsgenie notifications in Logz.io
 tags:
   - alerts
   - endpoints

@@ -2,6 +2,8 @@
 layout: article
 title: Highlights
 permalink: /user-guide/siem/highlights/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Detect threats and investigate security incidents with Logz.io's Cloud SIEM 
 flags:
   logzio-plan: pro
 tags:

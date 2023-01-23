@@ -2,6 +2,8 @@
 layout: article
 title: AWS Cloudwatch - Application ELB
 permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/aws-app-elb.html 
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: View and analyze metrics with AWS Cloudwatch - Application ELB
 flags:
   logzio-plan: pro
 tags:

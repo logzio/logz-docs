@@ -2,6 +2,8 @@
 layout: article
 title: Give AWS access with access keys
 permalink: /user-guide/give-aws-access-with-access-keys/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Cnfigure AWS access keys with Logz.io
 flags:
   admin: true
   logzio-plan: community

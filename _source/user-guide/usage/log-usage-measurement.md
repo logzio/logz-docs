@@ -3,6 +3,7 @@ layout: article
 title: Log usage measurement
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 permalink: /user-guide/log-usage-measurement/
+description: Logz.io log useage measurement
 flags:
   logzio-plan: community
 tags:

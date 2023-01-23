@@ -2,6 +2,8 @@
 layout: article
 title: Apache Tomcat
 permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/apache-tomcat.html 
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: View and analyze metrics with Apache Tomcat
 flags:
   logzio-plan: pro
 tags:

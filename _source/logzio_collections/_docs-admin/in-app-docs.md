@@ -1,6 +1,8 @@
 ---
 layout: article
 title: Pulling log shipping docs into the app
+sitemap: false
+noindex: true
 ---
 
 ## Manifest

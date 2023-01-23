@@ -1,7 +1,9 @@
 ---
 layout: article
 title: Amazon SES
-permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-ses.html 
+permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-ses.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: View and analyze metrics from Amazon SES
 flags:
   logzio-plan: pro
 tags:

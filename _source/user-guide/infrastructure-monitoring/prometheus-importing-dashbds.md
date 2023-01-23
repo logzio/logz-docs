@@ -2,6 +2,8 @@
 layout: article
 title: Importing metrics dashboards   
 permalink: /user-guide/infrastructure-monitoring/prometheus-importing-dashbds.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Import your metrics dashboard to Logz.io
 flags:
   logzio-plan: pro
   beta: 

@@ -2,6 +2,8 @@
 layout: article
 title: Amazon Auto Scaling
 permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-auto-scaling.html 
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: View and analyze metrics with Amazon Auto Scaling
 flags:
   logzio-plan: pro
 tags:

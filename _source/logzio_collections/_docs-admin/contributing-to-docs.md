@@ -7,6 +7,7 @@ flags:
   beta: true
   logzio-plan: pro
 sitemap: false
+noindex: true
 ---
 
 ## Page flags

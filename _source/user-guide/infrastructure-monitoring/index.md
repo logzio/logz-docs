@@ -2,6 +2,8 @@
 layout: article
 title: Infrastructure Monitoring
 permalink: /user-guide/infrastructure-monitoring/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Monitor your Infrastructure Metrics with Logz.io
 flags:
   logzio-plan: community
 tags:

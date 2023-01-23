@@ -2,6 +2,8 @@
 layout: article
 title: Log shipping tokens
 permalink: /user-guide/tokens/log-shipping-tokens/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: View and manage log shipping tokens
 flags:
   admin: true
   logzio-plan: community

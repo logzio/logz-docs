@@ -2,6 +2,8 @@
 layout: article
 title: Optimizers
 permalink: /user-guide/optimizers/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: View and manage optimizers in Logz.io
 flags:
   logzio-plan: pro
 tags:

@@ -1,6 +1,8 @@
 ---
 layout: article
 title: Docs report
+sitemap: false 
+noindex: true
 ---
 {%- include tags/capture-site-pages.html -%}
 

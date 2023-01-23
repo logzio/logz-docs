@@ -2,6 +2,8 @@
 layout: article
 title: Trend Micro Sample Configuration
 permalink: /user-guide/security/trend-micro-configuration-sample/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Trend Micro Sample Configuration
 tags:
   - security
   - siem

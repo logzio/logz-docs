@@ -2,6 +2,8 @@
 layout: article
 title: Amazon Route 53
 permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-route-53.html 
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: View and analyze metrics with Amazon Route 53
 flags:
   logzio-plan: pro
 tags:

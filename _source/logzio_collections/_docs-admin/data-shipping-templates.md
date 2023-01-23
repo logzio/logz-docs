@@ -2,6 +2,8 @@
 layout: article
 title: Data shipping templates
 show-date: false
+sitemap: false 
+noindex: true
 ---
 
 {% assign tabs = site.data.shipper-tabs.tabs | where:"templated",true -%}

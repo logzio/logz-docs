@@ -2,6 +2,8 @@
 layout: article
 title: Docs admin
 permalink: /docs-admin/
+sitemap: false 
+noindex: true
 additional-docs:
   - name: Shipping manifest (for this deploy only)
     permalink: /data/shipping-manifest.json

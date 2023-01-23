@@ -2,6 +2,8 @@
 layout: article
 title: Amazon NAT
 permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-nat.html 
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: View and analyze metrics with Amazon NAT
 flags:
   logzio-plan: pro
 tags:

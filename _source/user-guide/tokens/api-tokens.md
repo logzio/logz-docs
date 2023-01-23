@@ -2,6 +2,8 @@
 layout: article
 title: Manage API tokens
 permalink: /user-guide/tokens/api-tokens.html
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Manage your Logz.io API tokens
 flags:
   admin: true
   logzio-plan: pro

@@ -2,6 +2,8 @@
 layout: article
 title: Redis
 permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/redis.html 
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: View and analyze metrics with Redis
 flags:
   logzio-plan: pro
 tags:

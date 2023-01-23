@@ -2,6 +2,8 @@
 layout: article
 title: User permissions
 permalink: /user-guide/user-permissions/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Manage Logz.io user permissions
 flags:
   admin: true
   logzio-plan: community

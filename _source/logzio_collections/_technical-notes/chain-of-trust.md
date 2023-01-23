@@ -1,5 +1,7 @@
 ---
 title: Replacing your Logz.io public certificate
+sitemap: false 
+noindex: true
 ---
 
 To support encrypted shipping of your logs and metrics,

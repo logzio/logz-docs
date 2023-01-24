@@ -19,10 +19,10 @@ Archiving provides a cost-effective solution for long-term storage of logs that 
 
 When you need to investigate old logs after they have expired from your account, you can restore them to a temporary account with no additional storage costs.
 
-<!--info-box-start:info -->
+<!--info-box-start:info
 Restored accounts are complimentary, and do not count against your daily log volume.
 {:.info-box.tip}
-<!--info-box-end -->
+info-box-end -->
 
 To get to the **Archive and restore** page, select **Data Hub > Archive and restore**.
 

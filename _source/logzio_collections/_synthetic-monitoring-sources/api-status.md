@@ -292,6 +292,9 @@ The full list of data scraping and configuring options can be found [here](https
 {:.info-box.note}
 <!-- info-box-end -->
 
+##### Start Telegraf
+
+{% include metric-shipping/telegraf-run.md %}  
 
 ##### Check Logz.io for your metrics
 

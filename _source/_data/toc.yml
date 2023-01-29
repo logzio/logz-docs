@@ -152,6 +152,14 @@ firstLevel:
       url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
   - title: Pre-built metrics dashboards
     thirdLevel:
+    - title: AKS - Kubernetes Cluster Components
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/aks-kubernetes-cluster-components.html
+    - title: AKS - Kubernetes Cluster Summary
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/aks-kubernetes-cluster-summary.html
+    - title: AKS - Kubernetes Nodes
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/aks-kubernetes-nodes.html
+    - title: AKS - Kubernetes Pods
+      url: /user-guide/infrastructure-monitoring/metrics-dashboards/aks-kubernetes-pods.html
     - title: AWS Cloudwatch - Amazon MQ
       url: /user-guide/infrastructure-monitoring/metrics-dashboards/amazon-mq.html
     - title: AWS Cloudwatch - API Gateway

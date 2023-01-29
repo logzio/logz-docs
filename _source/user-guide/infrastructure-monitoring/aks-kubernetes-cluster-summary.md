@@ -1,7 +1,7 @@
 ---
 layout: article
 title: AKS - Kubernetes Cluster Summary
-permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/aks-kubernetes_cluster_summary.html 
+permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/aks-kubernetes-cluster-summary.html 
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: View and analyze metrics with AKS Kubernetes Cluster Summary
 flags:

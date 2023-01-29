@@ -1,7 +1,7 @@
 ---
 layout: article
 title: AKS - Kubernetes pods
-permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/aks-kubernetes_pods.html 
+permalink: /user-guide/infrastructure-monitoring/metrics-dashboards/aks-kubernetes-pods.html 
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: View and analyze metrics with Amazon Auto Scaling
 flags:

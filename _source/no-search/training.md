@@ -2,9 +2,12 @@
 layout: article
 title: Logz.io Training 101
 permalink: /training/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Join Logz.io live training and learn how to make the most out of your account
 flags:
   logzio-plan: community
 sitemap: false
+noindex: true
 tags:
   - training
 ---

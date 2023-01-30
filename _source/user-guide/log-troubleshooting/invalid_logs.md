@@ -42,6 +42,18 @@ Here are some of the **common mapping errors** you might encounter and why they 
 |Index -1 out of bounds for length 0|A field exists in the log with a dot "." in its name. For these cases, the system treats the field as an object when mapping it. For example: `log.level`, `app.kubernetes`, etc.|
 |Numeric value (NUMBER) out of range of long (-9223372036854775808 - 9223372036854775807)|Field mapped as a number, but its value is outside the range of the "Long" data type|
 
+
+##### Mapping errors through sub accounts
+
+Another way to monitor logs and errors is by adding one or more **sub accounts** to your main Logz.io account.
+
+Each sub account has its own data volume and retention period, which can help manage independent environments and focus on different areas in your log.
+
+Sub accounts let you manage which team members can view and access the data and also allow you to create specific dashboards and alerts based on the monitored environment.
+
+[Learn more about **creating and managing sub accounts**](https://docs.logz.io/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#add-and-manage-a-log-management-sub-account).
+
+
 ### Invalid logs
 
 #### What causes an invalid log? 
@@ -62,4 +74,10 @@ The tags in the table below explain the character or field issues that may cause
 | MAX_FIELDS_NUMBER *-or-*<br> INVALID_FIELDS_NUMBER | Exceeded the maximum of 1000 fields per log message|
 | FIELDS_MISSING | This error is related to required fields that are missing from your logs: For example, `@timestamp`.<br> Check if the parsing rules remove or rename the relevant fields. |
 | ARRAY_INDEX_OUT_OF_BOUNDS_EXCEPTION | One of the field names in the log has a dot (**`.`**) as a name: To resolve the issue, flatten the field that the **`.`** is nested under. <br>If the field is inside an array, you'll need to flatten the array field. <br><br> For  example, you'd need to flatten the field `xxx.yyy` |
+
+
+
+
+
+
 

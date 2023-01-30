@@ -1,5 +1,5 @@
 ---
-title: Ship logs from Aiven
+title: Ship logs from Aiven test
 logo:
   logofile: aiven-logo.png
   orientation: vertical

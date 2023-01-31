@@ -2,7 +2,7 @@
 layout: article
 title: FAQs about sending log data 
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: DIY Logz.io Data Parsing for ingested logs
+description: Frequently asked questions about sending log data to Logz.io
 permalink: /user-guide/log-shipping/faqs-logs
 flags: 
   logzio-plan: community

@@ -12,10 +12,10 @@ contributors:
   - nshishkin
 ---
 
-A lookup is a reference that is used in the lookup table, which you can include in your rule or Kibana query. For example, you can use lookups to include or exclude certain IP addresses from a rule query.
+A lookup is a reference that is used in the lookup table, which you can include in your rule or query. For example, you can use lookups to include or exclude certain IP addresses from a rule query.
 
 <!-- info-box-start:info -->
-Lookup list values are only string-based and do not support ranges. Kibana, however, supports range-based searches, such as IP: [127.0.0.0 TO 127.*].
+Lookup list values are only string-based and do not support ranges. OpenSearch Dashboards, however, supports range-based searches, such as IP: [127.0.0.0 TO 127.*].
 {:.info-box.note}
 <!-- info-box-end -->
 

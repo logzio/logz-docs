@@ -4,6 +4,7 @@ logo:
   logofile: aiven-logo.png
   orientation: vertical
 data-source: Aiven
+description: Ship logs from Aiven
 data-for-product-source: Logs
 templates: ["network-device-filebeat"]
 contributors:

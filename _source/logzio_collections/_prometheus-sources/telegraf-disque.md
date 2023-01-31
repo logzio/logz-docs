@@ -1,5 +1,6 @@
 ---
 title: Ship Disque metrics via Telegraf
+description: hello there
 logo:
   logofile: 
   orientation: vertical

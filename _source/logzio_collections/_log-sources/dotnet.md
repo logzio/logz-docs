@@ -97,6 +97,8 @@ For a complete list of options, see the configuration parameters below the code 
 	with capital letter in Logz.io, set this field to true. The default is false 
 	(first letter will be small letter). -->
 	<jsonKeysCamelCase>false</jsonKeysCamelCase>
+	<!-- Add trace context (traceId and spanId) to each log. The default is false -->
+	<addTraceContext>false</addTraceContext>
     </appender>
     
     <root>
@@ -153,8 +155,9 @@ logzioAppender.AddListenerUrl("<<LISTENER-HOST>>");
 // <-- Uncomment these lines to enable gzip compression --> 
 // logzioAppender.AddGzip(true);
 // logzioAppender.ActivateOptions();
-// logzioAppender.JsonKeysCamelCase(false)
-logzioAppender.ActiveOptions();
+// logzioAppender.JsonKeysCamelCase(false);
+// logzioAppender.AddTraceContext(false);
+logzioAppender.ActivateOptions();
 hierarchy.Root.AddAppender(logzioAppender);
 hierarchy.Root.Level = Level.All;
 hierarchy.Configured = true;
@@ -189,6 +192,7 @@ namespace dotnet_log4net
             // logzioAppender.AddGzip(true);
             // logzioAppender.ActivateOptions();
             // logzioAppender.JsonKeysCamelCase(false)
+            // logzioAppender.AddTraceContext(false);
             logzioAppender.ActivateOptions();
             
             hierarchy.Root.AddAppender(logzioAppender);
@@ -221,6 +225,8 @@ namespace dotnet_log4net
 | parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
 | proxyAddress | Proxy address to route your logs through. | `None` |
 | jsonKeysCamelCase | If you have custom fields keys that start with a capital letter and want to see the fields with a capital letter in Logz.io, set this field to true. | `false` |
+| addTraceContext | If want to send traces along with the logs, set this field to true. | `false` |
+
 
 </div>
 
@@ -260,6 +266,60 @@ public class MyAppLogzioAppender : LogzioAppender
 Change your configuration to use your new appender name.
 For the example above, you'd use `MyAppLogzioAppender`.
 
+### Add trace context
+
+<!-- info-box-start:info -->
+The Trace Context feature does not support .NET Standard 1.3.
+{:.info-box.note}
+<!-- info-box-end -->
+
+If you’re sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context. In this way, your logs will have traces data in it: `span id` and `trace id`. To enable this feature, set `<addTraceContext>true</addTraceContext>` in your configuration file or `logzioAppender.AddTraceContext(true);` in your code. For example:
+
+```csharp
+using log4net;
+using log4net.Core;
+using log4net.Repository.Hierarchy;
+using Logzio.DotNet.Log4net;
+
+namespace dotnet_log4net
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var hierarchy = (Hierarchy)LogManager.GetRepository();
+            var logger = LogManager.GetLogger(typeof(Program));
+            var logzioAppender = new LogzioAppender();
+            
+            logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
+            logzioAppender.AddListenerUrl("https://<<LISTENER-HOST>>:8071");
+            // <-- Uncomment and edit this line to enable proxy routing: --> 
+            // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
+            // <-- Uncomment this to enable sending logs in Json format -->  
+            // logzioAppender.ParseJsonMessage(true);
+            // <-- Uncomment these lines to enable gzip compression --> 
+            // logzioAppender.AddGzip(true);
+            // logzioAppender.ActivateOptions();
+            // logzioAppender.JsonKeysCamelCase(false)
+            logzioAppender.AddTraceContext(true);
+            logzioAppender.ActivateOptions();
+            
+            hierarchy.Root.AddAppender(logzioAppender);
+            hierarchy.Configured = true;
+            hierarchy.Root.Level = Level.All;
+
+            logger.Info("Now I don't blame him 'cause he run and hid");
+            logger.Info("But the meanest thing he ever did");
+            logger.Info("Before he left was he went and named me Sue");
+
+            LogManager.Shutdown();
+        }
+    }
+}
+```
+
+
+
 </div>
 <!-- tab:end -->
 
@@ -298,32 +358,38 @@ For a complete list of options, see the configuration parameters below the code 
 
 ```xml
 <nlog>
-  <extensions>
-    <add assembly="Logzio.DotNet.NLog"/>
-  </extensions>
-  <targets>
+    <extensions>
+	<add assembly="Logzio.DotNet.NLog"/>
+    </extensions>
+    <targets>
+	<!-- parameters are shown here with their default values. 
+	Other than the token, all of the fields are optional and can be safely omitted.            
+        -->
 
-    <!-- Replace these parameters with your configuration -->
-    <target name="logzio" type="Logzio"
-      token="<<LOG-SHIPPING-TOKEN>>"
-      logzioType="nlog"
-      listenerUrl="https://<<LISTENER-HOST>>:8071"
-      bufferSize="100"
-      bufferTimeout="00:00:05"
-      retriesMaxAttempts="3"
-      retriesInterval="00:00:02"
-      debug="false"
-      jsonKeysCamelCase="false" 
-     >
-      <!-- parseJsonMessage="true" -->  <!-- include in previous section -->    
-
-      <contextproperty name="host" layout="${machinename}" />
-      <contextproperty name="threadid" layout="${threadid}" />
-    </target>
-  </targets>
-  <rules>
-      <logger name="*" minlevel="Info" writeTo="logzio" />
-  </rules>
+	<target name="logzio" type="Logzio"
+		token="<<SHIPPING-TOKEN>>"
+		logzioType="nlog"
+		listenerUrl="<<LISTENER-HOST>>:8071"
+                <!--Optional proxy server address:
+                proxyAddress = "http://your.proxy.com:port" -->
+		bufferSize="100"
+		bufferTimeout="00:00:05"
+		retriesMaxAttempts="3"
+		retriesInterval="00:00:02"
+		includeEventProperties="true"
+		useGzip="false"
+		debug="false"
+		jsonKeysCamelCase="false"
+		addTraceContext="false"
+		<!-- parseJsonMessage="true"-->
+	>
+		<contextproperty name="host" layout="${machinename}" />
+		<contextproperty name="threadid" layout="${threadid}" />
+	</target>
+    </targets>
+    <rules>
+	<logger name="*" minlevel="Info" writeTo="logzio" />
+    </rules>
 </nlog>
 ```
 
@@ -334,18 +400,19 @@ var config = new LoggingConfiguration();
 
 // Replace these parameters with your configuration
 var logzioTarget = new LogzioTarget {
-  Name = "Logzio",
-  Token = "<<LOG-SHIPPING-TOKEN>>",
-  LogzioType = "nlog",
-  ListenerUrl = "https://<<LISTENER-HOST>>:8071",
-  BufferSize = 100,
-  BufferTimeout = TimeSpan.Parse("00:00:05"),
-  RetriesMaxAttempts = 3,
-  RetriesInterval = TimeSpan.Parse("00:00:02"),
-  Debug = false,
-  JsonKeysCamelCase = false,
-  // ParseJsonMessage = true,
-  // ProxyAddress = "http://your.proxy.com:port"
+    Name = "Logzio",
+    Token = "<<SHIPPING-TOKEN>>",
+    LogzioType = "nlog",
+    ListenerUrl = "<<LISTENER-HOST>>:8071",
+    BufferSize = 100,
+    BufferTimeout = TimeSpan.Parse("00:00:05"),
+    RetriesMaxAttempts = 3,
+    RetriesInterval = TimeSpan.Parse("00:00:02"),
+    Debug = false,
+    JsonKeysCamelCase = false,
+    AddTraceContext = false,
+    // ParseJsonMessage = true, 
+    // ProxyAddress = "http://your.proxy.com:port"
 };
 
 config.AddRule(LogLevel.Debug, LogLevel.Fatal, logzioTarget);
@@ -367,6 +434,7 @@ LogManager.Configuration = config;
 | parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
 | proxyAddress | Proxy address to route your logs through. | `None` |
 | jsonKeysCamelCase | If you have custom fields keys that start with a capital letter and want to see the fields with a capital letter in Logz.io, set this field to true. | `false` |
+| addTraceContext | If want to send traces along with the logs, set this field to true. | `false` |
 
 ###### Code sample
 
@@ -442,6 +510,40 @@ When using 'JsonLayout' set the name of the attribute to **other than** 'message
 </layout>
 ```
 
+### Add trace context
+
+<!-- info-box-start:info -->
+The Trace Context feature does not support .NET Standard 1.3.
+{:.info-box.note}
+<!-- info-box-end -->
+
+If you’re sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context. In this way, your logs will have traces data in it: `span id` and `trace id`. To enable this feature, set `addTraceContext="true"` in your configuration file or `AddTraceContext = true` in your code. For example:
+
+```csharp
+var config = new LoggingConfiguration();
+
+// Replace these parameters with your configuration
+var logzioTarget = new LogzioTarget {
+    Name = "Logzio",
+    Token = "<<SHIPPING-TOKEN>>",
+    LogzioType = "nlog",
+    ListenerUrl = "<<LISTENER-HOST>>:8071",
+    BufferSize = 100,
+    BufferTimeout = TimeSpan.Parse("00:00:05"),
+    RetriesMaxAttempts = 3,
+    RetriesInterval = TimeSpan.Parse("00:00:02"),
+    Debug = false,
+    JsonKeysCamelCase = false,
+    AddTraceContext = true,
+    // ParseJsonMessage = true, 
+    // ProxyAddress = "http://your.proxy.com:port"
+};
+
+config.AddRule(LogLevel.Debug, LogLevel.Fatal, logzioTarget);
+LogManager.Configuration = config;
+```
+
+
 </div>
 
 </div>
@@ -486,47 +588,66 @@ For a complete list of options, see the configuration parameters below the code 
 
 ```xml
 <log4net>
-  <appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">
-
-    <!-- Replace these parameters with your configuration -->
-    <token><<LOG-SHIPPING-TOKEN>></token>
-    <type>log4net</type>
-    <listenerUrl>https://<<LISTENER-HOST>>:8071</listenerUrl>
-    <bufferSize>100</bufferSize>
-    <bufferTimeout>00:00:05</bufferTimeout>
-    <retriesMaxAttempts>3</retriesMaxAttempts>
-    <retriesInterval>00:00:02</retriesInterval>
-    <gzip>true</gzip>
-    <debug>false</debug>
-    <jsonKeysCamelCase>false</jsonKeysCamelCase>
-    <!--<parseJsonMessage>true</parseJsonMessage>-->
+    <appender name="LogzioAppender" type="Logzio.DotNet.Log4net.LogzioAppender, Logzio.DotNet.Log4net">
+    	<!-- 
+		Required fields 
+	-->
+	<!-- Your Logz.io API token -->
+	<token><<LOG-SHIPPING-TOKEN>></token>
+			
+	<!-- 
+		Optional fields (with their default values) 
+	-->
+	<!-- The type field will be added to each log message, making it 
+	easier for you to differ between different types of logs. -->
+    	<type>log4net</type>
+	<!-- The URL of the Lgz.io listener -->
+    	<listenerUrl>https://<<LISTENER-HOST>>:8071</listenerUrl>
+        <!--Optional proxy server address:
+        proxyAddress = "http://your.proxy.com:port" -->
+	<!-- The maximum number of log lines to send in each bulk -->
+    	<bufferSize>100</bufferSize>
+	<!-- The maximum time to wait for more log lines, in a hh:mm:ss.fff format -->
+    	<bufferTimeout>00:00:05</bufferTimeout>
+	<!-- If connection to Logz.io API fails, how many times to retry -->
+    	<retriesMaxAttempts>3</retriesMaxAttempts>
+    	<!-- Time to wait between retries, in a hh:mm:ss.fff format -->
+	<retriesInterval>00:00:02</retriesInterval>
+	<!-- Set the appender to compress the message before sending it -->
+	<gzip>true</gzip>
+	<!-- Enable the appender's internal debug logger (sent to the console output and trace log) -->
+	<debug>false</debug>
+        <!-- Set to true if you want json keys in Logz.io to be in camel case. The default is false. -->
+        <jsonKeysCamelCase>false</jsonKeysCamelCase>
+        <!-- Add trace context (traceId and spanId) to each log. The default is false -->
+        <addTraceContext>false</addTraceContext>
+    </appender>
     
-  </appender>
-
-  <root>
-    <level value="INFO" />
-    <appender-ref ref="LogzioAppender" />
-  </root>
+    <root>
+    	<level value="INFO" />
+    	<appender-ref ref="LogzioAppender" />
+    </root>
 </log4net>
 ```
 
 ###### Option 2: In the code
 
 ```csharp
-	var hierarchy = (Hierarchy)LogManager.GetRepository();
-	var logzioAppender = new LogzioAppender();
-	logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
-	logzioAppender.AddListenerUrl("<<LISTENER-HOST>>");
-         // Uncomment and edit this line to enable proxy routing: 
-         // logzioAppender.AddProxyAddress("http://your.proxy.com:port");
-	 // Uncomment these lines to enable gzip compression 
-	 // logzioAppender.AddGzip(true);
-         // logzioAppender.ActivateOptions();
-         // logzioAppender.JsonKeysCamelCase(false)
-	logzioAppender.ActiveOptions();
-	hierarchy.Root.AddAppender(logzioAppender);
-	hierarchy.Root.Level = Level.All;
-	hierarchy.Configured = true;
+var hierarchy = (Hierarchy)LogManager.GetRepository();
+var logzioAppender = new LogzioAppender();
+logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
+logzioAppender.AddListenerUrl("<<LISTENER-HOST>>");
+// Uncomment and edit this line to enable proxy routing: 
+// logzioAppender.AddProxyAddress("http://your.proxy.com:port");
+// Uncomment these lines to enable gzip compression 
+// logzioAppender.AddGzip(true);
+// logzioAppender.ActivateOptions();
+// logzioAppender.JsonKeysCamelCase(false);
+// logzioAppender.AddTraceContext(false);
+logzioAppender.ActivateOptions();
+hierarchy.Root.AddAppender(logzioAppender);
+hierarchy.Root.Level = Level.All;
+hierarchy.Configured = true;
 ```
 
 ###### Parameters
@@ -545,6 +666,7 @@ For a complete list of options, see the configuration parameters below the code 
 | parseJsonMessage | To parse your message as JSON format, add this field and set it to `true`. | `false` |
 | proxyAddress | Proxy address to route your logs through. | `None` |
 | jsonKeysCamelCase | If you have custom fields keys that start with capital letter and want to see the fields with capital letter in Logz.io, set this field to true. | `false` |
+| addTraceContext | If want to send traces along with the logs, set this field to true. | `false` |
 
 ###### Code sample
 
@@ -667,6 +789,33 @@ public class MyAppLogzioAppender : LogzioAppender
 
 Change your configuration to use your new appender name.
 For the example above, you'd use `MyAppLogzioAppender`.
+
+### Add trace context
+
+<!-- info-box-start:info -->
+The Trace Context feature does not support .NET Standard 1.3.
+{:.info-box.note}
+<!-- info-box-end -->
+
+If you’re sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context. In this way, your logs will have traces data in it: `span id` and `trace id`. To enable this feature, set `addTraceContext="true"` in your configuration file or `AddTraceContext = true` in your code. For example:
+
+```csharp
+var hierarchy = (Hierarchy)LogManager.GetRepository();
+var logzioAppender = new LogzioAppender();
+logzioAppender.AddToken("<<LOG-SHIPPING-TOKEN>>");
+logzioAppender.AddListenerUrl("<<LISTENER-HOST>>");
+// Uncomment and edit this line to enable proxy routing: 
+// logzioAppender.AddProxyAddress("http://your.proxy.com:port");
+// Uncomment these lines to enable gzip compression 
+// logzioAppender.AddGzip(true);
+// logzioAppender.ActivateOptions();
+// logzioAppender.JsonKeysCamelCase(false);
+logzioAppender.AddTraceContext(true);
+logzioAppender.ActivateOptions();
+hierarchy.Root.AddAppender(logzioAppender);
+hierarchy.Root.Level = Level.All;
+hierarchy.Configured = true;
+```
 
 </div>
 <!-- tab:end -->
@@ -804,6 +953,7 @@ namespace Example
 {% include log-shipping/listener-var.html %} 
 
 Replace `<<TYPE>` with the type that you want to assign to your logs. You will use this value to identify these logs in Logz.io.
+
 
 
 

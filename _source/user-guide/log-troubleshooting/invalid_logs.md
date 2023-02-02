@@ -44,11 +44,11 @@ Here are some of the **common mapping errors** you might encounter and why they 
 
 ##### Mapping errors through sub accounts
 
-Another way to monitor logs and errors is by adding one or more **sub accounts** to your main Logz.io account.
+When mapping errors, you can only assign one type per field. However, you might sometimes want to assign multiple types to the same field. For these cases, you can create **sub accounts**.
 
-Each sub account has its own data volume and retention period, which can help manage independent environments and focus on different areas in your log.
+You can use sub accounts to send the same logs you're sending to your main account, but map a different type to a field that's already mapped.
 
-Sub accounts let you manage which team members can view and access the data and also allow you to create specific dashboards and alerts based on the monitored environment.
+For example, if you have a `metadata` field, you might want to assign an `Object` type in your prod environment and a `String` type in your testing environment. By creating a sub account, you can send the same logs and adjust the type accordingly.
 
 [Learn more about **creating and managing sub accounts**](https://docs.logz.io/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#add-and-manage-a-log-management-sub-account).
 

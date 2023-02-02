@@ -2,13 +2,25 @@
 layout: article
 title: Logz.io Training 101
 permalink: /training/
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Learn how to make the most out of your Logz.io account
 flags:
   logzio-plan: community
 sitemap: false
+noindex: true
 tags:
   - training
 ---
 
+Learn more about how you can enhance and optimze your Logz.io account:
+
+* [Learn about the Logz.io platform](https://logz.io/learn/logz-io-platform-demo/)
+* [Ship data through the Telemetry Collector](https://logz.io/learn/telemetry-collector/)
+* [Parse your logs with Logz.io](https://logz.io/learn/parsing-your-log-data-with-logz-io/)
+
+[And more](https://logz.io/learn/video/)!
+
+<!--
 Whether you are a new user or looking for a refresher, you are invited to join us for live training on the Logz.io platform!
 
 We offer weekly group training sessions, covering everything from how to send your data to Logz.io to how to take advantage of our advanced features.
@@ -62,3 +74,4 @@ Each session is 60 minutes.
 
 * Infrastructure Monitoring
     * Seamlessly correlate metrics and log data
+-->

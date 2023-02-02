@@ -1,6 +1,7 @@
 ---
 title: Ship Disque metrics via Telegraf
-description: hello there
+description: Ship Disque metrics via Telegraf to Logz.io
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 logo:
   logofile: 
   orientation: vertical

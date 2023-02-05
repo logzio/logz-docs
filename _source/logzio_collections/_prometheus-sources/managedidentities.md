@@ -1,5 +1,7 @@
 ---
 title: Ship Google Managed Service for Microsoft Active Directory metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Managed Service for Microsoft Active Directory metrics to Logz.io
 logo:
   logofile: gcpiam.png
   orientation: vertical

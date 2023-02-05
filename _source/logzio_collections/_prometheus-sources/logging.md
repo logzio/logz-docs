@@ -1,5 +1,7 @@
 ---
 title: Ship Google Cloud Logging metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Cloud Logging metrics to Logz.io
 logo:
   logofile: cloudlogging.png
   orientation: vertical

@@ -1,5 +1,7 @@
 ---
 title: Ship Google Cloud Run metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Cloud Run metrics to Logz.io
 logo:
   logofile: cloudrun.png
   orientation: vertical

@@ -1,5 +1,7 @@
 ---
 title: Ship Google Cloud API metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Cloud API metrics to Logz.io
 logo:
   logofile: gcpapis.png
   orientation: vertical

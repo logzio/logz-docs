@@ -1,5 +1,7 @@
 ---
 title: Ship Google Dataproc Metastore metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Dataproc Metastore metrics to Logz.io
 logo:
   logofile: gcpdataproc.png
   orientation: vertical

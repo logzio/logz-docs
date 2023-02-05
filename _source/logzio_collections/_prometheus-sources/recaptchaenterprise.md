@@ -1,5 +1,7 @@
 ---
 title: Ship Google reCAPTCHA Enterprise metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google reCAPTCHA Enterprise metrics to Logz.io
 logo:
   logofile: recap.png
   orientation: vertical

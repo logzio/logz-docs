@@ -1,5 +1,7 @@
 ---
 title: Ship Google Memorystore for Redis metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Memorystore for Redis metrics to Logz.io
 logo:
   logofile: memorystore.png
   orientation: vertical

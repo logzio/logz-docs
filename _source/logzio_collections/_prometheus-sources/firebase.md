@@ -1,5 +1,7 @@
 ---
 title: Ship Google Firebase metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Firebase metrics to Logz.io
 logo:
   logofile: firebase.png
   orientation: vertical

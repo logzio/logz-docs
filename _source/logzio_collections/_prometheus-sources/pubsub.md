@@ -1,5 +1,7 @@
 ---
 title: Ship Google Pub/Sub metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Pub/Sub metrics to Logz.io
 logo:
   logofile: pubsub.png
   orientation: vertical

@@ -1,5 +1,7 @@
 ---
 title: Ship Google Cloud Monitoring metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Cloud Monitoring metrics to Logz.io
 logo:
   logofile: cloudmonitoring.png
   orientation: vertical

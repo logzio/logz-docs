@@ -1,5 +1,7 @@
 ---
 title: Ship Google Datastream metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Datastream metrics to Logz.io
 logo:
   logofile: gcpdatastream.png
   orientation: vertical

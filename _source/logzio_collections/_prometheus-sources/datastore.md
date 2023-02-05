@@ -1,5 +1,7 @@
 ---
 title: Ship Google Datastore metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Datastore metrics to Logz.io
 logo:
   logofile: gcpdatastore.png
   orientation: vertical

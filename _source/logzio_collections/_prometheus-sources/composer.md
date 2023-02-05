@@ -1,5 +1,7 @@
 ---
 title: Ship Google Cloud Composer metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Cloud Composer metrics to Logz.io
 logo:
   logofile: gcpcomposer.png
   orientation: vertical

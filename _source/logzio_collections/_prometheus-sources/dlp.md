@@ -1,5 +1,7 @@
 ---
 title: Ship Google Cloud Data Loss Prevention metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Cloud Data Loss Prevention metrics to Logz.io
 logo:
   logofile: lossprevention.png
   orientation: vertical

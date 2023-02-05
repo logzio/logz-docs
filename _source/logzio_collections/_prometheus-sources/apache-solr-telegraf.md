@@ -1,5 +1,7 @@
 ---
 title: Ship Apache Solr metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Apache Solr metrics via Telegraf to Logz.io
 logo:
   logofile: solr-logo.png
   orientation: vertical

@@ -1,5 +1,7 @@
 ---
 title: Ship Google Apigee metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Apigee metrics to Logz.io
 logo:
   logofile: apigee.png
   orientation: vertical

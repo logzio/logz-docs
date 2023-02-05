@@ -1,5 +1,7 @@
 ---
 title: Ship Apache Aurora metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Apache Aurora metrics via Telegraf to Logz.io
 logo:
   logofile: aurora-logo.png
   orientation: vertical

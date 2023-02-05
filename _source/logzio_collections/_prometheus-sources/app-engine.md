@@ -1,5 +1,7 @@
 ---
 title: Ship Google App Engine metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google App Engine metrics to Logz.io
 logo:
   logofile: appengine.png
   orientation: vertical

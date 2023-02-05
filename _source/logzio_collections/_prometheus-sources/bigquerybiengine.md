@@ -1,5 +1,7 @@
 ---
 title: Ship Google BigQuery BI Engine metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google BigQuery BI Engine metrics to Logz.io
 logo:
   logofile: bigquery.png
   orientation: vertical

@@ -23,9 +23,11 @@ _If you're unsure whether traffic is allowed to these ports, continue the proces
 
 Navigate to [Send your data](https://app.logz.io/#/dashboard/send-your-data), and click on **Start collecting**.
 
+To configure the Telemetry Collector, you must be logged into your **main** Logz.io account.
+{:.info-box.important}
 
-![Start collecting button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/send-data-collector.png)
 
+![Start collecting button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-start-here.png)
 
 <div class="tasklist">
 

@@ -1,5 +1,7 @@
 ---
 title: Ship Google Cloud Load Balancing metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Cloud Load Balancing metrics to Logz.io
 logo:
   logofile: gcplb.png
   orientation: vertical

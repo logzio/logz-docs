@@ -1,5 +1,7 @@
 ---
 title: Ship Google Certificate Authority Service metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Certificate Authority Service metrics to Logz.io
 logo:
   logofile: certmanager.png
   orientation: vertical

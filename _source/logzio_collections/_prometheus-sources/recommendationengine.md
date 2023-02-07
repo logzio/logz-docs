@@ -1,5 +1,7 @@
 ---
 title: Ship Google Recommendations AI metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Recommendations AI metrics to Logz.io
 logo:
   logofile: gcpai.png
   orientation: vertical

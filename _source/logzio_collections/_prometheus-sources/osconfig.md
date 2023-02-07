@@ -1,5 +1,7 @@
 ---
 title: Ship Google VM Manager metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google VM Manager metrics to Logz.io
 logo:
   logofile: computeengine.png
   orientation: vertical

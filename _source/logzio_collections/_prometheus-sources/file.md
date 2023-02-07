@@ -1,5 +1,7 @@
 ---
 title: Ship Google Filestore metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Filestore metrics to Logz.io
 logo:
   logofile: gcpfilestore.png
   orientation: vertical

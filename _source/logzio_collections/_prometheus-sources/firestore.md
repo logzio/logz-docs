@@ -1,5 +1,7 @@
 ---
 title: Ship Google Firestore metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Firestore metrics to Logz.io
 logo:
   logofile: firestore.png
   orientation: vertical

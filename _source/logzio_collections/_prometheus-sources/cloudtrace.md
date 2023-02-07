@@ -1,5 +1,7 @@
 ---
 title: Ship Google Cloud Trace metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Cloud Trace metrics to Logz.io
 logo:
   logofile: gcptrace.png
   orientation: vertical

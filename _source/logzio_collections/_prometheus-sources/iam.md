@@ -1,5 +1,7 @@
 ---
 title: Ship Google Identity and Access Management metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Identity and Access Management metrics to Logz.io
 logo:
   logofile: gcpiam.png
   orientation: vertical

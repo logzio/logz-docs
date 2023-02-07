@@ -1,5 +1,7 @@
 ---
 title: Ship Google Firewall Insights metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Firewall Insights metrics to Logz.io
 logo:
   logofile: gcpfirewall.png
   orientation: vertical

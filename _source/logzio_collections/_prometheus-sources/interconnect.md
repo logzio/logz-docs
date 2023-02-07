@@ -1,5 +1,7 @@
 ---
 title: Ship Google Cloud Interconnect metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Cloud Interconnect metrics to Logz.io
 logo:
   logofile: interconnect.png
   orientation: vertical

@@ -1,5 +1,7 @@
 ---
 title: Ship Google Compute Engine Autoscaler metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Compute Engine Autoscaler metrics to Logz.io
 logo:
   logofile: computeengine.png
   orientation: vertical

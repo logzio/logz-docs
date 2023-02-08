@@ -1,5 +1,5 @@
 ---
-title: Sending metrics on broken links in a web page
+title: Sending data on broken links in a web page
 logo:
   logofile: link.png
   orientation: vertical
@@ -18,7 +18,7 @@ order: 1380
 
 ### Overview
 
-Deploy this integration to collect metrics on broken links in a web page, and to get additional data about the links.
+Deploy this integration to collect data on broken links in a web page, and to get additional data about the links.
 
 
 
@@ -67,7 +67,7 @@ Specify the stack details as per the table below, check the checkboxes and selec
 
 ##### Check Logz.io for your metrics
 
-Give the stack a few minutes to be deployed and the metrics to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). All metrics that were sent from the Lambda function will have the prefix `api_status` in their name.
+Give the stack a few minutes to be deployed and the data to get to our system, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
   
 {% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
 

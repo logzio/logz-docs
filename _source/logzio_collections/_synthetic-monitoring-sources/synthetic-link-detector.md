@@ -65,11 +65,11 @@ Specify the stack details as per the table below, check the checkboxes and selec
 | `logzioType`                 | The log type you'll use with this Lambda.                                                                                           | Default: `synthetic-links-detector` |
 
 
-##### Check Logz.io for your metrics
+##### Check Logz.io for your data
 
 Give the stack a few minutes to be deployed and the data to get to our system, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
   
-{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your data.
 
 
 {% include metric-shipping/generic-dashboard.html %} 

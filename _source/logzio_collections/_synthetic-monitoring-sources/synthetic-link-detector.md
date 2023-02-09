@@ -20,6 +20,7 @@ order: 1380
 
 Deploy this integration to collect data on broken links in a web page, and to get additional data about the links.
 
+<!-- logzio-inject:install:grafana:dashboards ids=["1NiBMzN5DvQZ8BjePpUtvQ"] --> 
 
 
 
@@ -71,6 +72,7 @@ Give the stack a few minutes to be deployed and the data to get to our system, a
   
 {% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your data.
 
+<!-- logzio-inject:install:grafana:dashboards ids=["1NiBMzN5DvQZ8BjePpUtvQ"] --> 
 
 {% include metric-shipping/generic-dashboard.html %} 
 

@@ -293,6 +293,7 @@ x-tagGroups:
       - Archive logs
       - Restore logs
       - Parsing
+      - Delete object API
   - name: Data security
     tags:
       - Retrieve audit trail
@@ -3815,6 +3816,31 @@ paths:
                   description: ID.
                   example: 1
   
+
+  /v1/osd/saved-objects/{object-type}/{object-id}:
+    delete:
+      summary: Remove a saved object
+      tags:
+        - Delete object API
+      parameters:
+        - in: path
+          name: object-type
+          required: true
+          type: string
+          description: The type of the saved object to remove. Valid options are "search", "visualization", and "dashboard".
+        - in: path
+          name: object-id
+          required: true
+          type: string
+          description: The ID of the saved object to remove.
+      responses:
+        200:
+          description: Indicates a successful call.
+
+
+
+
+
   # ::::: ACCOUNTS
   /v2/whoami:
     get:

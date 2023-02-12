@@ -3840,7 +3840,7 @@ paths:
                 description: Name of the account
               planUts:
                 type: integer
-                description: Plan usage time in seconds
+                description: Usage plan for Unique Time Series (UTS). UTS defines the number of unique time series an account is allowed to have. If usage exceeds the plan, exceeding data points will not be processed.
               authorizedAccountsIds:
                 type: array
                 items:
@@ -3867,7 +3867,7 @@ paths:
                 description: Timestamp of account creation
               planUts:
                 type: integer
-                description: Plan usage time in seconds
+                description: Usage plan for Unique Time Series (UTS). UTS defines the number of unique time series an account is allowed to have. If usage exceeds the plan, exceeding data points will not be processed.
               authorizedAccountsIds:
                 type: array
                 items:
@@ -3902,7 +3902,7 @@ paths:
                   description: Timestamp of account creation
                 planUts:
                   type: integer
-                  description: Plan usage time in seconds
+                  description: Usage plan for Unique Time Series (UTS). UTS defines the number of unique time series an account is allowed to have. If usage exceeds the plan, exceeding data points will not be processed.
                 authorizedAccountsIds:
                   type: array
                   items:
@@ -3932,7 +3932,7 @@ paths:
                 description: Name of the account
               planUts:
                 type: integer
-                description: Plan usage time in seconds
+                description: Usage plan for Unique Time Series (UTS). UTS defines the number of unique time series an account is allowed to have. If usage exceeds the plan, exceeding data points will not be processed.
               authorizedAccountsIds:
                 type: array
                 items:
@@ -3959,7 +3959,7 @@ paths:
                 description: Timestamp of account creation
               planUts:
                 type: integer
-                description: Plan usage time in seconds
+                description: Usage plan for Unique Time Series (UTS). UTS defines the number of unique time series an account is allowed to have. If usage exceeds the plan, exceeding data points will not be processed.
               authorizedAccountsIds:
                 type: array
                 items:
@@ -3999,7 +3999,7 @@ paths:
                 description: Timestamp of account creation
               planUts:
                 type: integer
-                description: Plan usage
+                description: Usage plan for Unique Time Series (UTS). UTS defines the number of unique time series an account is allowed to have. If usage exceeds the plan, exceeding data points will not be processed.
 
 
 

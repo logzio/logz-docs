@@ -279,6 +279,7 @@ x-tagGroups:
   - name: Account administration
     tags:
       - Manage users
+      - Manage metrics account
       - Authentication groups
       - Who am I
       - Manage time-based log accounts
@@ -3816,6 +3817,193 @@ paths:
                   example: 1
   
   # ::::: ACCOUNTS
+
+  /v1/account-management/metrics-accounts:
+    post:
+      summary: Create a new metrics account
+      consumes:
+        - application/json
+      tags:
+        - Manage metrics account
+      parameters:
+        - in: body
+          name: MetricsAccountV1Request
+          required: true
+          schema:
+            type: object
+            properties:
+              email:
+                type: string
+                description: Email address of the account owner
+              accountName:
+                type: string
+                description: Name of the account
+              planUts:
+                type: integer
+                description: Plan usage time in seconds
+              authorizedAccountsIds:
+                type: array
+                items:
+                  type: integer
+                  description: IDs of authorized accounts
+      responses:
+        201:
+          description: Created
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: ID of the created metrics account
+              accountName:
+                type: string
+                description: Name of the account
+              token:
+                type: string
+                description: Token for accessing the account
+              createdAt:
+                type: string
+                format: date-time
+                description: Timestamp of account creation
+              planUts:
+                type: integer
+                description: Plan usage time in seconds
+              authorizedAccountsIds:
+                type: array
+                items:
+                  type: integer
+                  description: IDs of authorized accounts
+    get:
+      summary: Get a list of all metrics accounts
+      produces:
+        - application/json
+      tags:
+        - Manage metrics account
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: ID of the metrics account
+                accountName:
+                  type: string
+                  description: Name of the account
+                token:
+                  type: string
+                  description: Token for accessing the account
+                createdAt:
+                  type: string
+                  format: date-time
+                  description: Timestamp of account creation
+                planUts:
+                  type: integer
+                  description: Plan usage time in seconds
+                authorizedAccountsIds:
+                  type: array
+                  items:
+                    type: integer
+                  description: IDs of authorized accounts
+
+  /v1/account-management/metrics-accounts/{metricsAccountId}:
+    put:
+      summary: Update a metrics account
+      consumes:
+        - application/json
+      tags:
+        - Manage metrics account
+      parameters:
+        - in: path
+          name: metricsAccountId
+          required: true
+          type: integer
+        - in: body
+          name: MetricsAccountV1Request
+          required: true
+          schema:
+            type: object
+            properties:
+              accountName:
+                type: string
+                description: Name of the account
+              planUts:
+                type: integer
+                description: Plan usage time in seconds
+              authorizedAccountsIds:
+                type: array
+                items:
+                  type: integer
+                  description: IDs of authorized accounts
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: ID of the metrics account
+              accountName:
+                type: string
+                description: Name of the account
+              token:
+                type: string
+                description: Token for accessing the account
+              createdAt:
+                type: string
+                format: date-time
+                description: Timestamp of account creation
+              planUts:
+                type: integer
+                description: Plan usage time in seconds
+              authorizedAccountsIds:
+                type: array
+                items:
+                  type: integer
+                  description: IDs of authorized accounts
+    delete:
+      summary: Delete a metrics account
+      tags:
+        - Manage metrics account
+      responses:
+        200:
+          description: OK
+    get:
+      summary: Get a specific metrics account
+      produces:
+        - application/json
+      tags:
+        - Manage metrics account
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: ID of the metrics account
+              accountName:
+                type: string
+                description: Name of the account
+              token:
+                type: string
+                description: Token for accessing the account
+              createdAt:
+                type: string
+                format: date-time
+                description: Timestamp of account creation
+              planUts:
+                type: integer
+                description: Plan usage
+
+
+
+
   /v2/whoami:
     get:
       summary: Retrieve account information

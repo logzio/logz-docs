@@ -1,5 +1,7 @@
 ---
 title: Ship Phusion Passenger metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Phusion Passenger metrics via Telegraf to Logz.io
 logo:
   logofile: phfusion-logo.png
   orientation: vertical

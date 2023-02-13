@@ -1,5 +1,7 @@
 ---
 title: Ship NVIDIA SMI metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship NVIDIA SMI metrics via Telegraf to Logz.io
 logo:
   logofile: nvidia.png
   orientation: vertical

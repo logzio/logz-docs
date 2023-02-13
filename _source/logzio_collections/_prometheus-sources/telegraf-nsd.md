@@ -1,5 +1,7 @@
 ---
 title: Ship NLnet Labs Name Server Daemon metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship NLnet Labs Name Server Daemon metrics via Telegraf to Logz.io
 logo:
   logofile: nsd.png
   orientation: vertical

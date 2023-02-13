@@ -1,5 +1,7 @@
 ---
 title: Ship Jenkins metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Jenkins metrics via Telegraf to Logz.io
 logo:
   logofile: jenkins.png
   orientation: vertical

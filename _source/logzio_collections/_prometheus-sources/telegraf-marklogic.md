@@ -1,5 +1,7 @@
 ---
 title: Ship MarkLogic metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship MarkLogic metrics via Telegraf to Logz.io
 logo:
   logofile: marklogic.png
   orientation: vertical

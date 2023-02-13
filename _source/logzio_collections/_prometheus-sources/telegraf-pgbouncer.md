@@ -1,5 +1,7 @@
 ---
 title: Ship PgBouncer metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship PgBouncer metrics via Telegraf to Logz.io
 logo:
   logofile: pgbouncer.png
   orientation: vertical

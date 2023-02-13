@@ -1,5 +1,7 @@
 ---
 title: Ship Google Workflows metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Workflows metrics to Logz.io
 logo:
   logofile: workflows.png
   orientation: vertical

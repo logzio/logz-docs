@@ -1,5 +1,7 @@
 ---
 title: Ship JTI OpenConfig Telemetry metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship JTI OpenConfig Telemetry metrics via Telegraf to Logz.io
 logo:
   logofile: juniper.png
   orientation: vertical

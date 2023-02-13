@@ -1,5 +1,7 @@
 ---
 title: Ship Riak metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Riak metrics via Telegraf to Logz.io
 logo:
   logofile: riak-logo.png
   orientation: vertical

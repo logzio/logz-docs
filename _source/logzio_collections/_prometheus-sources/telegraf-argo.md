@@ -1,5 +1,7 @@
 ---
 title: Ship Argo CD metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Argo CD metrics via Telegraf to Logz.io
 logo:
   logofile: argo.png
   orientation: vertical

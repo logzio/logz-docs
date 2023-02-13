@@ -1,5 +1,7 @@
 ---
 title: Send Docker Swarm metrics over Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Send Docker Swarm metrics over Telegraf to Logz.io
 logo:
   logofile: docker-swarm-logo2.png
   orientation: vertical

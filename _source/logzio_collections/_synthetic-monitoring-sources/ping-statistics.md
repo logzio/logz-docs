@@ -1,5 +1,7 @@
 ---
 title: Sending ping statistics metrics from web addresses
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Sending ping statistics metrics from web addresses to Logz.io
 logo:
   logofile: ping-logo.png
   orientation: vertical

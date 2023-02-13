@@ -1,5 +1,7 @@
 ---
 title: Ship Vmware Vsphere metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Vmware Vsphere metrics via Telegraf to Logz.io
 logo:
   logofile: vsphere-logo.png
   orientation: vertical

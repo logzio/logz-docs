@@ -1,5 +1,7 @@
 ---
 title: Sending data on broken links in a web page
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Sending data on broken links in a web page to Logz.io
 logo:
   logofile: link.png
   orientation: vertical

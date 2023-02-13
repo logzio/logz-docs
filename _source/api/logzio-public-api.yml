@@ -3828,11 +3828,13 @@ paths:
           required: true
           type: string
           description: The type of the saved object to remove. Valid options are "search", "visualization", and "dashboard".
+          example: visualization
         - in: path
           name: object-id
           required: true
           type: string
           description: The ID of the saved object to remove.
+          example: 7adfa750
       responses:
         200:
           description: Indicates a successful call.

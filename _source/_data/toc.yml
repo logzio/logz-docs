@@ -469,8 +469,8 @@ firstLevel:
       url: /user-guide/accounts/manage-the-main-account-and-sub-accounts.html
     - title: Logz.io advanced features
       url: /user-guide/accounts/data-optimization.html
-    - title: Optimize your account's cost
-      url: /user-guide/accounts/cost-optimization.html
+    #- title: Optimize your account's cost
+    #  url: /user-guide/accounts/cost-optimization.html
     - title: Monitor account usage
       url: /user-guide/accounts/plan-and-usage.html
     - title: Flexible volume log accounts

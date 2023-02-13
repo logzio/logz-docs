@@ -293,6 +293,7 @@ x-tagGroups:
       - Archive logs
       - Restore logs
       - Parsing
+      - Delete object API
   - name: Data security
     tags:
       - Retrieve audit trail
@@ -3815,6 +3816,40 @@ paths:
                   description: ID.
                   example: 1
   
+
+  /v1/osd/saved-objects/{object-type}/{object-id}:
+    delete:
+      summary: Remove a saved object
+      tags:
+        - Delete object API
+      parameters:
+        - in: path
+          name: object-type
+          required: true
+          type: string
+          description: The type of the saved object to remove. Valid options are "search", "visualization", and "dashboard".
+          example: visualization
+        - in: path
+          name: object-id
+          required: true
+          type: string
+          description: The ID of the saved object to remove.
+          example: 7adfa750-4c81-11e8-b3d7-01146121b73d
+      x-code-samples:
+      - lang: cURL
+        source: >-
+          curl -X DELETE https://api.logz.io/v1/osd/saved-objects/visualization/7adfa750-4c81-11e8-b3d7-01146121b73d \
+            -H 'Content-Type: application/json' \
+            -H 'X-API-TOKEN: <token>' \
+      responses:
+        200:
+          description: Indicates a successful call.
+
+
+
+
+
+
   # ::::: ACCOUNTS
   /v2/whoami:
     get:

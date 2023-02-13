@@ -301,8 +301,8 @@ firstLevel:
     url:  /user-guide/distributed-tracing/correlate-traces/
   #- title: Visualize traces in OpenSearch Dashboards
   #  url: /user-guide/distributed-tracing/visualize-traces/
-  - title: Sampling rules
-    url: /user-guide/distributed-tracing/sampling-rules.html
+  #- title: Sampling rules
+  #  url: /user-guide/distributed-tracing/sampling-rules.html
   - title: Troubleshooting
     thirdLevel:
     - title: Distributed Tracing troubleshooting
@@ -416,6 +416,9 @@ firstLevel:
     url: /user-guide/accounts/drop-filters/
   - title: LogMetrics
     url: /user-guide/infrastructure-monitoring/logstometrics.html
+  - title: Sampling rules
+    url: /user-guide/distributed-tracing/sampling-rules.html
+
 
   - title: Archive & Restore
     thirdLevel:

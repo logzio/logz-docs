@@ -3835,15 +3835,16 @@ paths:
           type: string
           description: The ID of the saved object to remove.
           example: 7adfa750
-      responses:
-        200:
-          description: Indicates a successful call.
         x-code-samples:
         - lang: cURL
           source: >-
             curl -X DELETE https://api.logz.io/v1/osd/saved-objects/visualization/7adfa750 \
               -H 'Content-Type: application/json' \
               -H 'X-API-TOKEN: <token>' \
+      responses:
+        200:
+          description: Indicates a successful call.
+
 
 
 

@@ -1,5 +1,7 @@
 ---
 title: Send Docker metrics over Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Send Docker metrics over Telegraf to Logz.io
 logo:
   logofile: docker-logo.png
   orientation: vertical

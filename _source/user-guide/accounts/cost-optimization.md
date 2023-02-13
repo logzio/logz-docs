@@ -17,6 +17,9 @@ contributors:
 
 Logz.io Data Optimization helps you manage and optimize your Logz.io products by offering tailored recommendations and a quick and easy way to drop your logs and metrics.
 
+You will receive tailored recommendations based on Log data from the last 24 hours and based on Metrics data from the previous 1 hour.
+{:.info-box.note}
+
 To get started, navigate to **[Data hub > Optimize](https://app.logz.io/#/dashboard/cost)**.
 
 

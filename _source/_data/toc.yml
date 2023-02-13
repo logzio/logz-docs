@@ -301,8 +301,8 @@ firstLevel:
     url:  /user-guide/distributed-tracing/correlate-traces/
   #- title: Visualize traces in OpenSearch Dashboards
   #  url: /user-guide/distributed-tracing/visualize-traces/
-  - title: Sampling rules
-    url: /user-guide/distributed-tracing/sampling-rules.html
+  #- title: Sampling rules
+  #  url: /user-guide/distributed-tracing/sampling-rules.html
   - title: Troubleshooting
     thirdLevel:
     - title: Distributed Tracing troubleshooting
@@ -416,6 +416,9 @@ firstLevel:
     url: /user-guide/accounts/drop-filters/
   - title: LogMetrics
     url: /user-guide/infrastructure-monitoring/logstometrics.html
+  - title: Sampling rules
+    url: /user-guide/distributed-tracing/sampling-rules.html
+
 
   - title: Archive & Restore
     thirdLevel:
@@ -466,8 +469,8 @@ firstLevel:
       url: /user-guide/accounts/manage-the-main-account-and-sub-accounts.html
     - title: Logz.io advanced features
       url: /user-guide/accounts/data-optimization.html
-    - title: Optimize your account's cost
-      url: /user-guide/accounts/cost-optimization.html
+    #- title: Optimize your account's cost
+    #  url: /user-guide/accounts/cost-optimization.html
     - title: Monitor account usage
       url: /user-guide/accounts/plan-and-usage.html
     - title: Flexible volume log accounts

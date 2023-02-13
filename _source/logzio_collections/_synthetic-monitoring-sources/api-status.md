@@ -1,5 +1,7 @@
 ---
 title: Sending API status metrics of user API
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Sending API status metrics of user API to Logz.io
 logo:
   logofile: apii.svg
   orientation: vertical

@@ -1,5 +1,7 @@
 ---
 title: Ship ZFS metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship ZFS metrics via Telegraf to Logz.io
 logo:
   logofile: zfs-logo.png
   orientation: vertical

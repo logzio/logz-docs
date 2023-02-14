@@ -60,7 +60,7 @@ You can include up to 200 sub accounts when flexible volume is enabled. To add m
 
 Optimizers are great for analyzing long-term patterns and trends on aggregated data.
 
-You can use [data optimizers](https://docs.logz.io/user-guide/optimizers/configure-optimizers.html) to copy select data from your logs and store them long-term in a timeless account. Data stored in timeless accounts is easily searched and continuously available without requiring additional steps to restore the data. [Explore timeless accounts](https://docs.logz.io/user-guide/accounts/manage-timeless-accounts.html).
+You can use [data optimizers](https://docs.logz.io/user-guide/optimizers/configure-optimizers.html) to copy select data from your logs and store them long-term in a timeless account. Data stored in timeless accounts is easily searched and continuously available without requiring additional steps to restore the data. [Explore timeless accounts](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#timeless).
 
 ##### **Archive and restore data**
 

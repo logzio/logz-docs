@@ -48,4 +48,4 @@ If you would like to investigate logs after they have expired from the logging d
 
 1. Set up [archiving](/user-guide/archive-and-restore/). Once logs are no longer in retention, they can be restored from the archive.
 
-2. Set up [Optimizers](/user-guide/optimizers/configure-optimizers.html) to capture logs and save them to a [Timeless account](/user-guide/accounts/manage-timeless-accounts.html).
+2. Set up [Optimizers](/user-guide/optimizers/configure-optimizers.html) to capture logs and save them to a [Timeless account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#timeless).

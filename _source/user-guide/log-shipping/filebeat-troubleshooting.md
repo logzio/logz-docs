@@ -2,6 +2,8 @@
 layout: article
 title: Troubleshooting Filebeat
 permalink: /user-guide/log-shipping/filebeat-troubleshooting/
+sitemap: false 
+noindex: true
 tags:
   - log-shipping
   - troubleshooting

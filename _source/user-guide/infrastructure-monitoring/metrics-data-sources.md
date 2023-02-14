@@ -2,6 +2,8 @@
 layout: article
 title: Managing your Logz.io Metrics data sources
 permalink: /user-guide/metrics/data-sources.html
+sitemap: false 
+noindex: true
 flags:
   logzio-plan: community
 tags:

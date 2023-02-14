@@ -4,6 +4,8 @@ title: Explore your metrics
 permalink: /user-guide/infrastructure-monitoring/metrics-explore/
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Explore your Metrics
+sitemap: false 
+noindex: true
 flags:
   #admin: true
   logzio-plan: community

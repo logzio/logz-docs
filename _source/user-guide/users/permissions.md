@@ -4,6 +4,8 @@ title: Permission levels
 permalink: /user-guide/accounts/permissions/
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Admin user permissions for your main Logz.io account
+sitemap: false 
+noindex: true
 flags:
   admin: true
   logzio-plan: pro

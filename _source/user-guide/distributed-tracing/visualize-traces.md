@@ -4,6 +4,8 @@ title: Visualize traces in OpenSearch Dashboards
 permalink: /user-guide/distributed-tracing/visualize-traces
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Turn your traces to visualizations with Logz.io
+sitemap: false 
+noindex: true
 flags:
   logzio-plan: pro
 tags:

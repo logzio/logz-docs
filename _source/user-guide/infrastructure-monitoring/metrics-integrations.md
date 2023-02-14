@@ -2,6 +2,8 @@
 layout: article
 title: Out-of-the-Box Dashboards
 permalink: /user-guide/metrics/integrations.html
+sitemap: false 
+noindex: true
 flags:
   logzio-plan: community
 tags:

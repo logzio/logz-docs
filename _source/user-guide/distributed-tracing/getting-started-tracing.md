@@ -43,7 +43,7 @@ You must have admin permissions for the Logz.io account to view the **Manage tok
 
    *Related Links*
 
-   + For information about how to manage your tracing data sources, see the [Manage a Distributed Tracing account](https://docs.logz.io/user-guide/accounts/manage-the-distributed-tracing-account/) topic.
+   + For information about how to manage your tracing data sources, see the [Manage a Distributed Tracing account](https://docs.logz.io/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#tracing) topic.
 
 <!-- {% include tracing-shipping/tracing-token.md %} the information was originally in an include. Needed to simplify the image, per comments-->
 

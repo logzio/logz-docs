@@ -105,7 +105,7 @@ If the filters were created from the backend, contact your Customer Success Mana
 
 ##### (Re-)Create your Optimizers
 
-In your post-migration account, open your [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page, and create your Timeless account/s. [Learn more](https://docs.logz.io/user-guide/accounts/manage-timeless-accounts.html)
+In your post-migration account, open your [Manage Accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page, and create your Timeless account/s. [Learn more](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#timeless)
 
 Re-create your Optimizers manually in your Logz.io account. [Learn more](/user-guide/optimizers/configure-optimizers.html).
 

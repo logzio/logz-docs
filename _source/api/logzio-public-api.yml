@@ -3973,6 +3973,10 @@ paths:
       summary: Delete a metrics account
       tags:
         - Manage metrics account
+      parameters:
+        - in: path
+          name: metricsAccountId
+          required: true
       responses:
         200:
           description: OK
@@ -3982,6 +3986,10 @@ paths:
         - application/json
       tags:
         - Manage metrics account
+      parameters:
+        - in: path
+          name: metricsAccountId
+          required: true
       responses:
         200:
           description: OK

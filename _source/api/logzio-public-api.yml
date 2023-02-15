@@ -3861,7 +3861,7 @@ paths:
                 description: ID of the created metrics account
               accountName:
                 type: string
-                description:  Name of metrics account. If empty, the default name `<owner_account_name>_metrics` is used.
+                description:  Name of metrics account. 
               token:
                 type: string
                 description: Metrics account token
@@ -3874,9 +3874,10 @@ paths:
                 description: Usage plan for Unique Time Series (UTS). UTS defines the number of unique time series an account is allowed to have. If usage exceeds the plan, exceeding data points will not be processed.
               authorizedAccountsIds:
                 type: array
+                description: IDs of authorized accounts
                 items:
                   type: integer
-                  description: IDs of authorized accounts
+                  
     get:
       summary: Get a list of all metrics accounts
       produces:
@@ -3896,7 +3897,7 @@ paths:
                   description: ID of the metrics account
                 accountName:
                   type: string
-                  description:  Name of metrics account. If empty, the default name `<owner_account_name>_metrics` is used.
+                  description:  Name of metrics account. 
                 token:
                   type: string
                   description: Metrics account token
@@ -3909,9 +3910,10 @@ paths:
                   description: Usage plan for Unique Time Series (UTS). UTS defines the number of unique time series an account is allowed to have. If usage exceeds the plan, exceeding data points will not be processed.
                 authorizedAccountsIds:
                   type: array
+                  description: IDs of authorized accounts
                   items:
                     type: integer
-                  description: IDs of authorized accounts
+                  
 
   /v1/account-management/metrics-accounts/{metricsAccountId}:
     put:
@@ -3933,15 +3935,16 @@ paths:
             properties:
               accountName:
                 type: string
-                description:  Name of metrics account. If empty, the default name `<owner_account_name>_metrics` is used.
+                description:  Name of metrics account. 
               planUts:
                 type: integer
                 description: Usage plan for Unique Time Series (UTS). UTS defines the number of unique time series an account is allowed to have. If usage exceeds the plan, exceeding data points will not be processed.
               authorizedAccountsIds:
                 type: array
+                description: IDs of authorized accounts
                 items:
                   type: integer
-                  description: IDs of authorized accounts
+                  
       responses:
         200:
           description: OK
@@ -3953,7 +3956,7 @@ paths:
                 description: ID of the metrics account
               accountName:
                 type: string
-                description:  Name of metrics account. If empty, the default name `<owner_account_name>_metrics` is used.
+                description:  Name of metrics account. 
               token:
                 type: string
                 description: Metrics account token
@@ -3966,9 +3969,10 @@ paths:
                 description: Usage plan for Unique Time Series (UTS). UTS defines the number of unique time series an account is allowed to have. If usage exceeds the plan, exceeding data points will not be processed.
               authorizedAccountsIds:
                 type: array
+                description: IDs of authorized accounts
                 items:
                   type: integer
-                  description: IDs of authorized accounts
+                  
     delete:
       summary: Delete a metrics account
       tags:
@@ -4001,7 +4005,7 @@ paths:
                 description: ID of the metrics account
               accountName:
                 type: string
-                description:  Name of metrics account. If empty, the default name `<owner_account_name>_metrics` is used.
+                description:  Name of metrics account. 
               token:
                 type: string
                 description: Metrics account token
@@ -4012,7 +4016,11 @@ paths:
               planUts:
                 type: integer
                 description: Usage plan for Unique Time Series (UTS). UTS defines the number of unique time series an account is allowed to have. If usage exceeds the plan, exceeding data points will not be processed.
-
+              authorizedAccountsIds:
+                type: array
+                description: IDs of authorized accounts
+                items:
+                  type: integer
 
 
 

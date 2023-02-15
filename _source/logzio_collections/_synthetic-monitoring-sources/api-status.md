@@ -43,19 +43,33 @@ The integration is based on a Lambda function that will be auto-deployed togethe
 [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/api-status-auto-deployment/auto-deployment.yaml&stackName=logzio-api-status-auto-deployment)
 
 
-##### Specify the template
+##### Auto-deploy the stack
 
-![Specify stack template](https://dytvr9ot2sszz.cloudfront.net/logz-docs/api_status/api_template.png)
+To deploy this integration, click the button that matches the region you wish to deploy your Stack to:
 
-Keep the defaults and click **Next**.
-
+| Region           | Deployment                                                                                                                                                                                                                                                                                                                                                               |
+|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `us-east-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/api-status-auto-deployment/1.1.0/sam-template.yaml&stackName=logzio-api-status-auto-deployment)           | 
+| `us-east-2`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-east-2#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-east-2.s3.amazonaws.com/api-status-auto-deployment/1.1.0/sam-template.yaml&stackName=logzio-api-status-auto-deployment)           | 
+| `us-west-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-west-1.s3.amazonaws.com/api-status-auto-deployment/1.1.0/sam-template.yaml&stackName=logzio-api-status-auto-deployment)           | 
+| `us-west-2`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=us-west-2#/stacks/create/template?templateURL=https://logzio-aws-integrations-us-west-2.s3.amazonaws.com/api-status-auto-deployment/1.1.0/sam-template.yaml&stackName=logzio-api-status-auto-deployment)           | 
+| `eu-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-central-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-eu-central-1.s3.amazonaws.com/api-status-auto-deployment/1.1.0/sam-template.yaml&stackName=logzio-api-status-auto-deployment)     | 
+| `eu-north-1`     | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-north-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-eu-north-1.s3.amazonaws.com/api-status-auto-deployment/1.1.0/sam-template.yaml&stackName=logzio-api-status-auto-deployment)         | 
+| `eu-west-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-eu-west-1.s3.amazonaws.com/api-status-auto-deployment/1.1.0/sam-template.yaml&stackName=logzio-api-status-auto-deployment)           | 
+| `eu-west-2`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-2#/stacks/create/template?templateURL=https://logzio-aws-integrations-eu-west-2.s3.amazonaws.com/api-status-auto-deployment/1.1.0/sam-template.yaml&stackName=logzio-api-status-auto-deployment)           | 
+| `eu-west-3`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=eu-west-3#/stacks/create/template?templateURL=https://logzio-aws-integrations-eu-west-3.s3.amazonaws.com/api-status-auto-deployment/1.1.0/sam-template.yaml&stackName=logzio-api-status-auto-deployment)           | 
+| `sa-east-1`      | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=sa-east-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-sa-east-1.s3.amazonaws.com/api-status-auto-deployment/1.1.0/sam-template.yaml&stackName=logzio-api-status-auto-deployment)           | 
+| `ap-northeast-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-ap-northeast-1.s3.amazonaws.com/api-status-auto-deployment/1.1.0/sam-template.yaml&stackName=logzio-api-status-auto-deployment) | 
+| `ap-northeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-2#/stacks/create/template?templateURL=https://logzio-aws-integrations-ap-northeast-2.s3.amazonaws.com/api-status-auto-deployment/1.1.0/sam-template.yaml&stackName=logzio-api-status-auto-deployment) | 
+| `ap-northeast-3` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-northeast-3#/stacks/create/template?templateURL=https://logzio-aws-integrations-ap-northeast-3.s3.amazonaws.com/api-status-auto-deployment/1.1.0/sam-template.yaml&stackName=logzio-api-status-auto-deployment) | 
+| `ap-south-1`     | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-south-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-ap-south-1.s3.amazonaws.com/api-status-auto-deployment/1.1.0/sam-template.yaml&stackName=logzio-api-status-auto-deployment)         | 
+| `ap-southeast-1` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-ap-southeast-1.s3.amazonaws.com/api-status-auto-deployment/1.1.0/sam-template.yaml&stackName=logzio-api-status-auto-deployment) | 
+| `ap-southeast-2` | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ap-southeast-2#/stacks/create/template?templateURL=https://logzio-aws-integrations-ap-southeast-2.s3.amazonaws.com/api-status-auto-deployment/1.1.0/sam-template.yaml&stackName=logzio-api-status-auto-deployment) | 
+| `ca-central-1`   | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home?region=ca-central-1#/stacks/create/template?templateURL=https://logzio-aws-integrations-ca-central-1.s3.amazonaws.com/api-status-auto-deployment/1.1.0/sam-template.yaml&stackName=logzio-api-status-auto-deployment)     |
 
 ##### Specify the stack details
 
-![Specify stack details](https://dytvr9ot2sszz.cloudfront.net/logz-docs/api_status/api_details.png)
-
-Specify the stack details as per the table below and select **Next**.
-
+Specify the stack details as per the table below, check the checkboxes and select **Create stack**.
 
 
 | Parameter | Description | Required/Optional | Default |
@@ -74,17 +88,6 @@ Specify the stack details as per the table below and select **Next**.
 | BearerToken | Your API bearer token. | Optional | - |
 | Username | Your API username. | Optional | - |
 | Password | Your API password. | Optional | - |
-
-
-##### Configure the stack options
-
-![Specify stack options](https://dytvr9ot2sszz.cloudfront.net/logz-docs/api_status/api_options.png)
-
-Keep the defaults and click **Next**.
-
-##### Review the deployment
-
-Confirm that you acknowledge that AWS CloudFormation might create IAM resources and select **Create stack**.
 
 
 ##### Run the tests

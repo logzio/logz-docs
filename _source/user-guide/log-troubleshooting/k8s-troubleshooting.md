@@ -3,6 +3,7 @@ layout: article
 title: Troubleshooting Fluentd for Kubernetes logs
 permalink: /user-guide/kubernetes-troubleshooting/
 description: Learn about most common errors and remedies when running Fluentd for Kubernetes logs
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 flags:
   logzio-plan: community
 contributors:
@@ -10,6 +11,9 @@ contributors:
 ---
 
 This section contains some guidelines for handling errors that you may encounter when trying to run Fluentd to collect Kubernetes logs.
+
+* toc list
+{:toc}
 
 ## Problem: /file/path.log unreadable
 
@@ -20,10 +24,12 @@ The following error appears when running Fluentd:
 ```
 
 ### Possible cause
+{:.no_toc}
 
 You may need to add more volume and volume mount to your Daemonset.
 
 ### Suggested remedy
+{:.no_toc}
 
 <div class="tasklist">
 

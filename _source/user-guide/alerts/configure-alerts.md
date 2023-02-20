@@ -20,8 +20,13 @@ You can set up Logz.io log alerts to automatically get notified about issues tha
 Community plans limit the number of alerts that may be enabled. See the official [pricing page](https://logz.io/pricing/) for details.
 {:.info-box.note}
 
-#### Configuring an alert
+On this page: 
 
+* toc list
+{:toc}
+
+#### Configuring an alert
+{:.no_toc}
 <div class="tasklist">
 
 ##### Name the alert

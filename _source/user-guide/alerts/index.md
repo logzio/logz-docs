@@ -29,6 +29,9 @@ from the navigation menu.
 
 You'll see a paginated list of all alerts configured for your account.
 
+* toc list
+{:toc}
+
 
 ### Order or filter the list
 

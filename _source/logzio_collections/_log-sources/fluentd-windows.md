@@ -1,9 +1,11 @@
 ---
 title: Fluentd
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Fluentd Windows logs to Logz.io
 logo:
   logofile: fluentd.svg
   orientation: vertical
-short-description: Fluentd is a DaemonSet that collects and sends logs from your Windows system to Logz.io.
+#short-description: Fluentd is a DaemonSet that collects and sends logs from your Windows system to Logz.io.
 data-source: Fluentd - Windows logs
 data-for-product-source: Logs
 shipping-tags:

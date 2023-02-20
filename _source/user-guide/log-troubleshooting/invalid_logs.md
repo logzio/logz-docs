@@ -44,13 +44,17 @@ Here are some of the **common mapping errors** you might encounter and why they 
 
 ##### Mapping errors through sub accounts
 
-When mapping errors, you can only assign one type per field. However, you might sometimes want to assign multiple types to the same field. For these cases, you can create **sub accounts**.
+When mapping errors occur in your account, you can only assign one data type per specific field.
 
-You can use sub accounts to send the same logs you're sending to your main account, but map a different type to a field that's already mapped.
+However, sometimes you might want to assign multiple data types to the same field, which isn't supported with OpenSearch configuration. For these cases, you can create **sub accounts**.
 
-For example, if you have a `metadata` field, you might want to assign an `Object` type in your prod environment and a `String` type in your testing environment. By creating a sub account, you can send the same logs and adjust the type accordingly.
+You can use sub accounts to send the same field that's already sent to any of your accounts but map it as a different data type.
 
-[Learn more about **creating and managing sub accounts**](https://docs.logz.io/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#add-and-manage-a-log-management-sub-account).
+For example, suppose you have a `metadata` field assigned as an `Object` in your production environment. In that case, you can assign it as a `String` in your testing environment by creating a sub account to which you'll send the same logs.
+
+Use sub accounts to adjust your mapping based on your monitoring needs.
+
+Learn more about [**creating and managing sub accounts**](https://docs.logz.io/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#add-and-manage-a-log-management-sub-account) and about [**field mapping in your account**](https://docs.logz.io/user-guide/kibana/mapping/). 
 
 
 ### Invalid logs
@@ -73,4 +77,10 @@ The tags in the table below explain the character or field issues that may cause
 | MAX_FIELDS_NUMBER *-or-*<br> INVALID_FIELDS_NUMBER | Exceeded the maximum of 1000 fields per log message|
 | FIELDS_MISSING | This error is related to required fields that are missing from your logs: For example, `@timestamp`.<br> Check if the parsing rules remove or rename the relevant fields. |
 | ARRAY_INDEX_OUT_OF_BOUNDS_EXCEPTION | One of the field names in the log has a dot (**`.`**) as a name: To resolve the issue, flatten the field that the **`.`** is nested under. <br>If the field is inside an array, you'll need to flatten the array field. <br><br> For  example, you'd need to flatten the field `xxx.yyy` |
+
+
+
+
+
+
 

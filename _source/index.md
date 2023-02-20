@@ -3,6 +3,8 @@ layout: docs-home
 title: Logz.io Docs
 search: false
 tags: false
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Welcome to the Logz.io Docs portal
 permalink: /index.html
 cards:
   # - title: Logz.io overview

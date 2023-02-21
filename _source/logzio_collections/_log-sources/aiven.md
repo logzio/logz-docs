@@ -77,9 +77,9 @@ order: 1380
 7. Navigate to **Services** and select the service that you need to send logs from.
    ![3](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven3.png)
 8. Select **Set up integration**.
-   ![8](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven8.png)
-9. Scroll down to **Rsyslog** and select **Use integration**.
    ![9](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven9.png)
+9. Scroll down to **Rsyslog** and select **Use integration**.
+   ![8](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven8.png)
 10. Select **Logz.io** from the **Endpoint name** menu.
    ![6](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven6.png)
 11. Click **Enable**. The integration status will appear on the screen.

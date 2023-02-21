@@ -39,7 +39,7 @@ order: 1380
    * Log Template: 
 
    ```shell
-   <<LOG-SHIPPING-TOKEN>> <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=Aiven] %msg%\n
+   [<<LOG-SHIPPING-TOKEN>>] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=Aiven] %msg%\n
    ```
    {% include log-shipping/log-shipping-token.html %}  |
 
@@ -77,9 +77,9 @@ order: 1380
 7. Navigate to **Services** and select the service that you need to send logs from.
    ![3](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven3.png)
 8. Select **Set up integration**.
-   ![4](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven4.png)
+   ![8](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven8.png)
 9. Scroll down to **Rsyslog** and select **Use integration**.
-   ![5](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven5.png)
+   ![9](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven9.png)
 10. Select **Logz.io** from the **Endpoint name** menu.
    ![6](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven6.png)
 11. Click **Enable**. The integration status will appear on the screen.

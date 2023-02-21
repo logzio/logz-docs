@@ -49,3 +49,5 @@ With AI Insights, you can focus your investigations on a specific error or issue
 Otherwise, you can click the **Filter out value** option to exculde the issue from your view.
 
 ![Insights AI info](https://dytvr9ot2sszz.cloudfront.net/logz-docs/insights/filter-out-insights.gif)
+
+[Read more about Logz.io integration with Generative AI Into the Open 360 Platform](https://logz.io/news-posts/logzio-integrates-generative-ai-open-360/)

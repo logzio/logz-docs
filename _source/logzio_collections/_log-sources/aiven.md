@@ -31,9 +31,9 @@ order: 1380
 4. Select **Syslog** and click **Create new**.
    ![1](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven1.png)
 5. Fill out the parameters as follows:
-   ![2](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven2.png)
+   ![2](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven10.png)
    * Endpoint name: Logz.io 
-   * Server: The`<<LISTENER-HOST>>` URL (without the prefix) [for your region](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions). 
+   * Server: The`<<LISTENER-HOST>>` URL (without the prefix) [for your region](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions). The example value in the screenshot above is for the information purposes only. It may differ depending on [your region](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
    * Port: 5001 
    * Format: custom
    * Log Template: 

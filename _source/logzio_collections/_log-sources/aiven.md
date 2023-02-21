@@ -76,7 +76,7 @@ order: 1380
 6. Click **Create**.
 7. Navigate to **Services** and select the service that you need to send logs from.
    ![3](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven3.png)
-8. Select **Set up integration**.
+8. Select **Manage integrations**.
    ![9](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven9.png)
 9. Scroll down to **Rsyslog** and select **Use integration**.
    ![8](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven8.png)

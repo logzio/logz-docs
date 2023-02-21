@@ -31,17 +31,17 @@ order: 1380
 4. Select **Syslog** and click **Create new**.
    ![1](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven1.png)
 5. Fill out the parameters as follows:
-   ![2](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven2.png)
+   ![2](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven10.png)
    * Endpoint name: Logz.io 
-   * Server: The Logz.io listener URL: `https://<<LISTENER-HOST>>:8071` {% include log-shipping/listener-var.html %} 
+   * Server: The`<<LISTENER-HOST>>` URL (without the prefix) [for your region](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions). The example value in the screenshot above is for the information purposes only. It may differ depending on [your region](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
    * Port: 5001 
    * Format: custom
    * Log Template: 
 
    ```shell
-   <<LOG-SHIPPING-TOKEN>> <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=Aiven] %msg%\n
+   [<<LOG-SHIPPING-TOKEN>>] <%pri%>%protocol-version% %timestamp:::date-rfc3339% %HOSTNAME% %app-name% %procid% %msgid% [type=Aiven] %msg%\n
    ```
-   {% include log-shipping/log-shipping-token.html %}  |
+   {% include log-shipping/log-shipping-token.html %} Make sure to insert the log shipping token into squared brackets `[]`.  |
 
    * PEM encoded CA certificate: 
 
@@ -76,10 +76,10 @@ order: 1380
 6. Click **Create**.
 7. Navigate to **Services** and select the service that you need to send logs from.
    ![3](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven3.png)
-8. Select **Set up integration**.
-   ![4](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven4.png)
+8. Select **Manage integrations**.
+   ![9](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven9.png)
 9. Scroll down to **Rsyslog** and select **Use integration**.
-   ![5](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven5.png)
+   ![8](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven8.png)
 10. Select **Logz.io** from the **Endpoint name** menu.
    ![6](https://dytvr9ot2sszz.cloudfront.net/logz-docs/aiven/aiven6.png)
 11. Click **Enable**. The integration status will appear on the screen.

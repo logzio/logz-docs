@@ -19,7 +19,7 @@ Log alerts can ensure that you're notified of critical events. Configuring the r
 
 Logz.io alerts use an OpenSearch Dashboard search query to continuously scan your logs and alert you when certain conditions are met. The simplest alerts can use a simple search query or a particular filter, but others can be quite complex and involve several conditions with varying thresholds.
 
-Event logs of triggered alerts are always available and searchable in OpenSearch Dashboards; just filter for `_exists_:logzio-alert`. But you can also add notifications and control their content, format, and to who they are sent to.
+<!-- Event logs of triggered alerts are always available and searchable in OpenSearch Dashboards; just filter for `_exists_:logzio-alert`. But you can also add notifications and control their content, format, and to who they are sent to. -->
 
 To open the **Alert definitions** page,
 select [**Logs > Alerts**](https://app.logz.io/#/dashboard/triggers/alert-definitions)

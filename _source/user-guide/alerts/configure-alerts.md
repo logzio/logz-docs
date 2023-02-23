@@ -169,7 +169,7 @@ To use an **email** as your endpoint, you need to type the email in the Recipien
 If you need help adding a new endpoint,
 see [_Notification endpoints_]({{site.baseurl}}/user-guide/integrations/endpoints.html).
 
-Set a time period between notifications to limit how frequently recipients are notified. Logz.io will continue to log triggered alerts without sending notifications, and you can [review triggered alerts](/user-guide/alerts/view-triggered-alerts.html) directly from the Logz.io platform at any time.
+Set a time period between notifications to limit how frequently recipients are notified. Logz.io will continue to log triggered alerts without sending notifications, and you can [review alerts](/user-guide/alerts/event-management.html) directly from the Logz.io platform at any time.
 
 The system combines the **Trigger if** time interval with the **Wait time** interval to calculate how long it should snooze notifications and chooses the more extended time duration available. For example, if your trigger condition is 15 minutes and the wait time is 1 hour, the system will snooze notifications for 1 hour before triggering them again.
 {:.info-box.note}

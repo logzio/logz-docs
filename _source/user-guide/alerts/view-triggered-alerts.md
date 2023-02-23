@@ -4,6 +4,8 @@ title: Review triggered alerts
 permalink: /user-guide/alerts/view-triggered-alerts.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Review triggered alerts
+sitemap: false 
+noindex: true
 flags:
   logzio-plan: community
 tags:

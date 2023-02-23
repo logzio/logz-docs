@@ -68,7 +68,7 @@ If you're using filters and no events are displayed, try adjusting your filter c
 |Filter| Description| Filter options|
 |---|---|---|
 |Assigned to| Team member handling event investigation and resolution. <br> <br>You can select all users or pick an investigator from the list.<br> Default = **All Users**|  All Users, Myself, or pick from the list|
-|Severity| The triggering conditions defined in the Cloud SIEM rule for a configured event threshold and time period.<br> Default =  **All**| All, Severe, High, Medium,  Low, Info|
+|Severity| The triggering conditions defined in the alert for a configured event threshold and time period.<br> Default =  **All**| All, Severe, High, Medium,  Low, Info|
 |Status|Investigation stage of the triggered event. <br> Default =  **All**|  All, New, Assigned, In Progress, Waiting for response, False positive, Resolved   |
 
 
@@ -97,11 +97,11 @@ After an investigator edits an event, the date and user are automatically displa
 
 <!-- ![Updated event](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem_updated-event.png) -->
 
-## Editing an event rule
+## Editing an event alert
 
-To fine tune event management, go back to a source rule and edit it! 
+To fine tune event management, go back to a source alert and edit it! 
 
-![Edit the event rule](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/edit-alert-event.gif)
+![Edit the event alert](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/edit-alert-event.gif)
 
 
 ## Investigating an event
@@ -110,7 +110,7 @@ This option opens the OpenSearch Dashboards interface, where you can view the re
 <!-- ![Investigate an event](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/siem-3investigate.gif) -->
 
 ## Viewing the event history
-View the rule information for the triggered event, including the:
+View the alert information for the triggered event, including the:
 
 - Event title 
 - Event ID

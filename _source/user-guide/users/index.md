@@ -50,7 +50,7 @@ Log Management lets you search and query logs, create alerts, investigate issues
 | View dashboards                         | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | View alerts                             | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | Create an alert                         |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
-| View triggered alerts                   | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
+| View alerts Event Management                   | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | Live tail                               | <i class="fas fa-check"></i>         | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | Optimizers                              |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |
 | Insights                                |           | <i class="fas fa-check"></i>    | <i class="fas fa-check"></i>     |

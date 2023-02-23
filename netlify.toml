@@ -475,3 +475,9 @@
   to = "/user-guide/distributed-tracing/"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/user-guide/alerts/view-triggered-alerts.html"
+  to = "/user-guide/alerts/event-management.html"
+  status = 301
+  force = true

@@ -58,8 +58,10 @@ firstLevel:
       url: /user-guide/alerts/correlated-alert/
     - title: Alert shortcuts
       url: /user-guide/alerts/new-alert.html
-    - title: View triggered alerts
-      url: /user-guide/alerts/view-triggered-alerts.html
+    - title: Alert Event Management
+      url: /user-guide/alerts/event-management.html
+    #- title: View triggered alerts
+    #  url: /user-guide/alerts/view-triggered-alerts.html
     - title: Regex filters
       url: /user-guide/alerts/regex-filters.html
     - title: Wait between notifications

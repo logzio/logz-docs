@@ -18,7 +18,7 @@ firstLevel:
   - title: OpenSearch Dashboards
     thirdLevel:
     - title: Intro to OpenSearch Dashboards
-      url: /user-guide/kibana/
+      url: /user-guide/logs/
     - title: OpenSearch Dashboards best practices
       url: /user-guide/kibana/best-practices.html
     - title: Deployment markers

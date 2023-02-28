@@ -436,13 +436,13 @@
 
 [[redirects]]
   from = "/user-guide/insights/exceptions/deployments.html"
-  to = "/user-guide/kibana/exceptions-deployments.html"
+  to = "/user-guide/logs/exceptions-deployments.html"
   status = 301
   force = true
 
 [[redirects]]
   from = "/user-guide/insights/exceptions/deployments"
-  to = "/user-guide/kibana/exceptions-deployments.html"
+  to = "/user-guide/logs/exceptions-deployments.html"
   status = 301
   force = true
   
@@ -493,5 +493,12 @@
 [[redirects]]
   from = "/user-guide/kibana/best-practices.html"
   to = "/user-guide/logs/best-practices.html"
+  status = 301
+  force = true
+
+
+[[redirects]]
+  from = "/user-guide/kibana/exceptions-deployments.html"
+  to = "/user-guide/logs/exceptions-deployments.html"
   status = 301
   force = true

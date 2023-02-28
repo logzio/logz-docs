@@ -22,7 +22,7 @@ firstLevel:
     - title: OpenSearch Dashboards best practices
       url: /user-guide/logs/best-practices.html
     - title: Deployment markers
-      url: /user-guide/kibana/exceptions-deployments.html
+      url: /user-guide/logs/exceptions-deployments.html
     - title: Patterns
       url: /user-guide/kibana/log-patterns.html
     - title: Wildcard searches

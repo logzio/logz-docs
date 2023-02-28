@@ -88,7 +88,7 @@ Logz.io’s **[Log Management](https://app.logz.io/#/dashboard/kibana)** is wher
 
 The following list contains some of the common abilities available in Log Management:
 
-* **[Log Management best practices](https://docs.logz.io/user-guide/kibana/best-practices.html)**
+* **[Log Management best practices](https://docs.logz.io/user-guide/logs/best-practices.html)**
 * **[Configuring an alert](https://app.logz.io/#/dashboard/alerts/v2019/new)**
 * Using **[Logz.io's pattern engine](https://docs.logz.io/user-guide/kibana/log-patterns.html)** to automatically group logs with similar message fields by their frequency of occurrence
 * **[Reviewing your fields' mapping](https://docs.logz.io/user-guide/kibana/mapping/)**

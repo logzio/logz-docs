@@ -20,7 +20,7 @@ firstLevel:
     - title: Intro to OpenSearch Dashboards
       url: /user-guide/logs/
     - title: OpenSearch Dashboards best practices
-      url: /user-guide/kibana/best-practices.html
+      url: /user-guide/logs/best-practices.html
     - title: Deployment markers
       url: /user-guide/kibana/exceptions-deployments.html
     - title: Patterns

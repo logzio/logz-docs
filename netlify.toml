@@ -488,3 +488,10 @@
   to = "/user-guide/logs/"
   status = 301
   force = true
+
+
+[[redirects]]
+  from = "/user-guide/kibana/best-practices.html"
+  to = "/user-guide/logs/best-practices.html"
+  status = 301
+  force = true

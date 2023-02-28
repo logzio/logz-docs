@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Wildcard searches
-permalink: /kibana/wildcards/
+permalink: /logs/wildcards/
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Learn how to use wildcards
 flags:

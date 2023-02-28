@@ -26,7 +26,7 @@ firstLevel:
     - title: Patterns
       url: /user-guide/logs/log-patterns.html
     - title: Wildcard searches
-      url: /kibana/wildcards/
+      url: /logs/wildcards/
   #- title: Field Mapping
   #  thirdLevel:
   #  - title: Field Mapping

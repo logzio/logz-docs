@@ -508,3 +508,9 @@
   to = "/user-guide/logs/log-patterns.html"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/kibana/wildcards/"
+  to = "/logs/wildcards/"
+  status = 301
+  force = true

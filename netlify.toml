@@ -526,3 +526,11 @@
   to = "/user-guide/infrastructure-monitoring/explore-in-logs-drilldown-links.html"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/user-guide/kibana/mapping/"
+  to = "/user-guide/logs/mapping/"
+  status = 301
+  force = true
+
+  

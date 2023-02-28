@@ -30,7 +30,7 @@ firstLevel:
   #- title: Field Mapping
   #  thirdLevel:
   #  - title: Field Mapping
-  #    url: /user-guide/kibana/mapping/
+  #    url: /user-guide/logs/mapping/
   #  - title: Field not indexed
   #    url: /user-guide/kibana/mapping/field-not-indexed/
   - title: Troubleshooting
@@ -452,7 +452,7 @@ firstLevel:
   - title: Field Mapping
     thirdLevel:
     - title: Field Mapping
-      url: /user-guide/kibana/mapping/
+      url: /user-guide/logs/mapping/
     - title: Field not indexed
       url: /user-guide/kibana/mapping/field-not-indexed/
 

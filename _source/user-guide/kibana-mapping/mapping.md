@@ -3,7 +3,7 @@ layout: article
 title: Field mapping
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Field mapping in OpenSearch Dashboards
-permalink: /user-guide/kibana/mapping/
+permalink: /user-guide/logs/mapping/
 flags:
   admin: true
   logzio-plan: community

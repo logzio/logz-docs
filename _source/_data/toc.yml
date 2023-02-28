@@ -97,7 +97,7 @@ firstLevel:
     - title: Sharing links
       url: /user-guide/tokens/sharing-links.html
     - title: Importing & exporting JSON objects
-      url: /user-guide/kibana/share-import-export
+      url: /user-guide/logs/share-import-export
   - title: Live Tail
     url: /user-guide/live-tail/
   - title: Log highlighter

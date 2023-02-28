@@ -514,3 +514,9 @@
   to = "/logs/wildcards/"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/user-guide/kibana/share-import-export/"
+  to = "/user-guide/logs/share-import-export/"
+  status = 301
+  force = true

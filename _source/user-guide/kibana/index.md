@@ -3,7 +3,7 @@ layout: article
 title: OpenSearch Dashboards
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Logz.io intro to Log Management
-permalink: /user-guide/kibana/
+permalink: /user-guide/logs/
 flags:
   logzio-plan: community
 tags:

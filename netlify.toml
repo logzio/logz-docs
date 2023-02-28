@@ -502,3 +502,9 @@
   to = "/user-guide/logs/exceptions-deployments.html"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/user-guide/kibana/log-patterns.html"
+  to = "/user-guide/logs/log-patterns.html"
+  status = 301
+  force = true

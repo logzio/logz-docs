@@ -123,7 +123,7 @@ For those cases, you can create a [**Correlated alert**](https://docs.logz.io/us
 
 ##### Patterns Engine
 
-To help declutter the noise, Logz.io [**Patterns Engine**](https://docs.logz.io/user-guide/kibana/log-patterns.html) runs advanced clustering algorithms to automatically group logs with similar message fields by their frequency of occurrence.
+To help declutter the noise, Logz.io [**Patterns Engine**](https://docs.logz.io/user-guide/logs/log-patterns.html) runs advanced clustering algorithms to automatically group logs with similar message fields by their frequency of occurrence.
 
 As you’re troubleshooting in OpenSearch Dashboards, you can easily see the number of Patterns identified in your log results for every query you run. The list is always in-context and specific to the log results returned by your search.
 

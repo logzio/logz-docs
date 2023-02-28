@@ -24,7 +24,7 @@ firstLevel:
     - title: Deployment markers
       url: /user-guide/logs/exceptions-deployments.html
     - title: Patterns
-      url: /user-guide/kibana/log-patterns.html
+      url: /user-guide/logs/log-patterns.html
     - title: Wildcard searches
       url: /kibana/wildcards/
   #- title: Field Mapping

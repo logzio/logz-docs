@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Log patterns
-permalink: /user-guide/kibana/log-patterns.html
+permalink: /user-guide/logs/log-patterns.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Learn about Logz.io's log patterns
 flags:

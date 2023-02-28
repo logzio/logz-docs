@@ -520,3 +520,9 @@
   to = "/user-guide/logs/share-import-export/"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html"
+  to = "/user-guide/infrastructure-monitoring/explore-in-logs-drilldown-links.html"
+  status = 301
+  force = true

@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Explore in OpenSearch Dashboards
-permalink: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
+permalink: /user-guide/infrastructure-monitoring/explore-in-logs-drilldown-links.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Explore in OpenSearch Dashboards drilldown overview
 flags:

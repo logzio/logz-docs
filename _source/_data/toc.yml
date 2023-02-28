@@ -151,7 +151,7 @@ firstLevel:
     - title: Annotations
       url: /user-guide/infrastructure-monitoring/annotations/
     - title: Explore in OpenSearch Dashboards
-      url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
+      url: /user-guide/infrastructure-monitoring/explore-in-logs-drilldown-links.html
   - title: Pre-built metrics dashboards
     thirdLevel:
     - title: AWS Cloudwatch - Amazon MQ

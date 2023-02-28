@@ -25,7 +25,7 @@ Correlated alerts are instrumental for reducing false-positives. By defining a m
 
 The best way to begin investigating a correlated event, is to click the link **View in OpenSearch Dashboards** in the notification.
 
-Alternatively, you can visit the [**Triggered alerts** page](https://app.logz.io/#/dashboard/triggers/triggered-alerts) and click the button **View in OpenSearch Dashboards** for the event you want to investigate.
+Alternatively, you can visit the [**alerts Event Management** page](https://app.logz.io/#/dashboard/event-management) and click the button **Investigate** next to the relevant event.
 
 When a correlated alert triggers, it writes 2 event logs - 1 per query. The event logs will be numbered 1/2 and 2/2, respectively. Each event log will have its own **Investigate** drilldown link.
 

@@ -15,8 +15,6 @@ contributors:
 
 The following guide will help you understand and troubleshoot some of the common log related issues you might encounter.
 
-On this page:
-
 * toc list
 {:toc}
 
@@ -46,6 +44,12 @@ Here are some of the **common mapping errors** you might encounter and why they 
 |Index -1 out of bounds for length 0|A field exists in the log with a dot "." in its name. For these cases, the system treats the field as an object when mapping it. For example: `log.level`, `app.kubernetes`, etc.|
 |Numeric value (NUMBER) out of range of long (-9223372036854775808 - 9223372036854775807)|Field mapped as a number, but its value is outside the range of the "Long" data type|
 
+
+##### Mapping errors through sub accounts
+
+{% include /account-info/sub-account.md %}
+
+
 ### Invalid logs
 
 #### What causes an invalid log? 
@@ -66,4 +70,10 @@ The tags in the table below explain the character or field issues that may cause
 | MAX_FIELDS_NUMBER *-or-*<br> INVALID_FIELDS_NUMBER | Exceeded the maximum of 1000 fields per log message|
 | FIELDS_MISSING | This error is related to required fields that are missing from your logs: For example, `@timestamp`.<br> Check if the parsing rules remove or rename the relevant fields. |
 | ARRAY_INDEX_OUT_OF_BOUNDS_EXCEPTION | One of the field names in the log has a dot (**`.`**) as a name: To resolve the issue, flatten the field that the **`.`** is nested under. <br>If the field is inside an array, you'll need to flatten the array field. <br><br> For  example, you'd need to flatten the field `xxx.yyy` |
+
+
+
+
+
+
 

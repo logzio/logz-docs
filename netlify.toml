@@ -533,4 +533,8 @@
   status = 301
   force = true
 
-  
+[[redirects]]
+  from = "/user-guide/kibana/mapping/field-not-indexed/"
+  to = "/user-guide/logs/mapping/field-not-indexed/"
+  status = 301
+  force = true

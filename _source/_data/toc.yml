@@ -32,7 +32,7 @@ firstLevel:
   #  - title: Field Mapping
   #    url: /user-guide/logs/mapping/
   #  - title: Field not indexed
-  #    url: /user-guide/kibana/mapping/field-not-indexed/
+  #    url: /user-guide/logs/mapping/field-not-indexed/
   - title: Troubleshooting
     thirdLevel:
     - title: Log shipping troubleshooting
@@ -454,7 +454,7 @@ firstLevel:
     - title: Field Mapping
       url: /user-guide/logs/mapping/
     - title: Field not indexed
-      url: /user-guide/kibana/mapping/field-not-indexed/
+      url: /user-guide/logs/mapping/field-not-indexed/
 
 
 

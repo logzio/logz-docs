@@ -35,7 +35,7 @@ First, decide which accounts you want to search. Managing your accounts is the f
 
 OpenSearch Dashboards filters offer the most convenient, powerful, and flexible method for querying logs.
 
-Filters can be used on any mapped fields and can take any number of forms: filter for field exists or does not exist, filter for a field with an exact value match or a field that contains a value among the results, and more. [Learn more about OSD mapping]({{site.baseurl}}/user-guide/kibana/mapping/)
+Filters can be used on any mapped fields and can take any number of forms: filter for field exists or does not exist, filter for a field with an exact value match or a field that contains a value among the results, and more. [Learn more about OSD mapping]({{site.baseurl}}/user-guide/logs/mapping/)
 
 One advantage of OpenSearch filters is that they provide guidance that is specific to your dataset.
 When OpenSearch maps your data to fields, it also determines which filtering options are relevant. When you add filters, only relevant options appear in the dropdown menus.

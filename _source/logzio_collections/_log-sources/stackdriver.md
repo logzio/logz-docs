@@ -199,7 +199,7 @@ For more information about mounting files from the root directory click [here](h
 
 Spin up your Docker containers if you haven’t done so already.
 Give your logs some time to get from your system to ours,
-and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 <div id="cred-info">
 

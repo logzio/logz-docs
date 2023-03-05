@@ -153,7 +153,7 @@ kubectl apply -f https://raw.githubusercontent.com/logzio/logzio-k8s/master/logz
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours,
-and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 If you still don't see your logs,
 see [Kubernetes log shipping troubleshooting]({{site.baseurl}}/user-guide/kubernetes-troubleshooting/).
@@ -240,7 +240,7 @@ kubectl apply -f /path/to/logzio-daemonset-containerd.yaml -f /path/to/configmap
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours,
-and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 If you still don't see your logs,
 see [Kubernetes log shipping troubleshooting]({{site.baseurl}}/user-guide/kubernetes-troubleshooting/).

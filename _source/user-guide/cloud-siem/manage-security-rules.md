@@ -23,9 +23,12 @@ and security use cases.
 You can create new security rules to supplement the built-in rules.
 You can also update any preconfigured rule at any time, including adding a notification endpoint (for example, email or Slack) or changing trigger thresholds.
 
-
+* toc list
+{:toc}
 
 #### To configure a rule
+{:.no_toc}
+
 
 From **SIEM > Rules** in the navigation menu, click the yellow <i class="fas fa-plus"></i> icon to open the **Create a rule** page. 
 ![Open **Create a rule** page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/create-rule_aug2021.png)

@@ -15,15 +15,9 @@ contributors:
 
 Logz.io reports allow you to automatically send dashboards on a regular schedule over Slack and email.
 
-To schedule your report:
+* [Configure your report](/user-guide/reports/#configuring-a-report)
+* [Schedule your report](/user-guide/reports/#schedule-your-report)
 
-* Open a dashboard, and click **Create report** from the dashboard menu.
-
-  ![Create a report from a Dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/create-report-osd.png)
-
-* From **Logs > Reports** in the navigation menu, click the yellow <i class="fas fa-plus"></i> icon to open the **Create a report** page. 
-
-![Create a report from navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/reports-from-navigation.png)
 
 #### Configuring a report
 
@@ -77,3 +71,14 @@ Here's an example of what the report email might look like.
 ![Example of Logz.io report email](https://dytvr9ot2sszz.cloudfront.net/logz-docs/dashboards/demo-report-email.png)
 
 </div>
+
+#### Schedule your report:
+
+* Open a dashboard, and click **Create report** from the dashboard menu.
+
+  ![Create a report from a Dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/create-report-osd.png)
+
+* From **Logs > Reports** in the navigation menu, click the yellow <i class="fas fa-plus"></i> icon to open the **Create a report** page. 
+
+![Create a report from navigation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/reports-from-navigation.png)
+

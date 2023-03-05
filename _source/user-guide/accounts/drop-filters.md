@@ -33,6 +33,11 @@ To set up your Drop filters, select [**Data Hub > Drop filters > Logs**](https:/
 
 You can apply Drop filters to your logs, metrics, and traces. 
 
+**On this page:**
+
+* toc list
+{:toc}
+
 
 
 ## How much data can I filter?
@@ -81,7 +86,7 @@ please contact <a class="intercom-launch" href="mailto:help@logz.io">the Support
   ![Dotted fields and drop filters](https://dytvr9ot2sszz.cloudfront.net/logz-docs/drop-filters/dotted_fields_feb2022.png)
 
 
-#### To set up a drop filter
+## Set up a drop filter
 
 To get started,
 click **<i class="li li-plus"></i> Add drop filter**
@@ -92,6 +97,7 @@ to open the _New drop filter_ form.
 <div class="tasklist">
 
 ##### Choose a log type
+{:.no_toc}
 
 If you choose a **Log type**,
 only logs of that type are dropped.
@@ -99,12 +105,14 @@ only logs of that type are dropped.
 To include all log types, leave **Log type** blank.
 
 ##### Add fields to filter
+{:.no_toc}
 
 Add up to 3 **Field**:**Value** pairs to filter.
 Each pair must be an exact match.
 Drop filters are case sensitive.
 
 ###### An example
+{:.no_toc}
 
 Logs from a Docker container might contain this field-value pair:
 
@@ -120,6 +128,7 @@ If we set **Value** to anything else—such as `system`—those logs
 are not filtered.
 
 ##### Confirm and save
+{:.no_toc}
 
 Before saving, it's important to know that all the logs that meet
 your filter criteria will be dropped.

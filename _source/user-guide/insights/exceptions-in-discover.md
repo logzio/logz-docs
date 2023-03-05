@@ -23,6 +23,10 @@ To review exceptions affecting your environments, switch to the **Exceptions** t
 
 ![Exceptions count in OpenSearch Dashboards](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/exceptions-tab.png)
 
+* toc list
+{:toc}
+
+
 ### What's an exception?
 
 Logz.io Exceptions Engine scans your log to identify application errors and groups them into a logical unit. There's a different exception pattern for each language supported in the system, built according to standard libraries, known issues, and best practices.

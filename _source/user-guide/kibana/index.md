@@ -19,6 +19,12 @@ OpenSearch Dashboards (OSD) is where you search and query your logs to figure ou
 
 You can use the Discover page to filter logs, search for specific events, and create alerts based on your search queries.
 
+On this page you'll find:
+
+* toc list
+{:toc}
+
+
 ![OSD Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/osd-main-screen.png)
 
 #### Searching your logs
@@ -51,6 +57,7 @@ You can also save your search query in case you want to use them again in the fu
 ![Save search query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/save-search-query.png)
 
 ###### Regex
+{:.no_toc}
 
 To use Regex in a search query in OpenSearch, you'll need to use the following template: 
 
@@ -97,5 +104,6 @@ Once you've refined a query to the point that it returns exactly what you are lo
 
 
 ###### Additional resources
+{:.no_toc}
 
 * [Read more](https://logz.io/blog/kibana-advanced/) about creating and running advanced searches in OpenSearch Dashboards.

@@ -29,7 +29,7 @@ cards:
 
   - title: OpenSearch Dashboards
     description: Stay on top of your logs with rich visualizations
-    url: /user-guide/kibana/
+    url: /user-guide/logs/
     li-class: li-bar-graph
 
   #- title: Exceptions

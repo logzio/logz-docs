@@ -82,7 +82,7 @@ Learn more about sending data to Logz.io:
 
 #### Meet Logz.io’s Log Management platform
 
-Logz.io’s **[Log Management](https://app.logz.io/#/dashboard/kibana)** is where you can search and query log files. You can use it to identify and analyze your code, and the platform is optimized for debugging and troubleshooting issues as quickly and effectively as possible.
+Logz.io’s **[Log Management](https://app.logz.io/#/dashboard/osd)** is where you can search and query log files. You can use it to identify and analyze your code, and the platform is optimized for debugging and troubleshooting issues as quickly and effectively as possible.
 
 ![Log management overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/log-management-screenshot.png)
 

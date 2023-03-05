@@ -101,7 +101,7 @@ Confirm that you acknowledge that AWS CloudFormation might create IAM resources 
 
 ##### Check Logz.io for your logs
 
-Give your logs the time specified in `CloudWatchEventScheduleExpression` to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). 
+Give your logs the time specified in `CloudWatchEventScheduleExpression` to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 All logs that were sent from the Lambda function will be under the type **billing**.
   

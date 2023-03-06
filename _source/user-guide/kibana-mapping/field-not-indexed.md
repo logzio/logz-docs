@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Field not indexed
-permalink: /user-guide/kibana/mapping/field-not-indexed/
+permalink: /user-guide/logs/mapping/field-not-indexed/
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Field mapping not indexing
 flags:

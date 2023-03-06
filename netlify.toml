@@ -436,13 +436,13 @@
 
 [[redirects]]
   from = "/user-guide/insights/exceptions/deployments.html"
-  to = "/user-guide/kibana/exceptions-deployments.html"
+  to = "/user-guide/logs/exceptions-deployments.html"
   status = 301
   force = true
 
 [[redirects]]
   from = "/user-guide/insights/exceptions/deployments"
-  to = "/user-guide/kibana/exceptions-deployments.html"
+  to = "/user-guide/logs/exceptions-deployments.html"
   status = 301
   force = true
   
@@ -479,6 +479,62 @@
 [[redirects]]
   from = "/user-guide/alerts/view-triggered-alerts.html"
   to = "/user-guide/alerts/event-management.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/kibana/"
+  to = "/user-guide/logs/"
+  status = 301
+  force = true
+
+
+[[redirects]]
+  from = "/user-guide/kibana/best-practices.html"
+  to = "/user-guide/logs/best-practices.html"
+  status = 301
+  force = true
+
+
+[[redirects]]
+  from = "/user-guide/kibana/exceptions-deployments.html"
+  to = "/user-guide/logs/exceptions-deployments.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/kibana/log-patterns.html"
+  to = "/user-guide/logs/log-patterns.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/kibana/wildcards/"
+  to = "/logs/wildcards/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/kibana/share-import-export/"
+  to = "/user-guide/logs/share-import-export/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html"
+  to = "/user-guide/infrastructure-monitoring/explore-in-logs-drilldown-links.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/kibana/mapping/"
+  to = "/user-guide/logs/mapping/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/kibana/mapping/field-not-indexed/"
+  to = "/user-guide/logs/mapping/field-not-indexed/"
   status = 301
   force = true
   

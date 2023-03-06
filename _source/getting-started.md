@@ -82,16 +82,16 @@ Learn more about sending data to Logz.io:
 
 #### Meet Logz.io’s Log Management platform
 
-Logz.io’s **[Log Management](https://app.logz.io/#/dashboard/kibana)** is where you can search and query log files. You can use it to identify and analyze your code, and the platform is optimized for debugging and troubleshooting issues as quickly and effectively as possible.
+Logz.io’s **[Log Management](https://app.logz.io/#/dashboard/osd)** is where you can search and query log files. You can use it to identify and analyze your code, and the platform is optimized for debugging and troubleshooting issues as quickly and effectively as possible.
 
 ![Log management overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/log-management-screenshot.png)
 
 The following list contains some of the common abilities available in Log Management:
 
-* **[Log Management best practices](https://docs.logz.io/user-guide/kibana/best-practices.html)**
+* **[Log Management best practices](https://docs.logz.io/user-guide/logs/best-practices.html)**
 * **[Configuring an alert](https://app.logz.io/#/dashboard/alerts/v2019/new)**
-* Using **[Logz.io's pattern engine](https://docs.logz.io/user-guide/kibana/log-patterns.html)** to automatically group logs with similar message fields by their frequency of occurrence
-* **[Reviewing your fields' mapping](https://docs.logz.io/user-guide/kibana/mapping/)**
+* Using **[Logz.io's pattern engine](https://docs.logz.io/user-guide/logs/log-patterns.html)** to automatically group logs with similar message fields by their frequency of occurrence
+* **[Reviewing your fields' mapping](https://docs.logz.io/user-guide/logs/mapping/)**
 * Using **[Optimizers](https://docs.logz.io/user-guide/optimizers/)** to store logs and aggregations to a timeless account
 * Predicting exceptions and critical errors with **[Insights](https://docs.logz.io/user-guide/insights/)**
 

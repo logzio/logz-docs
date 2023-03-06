@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Share OpenSearch Dashboards objects
-permalink: /user-guide/kibana/share-import-export
+permalink: /user-guide/logs/share-import-export
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Share OpenSearch dashboards, saved searches and visualizations between accounts by exporting and importing them.
 flags:

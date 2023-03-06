@@ -68,7 +68,7 @@ kubectl apply -f https://raw.githubusercontent.com/logzio/logz-docs/master/shipp
 
 ##### Check Logz.io for your events
 
-Give your events some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+Give your events some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 If you still don't see your logs,
 see [Kubernetes log shipping troubleshooting]({{site.baseurl}}/user-guide/kubernetes-troubleshooting/).

@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Deployment markers
-permalink: /user-guide/kibana/exceptions-deployments.html  
+permalink: /user-guide/logs/exceptions-deployments.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Learn how to use deployment markers
 flags:

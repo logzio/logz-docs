@@ -3,7 +3,7 @@ layout: article
 title: OpenSearch Dashboards
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Logz.io intro to Log Management
-permalink: /user-guide/kibana/
+permalink: /user-guide/logs/
 flags:
   logzio-plan: community
 tags:
@@ -41,7 +41,7 @@ First, decide which accounts you want to search. Managing your accounts is the f
 
 OpenSearch Dashboards filters offer the most convenient, powerful, and flexible method for querying logs.
 
-Filters can be used on any mapped fields and can take any number of forms: filter for field exists or does not exist, filter for a field with an exact value match or a field that contains a value among the results, and more. [Learn more about OSD mapping]({{site.baseurl}}/user-guide/kibana/mapping/)
+Filters can be used on any mapped fields and can take any number of forms: filter for field exists or does not exist, filter for a field with an exact value match or a field that contains a value among the results, and more. [Learn more about OSD mapping]({{site.baseurl}}/user-guide/logs/mapping/)
 
 One advantage of OpenSearch filters is that they provide guidance that is specific to your dataset.
 When OpenSearch maps your data to fields, it also determines which filtering options are relevant. When you add filters, only relevant options appear in the dropdown menus.
@@ -85,7 +85,7 @@ The logs returned by your search are your results - aka "hits". Depending on the
 
   To expand a log, click it and review the complete log mapped into field:value pairs. You can also switch to the raw JSON.
 
-* **Patterns** - Logz.io groups your logs using advanced clustering techniques to help you identify similar logs by groups, reducing the amount of logs to review. Patterns also help to surface issues and errors that might otherwise go unnoticed. [Learn more]({{site.baseurl}}/user-guide/kibana/log-patterns.html)
+* **Patterns** - Logz.io groups your logs using advanced clustering techniques to help you identify similar logs by groups, reducing the amount of logs to review. Patterns also help to surface issues and errors that might otherwise go unnoticed. [Learn more]({{site.baseurl}}/user-guide/logs/log-patterns.html)
 
 * **Exceptions** - Logz.io Insights Engine scans your logs for application errors and warnings to help you identify issues that require your attention. [Learn more]({{site.baseurl}}/user-guide/insights/exceptions/) 
 

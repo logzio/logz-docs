@@ -122,7 +122,7 @@ The selected data will now begin streaming to the event hub.
 
 ##### Check Logz.io for your logs
 
-Give your data some time to get from your system to ours, and then open your [Logz.io Kibana account](https://app.logz.io/#/dashboard/kibana/discover?).
+Give your data some time to get from your system to ours, and then open your [Logz.io Open Search Dashboards account](https://app.logz.io/#/dashboard/osd/discover?).
 If everything went according to plan, you should see logs of the `type:eventHub` in Kibana.
 
 If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).

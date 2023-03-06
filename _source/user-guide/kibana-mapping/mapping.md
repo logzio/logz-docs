@@ -3,7 +3,7 @@ layout: article
 title: Field mapping
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Field mapping in OpenSearch Dashboards
-permalink: /user-guide/kibana/mapping/
+permalink: /user-guide/logs/mapping/
 flags:
   admin: true
   logzio-plan: community
@@ -109,7 +109,7 @@ If you find that many of the fields you are interested in exploring aren't mappe
 
 #### Add specific fields to your default mapping
 
-Instead of refreshing the mapping in bulk, you can add specific fields to your default mapping. Click **Field not indexed** on an unmapped field. [Learn more](/user-guide/kibana/mapping/field-not-indexed/)
+Instead of refreshing the mapping in bulk, you can add specific fields to your default mapping. Click **Field not indexed** on an unmapped field. [Learn more](/user-guide/logs/mapping/field-not-indexed/)
 
 #### Explicitly map a field 
 

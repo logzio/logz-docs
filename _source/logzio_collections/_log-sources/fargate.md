@@ -156,7 +156,7 @@ under the `/aws/ecs/logzio-fargate-logs` log group.
 ##### Check Logz.io for your logs
 
 Give your logs some time to get from your system to ours,
-and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 {% include /log-shipping/search-log-type.md type="fargate" %}
 

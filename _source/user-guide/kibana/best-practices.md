@@ -3,7 +3,7 @@ layout: article
 title: Best practices and popular features in Log Management
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Best practices and popular features in Log Management
-permalink: /user-guide/kibana/best-practices.html
+permalink: /user-guide/logs/best-practices.html
 flags:
   logzio-plan: community
 tags:

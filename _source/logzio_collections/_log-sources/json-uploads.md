@@ -87,7 +87,7 @@ echo $'{"message":"hello there", "counter": 1}\n{"message":"hello again", "count
 ##### 200 OK
 
 All logs were received and validated. Give your logs some time to get from your system to ours,
-and then check your [Logz.io Log Management account](https://app.logz.io/#/dashboard/kibana) for your logs.
+and then check your [Logz.io Log Management account](https://app.logz.io/#/dashboard/osd) for your logs.
 
 The response body is empty.
 
@@ -161,7 +161,7 @@ send the logs to TCP port 5052 on your region’s listener host. For more inform
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

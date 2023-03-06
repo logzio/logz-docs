@@ -18,21 +18,21 @@ firstLevel:
   - title: OpenSearch Dashboards
     thirdLevel:
     - title: Intro to OpenSearch Dashboards
-      url: /user-guide/kibana/
+      url: /user-guide/logs/
     - title: OpenSearch Dashboards best practices
-      url: /user-guide/kibana/best-practices.html
+      url: /user-guide/logs/best-practices.html
     - title: Deployment markers
-      url: /user-guide/kibana/exceptions-deployments.html
+      url: /user-guide/logs/exceptions-deployments.html
     - title: Patterns
-      url: /user-guide/kibana/log-patterns.html
+      url: /user-guide/logs/log-patterns.html
     - title: Wildcard searches
-      url: /kibana/wildcards/
+      url: /logs/wildcards/
   #- title: Field Mapping
   #  thirdLevel:
   #  - title: Field Mapping
-  #    url: /user-guide/kibana/mapping/
+  #    url: /user-guide/logs/mapping/
   #  - title: Field not indexed
-  #    url: /user-guide/kibana/mapping/field-not-indexed/
+  #    url: /user-guide/logs/mapping/field-not-indexed/
   - title: Troubleshooting
     thirdLevel:
     - title: Log shipping troubleshooting
@@ -99,7 +99,7 @@ firstLevel:
     - title: Sharing links
       url: /user-guide/tokens/sharing-links.html
     - title: Importing & exporting JSON objects
-      url: /user-guide/kibana/share-import-export
+      url: /user-guide/logs/share-import-export
   - title: Live Tail
     url: /user-guide/live-tail/
   - title: Log highlighter
@@ -153,7 +153,7 @@ firstLevel:
     - title: Annotations
       url: /user-guide/infrastructure-monitoring/annotations/
     - title: Explore in OpenSearch Dashboards
-      url: /user-guide/infrastructure-monitoring/explore-in-kibana-drilldown-links.html
+      url: /user-guide/infrastructure-monitoring/explore-in-logs-drilldown-links.html
   - title: Pre-built metrics dashboards
     thirdLevel:
     - title: AWS Cloudwatch - Amazon MQ
@@ -454,9 +454,9 @@ firstLevel:
   - title: Field Mapping
     thirdLevel:
     - title: Field Mapping
-      url: /user-guide/kibana/mapping/
+      url: /user-guide/logs/mapping/
     - title: Field not indexed
-      url: /user-guide/kibana/mapping/field-not-indexed/
+      url: /user-guide/logs/mapping/field-not-indexed/
 
 
 

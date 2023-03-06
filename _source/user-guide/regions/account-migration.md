@@ -67,7 +67,7 @@ Export any and all OpenSearch Dashboards objects you want to keep and import the
 
 The process can be performed by API or manually. Export & import guides:
 
-* [Export & import guide](https://docs.logz.io/user-guide/kibana/share-import-export)
+* [Export & import guide](https://docs.logz.io/user-guide/logs/share-import-export)
 * [API guide](https://docs.logz.io/api/#tag/Import-or-export-Kibana-objects)
 
 

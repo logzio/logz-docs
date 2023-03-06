@@ -117,7 +117,7 @@ sudo service rsyslog restart
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana). 
+Give your logs some time to get from your system to ours, and then [open Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 If you still don't see your logs, see our [Rsyslog troubleshooting guide](https://docs.logz.io/user-guide/log-shipping/rsyslog-selinux-troubleshooting.html).
 
@@ -175,7 +175,7 @@ curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslo
 
 {% include log-shipping/listener-var.html %} 
 
-If you do not see logs on [your Kibana dashboard](https://app.logz.io/#/dashboard/kibana), proceed to the next step.
+If you do not see logs on [your Open Search Dashboards](https://app.logz.io/#/dashboard/osd), proceed to the next step.
 
 ##### Check the audit logs for incoming logs
 
@@ -190,7 +190,7 @@ Temporarily disable SELinux by running this command:
 $ sudo setenforce 0
 ```
 
-Wait a few minutes and check [your Kibana dashboard](https://app.logz.io/#/dashboard/kibana). If you see the logs, it means that the problem is caused by SELinux and using port 5000 TCP to send logs.
+Wait a few minutes and check [your Open Search Dashboards](https://app.logz.io/#/dashboard/osd). If you see the logs, it means that the problem is caused by SELinux and using port 5000 TCP to send logs.
 
 
 ##### Enable SELinux 
@@ -223,7 +223,7 @@ $ sudo semanage port -m -t syslogd_port_t -p tcp 5000
 
 ##### Check your dashboard for logs
 
-Give your logs some time to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).
+Give your logs some time to get from your system to ours, and then [open Open Search Dashboards](https://app.logz.io/#/dashboard/osd)
 
 If you still don't see your logs, see our [Rsyslog troubleshooting guide](https://docs.logz.io/user-guide/log-shipping/rsyslog-selinux-troubleshooting.html).
 
@@ -366,7 +366,7 @@ sudo service rsyslog restart
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then [open Kibana](https://app.logz.io/#/dashboard/kibana).
+Give your logs some time to get from your system to ours, and then [open Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 If you still don't see your logs, see our [Rsyslog troubleshooting guide](https://docs.logz.io/user-guide/log-shipping/rsyslog-selinux-troubleshooting.html).
 

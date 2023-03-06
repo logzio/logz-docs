@@ -23,6 +23,9 @@ To open the **Rules** page, navigate to your **[SIEM account](https://app.logz.i
 
 You'll see a paginated list of all rules configured for your account.
 
+* toc list
+{:toc}
+
 
 ### Order or filter the list
 

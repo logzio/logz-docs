@@ -22,6 +22,12 @@ You will receive tailored recommendations based on Log data from the last 24 hou
 
 To get started, navigate to **[Data hub > Optimize](https://app.logz.io/#/dashboard/cost)**.
 
+On this page:
+
+* toc list
+{:toc}
+
+
 
 #### Explore Metrics and Logs
 

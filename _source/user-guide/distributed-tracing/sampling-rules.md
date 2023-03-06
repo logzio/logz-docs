@@ -14,6 +14,10 @@ contributors:
 
 Sampling rules let you choose which traces you want to index and monitor inside your account. They help you focus your attention on events that are happening right now inside your systems and services. In addition, applying Sampling rules optimizes your quota management by only indexing critical and actionable spans or full traces.
 
+* toc list
+{:toc}
+
+
 ### Sampling rules overview
 
 The Sampling rules screen has these main components:

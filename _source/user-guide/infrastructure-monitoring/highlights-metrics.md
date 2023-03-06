@@ -20,6 +20,9 @@ Logz.io Metrics is a Prometheus-based infrastructure monitoring platform that in
 
 The Logz.io’s Metrics UI, the front-end for Infrastructure Monitoring, is a forked version of the Grafana open-source software, created by Logz.io. Read more [here.](https://logz.io/about-us/forked-statement/)
 
+* toc list
+{:toc}
+
 
 ### Easily correlate metrics with logs
 

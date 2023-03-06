@@ -170,7 +170,7 @@ The script will attempt to resolve the location of the log files using the follo
 curl -sLO https://github.com/logzio/logzio-shipper/raw/master/dist/logzio-rsyslog.tar.gz && tar xzf logzio-rsyslog.tar.gz && sudo rsyslog/install.sh -t mysql -a "{{API_TOKEN}}"
 ```
 
-You can verify that logs are being sent by searching for MySQL log file types in Kibana:
+You can verify that logs are being sent by searching for MySQL log file types in Open Search Dashboards:
 - **mysql** 
 - **mysql_error**
 - **mysql_slow_query**

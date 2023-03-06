@@ -72,7 +72,7 @@ Logz.io uses [**ingestion** log measurements](/user-guide/log-usage-measurement/
 
 You can use metrics to monitor and alert when a certain threshold is exceeded, create a dashboard monitoring your data volumes, and more. For example, import and use our [pre-built dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/data-volume-dashboard.ndjson) to monitor your metric data volume.
 
-To import the dashboard to your account, navigate to [Logs](https://app.logz.io/#/dashboard/kibana/discover/) > [Stack Management > Saved objects](https://app.logz.io/#/dashboard/kibana/visualize/) and click on the Import button. Next, import the [data-volume-dashboard.ndjson](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/data-volume-dashboard.ndjson) file you've downloaded.
+To import the dashboard to your account, navigate to [Logs](https://app.logz.io/#/dashboard/osd/discover/) > [Stack Management > Saved objects](https://app.logz.io/#/dashboard/osd/visualize/) and click on the Import button. Next, import the [data-volume-dashboard.ndjson](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/data-volume-dashboard.ndjson) file you've downloaded.
 
 ![Upload saved JSON](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/data-optimization/indexedobjects.gif)
 
@@ -80,7 +80,7 @@ After uploading the file, you might be asked to choose a new index pattern. Sele
 
 ![Choose index pattern](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/data-optimization/import-saved-object.png)
 
-Once you import the file, navigate to [Visualize](https://app.logz.io/#/dashboard/kibana/visualize/) to view the newly added dashboard.
+Once you import the file, navigate to [Visualize](https://app.logz.io/#/dashboard/osd/visualize/) to view the newly added dashboard.
 
 ![View dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/data-optimization/dashboard-visualization.png)
 

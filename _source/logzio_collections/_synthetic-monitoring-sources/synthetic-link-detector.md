@@ -70,7 +70,7 @@ Specify the stack details as per the table below, check the checkboxes and selec
 
 ##### Check Logz.io for your data
 
-Give the stack a few minutes to be deployed and the data to get to our system, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+Give the stack a few minutes to be deployed and the data to get to our system, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
   
 {% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your data.
 

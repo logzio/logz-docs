@@ -188,7 +188,7 @@ For example, run `fluentd -c <<PATH-TO-YOUR-FLUENTD-CONFIG-FILE>>`.
 
 ##### Check Logz.io for your events
 
-Give your events some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana/discover?). You can filter for data of type `crowdstrike` to see the incoming Crowdstrike events.
+Give your events some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can filter for data of type `crowdstrike` to see the incoming Crowdstrike events.
   
 If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
 

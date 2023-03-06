@@ -39,13 +39,13 @@ Each session is 60 minutes.
 
 #### Training agenda
 
-**Logging with Kibana and Logz.io**
+**Logging with Open Search Dashboards and Logz.io**
 
 * Send your data
   * Brief overview of popular shipping methods
 
 
-* Kibana tips + tricks
+* Open Search Dashboards tips + tricks
     * UI overview
     * Different ways to search
     * Patterns

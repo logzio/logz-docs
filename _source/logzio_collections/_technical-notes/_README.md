@@ -42,7 +42,7 @@ This readme file is not published with the rest of the site.
 4. When you're done, find the **Commit new file** section below the edit box.
   Add a commit message.
   Good practice is to write in present tense and keep it to 50 characters or fewer.
-  (For example: `write technical note on kibana upgrade`)
+  (For example: `write technical note on Open Search Dashboards upgrade`)
 
 5. Click **Create a new branch...**, and then click **Commit new file**.
   This starts a pull request that the docs manager will review.

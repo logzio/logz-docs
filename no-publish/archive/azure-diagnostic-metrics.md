@@ -145,7 +145,7 @@ Configuring the rollups for your custom metrics is included in your package and 
 
 ##### Check Logz.io for your metrics
 
-Give your data some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/kibana).
+Give your data some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/#/dashboard/osd).
 
 ##### Backing up your logs!
 
@@ -157,7 +157,7 @@ If you wish to change parameters values after the deployment, go to your functio
 You'll have the option to edit the following values:
 * Shipper's configurations such as LogzioHost, LogzioToken, Buffersize.
 * FUNCTIONS_WORKER_PROCESS_COUNT - maximum of 10, for more information press [here](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#functions_worker_process_count).
-* ParseEmptyFields - (Default: False) If you encounter invalid logs of Azure's services that contains empty fields and will not parse in Kibana, you can use this option by changing it's values to 'true'. **Please note using this option may slow the shipper's perfomance.**
+* ParseEmptyFields - (Default: False) If you encounter invalid logs of Azure's services that contains empty fields and will not parse in Open Search Dashboards, you can use this option by changing it's values to 'true'. **Please note using this option may slow the shipper's perfomance.**
 
 ![Function's configuration](img/configuration-settings.png)
 

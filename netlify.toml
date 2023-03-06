@@ -543,3 +543,9 @@
   to = "/user-guide/insights/ai-insights.html"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/user-guide/log-shipping/telemetry-collector-"
+  to = "/user-guide/log-shipping/telemetry-collector"
+  status = 301
+  force = true

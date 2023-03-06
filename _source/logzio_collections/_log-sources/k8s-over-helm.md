@@ -373,7 +373,7 @@ helm install --namespace=kube-system logzio-k8s-logs logzio-helm/logzio-k8s-logs
 | `dnsPolicy` | Specifies pod-specific DNS policies. | `ClusterFirstWithHostNet` |
 | `daemonset.ignoreOlder` | Logs older than this will be ignored. (linux based Filebeat)| `3h` |
 | `daemonset.logzioCodec` | Set to `json` if shipping JSON logs. Otherwise, set to `plain`. (linux based Filebeat)| `json` |
-| `daemonset.logzioType` | The log type you'll use with this Daemonset. This is shown in your logs under the `type` field in Kibana. Logz.io applies parsing based on type. (linux based Filebeat)| `filebeat` |
+| `daemonset.logzioType` | The log type you'll use with this Daemonset. This is shown in your logs under the `type` field in Open Search Dashboards. Logz.io applies parsing based on type. (linux based Filebeat)| `filebeat` |
 | `daemonset.fieldsUnderRoot` | If this option is set to true, the custom fields are stored as top-level fields in the output document instead of being grouped under a `fields` sub-dictionary. (linux based Filebeat)| `"true"` |
 | `daemonset.securityContext` | Configurable [securityContext](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) for Filebeat DaemonSet pod execution environment. (linux based Filebeat)| See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/charts/filebeat/values.yaml) |
 | `daemonset.resources` | Allows you to set the resources for Filebeat Daemonset. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/charts/filebeat/values.yaml) (linux based Filebeat)|
@@ -383,7 +383,7 @@ helm install --namespace=kube-system logzio-k8s-logs logzio-helm/logzio-k8s-logs
 | `daemonset.priorityClassName` | Set [priorityClassName](https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/) for all DaemonSet pods. | `""` |
 | `winlogbeatDaemonset.ignoreOlder` | Logs older than this will be ignored. (Winlogbeat)| `3h` |
 | `winlogbeatDaemonset.logzioCodec` | Set to `json` if shipping JSON logs. Otherwise, set to `plain`. (Winlogbeat)| `json` |
-| `winlogbeatDaemonset.logzioType` | The log type you'll use with this Daemonset. This is shown in your logs under the `type` field in Kibana. Logz.io applies parsing based on type. (Winlogbeat)| `winlogbeat` |
+| `winlogbeatDaemonset.logzioType` | The log type you'll use with this Daemonset. This is shown in your logs under the `type` field in Open Search Dashboards. Logz.io applies parsing based on type. (Winlogbeat)| `winlogbeat` |
 | `winlogbeatDaemonset.fieldsUnderRoot` | If this option is set to true, the custom fields are stored as top-level fields in the output document instead of being grouped under a `fields` sub-dictionary. (Winlogbeat)| `"true"` |
 | `winlogbeatDaemonset.securityContext` | Configurable [securityContext](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) for Filebeat DaemonSet pod execution environment. (Winlogbeat)| See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/charts/filebeat/values.yaml) |
 | `winlogbeatDaemonset.resources` | Allows you to set the resources for Filebeat Daemonset. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/charts/filebeat/values.yaml) (Winlogbeat)|
@@ -393,7 +393,7 @@ helm install --namespace=kube-system logzio-k8s-logs logzio-helm/logzio-k8s-logs
 | `windowsDaemonset.priorityClassName` | Set [priorityClassName](https://kubernetes.io/docs/concepts/scheduling-eviction/pod-priority-preemption/) for all DaemonSet pods. (windows) | `""` |
 | `filebeatWindowsDaemonset.ignoreOlder` | Logs older than this will be ignored. (Windows based Filebeat)| `3h` |
 | `filebeatWindowsDaemonset.logzioCodec` | Set to `json` if shipping JSON logs. Otherwise, set to `plain`. (Windows based Filebeat)| `json` |
-| `filebeatWindowsDaemonset.logzioType` | The log type you'll use with this Daemonset. This is shown in your logs under the `type` field in Kibana. Logz.io applies parsing based on type. (Windows based Filebeat)| `filebeat-win` |
+| `filebeatWindowsDaemonset.logzioType` | The log type you'll use with this Daemonset. This is shown in your logs under the `type` field in Open Search Dashboards. Logz.io applies parsing based on type. (Windows based Filebeat)| `filebeat-win` |
 | `filebeatWindowsDaemonset.fieldsUnderRoot` | If this option is set to true, the custom fields are stored as top-level fields in the output document instead of being grouped under a `fields` sub-dictionary. (Windows based Filebeat)| `"true"` |
 | `filebeatWindowsDaemonset.securityContext` | Configurable [securityContext](https://kubernetes.io/docs/tasks/configure-pod-container/security-context/) for Filebeat DaemonSet pod execution environment. (Windows based Filebeat)| See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/charts/filebeat/values.yaml) |
 | `filebeatWindowsDaemonset.resources` | Allows you to set the resources for Filebeat Daemonset. | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/charts/filebeat/values.yaml) (Windows based Filebeat)|

@@ -59,7 +59,7 @@ Open the Deployments menu to view all markers that appear in your search time fr
 
 
 
-##### View the markers in the Exceptions tab in Kibana Discover
+##### View the markers in the Exceptions tab in Open Search Dashboards Discover
 
 Hover over the markers in your Exception graphs to view their title and time stamp.
 

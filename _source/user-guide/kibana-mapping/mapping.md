@@ -39,14 +39,14 @@ OpenSearch Dashboards will always make sure that all of your required fields are
 
 
 <!-- 
-### Kibana vs. Elasticsearch mapping
+### Open Search Dashboards vs. Elasticsearch mapping
 
 Your log fields are determined by the parsing schema for your data. Depending on the complexity of your log data and the parsing it undergoes, your data set may include thousands of fields. Logz.io ensures that _all_ of your log fields are mapped in the database _at all times_.
 
 There is (effectively) no limit on the number of active fields in your database.
 If for any reason, an error occurs, and Elasticsearch hits an error that there are too many fields, Logz.io Support will be immediately notified automatically.
 
-Kibana's field mapping has no bearing on your Elasticsearch index and won't prevent any logs from being analyzed and parsed.
+Open Search Dashboards's field mapping has no bearing on your Elasticsearch index and won't prevent any logs from being analyzed and parsed.
 
 -->
 

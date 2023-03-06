@@ -123,7 +123,7 @@ The selected data will now begin streaming to the event hub.
 ##### Check Logz.io for your logs
 
 Give your data some time to get from your system to ours, and then open your [Logz.io Open Search Dashboards account](https://app.logz.io/#/dashboard/osd/discover?).
-If everything went according to plan, you should see logs of the `type:eventHub` in Kibana.
+If everything went according to plan, you should see logs of the `type:eventHub` in Open Search Dashboards.
 
 If you still don’t see your logs, see [log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html).
 
@@ -139,7 +139,7 @@ You'll have the option to edit the following values:
 
 * The shipper's configurations, including: LogzioHost, LogzioToken, Buffersize.
 * FUNCTIONS_WORKER_PROCESS_COUNT - maximum of 10. [Learn more in Azure Docs](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings#functions_worker_process_count).
-* ParseEmptyFields (Default: `false`) - This option is a patch to handle a known bug. Consider changing this parameter to `true`, if you encounter invalid logs sent by Azure services that contain empty fields. Logs with empty fields will appear unparsed in Kibana. **Please note that this option may slow the shipper's perfomance and should be enabled only as required.**
+* ParseEmptyFields (Default: `false`) - This option is a patch to handle a known bug. Consider changing this parameter to `true`, if you encounter invalid logs sent by Azure services that contain empty fields. Logs with empty fields will appear unparsed in Open Search Dashboards. **Please note that this option may slow the shipper's perfomance and should be enabled only as required.**
 
 
 ![Adjust your Azure Function's configuration settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/configuration-settings-azure-diagnostic-logs.png)

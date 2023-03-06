@@ -138,13 +138,13 @@ If the file has other outputs, remove them.
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can search or filter for Sophos logs, under `type:sophos-ep`.
+Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can search or filter for Sophos logs, under `type:sophos-ep`.
 
 If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
 
 ##### Contact support to request custom parsing assistance
 
-The logs will require customized parsing so they can be effectively mapped in Kibana.
+The logs will require customized parsing so they can be effectively mapped in Open Search Dashboards.
 
 [Email our support](mailto:help@logz.io?subject=Requesting%20parsing%20assistance%20for%20Sophos%20security%20logs&body=Hi!%20Please%20be%20in%20touch%20with%20further%20instructions%20for%20parsing%20Sophos%20security%20logs.%20Thanks!) to request custom parsing assistance.
 
@@ -255,13 +255,13 @@ Start or restart Filebeat for the changes to take effect.
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can search or filter for Sophos logs, under `type:sophos-ep`.
+Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can search or filter for Sophos logs, under `type:sophos-ep`.
 
 If you still don't see your logs, see [Filebeat troubleshooting](https://docs.logz.io/shipping/log-sources/filebeat.html#troubleshooting).
 
 ##### Contact support to request custom parsing assistance
 
-The logs will require customized parsing so they can be effectively mapped in Kibana.
+The logs will require customized parsing so they can be effectively mapped in Open Search Dashboards.
 
 [Email our support](mailto:help@logz.io?subject=Requesting%20parsing%20assistance%20for%20Sophos%20security%20logs&body=Hi!%20Please%20be%20in%20touch%20with%20further%20instructions%20for%20parsing%20Sophos%20security%20logs.%20Thanks!) to request custom parsing assistance.
 

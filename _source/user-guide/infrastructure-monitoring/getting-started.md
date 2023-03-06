@@ -60,7 +60,7 @@ Don't see it? By default, your Metrics account can only be accessed from your ma
 
 ##### Drill down from metrics to logs
 
-  Most pre-configured dashboards include the drilldown links you'll need to explore related logs in Kibana. Our team of content developers are continuously releasing new and improved dashboards so you can check back again for additional handy dashboards and tips in the future.
+  Most pre-configured dashboards include the drilldown links you'll need to explore related logs in Open Search Dashboards. Our team of content developers are continuously releasing new and improved dashboards so you can check back again for additional handy dashboards and tips in the future.
 
 
 ##### Create an alert

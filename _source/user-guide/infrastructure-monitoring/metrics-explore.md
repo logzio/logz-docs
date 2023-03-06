@@ -60,7 +60,7 @@ The Metrics view options are great for learning what Metrics data is in your sys
 
 ### Logs View
 
-Explore mode is the equivalent of Kibana Discover, only for metrics.
+Explore mode is the equivalent of Open Search Dashboards Discover, only for metrics.
 
 ![Explore in Logs view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/grafana-explore/grafana-explore-logs-revamp.png)
 

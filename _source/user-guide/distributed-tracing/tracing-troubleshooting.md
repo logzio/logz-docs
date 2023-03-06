@@ -33,11 +33,11 @@ Several scenarios can cause this:
 
 ##### Account token misconfiguration in OTEL collector
 
-Distributed Tracing spans are sent to Logz.io and indexed in a Distributed Tracing account the same way as logs. If the spans are sent as expected, you should be able to see them in Kibana, the same way you search for logs.
+Distributed Tracing spans are sent to Logz.io and indexed in a Distributed Tracing account the same way as logs. If the spans are sent as expected, you should be able to see them in Open Search Dashboards, the same way you search for logs.
 
 To troubleshoot this issue, you first need to verify that the Tracing account has indexed the data.
 
-Navigate to [Kibana](https://app.logz.io/#/dashboard/kibana) > Choose the **Tracing account you’re trying to troubleshoot**, and hit the Refresh button on the right side of the screen.
+Navigate to [Open Search Dashboards](https://app.logz.io/#/dashboard/osd) > Choose the **Tracing account you’re trying to troubleshoot**, and hit the Refresh button on the right side of the screen.
 
 ![Logs showing tracing data](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/trace-and-refresh-in-logs.png)
 
@@ -45,17 +45,17 @@ If there are no results and you can't see any logs, you’ll need to ensure the 
 
 Head over to **[Manage tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/shared) > [Data shipping tokens](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs) > [Tracing](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=tracing)**. Copy the token of the Tracing account you’re troubleshooting, re-configure your collector or make sure it matches, and restart the collector.
 
-Head back to **[Kibana](https://app.logz.io/#/dashboard/kibana)** and check whether you can now see logs in the Tracing account you're trying to troubleshoot.
+Head back to **[Open Search Dashboards](https://app.logz.io/#/dashboard/osd)** and check whether you can now see logs in the Tracing account you're trying to troubleshoot.
 
 If you still can't see any logs, contact [Logz.io's Support team](mailto:help@logz.io) for additional help.
 
-Once your logs appear in Kibana, navigate to **Distributed Tracing > [Search](https://app.logz.io/#/dashboard/jaeger/)**.
+Once your logs appear in Open Search Dashboards, navigate to **Distributed Tracing > [Search](https://app.logz.io/#/dashboard/jaeger/)**.
 
 If there's no data in the Service/Operation dropdown lists, continue to the next step:
 
 ##### Lost Service and Operation data
 
-Service and Operation data reach Logz.io separately from your spans. That's why you might see data in your Tracing account in Kibana (as explained in the previous step), but you won't be able to see data in your Service and Operation lists.
+Service and Operation data reach Logz.io separately from your spans. That's why you might see data in your Tracing account in Open Search Dashboards (as explained in the previous step), but you won't be able to see data in your Service and Operation lists.
 
 **Restart your collector** to recover this lost data and make sure spans are flowing into your account.
 
@@ -70,7 +70,7 @@ When you're trying to search any combination of parameters in **[Distributed Tra
 **1.** Make sure only **Service**, **Loopback**, and **Limit Results** fields have values, while Tags, Max Duration, and Min Duration are empty.
   ![Service field value](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/just-these-fields-jaeger.png)
 
-**2.** If you still can't see any results, navigate to **[Kibana](https://app.logz.io/#/dashboard/kibana)** > Choose the **Tracing account you’re trying to troubleshoot**, and check whether you can see logs in the Tracing account you're trying to troubleshoot.
+**2.** If you still can't see any results, navigate to **[Open Search Dashboards](https://app.logz.io/#/dashboard/osd)** > Choose the **Tracing account you’re trying to troubleshoot**, and check whether you can see logs in the Tracing account you're trying to troubleshoot.
 
 **3.** If you can't see any logs, [follow the previous steps](/user-guide/distributed-tracing/tracing-troubleshooting.html#account-token-misconfiguration-in-otel-collector) to check the token configuration. 
 

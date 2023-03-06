@@ -21,7 +21,7 @@ You can share your highlighted logs with your team members or save them for futu
 
 ## Using Log Highlighter
 
-Navigate to your [Log analytics](https://app.logz.io/#/dashboard/kibana/discover/) Discover view.
+Navigate to your [Log analytics](https://app.logz.io/#/dashboard/osd/discover/) Discover view.
 
 Filter or search for the relevant logs you want to view.
 

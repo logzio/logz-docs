@@ -70,7 +70,7 @@ Complete filling in the form:
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). Search for `type:github` in Kibana Discover to filter for your GitHub events. Your logs should be already parsed thanks to the Logz.io preconfigured parsing pipeline.
+Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). Search for `type:github` in Open Search Dashboards Discover to filter for your GitHub events. Your logs should be already parsed thanks to the Logz.io preconfigured parsing pipeline.
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

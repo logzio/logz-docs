@@ -67,7 +67,7 @@ If you run into issues, you can reference the [guide for troubleshooting user pe
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana) and search for `type: awswaf`.
+Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd) and search for `type: awswaf`.
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

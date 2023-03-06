@@ -2,6 +2,8 @@
 layout: article
 title: Distributed Tracing with Jaeger
 permalink: /user-guide/tracing/
+sitemap: false 
+noindex: true
 flags:
   logzio-plan: community
   beta: true
@@ -92,7 +94,7 @@ How do I see my trace?
 Layout of the Compare page
 What do the colors mean? 
 
-# WHAAAAT! Tracing data in Kibana?? 
+# WHAAAAT! Tracing data in Open Search Dashboards?? 
 
 Tell me MORE!
 

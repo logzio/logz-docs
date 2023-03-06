@@ -139,7 +139,7 @@ output.logstash:
 
 ##### Check Logz.io for your logs
 
-Confirm you're shipping logs by opening an nginx-hosted webpage in your browser. Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana).
+Confirm you're shipping logs by opening an nginx-hosted webpage in your browser. Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 You can search for `type:nginx OR nginx_access OR nginx-access OR nginx-error` to filter for your logs. Your logs should be already parsed thanks to the Logz.io preconfigured parsing pipeline.
 

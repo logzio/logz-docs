@@ -74,7 +74,7 @@ Leave the default configurations. No sub-selections are required.
 
 ##### Check Logz.io for your logs
 
-Give your logs some time to get from your system to ours, and then open [Kibana](https://app.logz.io/#/dashboard/kibana). You can search or filter for Alcide logs, under `type:alcide-kaudit`.
+Give your logs some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). You can search or filter for Alcide logs, under `type:alcide-kaudit`.
 
 If you still don't see your logs, see [log shipping troubleshooting]({{site.baseurl}}/user-guide/log-shipping/log-shipping-troubleshooting.html).
 

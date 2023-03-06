@@ -1,5 +1,7 @@
 ---
 title: Ship IPMI Sensor metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship IPMI Sensor metrics via Telegraf to Logz.io
 logo:
   logofile: ipmi.png
   orientation: vertical

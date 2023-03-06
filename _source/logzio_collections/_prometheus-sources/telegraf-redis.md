@@ -1,5 +1,7 @@
 ---
 title: Ship Redis metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Redis metrics via Telegraf to Logz.io
 logo:
   logofile: redis-logo.png
   orientation: vertical

@@ -1,5 +1,7 @@
 ---
 title: Ship Mesosphere DC/OS metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Mesosphere DC/OS metrics via Telegraf to Logz.io
 logo:
   logofile: dcos.png
   orientation: vertical

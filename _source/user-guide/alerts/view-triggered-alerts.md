@@ -4,6 +4,8 @@ title: Review triggered alerts
 permalink: /user-guide/alerts/view-triggered-alerts.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Review triggered alerts
+sitemap: false 
+noindex: true
 flags:
   logzio-plan: community
 tags:
@@ -20,8 +22,8 @@ So that even if you're not on the recipients list, you can still know which even
 
 ![Triggered alerts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/triggered-alerts-main.png)
 
-To view the **Triggered alerts** page,
-select [**Logs > Triggered alerts**](https://app.logz.io/#/dashboard/triggers/triggered-alerts)
+To view the **alerts Event Management** page,
+select [**Logs > Event Management**](https://app.logz.io/#/dashboard/event-management)
 from the top menu.
 
 * To view the raw logs for a particular event, click the button **View in OpenSearch Dashboards**.

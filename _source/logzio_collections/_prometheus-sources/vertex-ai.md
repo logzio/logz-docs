@@ -1,5 +1,7 @@
 ---
 title: Ship Google Vertex AI metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Vertex AI metrics to Logz.io
 logo:
   logofile: vertexai.png
   orientation: vertical

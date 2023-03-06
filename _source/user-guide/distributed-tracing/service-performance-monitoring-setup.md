@@ -24,7 +24,8 @@ The first pipeline sends the spans to the Logz.io backend, where you can analyze
 
 The second pipeline extracts the metrics from the same spans, aggregates them, and sends them to Logz.io’s Prometheus-based account.
 
-
+* toc list
+{:toc}
 
 #### Activate the Service Performance Monitoring dashboard
 
@@ -47,6 +48,7 @@ If you don't have enough UTS available in your existing Metrics account, you'll 
 
 
 ##### Logz.io sub account users
+{:.no_toc}
 
 You can only activate Service Performance Monitoring from your **main Logz.io account**.
 

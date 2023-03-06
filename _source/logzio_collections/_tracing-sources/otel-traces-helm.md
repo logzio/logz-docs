@@ -1,5 +1,7 @@
 ---
 title: Sending traces from your Kubernetes cluster using OpenTelemetry
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Sending traces from your Kubernetes cluster using OpenTelemetry to Logz.io
 logo:
   logofile: kubernetes.svg
   orientation: vertical

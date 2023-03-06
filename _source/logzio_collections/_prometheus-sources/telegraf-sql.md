@@ -1,5 +1,7 @@
 ---
 title: Ship SQL Server metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship SQL Server metrics via Telegraf to Logz.io
 logo:
   logofile: sqlserver.png
   orientation: vertical

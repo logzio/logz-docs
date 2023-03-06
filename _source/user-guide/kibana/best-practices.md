@@ -18,15 +18,8 @@ After setting up your Logz.io's Log Management account, it's time to learn how t
 
 The following guide includes some of the basics that will help you get started with Logs:
 
-* [Search your logs](/user-guide/kibana/best-practices.html#search-your-logs)
-  * [Use Lucene / OpenSearch Dashboards Query Language (DQL)](/user-guide/kibana/best-practices.html#use-lucene--kibana-query-language-kql)
-  * [How to use Regex in Log Management](/user-guide/kibana/best-practices.html#how-to-use-regex-in-log-management)
-  * [Searching and filtering in Log Management](/user-guide/kibana/best-practices.html#searching-and-filtering-in-log-management)
-  * [Add more columns to your view results](/user-guide/kibana/best-practices.html#add-more-columns-to-your-view-results)
-* [Filter your log results](/user-guide/kibana/best-practices.html#filter-your-log-results)
-* [Select the time frame for your logs](/user-guide/kibana/best-practices.html#select-the-time-frame-for-your-logs)
-* [Create Log Visualizations with Logz.io](/user-guide/kibana/best-practices.html#create-log-visualizations-with-logzio)
-* [Share, import, and export OpenSearch objects](/user-guide/kibana/share-import-export)
+* toc list
+{:toc}
 
 #### Search your logs
 
@@ -151,8 +144,13 @@ In the following video, you'll be able to see how to create a visualization dash
 <!-- <iframe class="vidyard_iframe" src="https://fast.wistia.com/embed/iframe/velcfd5tpr?" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe> -->
 
 
+#### Use sub accounts to assign multiple data types
+
+{% include /account-info/sub-account.md %}
+
 
 ###### Additional resources
+{:.no_toc}
 
 * [Configure an alert](https://docs.logz.io/user-guide/alerts/configure-an-alert.html)
 * [Use Insights to detect new exceptions and critical errors](https://docs.logz.io/user-guide/insights/)

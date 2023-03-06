@@ -43,13 +43,13 @@ or TLS/SSL streams over TCP.
 For HTTPS shipping _(recommended)_, use this URL configuration:
 
 ```
-https://<<LISTENER-HOST>>:8071/?token=<<LOG-SHIPPING-TOKEN>>&type=<<MY-TYPE>>
+https://<<LISTENER-HOST>>:8071?token=<<LOG-SHIPPING-TOKEN>>&type=<<MY-TYPE>>
 ```
 
 Otherwise, for HTTP shipping, use this configuration:
 
 ```
-http://<<LISTENER-HOST>>:8070/?token=<<LOG-SHIPPING-TOKEN>>&type=<<MY-TYPE>>
+http://<<LISTENER-HOST>>:8070?token=<<LOG-SHIPPING-TOKEN>>&type=<<MY-TYPE>>
 ```
 
 {% include /general-shipping/replace-placeholders.html %}

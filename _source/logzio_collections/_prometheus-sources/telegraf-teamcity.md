@@ -1,5 +1,7 @@
 ---
 title: Ship TeamCity metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship TeamCity metrics via Telegraf to Logz.io
 logo:
   logofile: TeamCity-logo.png
   orientation: vertical

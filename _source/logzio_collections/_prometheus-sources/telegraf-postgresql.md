@@ -1,5 +1,7 @@
 ---
 title: Ship PostgreSQL metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship PostgreSQL metrics via Telegraf to Logz.io
 logo:
   logofile: postgresql-logo.png
   orientation: vertical

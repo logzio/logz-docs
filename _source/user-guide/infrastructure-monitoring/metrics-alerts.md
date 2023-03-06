@@ -139,7 +139,9 @@ Once you're done, click **Save contact point**.
 
 ### Notification policies – configure your alerting notifications
 
-Your alert and contact points are ready, and now it's time to determine how alerts are routed to contact points. Notification policies are built in a tree structure, where each policy can have one or more child policies.
+Your alert and contact points are ready, and now it's time to determine how alerts are routed to contact points. Notification policies are built in a tree structure, where there can only be one root policy that can't be deleted, but each policy can have one or more child policies.
+
+[Learn more about Grafana's notifications and policies](https://grafana.com/docs/grafana/latest/alerting/fundamentals/notifications/#notification-policies).
 
 
 You can't create a notification with more than 1 trigger tag or label since it causes the alert uses the AND operator (instead of OR), resulting in your notification not triggering. To solve this, you can create multiple notification policies that use the same label. 

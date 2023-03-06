@@ -1,14 +1,19 @@
 This section contains some guidelines for handling errors that you may encounter when trying to collect traces with OpenTelemetry.
 
+* toc list
+{:toc}
+
 ## Problem: No traces are sent
 
 The code has been instrumented, but the traces are not being sent.
 
 ### Possible cause - Collector not installed
+{:.no_toc}
 
 The OpenTelemetry collector may not be installed on your system.
 
 #### Suggested remedy
+{:.no_toc}
 
 Check if you have an OpenTelemetry collector installed and configured to receive traces from your hosts.
 
@@ -18,6 +23,7 @@ Check if you have an OpenTelemetry collector installed and configured to receive
 If the collector is installed, it may not have the correct endpoint configured for the receiver.
 
 #### Suggested remedy
+{:.no_toc}
 
 1. Check that the configuration file of the collector lists the following endpoints:
 
@@ -49,11 +55,13 @@ If the collector is installed, it may not have the correct endpoint configured f
 
 
 ### Possible cause - Traces not genereated
+{:.no_toc}
 
 If the collector is installed and the endpoints are properly configured, the instrumentation code may be incorrect.
 
 
 #### Suggested remedy
+{:.no_toc}
 
 
 1. Check if the instrumentation can output traces to a console exporter.
@@ -96,6 +104,7 @@ The correct endpoints are:
 ```
 
 #### Suggested remedy
+{:.no_toc}
 
 1. Activate `debug` logs in the configuration file of the collector as follows:
 
@@ -118,6 +127,7 @@ If the post request is successful, there will be an additional log with the stat
 If the `debug` logs are sent, but the traces are still not generated, the collector logs need to be investigated.
 
 #### Suggested remedy
+{:.no_toc}
 
 1. On Linux and MacOS, see the logs for the collector:
 
@@ -140,6 +150,7 @@ This is the endpoint to access the collector metrics in order to see different e
 Traces may not be generated if the exporter is not configured properly.
 
 #### Suggested remedy
+{:.no_toc}
 
 If you are unable to export traces to a destination, this may be caused by the following:
 
@@ -169,6 +180,7 @@ Traces may not be generated if the receiver is not configured properly.
 
 
 #### Suggested remedy
+{:.no_toc}
 
 If you are unable to receive data, this may be caused by the following:
 

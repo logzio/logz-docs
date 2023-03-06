@@ -1,5 +1,7 @@
 ---
 title: Ship Google Storage Transfer Service for on-premises data metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Storage Transfer Service to Logz.io
 logo:
   logofile: gcpstorage.png
   orientation: vertical

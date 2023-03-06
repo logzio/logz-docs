@@ -1,9 +1,11 @@
 ---
 title: Ship container logs with Fluentd on Docker
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship container logs with Fluentd on Docker to Logz.io
 logo:
   logofile: FluentD_Docker.png
   orientation: vertical
-short-description: Ship container logs with Fluentd on Docker
+#short-description: Ship container logs with Fluentd on Docker
 data-source: Fluentd on Docker
 data-for-product-source: Logs
 shipping-tags:

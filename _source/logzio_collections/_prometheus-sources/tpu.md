@@ -1,5 +1,7 @@
 ---
 title: Ship Cloud TPU metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Cloud TPU metrics to Logz.io
 logo:
   logofile: tpu.png
   orientation: vertical

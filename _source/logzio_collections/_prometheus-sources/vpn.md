@@ -1,5 +1,8 @@
 ---
 title: Ship Google Cloud VPN metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Cloud VPN metrics to Logz.io
+
 logo:
   logofile: vpc.png
   orientation: vertical

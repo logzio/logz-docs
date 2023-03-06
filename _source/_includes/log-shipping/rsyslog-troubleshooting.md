@@ -9,17 +9,25 @@ To send information to Logz.io properly in a SELinux environment, it is necessar
 * rsyslog to communicate with logz.io through the desired port
 * rsyslog to access the files and directories needed for it to work properly
 
+On this page:
+
+* toc list
+{:toc}
+
+
+
 ### Possible cause - issue not related to SELinux
 
 The issue may not be caused by SELinux.
 
 #### Suggested remedy
+{:.no_toc}
 
 Disable SELinux temporarily and see if that solves the problem.
 
 Run the following command to check the current status of SELinux:
 
-``shell
+```shell
 $ getenforce
 ```
 
@@ -59,10 +67,12 @@ SELINUX=permissive
 You may need to add exception to SELinux configuration to enable Logz.io.
 
 #### Suggested remedy
+{:.no_toc}
 
 <div class="tasklist">
 
 ##### Install the policycoreutils and the setroubleshoot packages
+{:.no_toc}
 
 ```shell
 # Installing policycoreutils & setroubleshoot packages
@@ -70,6 +80,7 @@ $ sudo yum install policycoreutils setroubleshoot
 ```
 
 ##### Check which syslog ports are allowed by SELinux
+{:.no_toc}
 
 Run the command as in the example below:
 
@@ -81,6 +92,7 @@ syslogd_port_t udp 514
 ```
 
 ##### Add a new port to policy for Logz.io
+{:.no_toc}
 
 ```shell
 # Adding a port to SELinux policies
@@ -88,6 +100,7 @@ $ sudo semanage port -m -t syslogd_port_t -p tcp 5000
 ```
 
 ##### Authorize Rsyslog directory
+{:.no_toc}
 
 ```shell
 # instructing se to authorize the /var/spool/rsyslog directory
@@ -109,6 +122,7 @@ $ sudo restorecon -v /etc/rsyslog.d
 ```
 
 ##### Restart Rsyslog
+{:.no_toc}
 
 ```shell
 $ sudo service rsyslog restart

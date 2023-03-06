@@ -15,7 +15,7 @@ contributors:
 
 To create a new optimizer, start in OpenSearch Dashboards so you can test the query you want to use.
 
-Before creating an optimizer, you'll need a timeless account to send the data to. If you need help setting up a timeless account, see [Manage timeless accounts]({{site.baseurl}}/user-guide/accounts/manage-timeless-accounts.html).
+Before creating an optimizer, you'll need a timeless account to send the data to. If you need help setting up a timeless account, see [Manage timeless accounts]({{site.baseurl}}/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#timeless).
 
 After you've created your account, navigate back to **OpenSearch Dashboards** > **Create an optimizer**, where you can configure the optimizer settings.
 

@@ -1,5 +1,7 @@
 ---
 title: Ship Mcrouter metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Mcrouter metrics via Telegraf to Logz.io
 logo:
   logofile: mcrouter-logo.png
   orientation: vertical

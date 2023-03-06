@@ -78,7 +78,7 @@ Learn more about sending data to Logz.io:
 * [Use Logz.io API](https://docs.logz.io/api/)
 * [Log shipping FAQ](https://docs.logz.io/user-guide/log-shipping/faqs-logs/)
 * [Log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html)
-* [Troubleshooting Filebeat](https://docs.logz.io/user-guide/log-shipping/filebeat-troubleshooting/)
+* [Troubleshooting Filebeat](https://docs.logz.io/user-guide/log-troubleshooting/filebeat-troubleshooting.html)
 
 #### Meet Logz.io’s Log Management platform
 
@@ -141,7 +141,7 @@ To help you understand how Distributed Tracing can enhance your data, check out 
 * **[Sending demo traces with HOTROD](https://docs.logz.io/user-guide/distributed-tracing/trace-hotrod-demo)**
 * Combine Traces and Metrics with **[Service Performance Monitoring](https://docs.logz.io/user-guide/distributed-tracing/service-performance-monitoring)**
 * **[Correlate logs and traces](https://docs.logz.io/user-guide/distributed-tracing/correlate-traces/)**
-* **[Visualize traces in your logs](https://docs.logz.io/user-guide/distributed-tracing/visualize-traces/)**
+<!-- * **[Visualize traces in your logs](https://docs.logz.io/user-guide/distributed-tracing/visualize-traces/)** -->
 
 
 #### Meet Logz.io’s Cloud SIEM 

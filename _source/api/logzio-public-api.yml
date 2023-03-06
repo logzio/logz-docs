@@ -1,5 +1,7 @@
 ---
 layout: none
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Meet Logz.io's API
 ---
 
 swagger: '2.0'
@@ -279,6 +281,7 @@ x-tagGroups:
   - name: Account administration
     tags:
       - Manage users
+      - Manage metrics account
       - Authentication groups
       - Who am I
       - Manage time-based log accounts
@@ -293,6 +296,7 @@ x-tagGroups:
       - Archive logs
       - Restore logs
       - Parsing
+      - Delete object API
   - name: Data security
     tags:
       - Retrieve audit trail
@@ -3815,7 +3819,248 @@ paths:
                   description: ID.
                   example: 1
   
+
+  /v1/osd/saved-objects/{object-type}/{object-id}:
+    delete:
+      summary: Remove a saved object
+      tags:
+        - Delete object API
+      parameters:
+        - in: path
+          name: object-type
+          required: true
+          type: string
+          description: The type of the saved object to remove. Valid options are "search", "visualization", and "dashboard".
+          example: visualization
+        - in: path
+          name: object-id
+          required: true
+          type: string
+          description: The ID of the saved object to remove.
+          example: 7adfa750-4c81-11e8-b3d7-01146121b73d
+      x-code-samples:
+      - lang: cURL
+        source: >-
+          curl -X DELETE https://api.logz.io/v1/osd/saved-objects/visualization/7adfa750-4c81-11e8-b3d7-01146121b73d \
+            -H 'Content-Type: application/json' \
+            -H 'X-API-TOKEN: <token>' \
+      responses:
+        200:
+          description: Indicates a successful call.
+
+
+
+
+
+
   # ::::: ACCOUNTS
+
+  /v1/account-management/metrics-accounts:
+    post:
+      summary: Create a new metrics account
+      consumes:
+        - application/json
+      tags:
+        - Manage metrics account
+      parameters:
+        - in: body
+          name: MetricsAccountV1Request
+          required: true
+          schema:
+            type: object
+            required:
+            - email
+            properties:
+              email:
+                type: string
+                description: Email address of the account owner
+                example: ^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9-]+)*(\.[A-Za-z]{2,})$
+              accountName:
+                type: string
+                description: Name of metrics account to be created. If empty, the default name `<owner_account_name>_metrics` is used.
+              planUts:
+                type: integer
+                description: Usage plan for Unique Time Series (UTS). UTS defines the number of unique time series an account is allowed to have. If usage exceeds the plan, exceeding data points will not be processed.
+              authorizedAccountsIds:
+                type: array
+                description: IDs of authorized accounts 
+                items:
+                  type: integer
+                  description: IDs of authorized accounts
+      responses:
+        201:
+          description: Created
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: ID of the created metrics account
+              accountName:
+                type: string
+                description:  Name of metrics account. 
+              token:
+                type: string
+                description: Metrics account token
+              createdAt:
+                type: string
+                format: date-time
+                description: Timestamp of account creation
+              planUts:
+                type: integer
+                description: Usage plan for Unique Time Series (UTS). UTS defines the number of unique time series an account is allowed to have. If usage exceeds the plan, exceeding data points will not be processed.
+              authorizedAccountsIds:
+                type: array
+                description: IDs of authorized accounts
+                items:
+                  type: integer
+                  
+    get:
+      summary: Get a list of all metrics accounts
+      produces:
+        - application/json
+      tags:
+        - Manage metrics account
+      responses:
+        200:
+          description: OK
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id:
+                  type: integer
+                  description: ID of the metrics account
+                accountName:
+                  type: string
+                  description:  Name of metrics account. 
+                token:
+                  type: string
+                  description: Metrics account token
+                createdAt:
+                  type: string
+                  format: date-time
+                  description: Timestamp of account creation
+                planUts:
+                  type: integer
+                  description: Usage plan for Unique Time Series (UTS). UTS defines the number of unique time series an account is allowed to have. If usage exceeds the plan, exceeding data points will not be processed.
+                authorizedAccountsIds:
+                  type: array
+                  description: IDs of authorized accounts
+                  items:
+                    type: integer
+                  
+
+  /v1/account-management/metrics-accounts/{metricsAccountId}:
+    put:
+      summary: Update a metrics account
+      consumes:
+        - application/json
+      tags:
+        - Manage metrics account
+      parameters:
+        - in: path
+          name: metricsAccountId
+          required: true
+          type: integer
+        - in: body
+          name: MetricsAccountV1Request
+          required: true
+          schema:
+            type: object
+            properties:
+              accountName:
+                type: string
+                description:  Name of metrics account. 
+              planUts:
+                type: integer
+                description: Usage plan for Unique Time Series (UTS). UTS defines the number of unique time series an account is allowed to have. If usage exceeds the plan, exceeding data points will not be processed.
+              authorizedAccountsIds:
+                type: array
+                description: IDs of authorized accounts
+                items:
+                  type: integer
+                  
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: ID of the metrics account
+              accountName:
+                type: string
+                description:  Name of metrics account. 
+              token:
+                type: string
+                description: Metrics account token
+              createdAt:
+                type: string
+                format: date-time
+                description: Timestamp of account creation
+              planUts:
+                type: integer
+                description: Usage plan for Unique Time Series (UTS). UTS defines the number of unique time series an account is allowed to have. If usage exceeds the plan, exceeding data points will not be processed.
+              authorizedAccountsIds:
+                type: array
+                description: IDs of authorized accounts
+                items:
+                  type: integer
+                  
+    delete:
+      summary: Delete a metrics account
+      tags:
+        - Manage metrics account
+      parameters:
+        - in: path
+          name: metricsAccountId
+          required: true
+      responses:
+        200:
+          description: OK
+    get:
+      summary: Get a specific metrics account
+      produces:
+        - application/json
+      tags:
+        - Manage metrics account
+      parameters:
+        - in: path
+          name: metricsAccountId
+          required: true
+      responses:
+        200:
+          description: OK
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                description: ID of the metrics account
+              accountName:
+                type: string
+                description:  Name of metrics account. 
+              token:
+                type: string
+                description: Metrics account token
+              createdAt:
+                type: string
+                format: date-time
+                description: Timestamp of account creation
+              planUts:
+                type: integer
+                description: Usage plan for Unique Time Series (UTS). UTS defines the number of unique time series an account is allowed to have. If usage exceeds the plan, exceeding data points will not be processed.
+              authorizedAccountsIds:
+                type: array
+                description: IDs of authorized accounts
+                items:
+                  type: integer
+
+
+
   /v2/whoami:
     get:
       summary: Retrieve account information

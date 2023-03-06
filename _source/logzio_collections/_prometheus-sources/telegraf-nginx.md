@@ -1,5 +1,7 @@
 ---
 title: Ship Nginx metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Nginx metrics via Telegraf to Logz.io
 logo:
   logofile: nginx.png
   orientation: vertical

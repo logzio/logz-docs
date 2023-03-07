@@ -58,6 +58,11 @@ To get started with Cold search, you'll need:
 {% include log-shipping/cold-power-search.md %}
 
 
+### Troubleshooting Cold search
+
+Here are some issues you might encounter when using Cold search and their suggested solutions.
+
+
 
 
 

@@ -206,6 +206,7 @@ helm repo update
 helm install  \
 --set config.exporters.logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
 --set config.exporters.logzio.account_token=<<TRACING-SHIPPING-TOKEN>> \
+--set traces.enabled=true \ 
 logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
 

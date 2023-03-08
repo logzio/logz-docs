@@ -23,8 +23,8 @@ Your AWS S3 bucket must grant Logz.io the right permissions to support Logz.io a
 
 ## Minimal permissions
 
-* **Archiving** - Logz.io requires `s3:PutObject` and `s3:GetBucketLocation` permissions to archive logs to an AWS S3 bucket.
-* **Restoring data from archive** - Logz.io requires `s3:ListBucket`, `s3:GetBucketLocation` and `s3:GetObject` permissions to restore data from an AWS S3 bucket.
+* **Archiving** - Logz.io requires `s3:PutObject` permissions to archive logs to an AWS S3 bucket.
+* **Restoring data from archive** - Logz.io requires `s3:ListBucket` and `s3:GetObject` permissions to restore data from an AWS S3 bucket.
 
 You'll set these permissions for an AWS IAM user or role,
 depending on which authentication method you choose in Logz.io.

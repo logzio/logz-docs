@@ -29,6 +29,12 @@ order: 20
 
 Some AWS services can be configured to ship their logs to an S3 bucket, where Logz.io can fetch those logs directly.
 
+
+<!-- info-box-start:info -->
+In case your S3 bucket is encrypted, you need to add `kms:Decrypt` to the policy on the ARN of the KMS key used to encrypt the bucket.
+{:.info-box.note}
+<!-- info-box-end -->
+
 ## Best practices
 
 The S3 API does not allow retrieval of object timestamps, so Logz.io must collect logs in alphabetical order.

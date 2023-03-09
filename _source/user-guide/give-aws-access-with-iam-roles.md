@@ -172,6 +172,13 @@ and
 [Archive & restore](https://app.logz.io/#/dashboard/tools/archive-and-restore)
 configurations that use the existing role.
 
+<!-- info-box-start:info -->
+In case your S3 bucket is encrypted, you need to add `kms:Decrypt` to the policy on the ARN of the KMS key used to encrypt the bucket.
+{:.info-box.note}
+<!-- info-box-end -->
+
+
+
 * **If the role is used in a single Logz.io account**:
   You can update the external ID
   and replace current Logz.io configurations.

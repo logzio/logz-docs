@@ -1,4 +1,4 @@
-1. Navigate to your AWS account and search for S3
+1. Navigate to your AWS account and search for S3.
 
   ![Select S3](https://dytvr9ot2sszz.cloudfront.net/logz-docs/power-search/select-s3.png)
 2. Choose the relevant bucket on which you want to apply these permissions. **It should be the same bucket you've used when setting up your S3 permissions.** Once inside, click on Permissions, scroll down to **Bucket policy** and click on **Edit**.

@@ -24,20 +24,25 @@ On this page you'll find:
 * toc list
 {:toc}
 
+<a id="searching-your-logs"></a>
 
 ![OSD Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/osd-main-screen.png)
 
 #### Searching your logs
 
-OpenSearch Dashboards is designed to help you investigate massive volumes of data as quickly as possible. Filters, search phrases, and a date picker or relative time range selector are all designed to help you find the logs you want. Together, they are the _query criteria_ that determine which logs are returned from your logging database.
+OpenSearch Dashboards is designed to help you investigate massive volumes of data as quickly as possible. Filters, search phrases, and a date picker or relative time range selector are all designed to help you find the logs you want. <a id="account"></a> Together, they are the _query criteria_ that determine which logs are returned from your logging database.
 
 <div class="tasklist">
 
 ##### Account
 
+<a id="filters"></a>
+
 First, decide which accounts you want to search. Managing your accounts is the first step to successful logging. You can create sub accounts to separate data by environment, microservice, team, and more. [Learn more about account management and sub accounts.]({{site.baseurl}}/user-guide/accounts/manage-the-main-account-and-sub-accounts.html)
 
 ##### Filters
+
+<a id="search-bar"></a>
 
 OpenSearch Dashboards filters offer the most convenient, powerful, and flexible method for querying logs.
 
@@ -67,11 +72,15 @@ For example, you have a field called `sentence` that holds the following line: "
 
 To find one of the values in the field, such as `fox`, you'll need to use the following query:
 
+<a id="time-frame-and-data-picker"></a>
+
 `sentence:/.*fox.*/`.
 
 ##### Time frame and date picker
 
 The default time frame in OpenSearch Dashboards is always the last 15 minutes.
+
+<a id="results"></a>
 
 You can select the time frame in any number of ways, including relative times such as the last hour, today so far, or the day before yesterday, or use absolute times by calendar dates and timestamps.
 
@@ -86,6 +95,8 @@ The logs returned by your search are your results - aka "hits". Depending on the
   To expand a log, click it and review the complete log mapped into field:value pairs. You can also switch to the raw JSON.
 
 * **Patterns** - Logz.io groups your logs using advanced clustering techniques to help you identify similar logs by groups, reducing the amount of logs to review. Patterns also help to surface issues and errors that might otherwise go unnoticed. [Learn more]({{site.baseurl}}/user-guide/logs/log-patterns.html)
+
+<a id="take-action-following-your-results"></a>
 
 * **Exceptions** - Logz.io Insights Engine scans your logs for application errors and warnings to help you identify issues that require your attention. [Learn more]({{site.baseurl}}/user-guide/insights/exceptions/) 
 

@@ -1,9 +1,9 @@
 ---
 layout: article
-title: Getting started with Kubernetes 360
+title: Meet Kubernetes 360
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: First steps with Logz.io's Kubernetes 360 dashboard
-permalink: /user-guide/k360/overview.html
+description: Logz.io intro to Kubernetes 360
+permalink: /user-guide/k360/kubernetes-360.html
 flags:
   logzio-plan: community
 tags:
@@ -12,11 +12,16 @@ contributors:
   - hidan
 ---
 
-Kubernetes 360 is part of Logz.io's Open 360, a unified platform combining a true log analytics solution, the best Prometheus metrics monitoring, and the value of distributed tracing powered by Jaeger.
 
-Kubernetes 360 lets R&D and engineering teams monitor and troubleshoot applications deployed in Kubernetes environments.
+<!-- #### Meet your dashboard
 
-The platform utilizes Kubernetes' numerous advantages for R&D and dev teams, allowing you to monitor application SLOs in a simple, efficient, and actionable manner. Kubernetes 360 offers flexibility and visibility while providing service discovery, balancing load, and allowing developer autonomy and business agility.
+Your Kubernetes 360 dashboard includes an overview of your clusters and deployments' current status.
+
+![K360 Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-overview.png) -->
+
+Kubernetes 360 application provides an overview of your Kubernetes data, providing a quick overview of your current deployments, pods, and more useful information regarding your environment.
+
+[image]
 
 
 ###### On this page
@@ -26,122 +31,23 @@ The platform utilizes Kubernetes' numerous advantages for R&D and dev teams, all
 {:toc}
 
 
-#### Getting started with Kubernetes 360
+#### Kubernetes 360 overview
 
-To activate your Kubernetes 360 dashboard, connect your Kubernetes data quickly and easily through Logz.io's **[Telemetry Collector](https://app.logz.io/#/dashboard/send-your-data/agent/new)**.
+You can switch your view to filter by the following resources: **Nodes**, **Deployments**, **Daemonset**, **Statefulset**, or **Job**.
 
-
-##### Manually shipping Kubernetes data
-{:.no_toc}
-
-If you've already connected your Kubernetes data or prefer to send it [manually](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=prometheus-sources), you'll need an active **[Infrastructure Monitoring](https://app.logz.io/#/dashboard/metrics)** account, and ensure that your Kubernetes data is [connected to Logz.io](https://app.logz.io/#/dashboard/send-your-data/agent/new).
-
-In addition, you'll need to ship your cluster metrics from the following sources:
-
-* Node exporter (should be installed on every node).
-* CAdvisor.
-* Kube-state-metrics version 2.1 or higher.
-
-And send the following metrics:
-
-|**Metric name**||**Labels**|
-|*||p8s_logzio_name `// Equivalent to a Cluster's name`|
-|kube_pod_status_phase||pod, uid, node, host_ip, phase, namespace|
-|kube_pod_info||pod,namespace,p8s_logzio_name,region|
-|container_cpu_usage_seconds_total||pod, region, topology_kubernetes_io_region, container|
-|container_memory_working_set_bytes||pod, container, resource|
-|kube_pod_container_resource_limits||pod|
-|kube_pod_container_info||pod|
-|container_network_transmit_bytes_total||pod|
-|container_network_receive_bytes_total||pod|
-|kube_pod_created||pod|
-|kube_pod_owner||pod, owner_kind, owner_name|
-|kube_pod_container_status_restarts_total||pod|
-|kube_pod_status_reason||pod, reason|
-|kube_pod_container_status_waiting_reason||pod, reason|
-|||
-|node_cpu_seconds_total||instance, mode|
-|node_memory_MemAvailable_bytes||instance|
-|node_memory_MemTotal_bytes||instance|
-|kube_node_role||node,role|
-|kube_node_status_condition||node, status, condition|
-|kube_node_created||node|
-|node_filesystem_avail_bytes||instance|
-|node_filesystem_size_bytes||instance|
-|kube_node_status_allocatable||resource, resource|
-|kube_node_labels||logzio_p8s_name|
-|||
-|kube_replicaset_owner||owner_kind, owner_name,replicaset|
-|kube_deployment_created||deployment|
-|kube_deployment_status_condition||deployment,status|
-|||
-|kube_daemonset_labels|| all labels|
-|kube_daemonset_status_number_ready|| all labels|
-|kube_daemonset_status_number_available|| all labels|
-|kube_daemonset_status_number_unavailable|| all labels|
-|kube_daemonset_status_current_number_scheduled|| all labels|
-|kube_daemonset_status_number_misscheduled|| all labels|
-|kube_daemonset_status_desired_number_scheduled|| all labels|
-|kube_job_labels|| all labels|
-|kube_job_complete|| all labels|
-|kube_job_status_failed|| all labels|
-|kube_job_status_succeeded|| all labels|
-|kube_job_complete|| all labels|
-|kube_job_status_failed|| all labels|
-|kube_job_status_completion_time|| all labels|
-|kube_replicaset_labels|| all labels|
-|kube_replicaset_spec_replicas|| all labels|
-|kube_replicaset_status_replicas|| all labels|
-|kube_replicaset_status_ready_replicas|| all labels|
-|kube_statefulset_replicas|| all labels|
-|kube_statefulset_status_replicas|| all labels|
-|kube_statefulset_status_replicas_updated|| all labels|
-|kube_statefulset_status_replicas_available|| all labels|
-|kube_job_owner|| all labels|
+[image]
 
 
-##### Manually configuring Security Risks
-
-To add Security Risks view to your existing Kubernetes data, you need to send the following logs:
-
-|**Source**|**Log**|
-|kubernetes|host_ip|
-|kubernetes|container_name|
-|kubernetes|pod_uid|
-|kubernetes|deployment_name|
-|kubernetes|pod_ip|
-|kubernetes|node_name|
-|kubernetes|resource_kind|
-|kubernetes|resource_name|
-|kubernetes|namespace_name|
-|kubernetes|pod_name|
-||severity|
-||resource|
-||title|
-||env_id|
-||vulnerabilityID|
-||primaryLink|
-
-
-Once everything is up and running, you can use your Kubernetes 360 application. [See what it has to offer](/user-guide/k360/kubernetes-360.html).
-
-<!-- #### Kubernetes 360 overview
-
-Kubernetes 360 application provides a quick overview of your current deployments and nodes.
-
-You can switch your view to focus on **Deployments** or **Nodes** using the buttons at the top right.
-
-The **deployments view** includes cards representing the different deployments, a quick overview of the deployment's average CPU and memory, and a rundown of the pods' status. You can quickly identify whether pods are failing, if they're consuming a high amount of CPU, memory, if they had multiple restarts, and the number of log error rates inside. The pods' colors indicate their current status, when red dots indicate an issue with this pod.
+When switching between views, the main cards change to represent the different resources. Each card includes several essential measurements, such as average CPU and memory usage, and a rundown of the resource’s status. The cards help you quickly identify which resources require your attention by marking failings or issues in red.
 
 ![deployments card](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/focus-on-deployment.png)
 
 
-The **node view** includes a summary of each node's physical CPU, memory, and disk. It also has a rundown of the inner pods’ status similar to the deployments view, including how many pods are failing, whether they’re using a high CPU or memory, the number of restarts, and the log error rate.
+<!-- The **node view** includes a summary of each node's physical CPU, memory, and disk. It also has a rundown of the inner pods’ status similar to the deployments view, including how many pods are failing, whether they’re using a high CPU or memory, the number of restarts, and the log error rate.
 
-![deployments card](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/focus-on-nodes.png)
+![deployments card](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/focus-on-nodes.png) -->
 
-
-Click on the cards or the elements inside them to get more information through the **[Quick view](/user-guide/k360/overview.html#quick-view)** menu.
+You can dive deeper into each card by clicking on it, opening the **[Quick view](/user-guide/k360/overview.html#quick-view)** menu.
 
 #### Customize your application
 
@@ -244,7 +150,7 @@ Click on a pod to access its quick view menu and gain access to this additional 
 * **CPU** - A percentile average of how much CPU has been used.
 * **Memory** - An average percentage of how much memory was consumed.
 
-![Pod menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/pod-quick-view-menu.png) -->
+![Pod menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/pod-quick-view-menu.png)
 
 
 <!-- ###### Cluster quick view
@@ -263,7 +169,7 @@ To access a cluster quick view, click the cluster's name in a deployment, node, 
 ![Cluster menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/deployment-to-cluster.gif)
 -->
 
-<!-- #### Investigate through quick view 
+#### Investigate through quick view 
 
 ##### See Metrics
 {:.no_toc}
@@ -335,4 +241,4 @@ Or:
 
 ###### Additional resources
 
-* [Read more](https://logz.io/blog/unified-observability-kubernetes-360/) about Logz.io's Kubernetes 360 platform. -->
+* [Read more](https://logz.io/blog/unified-observability-kubernetes-360/) about Logz.io's Kubernetes 360 platform.

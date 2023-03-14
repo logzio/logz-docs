@@ -242,7 +242,7 @@ Give your data some time to get from your system to ours, then log in to your Lo
 This integration uses OpenTelemetry collector extention and Python metrics SDK to create and send metrics from your Lambda functions to your Logz.io account.
 
 <!-- info-box-start:info -->
-This integration is currently only supported in the following AWS regions: **us-east-1**, **us-east-2**,**us-west-1**, **us-west-2**, **ca-central-1**, **ap-northeast-2**, **ap-northeast-1**,**eu-central-1**, **eu-west-2**. Contact Logz.io Customer Support if you need to deploy in a different region.
+This integration is currently only supported in the following AWS regions: **us-east-1**, **us-east-2**,**us-west-1**, **us-west-2**, **ca-central-1**, **ap-northeast-2**, **ap-southeast-1**, **ap-northeast-1**,**eu-central-1**, **eu-west-2**. Contact Logz.io Customer Support if you need to deploy in a different region.
 {:.info-box.note}
 <!-- info-box-end -->
 
@@ -357,7 +357,7 @@ def lambda_handler(event, context):
 Add the `logzio-otel-python-layer` lambda layer to your function:
 
 ```
-arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:logzio-otel-python-layer:1
+arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:logzio-lambda-otel-python-layer:1
 ```
 
 Replace `<<YOUR-AWS-REGION>>` with your AWS resgion.

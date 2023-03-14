@@ -102,7 +102,12 @@ And send the following metrics:
 
 ##### Manually configuring Security Risks
 
-To add Security Risks view to your existing Kubernetes data, you need to send the following logs:
+To add Security risks view to your existing Kubernetes data, you need to:
+
+* [Install Logz.io's Trivy operator]()
+* Configure and send security logs
+
+After deploying the updated Helm chart, ensure you're sending the following logs:
 
 |**Source**|**Log**|
 |kubernetes|host_ip|
@@ -122,6 +127,8 @@ To add Security Risks view to your existing Kubernetes data, you need to send th
 ||vulnerabilityID|
 ||primaryLink|
 
+
+If you encounter an issue while setting up your metrics or logs, [contact Logz.io's support team](mailto:help@logz.io) for additional help.
 
 Once everything is up and running, you can use your Kubernetes 360 application. [See what it has to offer](/user-guide/k360/kubernetes-360.html).
 

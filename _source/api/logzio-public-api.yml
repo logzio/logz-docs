@@ -4631,9 +4631,6 @@ paths:
 
         First, send a request to establish the `scrollID`. This initial request contains the query object and additional parameters, similar to the `v1/search` endpoint, with the exception that `dayOffset` and `accountIds` are not supported. The request will return the field `scrollId` and the number of `hits`, representing the number of matching results.
 
-        For example, the `scroll_Id` string may have a value `*************80Y1JVcldDaVEAAAAAjeoh8hZYNkVkXzNhWVJRaUIwcWF5TEVnU2ZR`.
-}
-
 
         Next, send the `scroll_id` in the request body to retrieve the log results as a stringified JSON. Each call returns the next page, where each page can return a maximum of 1000 results. Every time you resend the same `scroll_id` in the request body, it returns the next page until it reaches the end of the results. Note that 'scrollID' expires after 20 minutes.
         

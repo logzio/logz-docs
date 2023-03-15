@@ -512,6 +512,11 @@ You can run the logzio-k8s-telemetry chart with your custom configuration file t
 
 For example:
 
+<!-- info-box-start:info -->
+The collector will sample **ALL traces** where is some span with error with this example configuration. 
+{:.info-box.note}
+<!-- info-box-end -->
+
 ```yaml
 baseCollectorConfig:
   processors:

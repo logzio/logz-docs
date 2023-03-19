@@ -66,9 +66,9 @@ logzio-trivy logzio-helm/logzio-trivy
 | `<<LISTENER-HOST>>` | {% include log-shipping/listener-var.html %} |
 
 
-##### Check Logz.io for your logs
+##### Check Logz.io for your reports
 
-Give your logs some time to get from your system to ours,
+Give your reports some time to get from your system to ours,
 and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd).
 
 </div>

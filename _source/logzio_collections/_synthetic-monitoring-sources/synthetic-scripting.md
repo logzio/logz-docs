@@ -3,7 +3,7 @@ title: Perform synthetic scripting and send the metrics to Logz.io
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Perform synthetic scripting and send the metrics to Logz.io
 logo:
-  logofile: apii.svg
+  logofile: scripting.png
   orientation: vertical
 data-source: Synthetic scripting
 data-for-product-source: Synthetic monitoring

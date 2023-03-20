@@ -129,13 +129,6 @@ Once you've refined a query to the point that it returns exactly what you are lo
 * **Export** results to a spreadsheet.
 
 
-====
-
-#### Best practices and popular features
-
-
-
-
 ###### Additional resources
 {:.no_toc}
 

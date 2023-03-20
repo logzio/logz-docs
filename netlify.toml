@@ -555,3 +555,10 @@
   to = "http://dcv.akamai.com/.well-known/acme-challenge/FlcH2tUU5C9QeBVkc5yhe9pmpIA5xYSXw46cbRmYyxc"
   status = 301
   force = true
+
+
+[[redirects]]
+  from = "/user-guide/k360/overview.html#prerequisites"
+  to = "/user-guide/k360/kubernetes-360-pre.html"
+  status = 301
+  force = true

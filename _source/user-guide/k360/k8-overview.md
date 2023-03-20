@@ -21,7 +21,7 @@ Your Kubernetes 360 dashboard includes an overview of your clusters and deployme
 
 Kubernetes 360 application provides an overview of your Kubernetes data, providing a quick overview of your current deployments, pods, and more useful information regarding your environment.
 
-[image]
+![Main dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-main.png)
 
 
 ###### On this page

@@ -18,6 +18,7 @@ Kubernetes 360 lets R&D and engineering teams monitor and troubleshoot applicati
 
 The platform utilizes Kubernetes' numerous advantages for R&D and dev teams, allowing you to monitor application SLOs in a simple, efficient, and actionable manner. Kubernetes 360 offers flexibility and visibility while providing service discovery, balancing load, and allowing developer autonomy and business agility.
 
+![Main dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-main.png)
 
 ###### On this page
 {:.no_toc}
@@ -34,24 +35,18 @@ If you already have Kubernetes 360 data in your Logz.io account or prefer connec
 
 Once everything is up and running, you can use your Kubernetes 360 application.
 
+![Main dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-main.png)
 
-#### Kubernetes 360 overview
-
-You can switch your view to filter by the following resources: **Nodes**, **Deployments**, **Daemonset**, **Statefulset**, or **Job**.
-
-[image]
+### Kubernetes 360 overview
 
 
-When switching between views, the main cards change to represent the different resources. Each card includes several essential measurements, such as average CPU and memory usage, and a rundown of the resource’s status. The cards help you quickly identify which resources require your attention by marking failings or issues in red.
-
-![deployments card](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/focus-on-deployment.png)
 
 
 <!-- The **node view** includes a summary of each node's physical CPU, memory, and disk. It also has a rundown of the inner pods’ status similar to the deployments view, including how many pods are failing, whether they’re using a high CPU or memory, the number of restarts, and the log error rate.
 
 ![deployments card](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/focus-on-nodes.png) -->
 
-You can dive deeper into each card by clicking on it, opening the **[Quick view](/user-guide/k360/overview.html#quick-view)** menu.
+You can dive deeper into each card by clicking on it and opening the **[Quick view](/user-guide/k360/overview.html#quick-view)** menu.
 
 #### Customize your application
 
@@ -80,6 +75,18 @@ Click on the button to stop the auto refresh. This allows you to investigate an 
 
 ![autorefresh button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/autorefresh.png)
 
+##### View
+{:.no_toc}
+
+You can switch your view to filter by the following resources: **Nodes**, **Deployments**, **Daemonset**, **Statefulset**, or **Job**.
+
+![switch view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-switch-view.png)
+
+When switching between views, the main cards change to represent the different resources. Each card includes several essential measurements, such as average CPU and memory usage, and a rundown of the resource’s status. The cards help you quickly identify which resources require your attention by marking failings or issues in red.
+
+![deployments card](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-breakdown.png)
+
+
 ##### Change your metrics view
 {:.no_toc}
 
@@ -90,6 +97,7 @@ By default, Kubernetes 360 provides an overview of your current environment. Use
 * **Memory** - Know how much memory each pod uses: 0-50%, 50%-80%, 80%-100%, or over 100%.
 * **Restarts** - Get a numeric overview of how many restarts occurred in each pod: 0, 1-10, 11-20, or over 20 restarts.
 * **Log Error Rate** - Analyze the percentage of log errors that occurred and how many pods were affected. [_How do we calculate the log error rate?_](/user-guide/k360/overview.html#calculating-log-error-rate)
+* **Security risks** - Presents how many potential security risks are in each of your pods. 
 
 
 </div>
@@ -104,18 +112,21 @@ Click on a deployment, node, or pod to open the quick view menu and get more inf
 A **deployment** quick view includes the following fields:
 
 * **Name** - The name of the deployment you're focusing on.
-* **Status** - An indicator of the deployment's status. It can be **True**, **False**, or **Unknown**. 
 * **Cluster** - The cluster that this deployment is a part of.
 * **Region**- Your deployment's region.
 * **Namespace** - The deployment's unique namespace.
-* **Uptime** - The duration of how long this deployment has been running.
 * **CPU** - Amount of CPU used by this deployment. If the CPU is not capped, you'll see an indicator stating there's **no limit**.
 * **Memory** - An average calculation of how much memory this deployment uses.
-* **Disk** - The amount of disk space taken up by this node.
+* **Status** - An indicator of the deployment's status. It can be **True**, **False**, or **Unknown**. 
+* **Uptime** - The duration of how long this deployment has been running.
+* **Security risks** - How many potential security risks are in this deployment. 
 
-The deployment quick view menu includes the related pods, and you can see their status, the number of containers they’re in, and how much CPU and memory they’re using.
+<!-- * **Disk** - The amount of disk space taken up by this node. -->
 
-![Quick menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/quick-view-open-menu.png)
+
+At the bottom of the quick view menu you can view the pods related to this deployment, see their status, the number of containers they’re in, and how much CPU and memory they’re using.
+
+![Quick menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-quick-view.png)
 
 ###### Node quick view
 {:.no_toc}
@@ -131,10 +142,15 @@ A node quick view menu includes the following fields:
 * **CPU** - A percentile average of how much CPU has been used.
 * **Memory** - An average percentage of how much memory was consumed.
 * **Disk** - The amount of disk space this node takes, and how much is left.
+* **Security risks** - Number of potential security risks in this node.
 
-The node quick view menu also includes a list of the pods related to it. The list indicates each pod’s status, the number of containers they’re in, and how much CPU and memory they use.
+At the top of the quick view menu, there are links that can take you directly to the relevant logs (See Logs), open Logz.io's Livetail for quick troubleshooting, or see the relevant metrics (See Metrics).
 
-![Node menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/node-quick-view-menu.png)
+You can also view the relevant logs by clicking on the **Logs** tab, which presents the time, log level, and warning for each log inside the node. Click on the **Security** tab to see how many risks are inside the node, where they're located and what's their severity level.
+
+At the bottom of the quick view menu's **Overview** tab you'll find a list of all pods related to this node. The list indicates each pod’s status, the number of containers they’re in, and how much CPU and memory they use.
+
+![Node menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-node-quick-view.png)
 
 ###### Pod quick view
 {:.no_toc}
@@ -144,7 +160,8 @@ Click on a pod to access its quick view menu and gain access to this additional 
 * **Name** - The name of the pod you're focusing on. 
 * **Status** - Indicates whether that condition is applicable, with possible values **True**, **False**, or **Unknown**.
 * **Node** - The node that this pod is a part of.
-* **Deployment** - The deployment related to this pod.
+* **Workload name** - The name of the pod.
+* **Workload type** - The configuration of this pod.
 * **Cluster** - The cluster in which this pod resided. 
 * **Containers number** - Number of containers inside the pod.
 * **Region** - This pod's region.
@@ -153,8 +170,16 @@ Click on a pod to access its quick view menu and gain access to this additional 
 * **Restarts** - The number of restarts in this pod.
 * **CPU** - A percentile average of how much CPU has been used.
 * **Memory** - An average percentage of how much memory was consumed.
+* **Security event count** - The number of security events in this pod.
 
-![Pod menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/pod-quick-view-menu.png)
+<!-- * **Deployment** - The deployment related to this pod. -->
+
+
+You can view the relevant logs by clicking on the **Logs** tab, which presents the time, log level, and warning for each log inside the pod. Click on the **Security** tab to see how many risks are inside the pod, where they're located and what's their severity level.
+
+At the top of the quick view menu you have links that can take you directly to the relevant logs (See Logs), open Logz.io's Livetail for quick troubleshooting, or see the relevant metrics (See Metrics).
+
+![Pod menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-pod-quick-view.png)
 
 
 <!-- ###### Cluster quick view
@@ -187,11 +212,17 @@ Each quick view menu contains the **View Metrics** button, allowing you to view 
 
 Node and pod views include the **See Logs** button, which opens an OpenSearch Dashboard screen with the relevant query to display the log information.
 
-If you've set up your Kubernetes account manually, you might get an empty query with no results. In this case, you can use a custom filter to view all related logs.
+If you’ve manually set up your Kubernetes account, you might get an empty query with no results. In this case, you can view all related logs using a custom filter.
 
 Click on **Add filter** at the top of the screen. The fields vary according to your chosen view; add `kubernetes.host` to the field to view Node related logs. To view Pod related logs, add `kubernetes.pod_name` to the field.
 
-Next, choose the operator. For example, you can select **exists** to view all of the related logs.
+Next, choose the operator. For example, you can select **exists** to view all related logs.
+
+##### Open Livetail
+{:.no_toc}
+
+Node and pod views include the **Open Livetail** button, which opens Logz.io's Livetail filtered with the selected Kubernetes host. Live tail gives you a live view of your logs as they come into Logz.io, allowing you to view and troubleshoot in real time.
+
 
 ##### Locate
 {:.no_toc}
@@ -200,14 +231,14 @@ To re-focus your view, click the **Locate** button at the top of the quick view 
 
 ![Locate button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/locate-button.gif)
 
-##### Logs tab
+<!-- ##### Logs tab
 {:.no_toc}
 
 Nodes and pods quick view menu has an additional **Logs** tab containing a table with all the logs related to the chosen node or pod. The table includes the total number of logs, the time they were ingested, the log level, and its message.
 
 ![Logs inside nodes](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/logs-inside-nodes.png)
 
-You can sort the table by clicking on each header: **Time**, **Log level**, or **Message**. Click on the same header again to change your view to ascending/descending.
+You can sort the table by clicking on each header: **Time**, **Log level**, or **Message**. Click on the same header again to change your view to ascending/descending. -->
 
 #### Additional information
 

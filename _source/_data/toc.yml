@@ -114,8 +114,8 @@ firstLevel:
   secondLevel:
   - title: Getting started with Kubernetes 360
     url: /user-guide/k360/overview.html
-  - title: Kubernetes 360 overview
-    url: /user-guide/k360/overview.html
+  - title: Kubernetes 360 Prerequisite
+    url: /user-guide/k360/kubernetes-360-pre.html
     #thirdLevel:
     #- title: Meet Kubernetes 360
     #  url: 

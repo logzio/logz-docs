@@ -108,6 +108,9 @@ To add Security risks view to your existing Kubernetes data, you need to:
 * [Ship reports from Trivy operator](/shipping/log-sources/trivy.html)
 * Configure and send security logs
 
+After setting up the Trivy operator, ensure your account receives `type:trivy` logs. 
+
+<!-- 
 After deploying the updated Helm chart, ensure you're sending the following logs:
 
 |**Source**|**Log**|
@@ -127,6 +130,6 @@ After deploying the updated Helm chart, ensure you're sending the following logs
 ||env_id|
 ||vulnerabilityID|
 ||primaryLink|
-
+-->
 
 If you encounter an issue while setting up your metrics or logs, [contact Logz.io's support team](mailto:help@logz.io) for additional help.

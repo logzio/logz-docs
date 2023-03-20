@@ -207,7 +207,7 @@ Logz.io will log the alert and send the configured notifications.
 ##### Get alert's ID
 {:.no_toc}
 
-Each alert has a unique ID that can help you find and share it with your teammates. Once you're alert is configured, click on the Edit button next to it. Then, the URL will update to include a set of numbers that represents your alert's ID.
+Each alert has a unique ID to help you find and share it with your teammates. Once your alert is configured, click the Edit button next to it. Then, the URL will update to include a set of numbers that represents your alert’s ID.
 
 The URL will look like this:
 

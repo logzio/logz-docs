@@ -105,8 +105,8 @@ And send the following metrics:
 
 To add Security risks view to your existing Kubernetes data, you need to:
 
-* [Ship reports from Trivy operator](/shipping/log-sources/trivy.html)
-* Configure and send security logs
+* [Ship reports from Trivy operator](/shipping/log-sources/trivy.html).
+* Configure and send security logs.
 
 After setting up the Trivy operator, ensure your account receives `type:trivy` logs. 
 

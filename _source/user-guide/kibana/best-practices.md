@@ -2,7 +2,7 @@
 layout: article
 title: Best practices and popular features in Log Management
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Best practices and popular features in Log Management
+description: Best practices, search, and popular features in Log Management
 permalink: /user-guide/logs/best-practices.html
 flags:
   logzio-plan: community
@@ -55,26 +55,6 @@ Or, find status codes 400-499 with the extension php or html:
 
 `status:[400 TO 499] AND (extension:php OR extension:html)`
 
-
-##### How to use Regex in Log Management
-
-Logz.io uses Apache Lucene's regular expression engine to parse regex queries, supporting regexp and query_string.
-
-While Lucene's regex supports all Unicode characters, several characters are reserved as operators and cannot be searched on their own:
-
-`. ? + * | { } [ ] ( ) " \`
-
-Depending on the optional operators enabled, some additional characters may also be reserved. These characters are:
-
-`# @ & < >  ~`
-
-However, you can still use reserved characters by applying a backslash or double-quotes. For example:
-
-`\*` will render as a * sign.
-
-`\#` will render as a # sign.
-
-`\()` will render as brackets.
 
 ##### Searching and filtering in Log Management
 

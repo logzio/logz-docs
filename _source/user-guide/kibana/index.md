@@ -91,6 +91,10 @@ To find one of the values in the field, such as `fox`, you'll need to use the fo
 
 `sentence:/.*fox.*/`.
 
+Or, if you want to find a string or value in all of your logs, you can use the `exists` query with the relevant value. For example:
+
+`_exists_:"error"`. 
+
 ##### Time frame and date picker
 
 The default time frame in OpenSearch Dashboards is always the last 15 minutes.

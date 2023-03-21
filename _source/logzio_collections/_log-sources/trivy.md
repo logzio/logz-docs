@@ -14,10 +14,18 @@ order: 1380
 ---
 [Trivy](https://www.aquasec.com/products/trivy/) is an open-source vulnerability scanner for containers that can detect vulnerabilities in OS packages and application dependencies. The [Trivy Operator](https://github.com/aquasecurity/trivy-operator) is a Kubernetes operator that automates the process of scanning container images for vulnerabilities using Trivy.
 
-This integration utilizes the logzio-monitoring Helm Chart to deploy the Trivy Operator within your Kubernetes cluster. The Trivy Operator scans container images for vulnerabilities and forwards the generated reports to Logz.io for further analysis and monitoring.
+This integration utilizes the logzio-trivy Helm Chart to deploy:
+
+* Trivy-Operator Helm Chart that scans the cluster and creates Trivy reports.
+* A deployment that looks for the Trivy reports in the cluster, processes them, and sends them to Logz.io
 
 <!-- info-box-start:info -->
 At present, only vulnerability reports are being collected.
+{:.info-box.note}
+<!-- info-box-end -->
+
+<!-- info-box-start:info -->
+This integration is presently in its beta phase and may be subject to modifications.
 {:.info-box.note}
 <!-- info-box-end -->
 
@@ -28,18 +36,6 @@ At present, only vulnerability reports are being collected.
 * Kubernetes cluster to send reports from
 
 <div class="tasklist">
-
-##### Select the namespace
-
-This integration will be deployed in the namespace you set in values.yaml. The default namespace for this integration is `monitoring`.
-
-To select a different namespace, run:
-
-```shell
-kubectl create namespace <<NAMESPACE>>
-```
-
-* Replace `<<NAMESPACE>>` with the name of your namespace.
 
 
 ##### Add `logzio-helm` repo
@@ -52,12 +48,18 @@ helm repo update
 ###### Run the Helm deployment code
 
 ```shell
-helm install -n monitoring \
+helm install -n monitoring --create-namespace \
 --set env_id="<<ENV-ID>>" \
 --set secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
 --set secrets.logzioListener="<<LISTENER-HOST>>" \
 logzio-trivy logzio-helm/logzio-trivy
 ```
+
+
+<!-- info-box-start:info -->
+With this command, we instruct Helm to create the monitoring namespace if it does not already exist.
+{:.info-box.note}
+<!-- info-box-end -->
 
 | Parameter | Description |
 |---|---|

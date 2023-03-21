@@ -77,7 +77,7 @@ The Logz.io Data Parsing Editor tool works with the Logz.io public API and lets 
 **Logz.io Data Parsing** is available [**here**](https://parsing.logz.io/).
 
 <!-- info-box-start:important -->
-Logz.io's Data Parsing tool has strict guidelines and requires additional fields that are `optional` in GitHub. For example, when using the Date Processor, you'll need to specify the timezone parameter with the relevant time zone; `"timeZone": "Europe/Paris"`.
+Logz.io's Data Parsing tool has strict guidelines and requires additional fields that are `optional` in GitHub. For example, when using the Date Processor, you must specify the timezone parameter with the relevant time zone; `"timeZone": "Europe/Paris"`.
 {:.info-box.important}
 <!-- info-box-end -->
 

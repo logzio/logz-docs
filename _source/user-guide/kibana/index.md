@@ -9,6 +9,9 @@ flags:
 tags:
   - kibana
   - opensearchdashboards
+  - search logs
+  - search opensearch dashboards
+  - search
 contributors:
   - imnotashrimp
   - shalper
@@ -27,7 +30,7 @@ On this page you'll find:
 
 ![OSD Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/osd-main-screen.png)
 
-#### Searching your logs
+#### Overview
 
 OpenSearch Dashboards is designed to help you investigate massive volumes of data as quickly as possible. Filters, search phrases, and a date picker or relative time range selector are all designed to help you find the logs you want. Together, they are the _query criteria_ that determine which logs are returned from your logging database.
 
@@ -59,6 +62,25 @@ You can also save your search query in case you want to use them again in the fu
 ###### Regex
 {:.no_toc}
 
+Logz.io uses Apache Lucene's regular expression engine to parse regex queries, supporting regexp and query_string.
+
+While Lucene's regex supports all Unicode characters, several characters are reserved as operators and cannot be searched on their own:
+
+`. ? + * | { } [ ] ( ) " \`
+
+Depending on the optional operators enabled, some additional characters may also be reserved. These characters are:
+
+`# @ & < >  ~`
+
+However, you can still use reserved characters by applying a backslash or double-quotes. For example:
+
+`\*` will render as a * sign.
+
+`\#` will render as a # sign.
+
+`\()` will render as brackets.
+
+
 To use Regex in a search query in OpenSearch, you'll need to use the following template: 
 
 `fieldName:/.*value.*/`.
@@ -68,6 +90,10 @@ For example, you have a field called `sentence` that holds the following line: "
 To find one of the values in the field, such as `fox`, you'll need to use the following query:
 
 `sentence:/.*fox.*/`.
+
+Or, if you want to find a string or value in all of your logs, you can use the `exists` query with the relevant value. For example:
+
+`_exists_:"error"`. 
 
 ##### Time frame and date picker
 
@@ -106,4 +132,5 @@ Once you've refined a query to the point that it returns exactly what you are lo
 ###### Additional resources
 {:.no_toc}
 
-* [Read more](https://logz.io/blog/kibana-advanced/) about creating and running advanced searches in OpenSearch Dashboards.
+* [OpenSearch Dashboards best practices](/user-guide/logs/best-practices.html)
+* [Create and run advanced searches in OpenSearch Dashboards](https://logz.io/blog/kibana-advanced/)

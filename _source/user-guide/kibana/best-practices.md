@@ -2,7 +2,7 @@
 layout: article
 title: Best practices and popular features in Log Management
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Best practices and popular features in Log Management
+description: Best practices, search, and popular features in Log Management
 permalink: /user-guide/logs/best-practices.html
 flags:
   logzio-plan: community
@@ -55,26 +55,6 @@ Or, find status codes 400-499 with the extension php or html:
 
 `status:[400 TO 499] AND (extension:php OR extension:html)`
 
-
-##### How to use Regex in Log Management
-
-Logz.io uses Apache Lucene's regular expression engine to parse regex queries, supporting regexp and query_string.
-
-While Lucene's regex supports all Unicode characters, several characters are reserved as operators and cannot be searched on their own:
-
-`. ? + * | { } [ ] ( ) " \`
-
-Depending on the optional operators enabled, some additional characters may also be reserved. These characters are:
-
-`# @ & < >  ~`
-
-However, you can still use reserved characters by applying a backslash or double-quotes. For example:
-
-`\*` will render as a * sign.
-
-`\#` will render as a # sign.
-
-`\()` will render as brackets.
 
 ##### Searching and filtering in Log Management
 
@@ -131,15 +111,15 @@ The **Show dates** option lets you set a start and end time. In the popup, selec
 
 ![Choose time frame](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana-discover/time-settings-gif.gif)
 
-#### Create Log Visualizations with Logz.io
+<!-- #### Create Log Visualizations with Logz.io
 
-In the following video, you'll be able to see how to create a visualization dashboard based on your logs:
+In the following video, you'll be able to see how to create a visualization dashboard based on your logs: -->
 
 <!-- <video controls width=640 height=360 poster="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/log-visualization.png">
   <source src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/log-visualizations-velcfd5tpr.mp4" type="video/mp4" />
   </video> -->
 
-<p><a href="https://logz.io/learn/create-log-visualizations-with-logzio/?wvideo=velcfd5tpr" target="_blank"><img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/log-visualization.png" width="640" height="360" style="width: 640px; height: 360px;"></a></p><p><a href="https://logz.io/learn/create-log-visualizations-with-logzio/?wvideo=velcfd5tpr"></a></p>
+<!-- <p><a href="https://logz.io/learn/create-log-visualizations-with-logzio/?wvideo=velcfd5tpr" target="_blank"><img src="https://dytvr9ot2sszz.cloudfront.net/logz-docs/videos/log-visualization.png" width="640" height="360" style="width: 640px; height: 360px;"></a></p><p><a href="https://logz.io/learn/create-log-visualizations-with-logzio/?wvideo=velcfd5tpr"></a></p> -->
 
 <!-- <iframe class="vidyard_iframe" src="https://fast.wistia.com/embed/iframe/velcfd5tpr?" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe> -->
 

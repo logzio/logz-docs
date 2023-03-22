@@ -40,8 +40,6 @@ The Support team will respond with the connection information you'll need to giv
 
 Log into your [Azure Portal](https://portal.azure.com/) and follow the instructions in [Azure's docs](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/logzio-cloud-observability-for-engineers-tutorial) for adding the **Logz.io - Azure AD Integration** from the  Gallery.
 
-##### Configure the integration
-
 When you get to the step **Set up single sign-on with SAML**, you'll need the SAML information you received from Logz.io Support's email.
 
 * The _Audience URI_ from Logz.io is the SAML **Identifier (Entity ID)**.

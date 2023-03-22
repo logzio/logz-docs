@@ -75,3 +75,9 @@ Click on **Settings**, paste the Single Sign-in URL that Logz.io support Team ha
 
 When Support has created your Auth0 + Logz.io connection, you're done!
 You can start logging in to Logz.io through your Auth0 account.
+
+##### Adding New Auth0 SSO users
+
+New users who weren't a part of your account when you first created the SSO configuration, should apply a first login to Logz.io via the Auth0 platform by navigating to Application > SAML2 Web App > Addon settings.
+
+![Add new users](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/auth0/add-auth-logz.png)

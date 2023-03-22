@@ -203,3 +203,14 @@ If the thresholds are passed and the alert is triggered,
 Logz.io will log the alert and send the configured notifications.
 
 </div>
+
+##### Get alert's ID
+{:.no_toc}
+
+Each alert has a unique ID to help you find and share it with your teammates. Once your alert is configured, click the Edit button next to it. Then, the URL will update to include a set of numbers that represents your alert’s ID.
+
+The URL will look like this:
+
+`https://app.logz.io/#/dashboard/alerts/v2019/<<ALERT_ID>>`
+
+![Alert ID](https://dytvr9ot2sszz.cloudfront.net/logz-docs/alerts/alert-id.png)

@@ -77,7 +77,7 @@ Click **+ Add a bucket** and select the option to **Authenticate with a role**
 
 ![Connect Logz.io to an AWS resource](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/configure-s3-bucket.png)
 
-Copy and paste the **Account ID** and **External ID** in your text editor.
+Copy and paste the **Account ID** in your text editor.
 
 Fill in the form to create a new connector.
 
@@ -104,7 +104,7 @@ Click **Another AWS account**.
 Paste the **Account ID** you copied from Logz.io.
 
 Select **Require external ID**,
-and then paste the **External ID** from step 1.
+and then paste the following value into the **External ID** field: `Logzio:aws:extid:7d420c4cccf77013384751185ac12722`
 
 Click **Next: Permissions** to continue.
 

@@ -1,6 +1,6 @@
 If necessary, allowlist the relevant IPs in your firewalls. These depend on the region where your Logz.io account is hosted.  For accounts hosted in the Azure regions **West Europe (Netherlands)** or **West US 2 (Washington)**, contact our Customer Success team to discuss your requirements. 
 
-**us-east-1** IP addresses has recently changed. Make sure you update your configuration accordingly to ensure uninterrupted access to Logz.io.
+**us-east-1** IP address has recently changed. Make sure you update your configuration accordingly to ensure uninterrupted access to Logz.io.
 {:.info-box.note}
 
 

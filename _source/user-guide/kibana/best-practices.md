@@ -124,9 +124,11 @@ In the following video, you'll be able to see how to create a visualization dash
 <!-- <iframe class="vidyard_iframe" src="https://fast.wistia.com/embed/iframe/velcfd5tpr?" width=640 height=360 scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen></iframe> -->
 
 
-#### Use sub accounts to assign multiple data types
+#### Divide data - through sub account which shouldn't be in the title
 
-{% include /account-info/sub-account.md %}
+{% include /account-info/sub-account.md %} - Change this text to devide data to different enivronment 
+Logs from each environment can be divided by its type, you casn set a different type for each environment in the log shipper.
+Another option is shipping data from each environment to a different sub-account
 
 
 ###### Additional resources

@@ -20,6 +20,8 @@ To start sending your AWS data through the Telemetry Collector, Log into your **
 To configure the Telemetry Collector, you must be logged into your **main** Logz.io account.
 {:.info-box.important}
 
+This integration is only compatible with Amazon Linux version 2 on EC2. The use of version 1 is deprecated.
+{:.info-box.important}
 
 ![Start collecting button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-start-here.png)
 

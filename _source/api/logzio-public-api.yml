@@ -10360,6 +10360,10 @@ definitions:
 
           **Note:** You can use `aggs` or `aggregations` as the field name
         example: { "byType": { "terms": { "field": "type", "size": 5 } } }
+      scroll_id:
+        type: string
+        description: Scroll ID (snake case)
+        example: "*************80Y1JVcldDaVEAAAAAjeoh8hZYNkVkXzNhWVJRaUIwcWF5TEVnU2ZR"
 
   # ::::: SHARED TOKENS DEFINITIONS
   QueryFilter:

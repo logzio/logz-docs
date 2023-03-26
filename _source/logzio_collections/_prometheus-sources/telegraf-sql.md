@@ -118,7 +118,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the S
 * Replace `<<PASSWORD>>` with the password for your SQL database.
 
 <!-- info-box-start:info -->
-Query values must be numberic. Set it to either integer or float using the `field_columns_int` and `field_columns_float` settings. Set `field_columns_bool` to numeric as well.
+Query values must be numberic. Set it to either integer or float using the `field_columns_int` and `field_columns_float` settings.
 {:.info-box.note}
 <!-- info-box-end -->
 

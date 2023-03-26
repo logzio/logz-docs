@@ -106,7 +106,6 @@ First you need to configure the input plug-in to enable Telegraf to scrape the S
     # field_columns_int = []
     # field_columns_uint = []
     # field_columns_bool = []
-    # field_columns_string = []
 
     ## Column names containing fields (automatic types)
     ## An empty include list is equivalent to '[*]' and all returned columns will be accepted. An empty
@@ -119,7 +118,7 @@ First you need to configure the input plug-in to enable Telegraf to scrape the S
 * Replace `<<PASSWORD>>` with the password for your SQL database.
 
 <!-- info-box-start:info -->
-Query values need to be set to either integer or float using the `field_columns_int` and `field_columns_float` settings.
+Query values must be numberic. Set it to either integer or float using the `field_columns_int` and `field_columns_float` settings.
 {:.info-box.note}
 <!-- info-box-end -->
 

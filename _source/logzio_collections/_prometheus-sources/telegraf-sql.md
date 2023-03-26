@@ -125,7 +125,7 @@ Query values need to set to either string or float using the `field_columns_stri
 
 
 <!-- info-box-start:info -->
-The database name is only required for instantiating a connection with the server and does not restrict the databases that we collect metrics from. The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/blob/release-1.18/plugins/inputs/sqlserver/README.md).
+The database name is only required for instantiating a connection with the server and does not restrict the databases that we collect metrics from. The full list of data scraping and configuring options can be found [here](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/sql).
 {:.info-box.note}
 <!-- info-box-end -->
 

@@ -1,5 +1,5 @@
 ---
-title: Fluentd
+title: Fluentd - Windows
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Ship Fluentd Windows logs to Logz.io
 logo:

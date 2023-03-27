@@ -13,10 +13,6 @@ firstLevel:
   # These docs are generally in the /user-guide folder
 - title: Log Management
   icon: li-bar-graph
-
-  secondLevel:
-  - title: Logz.io quick start guide
-    url: /getting-started.html
   
 
   secondLevel:
@@ -471,7 +467,11 @@ firstLevel:
   # ===== ADMIN =====
 - title: Admin
   icon: li-gear
+  
   secondLevel:
+  - title: Logz.io quick start guide
+    url: /getting-started.html
+  
   - title: Logz.io Accounts
     thirdLevel:
     - title: Manage accounts

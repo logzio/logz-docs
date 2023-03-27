@@ -19,6 +19,8 @@ firstLevel:
     thirdLevel:
     - title: Intro to OpenSearch Dashboards
       url: /user-guide/logs/
+    - title: Logz.io quick start guide
+      url: /getting-started.html
     - title: OpenSearch Dashboards best practices
       url: /user-guide/logs/best-practices.html
     - title: Deployment markers

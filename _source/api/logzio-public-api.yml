@@ -4953,11 +4953,10 @@ paths:
                   type: object
                 description: A list of JSON objects. If the log is available only as a plain string, this string needs to be in the `message` field of the JSON object.
                 example:
-                  - fragment: test
-                    UA-device: Other
-                    check: value
-                    message: balima
-                    type": TestType
+                  - type: logtype
+                    fullMessage: Other
+                    message: hi
+                    hello: string
       responses:
         '200':
           content:

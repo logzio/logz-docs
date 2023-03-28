@@ -159,14 +159,14 @@ baseCollectorConfig:
 ```
 
 ```
-helm install -f <PATH-TO>/my_values.yaml \
---set logzio.region=<<LOGZIO_ACCOUNT_REGION_CODE>> \
---set logzio.tracing_token=<<TRACING-SHIPPING-TOKEN>> \
+helm install \
 --set traces.enabled=true \
+--set secrets.TracesToken=<<TRACES-SHIPPING-TOKEN>> \
+--set secrets.LogzioRegion=<<logzio-region>> \
+--set secrets.p8s_logzio_name=<<P8S-LOGZIO-NAME>> \
+--set secrets.env_id=<<ENV-ID>> \
 logzio-k8s-telemetry logzio-helm/logzio-k8s-telemetry
 ```
-
-Replace `<PATH-TO>` with the path to your custom `values.yaml` file.
 
 {% include /tracing-shipping/replace-tracing-token.html %}
 

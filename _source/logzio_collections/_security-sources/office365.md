@@ -160,7 +160,7 @@ curl https://raw.githubusercontent.com/logzio/public-certificates/master/AAACert
    ```
   
    * {% include log-shipping/log-shipping-token.md %}
-   * {% include log-shipping/listener-var.md %}
+   * Use the listener URL specific to the region where your Logz.io account is hosted. [Click to look up your listener URL](https://docs.logz.io/user-guide/accounts/account-region.html#available-regions).
 
 5. Run Filebeat with the new configuration.
 

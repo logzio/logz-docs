@@ -24,7 +24,10 @@ Patterns can help you isolate unusual events from a mass of repetitive events, i
 
 To review your log results clustered into Patterns, switch to the **Patterns** tab in OpenSearch Dashboards and filter Patterns in/out of your results.
 
-## Understanding log patterns
+* toc list
+{:toc}
+
+### Understanding log patterns
 
 ![Log patterns](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/log-patterns-table-1.png)
 
@@ -49,6 +52,9 @@ Filters
 {:.letter-labels}
 
 ### Patterns are specific to your log results
+
+For optimal pattern recognition, we recommend **splitting your logs into multiple types** to allow you to see the different patterns more clearly. Combining many logs into one type may result in many unidentified patterns.
+{:.info-box.tip}
 
 Log Patterns is an alternative view to the log document table. It shows the same logs organized in a different way. As you adjust your search and query parameters, filters, and time frame - Patterns are recalculated in sync with your log results.
 
@@ -94,4 +100,3 @@ Unidentified patterns
 {:.letter-labels}
 
 ![Log pattern limitations](https://dytvr9ot2sszz.cloudfront.net/logz-docs/kibana/log-pattern-limitations_aug2021.png)
-

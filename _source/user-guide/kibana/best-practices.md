@@ -35,13 +35,13 @@ You can search for free text by typing the text string you want to find; for exa
 
 ![String search](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/search-in-osd.png)
 
-To search for a value in a specific field, use the following syntax:
-
-`status:200`
-
 You can also use the `exists` query with the relevant value. For example:
 
 `_exists_:error`. 
+
+To search for a value in a specific field, use the following syntax:
+
+`status:200`
 
 Use the boolean operators AND, OR, and NOT to create more complex searches. For example, to search for a specific status that doesn't contain a certain word:
 

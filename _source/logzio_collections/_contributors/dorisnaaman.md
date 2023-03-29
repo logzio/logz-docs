@@ -5,6 +5,7 @@ github: dorisnaaman
 
 logzio-role: Security Product Analyst
 sitemap: false
+noindex: true
 ---
 
 {% comment %} LEAVE CONTENT EMPTY {% endcomment %}

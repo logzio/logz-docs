@@ -6,4 +6,5 @@ github: boofinka
 
 logzio-role: DevOps Engineer
 sitemap: false
+noindex: true
 ---

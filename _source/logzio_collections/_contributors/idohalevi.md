@@ -5,4 +5,5 @@ github: idohalevi
 
 logzio-role: Product Manager
 sitemap: false
+noindex: true
 ---

@@ -5,6 +5,7 @@ github: ronish31
 
 logzio-role: Integration Developer
 sitemap: false
+noindex: true
 ---
 
 {% comment %} LEAVE CONTENT EMPTY {% endcomment %}

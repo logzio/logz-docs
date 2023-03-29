@@ -318,7 +318,7 @@ x-tagGroups:
 paths:
   # ::::: GRAFANA
   
-  v1/provisioning/contact-points:
+  /v1/provisioning/contact-points:
       get:
         operationId: RouteGetContactpoints
         summary: Get all contact points
@@ -420,7 +420,7 @@ paths:
                     example: Error message
 
 
-  v1/provisioning/contact-points/{UID}:
+  /v1/provisioning/contact-points/{UID}:
     delete:
       operationId: RouteDeleteContactpoints
       summary: Delete a contact point
@@ -503,7 +503,7 @@ paths:
                   example: Validator error.
 
 
-  v1/provisioning/policies:
+  /v1/provisioning/policies:
     delete:
       operationId: RouteResetPolicyTree
       summary: Clears the notification policy tree
@@ -740,7 +740,7 @@ paths:
 
 
 
-  v1/grafana/api/datasources/summary:
+  /v1/grafana/api/datasources/summary:
       get:
         operationId: getAllDatasources
         summary: Return a list of data sources
@@ -786,7 +786,7 @@ paths:
                     type: string
                     example: Data source not found.
 
-  v1/grafana/api/datasources/name/{metric_account_name}/summary:
+  /v1/grafana/api/datasources/name/{metric_account_name}/summary:
       get:
         operationId: getDatasourceByAccount
         summary: Get a data source for a given account

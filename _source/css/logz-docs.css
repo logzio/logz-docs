@@ -485,6 +485,14 @@ ol .branching-tabs {
   padding-top: 12px;
 }
 
+.toc-container {
+  position: sticky;
+  top: 80px;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
+  margin-right: 20px;
+}
+
 /* ===== LOG SHIPPING PAGES ===== */
 
 #on-this-page-toc {

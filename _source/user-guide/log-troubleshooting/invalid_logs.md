@@ -43,7 +43,7 @@ Here are some of the **common mapping errors** you might encounter and why they 
 |failed to parse field [FIELD_NAME] of type [DATA_TYPE]|Field is being mapped as one data type but being sent as another|
 |Index -1 out of bounds for length 0|A field exists in the log with a dot "." in its name. For these cases, the system treats the field as an object when mapping it. For example: `log.level`, `app.kubernetes`, etc.|
 |Numeric value (NUMBER) out of range of long (-9223372036854775808 - 9223372036854775807)|Field mapped as a number, but its value is outside the range of the "Long" data type|
-
+|object field starting or ending with a [.] makes object resolution ambiguous|Some fields in the logs contain invalid characters in the name. For example: `.` , `,` , `_` , `#`|
 
 ##### Mapping errors through sub accounts
 

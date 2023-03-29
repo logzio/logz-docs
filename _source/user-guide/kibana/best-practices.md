@@ -41,7 +41,7 @@ To search for a value in a specific field, use the following syntax:
 
 You can also use the `exists` query with the relevant value. For example:
 
-`_exists_:"error"`. 
+`_exists_:error`. 
 
 Use the boolean operators AND, OR, and NOT to create more complex searches. For example, to search for a specific status that doesn't contain a certain word:
 

@@ -17,7 +17,12 @@ Logz.io is an end-to-end cloud monitoring service built for scale. It’s the be
 One unified SaaS platform to collect and analyze logs, metrics, and traces, combined with human-powered AI/ML features to improve troubleshooting, reduce response time and help you manage costs.
 
 **In this guide, you can find how to:**
+{:.no_toc}
 
+* toc list
+{:toc}
+
+<!--
 * [Send your data to Logz.io](/getting-started.html#send-your-data-to-logzio)
   * [Parse your data](/getting-started.html#parsing-your-data)
 * [Explore your data with Logz.io's Log Management platform](/getting-started.html#meet-logzios-log-management-platform)
@@ -25,7 +30,7 @@ One unified SaaS platform to collect and analyze logs, metrics, and traces, comb
   * [Watch how to build Metrics visualizations with Logz.io](/getting-started.html#build-metrics-visualizations-with-logzio)
 * [Take a deep dive into your code with Logz.io's Distributed Tracing](/getting-started.html#meet-logzios-distributed-tracing)
 * [Secure your environment with Logz.io's Cloud SIEM](/getting-started.html#meet-logzios-cloud-siem)
-* [Manage your Logz.io account](/getting-started.html#manage-your-logzio-account)
+* [Manage your Logz.io account](/getting-started.html#manage-your-logzio-account) -->
 
 
 Whether you are a new user or looking for a refresher on Logz.io, you are invited to join one of our engineers for a **[live training on the Logz.io platform](https://calendly.com/stevemccabe-logz/logz-io-training-101)**!
@@ -72,6 +77,7 @@ If you can't find your log type, or if you're interested in sending custom logs,
 If you prefer to parse the logs yourself, you can use our [DIY Data Parsing Editor](https://docs.logz.io/user-guide/mapping-and-parsing/sawmill-parsing.html). 
 
 ###### Additional resources
+{:.no_toc}
 
 Learn more about sending data to Logz.io:
 
@@ -80,7 +86,7 @@ Learn more about sending data to Logz.io:
 * [Log shipping troubleshooting](https://docs.logz.io/user-guide/log-shipping/log-shipping-troubleshooting.html)
 * [Troubleshooting Filebeat](https://docs.logz.io/user-guide/log-troubleshooting/filebeat-troubleshooting.html)
 
-#### Meet Logz.io’s Log Management platform
+#### Explore your data with Logz.io's Log Management platform
 
 Logz.io’s **[Log Management](https://app.logz.io/#/dashboard/osd)** is where you can search and query log files. You can use it to identify and analyze your code, and the platform is optimized for debugging and troubleshooting issues as quickly and effectively as possible.
 
@@ -96,7 +102,7 @@ The following list contains some of the common abilities available in Log Manage
 * Predicting exceptions and critical errors with **[Insights](https://docs.logz.io/user-guide/insights/)**
 
 
-#### Meet Logz.io’s Infrastructure Monitoring
+#### Create visualizations with Logz.io's Infrastructure Monitoring
 
 Monitor your **[Infrastructure Monitoring](https://app.logz.io/#/dashboard/metrics)** to gain a clear picture of the ongoing status of your distributed cloud services at all times. 
 
@@ -125,11 +131,12 @@ You can also:
 * Mark events on your Metrics dashboard based on data from a logging account, with **[Annotations](https://docs.logz.io/user-guide/infrastructure-monitoring/annotations/)**
 
 ###### Additional resources
+{:.no_toc}
 
 * [Sending Prometheus metrics to Logz.io](https://logz.io/learn/sending-prometheus-metrics-to-logzio/)
 
 
-#### Meet Logz.io’s Distributed Tracing
+#### Take a deep dive into your code with Logz.io's Distributed Tracing
 
 Use Logz.io’s **[Distributed Tracing](https://app.logz.io/#/dashboard/jaeger)** to look under the hood at how your microservices behave, and access rich information to improve performance, investigate, and troubleshoot issues.
 
@@ -144,7 +151,7 @@ To help you understand how Distributed Tracing can enhance your data, check out 
 <!-- * **[Visualize traces in your logs](https://docs.logz.io/user-guide/distributed-tracing/visualize-traces/)** -->
 
 
-#### Meet Logz.io’s Cloud SIEM 
+#### Secure your environment with Logz.io's Cloud SIEM
 
 Logz.io **[Cloud SIEM](https://app.logz.io/#/dashboard/security/summary)** (Security Information and Event Management) aggregates security logs and alerts across distributed environments to allow your team to investigate security incidents from a single observability platform.
 

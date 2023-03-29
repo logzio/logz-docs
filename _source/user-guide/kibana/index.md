@@ -59,42 +59,6 @@ You can also save your search query in case you want to use them again in the fu
 
 ![Save search query](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/save-search-query.png)
 
-###### Regex
-{:.no_toc}
-
-Logz.io uses Apache Lucene's regular expression engine to parse regex queries, supporting regexp and query_string.
-
-While Lucene's regex supports all Unicode characters, several characters are reserved as operators and cannot be searched on their own:
-
-`. ? + * | { } [ ] ( ) " \`
-
-Depending on the optional operators enabled, some additional characters may also be reserved. These characters are:
-
-`# @ & < >  ~`
-
-However, you can still use reserved characters by applying a backslash or double-quotes. For example:
-
-`\*` will render as a * sign.
-
-`\#` will render as a # sign.
-
-`\()` will render as brackets.
-
-
-To use Regex in a search query in OpenSearch, you'll need to use the following template: 
-
-`fieldName:/.*value.*/`.
-
-For example, you have a field called `sentence` that holds the following line: "The quick brown fox jumps over the lazy dog".
-
-To find one of the values in the field, such as `fox`, you'll need to use the following query:
-
-`sentence:/.*fox.*/`.
-
-Or, if you want to find a string or value in all of your logs, you can use the `exists` query with the relevant value. For example:
-
-`_exists_:"error"`. 
-
 ##### Time frame and date picker
 
 The default time frame in OpenSearch Dashboards is always the last 15 minutes.

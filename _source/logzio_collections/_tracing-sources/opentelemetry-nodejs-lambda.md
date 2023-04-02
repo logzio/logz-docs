@@ -50,12 +50,34 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 This layer contains the OpenTelemetry collector that will capture data from your application.
 
 ```shell
-aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:logzio-opentelemetry-collector-layer:1
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:logzio-opentelemetry-collector-layer:<<LAYER_VERSION>>
 ```
 
 Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
 
 Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
+
+Replace `<<LAYER_VERSION>>` with the latest stable version for your region.
+
+|Region|logzio-opentelemetry-collector-layer|
+|--- |--- |
+|us-esat-1|14|
+|us-east-2|3|
+|us-west-1|2|
+|us-west-2|2|
+|eu-north-1|2|
+|eu-west-1|3|
+|eu-west-2|3|
+|eu-west-3|2|
+|ca-central-1|3|
+|ap-northeast-1|3|
+|ap-northeast-2|3|
+|ap-northeast-3|2|
+|ap-south-1|2|
+|ap-southeast-1|2|
+|ap-southeast-2|2|
+|sa-east-1|2|
+
 
 ##### Create a configuration file for the OpenTelemetry collector
   
@@ -115,12 +137,34 @@ Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function ru
 The OpenTelemetry Node.js wrapper layer automatically instruments the Node.js application in your Lambda function.
 
 ```shell
-aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:logzio-opentelemetry-nodejs-wrapper:1
+aws lambda update-function-configuration --function-name <<YOUR-LAMBDA_FUNCTION_NAME>> --layers arn:aws:lambda:<<YOUR-AWS-REGION>>:486140753397:layer:logzio-opentelemetry-nodejs-wrapper:<<LAYER_VERSION>>
 ```
 
 Replace `<<YOUR-LAMBDA_FUNCTION_NAME>>` with the name of your Lambda function running the Node.js application.
 
 Replace `<<YOUR-AWS-REGION>>` with the code of your AWS regions, e.g. `us-east-1`.
+
+Replace `<<LAYER_VERSION>>` with the latest stable version for your region.
+
+|Region|logzio-opentelemetry-nodejs-wrapper|
+|--- |--- |
+|us-esat-1|11|
+|us-east-2|3|
+|us-west-1|2|
+|us-west-2|2|
+|eu-north-1|2|
+|eu-west-1|3|
+|eu-west-2|3|
+|eu-west-3|2|
+|ca-central-1|3|
+|ap-northeast-1|3|
+|ap-northeast-2|3|
+|ap-northeast-3|2|
+|ap-south-1|2|
+|ap-southeast-1|2|
+|ap-southeast-2|2|
+|sa-east-1|2|
+
   
 ##### Add environment variable for the wrapper
   

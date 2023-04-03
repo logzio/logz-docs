@@ -61,7 +61,7 @@ Replace `<<LAYER_VERSION>>` with the latest stable version for your region.
 
 |Region|logzio-opentelemetry-collector-layer|
 |--- |--- |
-|us-esat-1|14|
+|us-east-1|14|
 |us-east-2|3|
 |us-west-1|2|
 |us-west-2|2|
@@ -148,7 +148,7 @@ Replace `<<LAYER_VERSION>>` with the latest stable version for your region.
 
 |Region|logzio-opentelemetry-nodejs-wrapper|
 |--- |--- |
-|us-esat-1|11|
+|us-east-1|11|
 |us-east-2|3|
 |us-west-1|2|
 |us-west-2|2|

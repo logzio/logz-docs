@@ -17,6 +17,13 @@ Cloud SIEM has an integrated platform for security events management. Here you c
    ![Notification](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem-quick-start/event_management-2.png)
 
 
+
+
+The event manager has a retention period of 2 weeks. Older events are saved as logs on your security account and can be viewed from your OpenSearch Dashboards.
+{:.info-box.note}
+
+
+
 ### Access Event Management
 
 To access the **Event Management** platform:

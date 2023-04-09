@@ -1,5 +1,7 @@
 ---
 title: Ship AKS logs using a Fluentd DaemonSet
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship AKS logs To Logz.io using a Fluentd DaemonSet
 logo:
   logofile: aks.svg
   orientation: vertical

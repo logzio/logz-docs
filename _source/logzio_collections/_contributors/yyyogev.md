@@ -5,4 +5,5 @@ github: yyyogev
 
 logzio-role: Integrations Ninja
 sitemap: false
+noindex: true
 ---

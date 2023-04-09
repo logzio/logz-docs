@@ -5,4 +5,5 @@ github: gregoryloucas
 
 logzio-role: Solution Architect
 sitemap: false
+noindex: true
 ---

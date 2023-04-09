@@ -5,4 +5,5 @@ github: amirkalron
 
 logzio-role: Software engineer
 sitemap: false
+noindex: true
 ---

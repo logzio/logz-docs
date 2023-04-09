@@ -5,4 +5,5 @@ github: supereli
 
 logzio-role: Sales Engineer
 sitemap: false
+noindex: true
 ---

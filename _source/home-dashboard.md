@@ -30,7 +30,7 @@ Home Dashboard includes your account’s data, logs, metrics, traces, alerts, ex
 
 You can quickly access the Home Dashboard by clicking on the **Home** icon in the navigation. 
 
-![Home dashboard Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/home-dashboard/dashboard-overview.png)
+![Home dashboard Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/home-dashboard/dashboard-overview-.png)
 
 
 <div class="tasklist">
@@ -67,8 +67,6 @@ Home Dashboard offers easy access to your logs and metrics dashboards, allowing 
 ##### Time frame
 
 The top of the page indicates when the data was last updated, helping you keep up to date with the data.
-
-##### Change time frame
 
 You can change the time range to view data from the last 24 hours and up until from the last 2 hours. Once you choose a different time frame, Home Dashboard will update to reflect the relevant data.
 

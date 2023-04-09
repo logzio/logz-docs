@@ -9,6 +9,16 @@
 
 firstLevel:
 
+- title: Logz.io
+  icon: li-logz
+
+  secondLevel:
+  - title: Quick start guide
+    url: /getting-started.html
+  - title: Home Dashboard
+    url: /home-dashboard.html
+  
+
   # ===== USER GUIDE =====
   # These docs are generally in the /user-guide folder
 - title: Log Management

@@ -19,7 +19,7 @@ Cloud SIEM has an integrated platform for security events management. Here you c
 
 
 
-The event manager has a retention period of 2 weeks. Older events are saved as logs on your security account and can be viewed from your OpenSearch Dashboards.
+The event manager has a retention period of 2 weeks. Older events are **saved as logs** on your security account and can be viewed from OpenSearch Dashboards.
 {:.info-box.note}
 
 

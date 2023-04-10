@@ -164,10 +164,6 @@ service:
 
 By creating and attaching these IAM roles and policies, the AWS OTel Collector is granted the necessary permissions to collect and send metrics and traces from your ECS Fargate cluster to Logz.io. The template also configures the collector to use the specified Logz.io tokens, region, and listener URL.
 
-#### Point the OTLP exporter to the new collector container
-
-Update the OTLP exporter configuration in your applications to point to the new collector container running in your ECS Fargate tasks.
-
 ##### Ensuring Connectivity Between the Application Containers and the Collector Container
 
 To ensure seamless connectivity between your application containers and the AWS OTel Collector container, you need to properly configure your Amazon VPC, subnets, and security groups.
@@ -190,6 +186,11 @@ To allow your application containers to send traces and metrics to the AWS OTel 
 When deploying the CloudFormation template, provide the collector container's security group ID in the `SecurityGroups` parameter.
 
 By properly configuring your Amazon VPC, subnets, and security groups, you can ensure that your application containers can send metrics and traces to the AWS OTel Collector container, which in turn forwards the data to Logz.io.
+
+
+#### Point the OTLP exporter to the new collector container
+
+Update the OTLP exporter configuration in your applications to point to the new collector container running in your ECS Fargate tasks.
 
 #### Check Logz.io for your logs
 {:.no_toc}

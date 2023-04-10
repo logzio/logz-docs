@@ -48,7 +48,22 @@ Click on the **Launch Stack** button below to deploy the CloudFormation template
 | [![Deploy to AWS](https://dytvr9ot2sszz.cloudfront.net/logz-docs/lights/LightS-button.png)](https://console.aws.amazon.com/cloudformation/home#/stacks/create/review?templateURL=https://logzio-aws-integrations-us-east-1.s3.amazonaws.com/logzio-aws-ecs/ecs-fargate-collector.yaml) |  |
 
 
-##### Parameters
+
+#### Point the OTLP exporter to the new collector container
+
+Update the OTLP exporter configuration in your applications to point to the new collector container running in your ECS Fargate tasks.
+
+
+#### Check Logz.io for your logs
+{:.no_toc}
+
+Give your logs some time to get from your system to ours, and then open OpenSearch Dashboards.
+
+You’ll be able to find these logs by searching for `type:fargate`.
+
+
+
+#### Parameters
 
 The CloudFormation template requires the following parameters:
 
@@ -188,13 +203,4 @@ When deploying the CloudFormation template, provide the collector container's se
 By properly configuring your Amazon VPC, subnets, and security groups, you can ensure that your application containers can send metrics and traces to the AWS OTel Collector container, which in turn forwards the data to Logz.io.
 
 
-#### Point the OTLP exporter to the new collector container
 
-Update the OTLP exporter configuration in your applications to point to the new collector container running in your ECS Fargate tasks.
-
-#### Check Logz.io for your logs
-{:.no_toc}
-
-Give your logs some time to get from your system to ours, and then open OpenSearch Dashboards.
-
-You’ll be able to find these logs by searching for `type:fargate`.

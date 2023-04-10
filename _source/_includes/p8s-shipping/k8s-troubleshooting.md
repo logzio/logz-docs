@@ -215,3 +215,33 @@ You need to make sure that the `prometheus.io/scrape` is set to `true`:
 prometheus.io/scrape: true
 ```
 
+
+##  Problem: You have reached your pull rate limit
+
+In some cases (i.e. spot clusters) where the pods or nodes are replaced frequently, they might reach the pull rate limit for images pulled from dockerhub with the following error:
+
+```yaml
+You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: 
+https://www.docker.com/increase-rate-limits
+```
+
+#### Suggested remedy
+{:.no_toc}
+
+You can use the following `--set` commands to use an alternative image repository:
+
+For the monitoring chart and the Telemetry Collector Kubernetes installation:
+
+
+`--set logzio-k8s-telemetry.image.repository=ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib`
+`--set logzio-k8s-telemetry.prometheus-pushgateway.image.repository=public.ecr.aws/c3d4d8b6/prom-pushgateway`
+
+For the telemetry chart:
+
+
+`--set image.repository=ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib`
+`--set prometheus-pushgateway.image.repository=public.ecr.aws/c3d4d8b6/prom-pushgateway`
+
+
+
+

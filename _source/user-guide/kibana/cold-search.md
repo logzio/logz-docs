@@ -74,7 +74,7 @@ Type the search term or query you'd like to use, and choose the relevant time fr
 
 Next, choose the time frame for your search. You can select a time frame of up to 24 hours.
 
-Click on **Fetch raw logs** to generate a preview of the logs that match your criteria. If these logs are the ones you want to retrieve, click on the **Re-ingest** button to re-ingest the logs. 
+Click on **Fetch raw logs** to generate a preview of the logs that match your criteria. If these logs are the ones you want to retrieve, click the **Re-ingest** button to re-ingest the logs. 
 
 The confirmation message includes important information, including the name of the new account, the chosen time frame, your query, and the estimated size of the re-ingested data. Note that the data will count against your daily quota and may **result in an additional charge** if you exceed your account's limit.
 
@@ -84,10 +84,23 @@ This process might take a few minutes, during which you can continue using Logz.
 
 These logs will be available to search and analyze from your OpenSearch Dashboards for a period of X days. 
 
+
 #### Troubleshooting Cold search
 
 You might encounter an issue while fetching raw logs or re-ingesting them. Here are some common issues that can arise and how you can quickly resolve them:
 
+##### Issue: Exceeded max limit of restored accounts
+
+Cold search works with your archived accounts and has similar limitations. To re-ingest Cold search logs, you must have at least 1 available slot in your restored accounts. 
+
+###### Suggested remedy
+{:.no_toc}
+
+Ensure you have at least 1 available slot in your restored account. Navigate to [Data Hub > Archive and restore > Restored account](https://app.logz.io/#/dashboard/tools/archive-and-restore) to review if you've exceeded your limit.
+
+If you have exceeded your restored accounts limit, you'll need to delete at least one account to use Cold search. 
+
+If you wish to upgrade your existing quota, you can contact [Logz.io's support team](mailto:help@logz.io).
 ##### Issue: Missing permissions
 
 Can't fetch raw logs due to missing permissions.

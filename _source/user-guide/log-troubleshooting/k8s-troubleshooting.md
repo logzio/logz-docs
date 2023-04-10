@@ -122,18 +122,24 @@ Applying the new Daemonset without removing the old one will not apply the chang
 kubectl -n <<NAMESPACE>> logs <<POD-NAME>>
 ```
   
-###  Problem: You have reached your pull rate limit
+##  Problem: You have reached your pull rate limit
 
-In some cases (i.e spot clusters) where the pods/nodes are replaced frequently, the pull rate limit for images pulled from dockerhub might be reached, with an error:
-`You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limits`
+vIn some cases (i.e. spot clusters) where the pods or nodes are replaced frequently, they might reach the pull rate limit for images pulled from dockerhub with the following error:
+
+```yaml
+You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: 
+https://www.docker.com/increase-rate-limits
+```
 
 #### Suggested remedy
 {:.no_toc}
 
-We can use the following `--set` commands to use an alternative image repository:
+You can use the following `--set` commands to use an alternative image repository:
 
-For the monitoring chart and the agent kubernetes installation:
+For the monitoring chart and the Telemetry Collector Kubernetes installation:
+
 `--set logzio-fluentd.image.repository=public.ecr.aws/c3d4d8b6/logzio-fluentd`
 
 For the fluentd chart:
+
 `--set image.repository=public.ecr.aws/c3d4d8b6/logzio-fluentd`

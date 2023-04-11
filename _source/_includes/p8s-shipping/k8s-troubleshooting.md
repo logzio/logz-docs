@@ -234,13 +234,13 @@ For the monitoring chart and the Telemetry Collector Kubernetes installation:
 
 
 `--set logzio-k8s-telemetry.image.repository=ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib`
-`--set logzio-k8s-telemetry.prometheus-pushgateway.image.repository=public.ecr.aws/c3d4d8b6/prom-pushgateway`
+`--set logzio-k8s-telemetry.prometheus-pushgateway.image.repository=public.ecr.aws/logzio/prom-pushgateway`
 
 For the telemetry chart:
 
 
 `--set image.repository=ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib`
-`--set prometheus-pushgateway.image.repository=public.ecr.aws/c3d4d8b6/prom-pushgateway`
+`--set prometheus-pushgateway.image.repository=public.ecr.aws/logzio/prom-pushgateway`
 
 
 

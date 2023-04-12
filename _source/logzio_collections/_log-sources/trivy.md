@@ -119,3 +119,17 @@ To uninstall the `logzio-trivy` deployment, use the following command:
 ```shell
 helm uninstall logzio-trivy
 ```
+
+#### Handling image pull rate limit
+
+In certain cases, such as spot clusters, where pods or nodes are frequently replaced, the pull rate limit for images retrieved from Docker Hub may be reached, resulting in an error:
+
+```
+You have reached your pull rate limit. You may increase the limit by authenticating and upgrading: https://www.docker.com/increase-rate-limits.
+```
+
+In these cases we can use the following `--set` command to use an alternative image repository:
+
+```shell
+--set image=public.ecr.aws/logzio/trivy-to-logzio
+```

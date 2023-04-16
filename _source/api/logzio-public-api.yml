@@ -5321,7 +5321,7 @@ paths:
         - Deployments
       operationId: createMarkers
       summary: Add deployment markers to Exception graphs
-      description: Send logs with details of service deployments to annotate Exception graphs in Kibana Discover. [Learn more about Deployment markers](/user-guide/insights/exceptions/deployments.html)
+      description: Send logs with details of service deployments to annotate Exception graphs in OpenSearch Dashboards Discover. [Learn more about Deployment markers](/user-guide/insights/exceptions/deployments.html)
       produces:
         - application/json
       parameters:
@@ -9574,7 +9574,7 @@ definitions:
         example: ["app-server", "user-analytics"]
       kibanaLink:
         type: string
-        description: Only applicable for `LOGCEPTION` Insights. Provides a drill-down link to fetch the raw logs that match the Insight in Kibana Discover.
+        description: Only applicable for `LOGCEPTION` Insights. Provides a drill-down link to fetch the raw logs that match the Insight in OpenSearch Dashboards Discover.
       insightTitle:
         type: string
         description: The title of the Insight.
@@ -11095,7 +11095,7 @@ definitions:
         type: array
         items:
           type: string
-        description: Tags for filtering alerts and triggered alerts. Can be used in Kibana Discover, dashboards, and more.
+        description: Tags for filtering alerts and triggered alerts. Can be used in OpenSearch Dashboards Discover, dashboards, and more.
         example: [network, aws]
       output:
         $ref: '#/definitions/AlertOutput'
@@ -11314,7 +11314,7 @@ definitions:
           example: "network"
         maxItems: 10
         minItems: 0
-        description: Tags for filtering alerts and triggered alerts. Can be used in Kibana Discover, dashboards, and more.
+        description: Tags for filtering alerts and triggered alerts. Can be used in OpenSearch Dashboards Discover, dashboards, and more.
         
       output:
         $ref: '#/definitions/AlertOutput'
@@ -11521,7 +11521,7 @@ definitions:
         type: array
         items:
           type: string
-        description: Tags for filtering rules and triggered rules. Can be used in Kibana Discover, dashboards, and more.
+        description: Tags for filtering rules and triggered rules. Can be used in OpenSearch Dashboards Discover, dashboards, and more.
         example: [network, aws]
       output:
         $ref: '#/definitions/RuleOutput'
@@ -11701,7 +11701,7 @@ definitions:
           type: string
         maxItems: 25
         minItems: 0
-        description: Tags for filtering rules and triggered rules. Can be used in Kibana Discover, dashboards, and more.
+        description: Tags for filtering rules and triggered rules. Can be used in OpenSearch Dashboards Discover, dashboards, and more.
         example: network
       output:
         $ref: '#/definitions/RuleOutput'
@@ -11828,7 +11828,7 @@ definitions:
         type: array
         items:
           type: string
-        description: Tags for filtering rules and triggered rules. Can be used in Kibana Discover, dashboards, and more.
+        description: Tags for filtering rules and triggered rules. Can be used in OpenSearch Dashboards Discover, dashboards, and more.
         example: [network, aws]
       output:
         $ref: '#/definitions/RuleOutput'

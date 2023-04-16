@@ -178,7 +178,7 @@ If you still don't see your logs, see [Filebeat troubleshooting](https://docs.lo
 **Before you begin, you'll need**: 
 
 * [Check Point Log Exporter](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk122323)
-* {% include /log-shipping/filebeat-installed-port5015-begin.md %} installed as a Windows service{% include /log-shipping/filebeat-installed-port5015-end.md %}
+{% include /log-shipping/filebeat-installed-port5015-begin.md %} installed as a Windows service{% include /log-shipping/filebeat-installed-port5015-end.md %}
 
 
 

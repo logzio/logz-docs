@@ -9472,7 +9472,7 @@ definitions:
         example: ["log-engine", "spark"]
       onlyNew:
         type: boolean
-        description: Filters for Insights that first occurred in the selected time frame. In other words, excludes Insights that were first identified before or after the selected time range.
+        description: Filters for Insights that first occurred in the selected time frame. In other words, excludes Insights that were first identified before or after the selected time range. If `onlyNew` attribute is set to `false`, you need to specify `startDate` and `endDate`.
         default: false
         example: true
       sortBy:

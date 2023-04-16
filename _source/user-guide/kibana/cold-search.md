@@ -67,16 +67,16 @@ Once the new policy is updated, you can use Cold search to retrieve and re-inges
 
 #### Using Cold search
 
-All users can fetch raw logs from Cold search. However, **re-ingesting logs requires admin permissions**.
-{:.info-box.note}
+All users can fetch raw logs from Cold search. However, only **account admins** can re-ingest logs into the account.
+{:.info-box.important}
 
-To start using Cold Search, navigate to [Log analytics](https://app.logz.io/#/dashboard/osd/discover/) and choose Cold search from the navigation menu, or click the the **Cold Search** button.
+To start using Cold Search, navigate to [Log analytics](https://app.logz.io/#/dashboard/osd/discover/) and choose Cold search from the navigation menu, or click the **Cold Search** button.
 
 ![cold search nav](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/cold-search-nav.png)
 
 Type the search term or query you'd like to use, and choose the relevant time frame. Your restored logs will only include data matching your exact search term.
 
-Next, choose the time frame for your search. You can select a time frame of up to 24 hours.
+Next, choose the time frame for your search. You can select a time frame of up to 3 days.
 
 Click on **Fetch raw logs** to generate a preview of the logs that match your criteria. If these logs are the ones you want to retrieve, click the **Re-ingest** button to re-ingest the logs. 
 
@@ -86,7 +86,8 @@ Click **Confirm** to approve and continue.
 
 This process might take a few minutes, during which you can continue using Logz.io. You'll get a notification via email once the process is complete, with a link to the relevant account in OpenSearch Dashboards.
 
-These logs will be available to search and analyze from your OpenSearch Dashboards for a period of X days. 
+Your re-ingested logs will be available to search and analyze from OpenSearch Dashboards for a period of **5 days**.
+{:.info-box.note}
 
 
 #### Troubleshooting Cold search

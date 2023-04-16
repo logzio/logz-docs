@@ -41,7 +41,7 @@ Follow the official Google Workspace [tutorial](https://support.google.com/gsuit
 * In the Domain-wide delegation pane, select **Manage Domain Wide Delegation**.
 * Click **Add new**, and fill in the details:
     * **Client ID** - Enter the service account's Client ID - you can find it in the service account's details under **Unique ID**. It is also found in the **client_id** field of the credentials file that was auto-downloaded when you created a new key for your service account.
-    * **OAuth Scopes** - Enter [https://www.googleapis.com/auth/admin.reports.audit.readonly](https://www.googleapis.com/auth/admin.reports.audit.readonly)
+    * **OAuth Scopes** - Enter [the admin's API](https://www.googleapis.com/auth/admin.reports.audit.readonly)
     * Click **Authorize** to confirm your changes.
 
 #### Filebeat monitoring setup

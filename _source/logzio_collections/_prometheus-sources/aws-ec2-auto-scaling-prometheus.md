@@ -536,7 +536,7 @@ We simplify the data export and collection of your metrics. You tell us the desi
   | Region | URL |
   |---|---|
   | US-East-1 | https://listener-aws-metrics-stream-us.logz.io/ |
-  | EU-central-1 | https://listener-aws-metrics-srteam-eu.logz.io/ |
+  | EU-central-1 | https://listener-aws-metrics-stream-eu.logz.io/ |
   
 
 5. In the **Access key** section, enter your Logz.io metrics shipping token.

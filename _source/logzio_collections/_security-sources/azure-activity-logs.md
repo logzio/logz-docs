@@ -116,12 +116,11 @@ When data comes into the event hub, the function app will forward that data to L
 In the search bar, type "Activity", and then click **Activity log**.
 This brings you to the _Activity log_ page.
 
-In the button bar, click **Diagnostic settings**, and then click **+ Add diagnostic setting**.
-This takes you to the _Diagnostic settings_ page.
+Navigate to the **Diagnostics settings** page (You can search for it).
+Choose a resource from the list of resources, and select **Turn on diagnostics settings** to open the _Diagnostics settings_ panel for that resource.
 
-Give your diagnostic settings a **Name**.
-
-Select **Stream to an event hub**, and then click **Configure** to open the _Select event hub_ panel.
+* Give your diagnostic settings a **Name**.
+* Select **Stream to an event hub**. Next, select **Configure** to open the _Select event hub_ panel.
 
 Choose your event hub:
 

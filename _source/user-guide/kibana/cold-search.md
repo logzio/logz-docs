@@ -80,7 +80,11 @@ Next, choose the time frame for your search. You can select a time frame of up t
 
 Click on **Fetch raw logs** to generate a preview of the logs that match your criteria. If these logs are the ones you want to retrieve, click the **Re-ingest** button to re-ingest the logs. 
 
-The confirmation message includes important information, including the name of the new account, the chosen time frame, your query, and the estimated size of the re-ingested data. Note that the data will count against your daily quota and may **result in an additional charge** if you exceed your account's limit.
+The confirmation message includes important information, including the name of the new account, the chosen time frame, your query, and the estimated size of the re-ingested data. 
+
+Note that the data will count against your daily quota and may **result in an additional charge** if you exceed your account's limit. 
+
+You can check your account usage and daily limit by navigating to [**Settings > Manage accounts**](https://app.logz.io/#/dashboard/settings/manage-accounts).
 
 Click **Confirm** to approve and continue. 
 

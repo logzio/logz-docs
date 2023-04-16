@@ -7,11 +7,13 @@ permalink: /user-guide/logs/cold-search.html
 sitemap: false 
 noindex: true
 flags:
-  logzio-plan: pro
+  logzio-plan: community, pro
 tags:
   - kibana
   - opensearchdashboards
   - logs
+  - cold search
+  - search in archive
 contributors:
   - hidan
 ---
@@ -23,9 +25,11 @@ Cold search lets you seamlessly search inside your archived S3 bucket, provides 
 
 With Cold search you can optimize your data restoration process, reduce costs, speed up the restore time, and minimize risks associated with restoring unnecessary data.
 
+![cold search fetched logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/fetched-raw-logs.png)
+
 To start using Cold search, navigate to [Log analytics > Cold search](https://app.logz.io/#/dashboard/osd/discover/).
 
-<!-- [image] -->
+
 
 **On this page:**
 
@@ -66,9 +70,9 @@ Once the new policy is updated, you can use Cold search to retrieve and re-inges
 All users can fetch raw logs from Cold search. However, **re-ingesting logs requires admin permissions**.
 {:.info-box.note}
 
-To start using Cold Search, navigate to [Log analytics](https://app.logz.io/#/dashboard/osd/discover/) and click the **Cold Search** button.
+To start using Cold Search, navigate to [Log analytics](https://app.logz.io/#/dashboard/osd/discover/) and choose Cold search from the navigation menu, or click the the **Cold Search** button.
 
-[image]
+![cold search nav](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/cold-search-nav.png)
 
 Type the search term or query you'd like to use, and choose the relevant time frame. Your restored logs will only include data matching your exact search term.
 
@@ -101,6 +105,7 @@ Ensure you have at least 1 available slot in your restored account. Navigate to 
 If you have exceeded your restored accounts limit, you'll need to delete at least one account to use Cold search. 
 
 If you wish to upgrade your existing quota, you can contact [Logz.io's support team](mailto:help@logz.io).
+
 ##### Issue: Missing permissions
 
 Can't fetch raw logs due to missing permissions.

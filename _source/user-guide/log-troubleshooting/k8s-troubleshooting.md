@@ -138,8 +138,8 @@ You can use the following `--set` commands to use an alternative image repositor
 
 For the monitoring chart and the Telemetry Collector Kubernetes installation:
 
-`--set logzio-fluentd.image.repository=public.ecr.aws/c3d4d8b6/logzio-fluentd`
+`--set logzio-fluentd.image=public.ecr.aws/logzio/logzio-fluentd`
 
 For the fluentd chart:
 
-`--set image.repository=public.ecr.aws/c3d4d8b6/logzio-fluentd`
+`--set image=public.ecr.aws/logzio/logzio-fluentd`

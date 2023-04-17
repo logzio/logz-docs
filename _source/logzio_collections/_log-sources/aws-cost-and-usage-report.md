@@ -1,5 +1,7 @@
 ---
 title: AWS cost and usage
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+short-description: Ship logs from your AWS Cost and Usage Reports to Logz.io.
 logo:
   logofile: aws.svg
   orientation: vertical

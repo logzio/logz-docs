@@ -4,6 +4,7 @@ logo:
   logofile: dotnet.svg
   orientation: vertical
 short-description: Configure a .NET appender in a configuration file or add it directly to the code to send your logs to Logz.io.
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 data-source: .NET code
 data-for-product-source: Logs
 templates: ["library"]

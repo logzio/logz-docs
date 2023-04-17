@@ -1,5 +1,7 @@
 ---
 title: Ship logs from multiple AWS accounts
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+short-description: Simultaneously ship logs from multiple AWS accounts to Logz.io.
 logo:
   logofile: aws-cloudwatch.svg
   orientation: vertical

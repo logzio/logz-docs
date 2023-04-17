@@ -1,5 +1,7 @@
 ---
 title: Use Logz.io from your Azure portal
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+short-description: Monitor the health and performance of your Azure environment with Logz.io.
 logo:
   logofile: Azure-native-integration2.png
   orientation: vertical

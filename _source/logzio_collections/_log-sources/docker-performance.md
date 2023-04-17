@@ -1,5 +1,7 @@
 ---
 title: Ship Docker performance logs
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+short-description: Ship performance logs of your Docker containers to Logz.io. 
 logo:
   logofile: docker.svg
   orientation: horizontal

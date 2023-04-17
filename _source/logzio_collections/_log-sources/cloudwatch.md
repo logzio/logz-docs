@@ -6,6 +6,7 @@ logo:
 data-source: CloudWatch
 data-for-product-source: Logs
 short-description: Send your data to Logz.io from CloudWatch via a Lambda function, every x seconds.
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 templates: ["lambda-cloudwatch", "cloudformation"]
 logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/cloudwatch
 open-source:

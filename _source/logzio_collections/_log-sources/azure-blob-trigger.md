@@ -1,5 +1,7 @@
 ---
 title: Ship logs from Azure Blob Storage using Azure Blob Trigger
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+short-description: Forward logs from your Azure Blob Storage account to Logz.io.
 logo:
   logofile: azure-blob.svg
   orientation: vertical

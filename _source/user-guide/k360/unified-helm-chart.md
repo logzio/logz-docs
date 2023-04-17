@@ -133,7 +133,7 @@ You can modify the default `logzio-monitoring` Helm Chart by using the `--set` f
 | `logs.enabled` | Enable to send k8s logs | `false` |
 | `metricsOrTraces` | Enable to send k8s metrics or traces | `false` |
 
-#### Modifying the configuration for logs
+##### Modifying the configuration for logs
 
 You can see a full list of the possible configuration values in the [logzio-fluentd Chart folder](https://github.com/logzio/logzio-helm/tree/master/charts/fluentd#configuration).
 
@@ -147,7 +147,7 @@ For instance, if there is a parameter called `someField` in the `logzio-telemetr
 You can add `log_type` annotation with a custom value, which will be parsed into a `log_type` field with the same value.
 
 
-#### Modifying the configuration for metrics and traces
+##### Modifying the configuration for metrics and traces
 
 You can see a full list of the possible configuration values in the [logzio-telemetry Chart folder](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-telemetry).
 

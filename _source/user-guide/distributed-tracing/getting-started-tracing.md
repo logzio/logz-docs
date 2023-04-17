@@ -23,7 +23,7 @@ This information is also available in the [**Logz.io Docs**](https://docs.logz.i
 
 ##### Get access to Logz.io
 
-Sign up for a free trial account via [https://logz.io/freetrial](https://logz.io/freetrial).<br>
+Sign up for a [free trial account](https://logz.io/freetrial).<br>
 Once you have a Logz.io account, navigate to the [**Distributed Tracing** interface](https://app.logz.io/#/dashboard/jaeger). 
 ![Ready to get some trace data!](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/tracing_activate.png)
 

@@ -32,7 +32,7 @@ Drilldown links help you go straight to the related logs whenever you identify a
 
 **Before you begin, you'll need**:
 Edit-permissions to the dashboard. If you don't, duplicate the dashboard first.
-It's also a good idea to have [variables configured](/user-guide/infrastructure-monitoring/configure-grafana-drilldown-links) for your dashboard. Variables aren't required, but they are highly recommended.
+It's also a good idea to have [variables configured](/user-guide/infrastructure-monitoring/configure-metrics-drilldown-links) for your dashboard. Variables aren't required, but they are highly recommended.
 
 <div class="tasklist">
 

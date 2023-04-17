@@ -6,6 +6,7 @@ flags:
   logzio-plan: community
   beta: true
 sitemap: false
+noindex: true
 tags:
   - insights
   - exceptions

@@ -562,3 +562,16 @@
   to = "/user-guide/k360/kubernetes-360-pre.html"
   status = 301
   force = true
+
+
+[[redirects]]
+  from = "/alerting-and-monitoring/alerts/alert-quotas"
+  to = "/user-guide/alerts/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/alerting/alerts.html"
+  to = "/user-guide/alerts/"
+  status = 301
+  force = true

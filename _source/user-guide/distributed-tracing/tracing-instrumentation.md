@@ -1,6 +1,6 @@
 ---
 layout: article
-title: Setting up auto-instrumentation with Logz.io's Telemetry Collector
+title: Set up auto-instrumentation with Logz.io's Telemetry Collector
 permalink: /user-guide/distributed-tracing/tracing-instrumentation
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Auto instrumentation with Logz.io's Telemetry Collector

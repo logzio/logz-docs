@@ -102,7 +102,7 @@ adds your `jaeger-logzio-collector` definition parameters to the yaml file, in t
 _To run the demo:_
 
 1. To start the HotROD demo app, in the terminal, run: `docker-compose up`.
-2. To open the application, navigate to the main HotROD service at [http://127.0.0.1:18080](http://127.0.0.1:18080).
+2. To open the application, navigate to the main HotROD service at [127.0.0.1:18080](http://127.0.0.1:18080).
 3. To send traces, click the buttons.
     You can view the logs in the foreground in the terminal. 
 4. To stop the demo, run: `ctrl+c`.

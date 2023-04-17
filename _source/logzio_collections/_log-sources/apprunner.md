@@ -5,6 +5,8 @@ logo:
   orientation: vertical
 data-source: AppRunner
 data-for-product-source: Logs
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+short-description: Send logs from your AppRunner instances to Logz.io.
 templates: ["lambda-apprunner", "cloudformation"]
 logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/apprunner
 contributors:

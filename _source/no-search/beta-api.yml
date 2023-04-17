@@ -66,7 +66,7 @@ paths:
         - Deployment markers
       operationId: createMarkers
       summary: Add deployment markers to Exception graphs
-      description: Send logs with details of service deployments to annotate Exception graphs in Kibana Discover. [Learn more about Deployment markers](/user-guide/insights/exceptions/deployments.html)
+      description: Send logs with details of service deployments to annotate Exception graphs in Kibana Discover. [Learn more about Deployment markers](/user-guide/logs/exceptions-deployments.html)
       produces:
         - application/json
       parameters:

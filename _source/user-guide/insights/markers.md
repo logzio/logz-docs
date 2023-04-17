@@ -15,7 +15,7 @@ contributors:
 ---
 
 
-You can add markers to help you understand the context surrounding your insights. Markers reflect significant events that could be potential catalysts for issues, such as [new deployments](/user-guide/insights/exceptions/deployments.html), rollbacks, and specific alerts that may have been triggered.
+You can add markers to help you understand the context surrounding your insights. Markers reflect significant events that could be potential catalysts for issues, such as [new deployments](/user-guide/logs/exceptions-deployments.html), rollbacks, and specific alerts that may have been triggered.
 
 ![Insights marker on the chart](https://dytvr9ot2sszz.cloudfront.net/logz-docs/insights/insights--marker-on-chart.png)
 

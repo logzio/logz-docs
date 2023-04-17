@@ -32,7 +32,7 @@ order: 70
 Logstash is a server app that ingests and parses log data.
 We recommend using it for shipping to Logz.io only when you have an existing Logstash configuration.
 
-For most other cases, we recommend using [Filebeat]({{site.baseurl}}/shipping/shippers/filebeat.html).
+For most other cases, we recommend using [Filebeat]({{site.baseurl}}/shipping/log-sources/filebeat.html).
 
 These instructions apply to Logstash running on MacOS, Linux and Windows.
 

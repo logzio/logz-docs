@@ -1,6 +1,7 @@
 ---
 title: Upload log files using cURL
 short-description: cURL is a command line utility for transferring data. cURL is a quick and easy way to test your configuration or troubleshoot your connectivity to Logz.io.
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 logo:
   logofile: curl.svg
   orientation: vertical

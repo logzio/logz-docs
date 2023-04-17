@@ -1,5 +1,7 @@
 ---
 title: Ship AWS Control Tower logs
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+short-description: Sends logs from S3 buckets automatically created by AWS Control Tower to Logz.io.
 open-source:
   - title: S3 Hook
     github-repo: s3-hook

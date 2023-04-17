@@ -1,9 +1,9 @@
 ---
 layout: article
-title: Single sign-on (SSO) for Azure pay-as-you-go Portal integration
+title: Single sign-on for Azure pay-as-you-go Portal integration
 permalink: /user-guide/users/single-sign-on/azure_marketplace_liftr.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Guidance for Azure pay-as-you-go SSO setup with Logz.io
+description: Guidance for Azure pay-as-you-go Single sign-on (SSO) setup with Logz.io
 flags:
   admin: true
   logzio-plan: pro

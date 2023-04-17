@@ -43,7 +43,7 @@ For the record, notification endpoints and dashboard annotations are not importe
 1. [Import dashboards.](/user-guide/infrastructure-monitoring/prometheus-importing-dashbds)
 1. [Configure notification endpoints.](/user-guide/integrations/endpoints.html)
 1. [Recreate your dashboard annotations.](/user-guide/infrastructure-monitoring/annotations/)
-1. [Explore your Prometheus metrics](/user-guide/infrastructure-monitoring/grafana-explore-prometheus/)
+1. [Explore your Prometheus metrics](/user-guide/infrastructure-monitoring/metrics-explore-prometheus/)
 
 
 

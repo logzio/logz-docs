@@ -32,6 +32,7 @@ Please be aware that this project is presently in its beta stage, and as such, i
 {:.info-box.note}
 <!-- info-box-end -->
 
+To get the most out of Kubernetes 360, try out dedicated [dashboard](./kubernetes-360-pre.html).
 
 
 </div>

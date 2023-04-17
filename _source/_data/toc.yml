@@ -120,6 +120,8 @@ firstLevel:
     #thirdLevel:
     #- title: Meet Kubernetes 360
     #  url: 
+  - title: Unified Helm Chart
+    url: /user-guide/k360/unified-helm-chart.html
 
 # ===== METRICS INFRASTRUCTURE MONITORING =====
     # the Prometheus remote write topic & dashboard import topic ==> permalink: /user-guide/metrics/p8s-remote-write.html, currently in no-search directory

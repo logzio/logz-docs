@@ -44,7 +44,7 @@ To get the most out of Kubernetes 360, try out dedicated [dashboard](./kubernete
 
 <div class="tasklist">
 
-#### Check if you have any taints on your nodes
+##### Check if you have any taints on your nodes
 
 ```shell
 kubectl get nodes -o json | jq '"\(.items[].metadata.name) \(.items[].spec.taints)"'
@@ -60,14 +60,14 @@ tolerations:
   effect: 
 ```
 
-#### Add the Helm Chart
+##### Add the Helm Chart
 
 ```shell
 helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 ```
 
-#### Deploy the Chart
+##### Deploy the Chart
 
 ```shell
 helm install -n monitoring \
@@ -101,6 +101,7 @@ logzio-monitoring logzio-helm/logzio-monitoring
 
 Give your data some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). 
 
+</div>
 </div>
 <!-- tab:end -->
 

@@ -192,3 +192,9 @@ To address this issue, you can use the `--set` commands provided below in order 
 --set logzio-fluentd.image=public.ecr.aws/logzio/logzio-fluentd
 --set logzio-trivy.image=public.ecr.aws/logzio/trivy-to-logzio
 ```
+
+</div>
+<!-- tab:end -->
+
+</div>
+<!-- tabContainer:end -->

@@ -3,7 +3,7 @@ title: Ship Disque metrics via Telegraf
 description: Ship Disque metrics via Telegraf to Logz.io
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 logo:
-  logofile: 
+  logofile: disque-telegraf.png
   orientation: vertical
 data-source: Disque
 data-for-product-source: Metrics

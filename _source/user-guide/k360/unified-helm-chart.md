@@ -94,7 +94,6 @@ logzio-monitoring logzio-helm/logzio-monitoring
 | `<<P8S-LOGZIO-NAME>>` | The name for the environment's metrics, to easily identify the metrics for each environment. |
 | `<<ENV-ID>>` | The name for your environment's identifier, to easily identify the telemetry data for each environment. |
 | `<<TRACES-SHIPPING-TOKEN>>` | {% include /tracing-shipping/replace-tracing-token.html %} |
-| `<<SPM-SHIPPING-TOKEN>>` | Your [span metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
 | `<<LOGZIO-REGION>>` | Name of your Logz.io traces region e.g `us` or `eu`. You can find your region code in the [Regions and URLs](https://docs.logz.io/user-guide/accounts/account-region.html#regions-and-urls) table. |
 
 ##### Check Logz.io for your data
@@ -122,6 +121,11 @@ helm install -n monitoring \
 --set logzio-trivy.secrets.logzioListener="<<LISTENER-HOST>>" \
 logzio-monitoring logzio-helm/logzio-monitoring
 ```
+
+| Parameter | Description |
+| --- | --- |
+| `<<SPM-SHIPPING-TOKEN>>` | Your [span metrics shipping token](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping). |
+
 
 
 ### Further configuration

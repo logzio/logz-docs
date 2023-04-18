@@ -107,6 +107,11 @@ firstLevel:
     url: /user-guide/log-highlighter.html
   - title: Log usage measurement
     url: /user-guide/log-usage-measurement/
+  #- title: Cold search
+  #  url: /user-guide/logs/cold-search.html
+
+
+    
 # ===== K360 =====
     # Kubernetes 360 platform topic & dashboard ==> These docs are generally in the /user-guide/k360 folder
 - title: Kubernetes 360

@@ -32,7 +32,14 @@ Please be aware that this project is presently in its beta stage, and as such, i
 {:.info-box.note}
 <!-- info-box-end -->
 
-To get the most out of Kubernetes 360, try out dedicated [dashboard](./kubernetes-360-pre.html).
+<!-- info-box-start:info -->
+To get the most out of Kubernetes 360, try out dedicated [dashboard](./kubernetes-360-pre.html). {% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["7nILXHYFZbThgTSMObUxkw", "5TGD77ZKuTiZUXtiM51m6V", "6pY6DKD0oQJL4sO7bW728", "5kkUAuEwA0Ygvlgm9iXTHY", "53g5kSILqoj1T10U1jnvKV", "5e1xRaDdQnOvs5LCuwKCh5", "7Cy6DUN78jlKUtMCsbt6GC", "29HGYsE3kgFEdgJbalTqeY", "1Hij49FKdnAKVJTjOmpDbH" ] --> 
+
+{% include metric-shipping/generic-dashboard.html %} 
+{:.info-box.important}
+<!-- info-box-end -->
 
 
 </div>
@@ -100,6 +107,12 @@ logzio-monitoring logzio-helm/logzio-monitoring
 ##### Check Logz.io for your data
 
 Give your data some time to get from your system to ours, and then open [Open Search Dashboards](https://app.logz.io/#/dashboard/osd). 
+
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["7nILXHYFZbThgTSMObUxkw", "5TGD77ZKuTiZUXtiM51m6V", "6pY6DKD0oQJL4sO7bW728", "5kkUAuEwA0Ygvlgm9iXTHY", "53g5kSILqoj1T10U1jnvKV", "5e1xRaDdQnOvs5LCuwKCh5", "7Cy6DUN78jlKUtMCsbt6GC", "29HGYsE3kgFEdgJbalTqeY", "1Hij49FKdnAKVJTjOmpDbH" ] --> 
+
+{% include metric-shipping/generic-dashboard.html %} 
 
 </div>
 </div>

@@ -18,7 +18,7 @@ Check Point provides hardware and software products for IT security, including n
 
 **Before you begin, you'll need**:
 
-* [Check Point Log Exporter](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk122323)
+* [Check Point Log Exporter](https://support.checkpoint.com/results/sk/sk122323)
 * [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation.html) installed
 * Root access
 
@@ -29,7 +29,7 @@ Check Point provides hardware and software products for IT security, including n
 Configure your Check Point Log Exporter to send logs to your Filebeat server.
 
 <!-- info-box-start:info -->
-For complete details on configuring Log Exporter, see [Check Point Log Export](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk122323) from Check Point.
+For complete details on configuring Log Exporter, see [Check Point Log Export](https://support.checkpoint.com/results/sk/sk122323) from Check Point.
 {:.info-box.read}
 <!-- info-box-end -->
 

@@ -1,7 +1,7 @@
 ---
 title: Ship Kubernetes telemetry (logs, metrics, traces and security reports) to your Logz.io account
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Ship Google Assistant Smart Home metrics to Logz.io
+description: Ship Kubernetes telemetry to Logz.io
 logo:
   logofile: kubernetes.svg
   orientation: vertical
@@ -36,7 +36,7 @@ Please be aware that this project is presently in its beta stage, and as such, i
 <!-- info-box-end -->
 
 <!-- info-box-start:info -->
-To get the most out of Kubernetes 360, try out dedicated [dashboard](./kubernetes-360-pre.html).
+To get the most out of Kubernetes 360, try out dedicated [dashboard](/user-guide/k360/kubernetes-360-pre.html).
 {:.info-box.important}
 <!-- info-box-end -->
 

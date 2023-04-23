@@ -83,8 +83,8 @@ firstLevel:
     thirdLevel:
     - title: Insights
       url: /user-guide/insights/
-    #- title: Exceptions
-    #  url: /user-guide/insights/exceptions.html
+    - title: Exceptions
+      url: /user-guide/insights/exceptions.html
     - title: AI Insights
       url: /user-guide/insights/ai-insights.html
     - title: Exploring insights

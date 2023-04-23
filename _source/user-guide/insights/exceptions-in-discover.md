@@ -3,7 +3,7 @@ layout: article
 title: Exceptions
 permalink: /user-guide/insights/exceptions.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Insight Engine and Exceptions in Logz.io
+description: Find Exceptions in your data with Logz.io
 sitemap: false 
 noindex: true
 flags:
@@ -17,13 +17,13 @@ contributors:
 ---
 
 
-Logz.io Insights Engine automatically surfaces exceptions and highlights them in your log results.
+Logz.io Exceptions automatically surfaces exceptions and highlights them in your log results.
 
 While troubleshooting in OpenSearch Dashboards, you can easily see the number of exceptions identified in your log results for every query you run. The list is always in-context, and specific to the log results returned by your search.
 
 To review exceptions affecting your environments, switch to the **Exceptions** tab and expand the documents that interest you.
 
-![Exceptions count in OpenSearch Dashboards](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/exceptions-tab.png)
+![Exceptions count in OpenSearch Dashboards](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/exceptions.png)
 
 * toc list
 {:toc}
@@ -52,7 +52,7 @@ You can find and view all exceptions by using the following query:
 
 Each exception is grouped into logical units, which you can view under the **Exceptions** tab.
 
-![Exceptions count](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/all-exceptions-query.png)
+![Exceptions count](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/exception-query.png)
 
 You can also view all exceptions by navigating to **[Log Management](https://app.logz.io/#/dashboard/osd)** > **[Insights](https://app.logz.io/#/dashboard/insights)**. There you can view a summary of your exceptions and filter them according to status, log types, tags, assignees, and date. 
 
@@ -65,7 +65,7 @@ If there are more exceptions than can be shown, you can fetch the **Most frequen
 * **Most frequent** - Most frequent number of occurrences in the given time frame.
 * **Most recent** - Most recently occurred within your selected time frame.
 
-![Filter exceptions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/top-exceptions_aug2022.png)
+![Filter exceptions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/exceptions-number.png)
 
 ### Investigating an exception
 
@@ -104,4 +104,4 @@ To reorder exceptions by **# of occurrences**, **First occurrence**, or **Last s
 
 Exceptions that occurred for the first time within the search time frame are tagged as **New** exceptions.
 
-![Exception timeframe](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/first-seen-exception.png)
+![Exception timeframe](https://dytvr9ot2sszz.cloudfront.net/logz-docs/osd-discover/exceptions-new.png)

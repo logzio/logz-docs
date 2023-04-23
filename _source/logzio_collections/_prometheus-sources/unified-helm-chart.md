@@ -1,7 +1,7 @@
 ---
 title: Ship Kubernetes telemetry (logs, metrics, traces and security reports) to your Logz.io account
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Ship Google Assistant Smart Home metrics to Logz.io
+description: Ship Kubernetes telemetry to Logz.io
 logo:
   logofile: kubernetes.svg
   orientation: vertical
@@ -36,7 +36,7 @@ Please be aware that this project is presently in its beta stage, and as such, i
 <!-- info-box-end -->
 
 <!-- info-box-start:info -->
-To get the most out of Kubernetes 360, try out dedicated [dashboard](./kubernetes-360-pre.html).
+To get the most out of Kubernetes 360, try out dedicated [dashboard](/user-guide/k360/kubernetes-360-pre.html).
 {:.info-box.important}
 <!-- info-box-end -->
 
@@ -184,7 +184,7 @@ For instance, if there is a parameter called `someField` in the `logzio-telemetr
 
 ### Sending telemetry data from eks on fargate
 
-To ship logs from pods running on Fargate, set the `fargateLogRouter.enabled` value to `true`. Doing so will deploy a dedicated `aws-observability` namespace and a `configmap` for the Fargate log router. For more information on EKS Fargate logging, please refer to the [official AWS documentation]((https://docs.aws.amazon.com/eks/latest/userguide/fargate-logging.html)).
+To ship logs from pods running on Fargate, set the `fargateLogRouter.enabled` value to `true`. Doing so will deploy a dedicated `aws-observability` namespace and a `configmap` for the Fargate log router. For more information on EKS Fargate logging, please refer to the [official AWS documentation]((https://docs.aws.amazon.com/eks/latest/userguide/fargate-logging.html).
 
 ```shell
 helm install -n monitoring \

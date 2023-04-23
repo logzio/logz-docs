@@ -2,7 +2,7 @@
 layout: article
 title: Unified Helm Chart
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Everything you need to get started with Logz.io's Kubernetes 360
+description: Ship Kubernetes telemetry with logzio-monitoring Helm Chart
 permalink: /user-guide/k360/unified-helm-chart.html
 flags:
   logzio-plan: community
@@ -33,7 +33,7 @@ Please be aware that this project is presently in its beta stage, and as such, i
 <!-- info-box-end -->
 
 <!-- info-box-start:info -->
-To get the most out of Kubernetes 360, try out dedicated [dashboard](./kubernetes-360-pre.html). {% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics. <!-- logzio-inject:install:grafana:dashboards ids=["7nILXHYFZbThgTSMObUxkw", "5TGD77ZKuTiZUXtiM51m6V", "6pY6DKD0oQJL4sO7bW728", "5kkUAuEwA0Ygvlgm9iXTHY", "53g5kSILqoj1T10U1jnvKV", "5e1xRaDdQnOvs5LCuwKCh5", "7Cy6DUN78jlKUtMCsbt6GC", "29HGYsE3kgFEdgJbalTqeY", "1Hij49FKdnAKVJTjOmpDbH" ] --> {% include metric-shipping/generic-dashboard.html %} 
+To get the most out of Kubernetes 360, try out dedicated [dashboard](/user-guide/k360/kubernetes-360-pre.html). {% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics. <!-- logzio-inject:install:grafana:dashboards ids=["7nILXHYFZbThgTSMObUxkw", "5TGD77ZKuTiZUXtiM51m6V", "6pY6DKD0oQJL4sO7bW728", "5kkUAuEwA0Ygvlgm9iXTHY", "53g5kSILqoj1T10U1jnvKV", "5e1xRaDdQnOvs5LCuwKCh5", "7Cy6DUN78jlKUtMCsbt6GC", "29HGYsE3kgFEdgJbalTqeY", "1Hij49FKdnAKVJTjOmpDbH" ] --> {% include metric-shipping/generic-dashboard.html %} 
 {:.info-box.important}
 <!-- info-box-end -->
 
@@ -178,7 +178,7 @@ For instance, if there is a parameter called `someField` in the `logzio-telemetr
 
 ### Sending telemetry data from eks on fargate
 
-To ship logs from pods running on Fargate, set the `fargateLogRouter.enabled` value to `true`. Doing so will deploy a dedicated `aws-observability` namespace and a `configmap` for the Fargate log router. For more information on EKS Fargate logging, please refer to the [official AWS documentation]((https://docs.aws.amazon.com/eks/latest/userguide/fargate-logging.html)).
+To ship logs from pods running on Fargate, set the `fargateLogRouter.enabled` value to `true`. Doing so will deploy a dedicated `aws-observability` namespace and a `configmap` for the Fargate log router. For more information on EKS Fargate logging, please refer to the [official AWS documentation]((https://docs.aws.amazon.com/eks/latest/userguide/fargate-logging.html).
 
 ```shell
 helm install -n monitoring \

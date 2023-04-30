@@ -134,9 +134,15 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 #### Logs at user-defined intervals
 
-By using this Helm Chart, you can easily deploy Logz.io's Cloudwatch Fetcher to your K8S cluster. With the Cloudwatch Fetcher, you can define a specific time interval for fetching logs from AWS Cloudwatch and ship them to Logz.io.
+By using this integration, you can easily deploy Logz.io's Cloudwatch Fetcher to your K8S cluster. With the Cloudwatch Fetcher, you can define a specific time interval for fetching logs from AWS Cloudwatch and ship them to Logz.io.
 
 Cloudwatch-fetcher's code can be found in the [cloudwatch-fetcher](https://github.com/logzio/cloudwatch-fetcher) Github repo.
+
+* [Using Helm](#using-helm)
+* [Using Docker](#using-docker)
+
+##### Using Helm
+
 
 **Before you begin, you'll need**:
 
@@ -261,6 +267,92 @@ helm uninstall -n monitoring cloudwatch-fetcher
 ```
 
 </div>
+
+##### Using Docker
+
+
+<div class="tasklist">
+
+
+##### Pull Docker image
+
+```shell
+docker pull logzio/cloudwatch-fetcher:latest
+```
+
+##### Create a data volume directory
+
+This directory will store the configuration and position files for the fetcher. The position file enables the fetcher to resume from the last point it fetched in the event that the container was stopped.
+
+```shell
+mkdir logzio-cloudwatch-fetcher \
+&& cd logzio-cloudwatch-fetcher
+``` 
+
+##### Create a configuration file
+
+In the directory you created in the previous step, create a configuration file and name it `config.yaml`.
+
+| Field                      | Description                                                                                      | Required/Default |
+|----------------------------|--------------------------------------------------------------------------------------------------|------------------|
+| `aws_region`               | The AWS region your log groups are in. **Note** that all log groups should be in the same region. | **Required**     |
+| `log_groups`               | An array of log group configuration                                                              | **Required**     |
+| `log_groups.path`          | The AWS Cloudwatch log group you want to tail                                                    | **Required**     |
+| `log_groups.custom_fields` | Array of key-value pairs, for adding custom fields to the logs from the log group                | -                |
+| `collection_interval`      | Interval **IN MINUTES** to fetch logs from Cloudwatch                                            | Default: `5`     |
+
+
+###### Configuration example
+
+**See this [config sample](https://github.com/logzio/cloudwatch-fetcher/blob/master/config.yaml) for example.**
+
+##### Run the docker container
+
+```shell
+ docker run --name logzio-cloudwatch-fetcher \
+-e AWS_ACCESS_KEY_ID=<<AWS-ACCESS-KEY>> \
+-e AWS_SECRET_ACCESS_KEY=<<AWS-SECRET-KEY>> \
+-e LOGZIO_LOG_SHIPPING_TOKEN=<<LOG-SHIPPING-TOKEN>> \
+-e LOGZIO_LISTENER=https://<<LISTENER-HOST>>:8071 \
+-v "$(pwd)":/logzio/src/shared \
+logzio/cloudwatch-fetcher:latest
+```
+
+Replace the following:
+
+| Parameter                        | Description                                                                                                                                     |
+|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| `<<AWS-ACCESS-KEY>>`             | Your AWS access key                                                                                                                             |
+| `<<AWS-SECRET-KEY>>`             | Your AWS secret key                                                                                                                             |
+| `<<LOG-SHIPPING-TOKEN>>` | Your [Logz.io logs shipping token](https://app.logz.io/#/dashboard/settings/general)                                                            |
+| `<<LISTENER-HOST>>`            | Your logz.io [listener url](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs), for example: `listener.logz.io` |
+
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/).
+
+**NOTE** that the logs will have the original timestamp from Cloudwatch, so when you're searching for them, make sure that you're viewing the relevant time frame.
+
+</div>
+
+##### Stop docker container
+
+Upon stopping the container, the code will continue to run until the completion of the current iteration. To ensure the iteration finishes on time, please provide a grace period of 30 seconds when executing the 'docker stop' command:
+
+```shell
+docker stop -t 30 logzio-cloudwatch-fetcher
+```
+
+##### Position file
+
+After each successful iteration for every log group, the latest timestamp and next token obtained from AWS will be written to a file named position.yaml.
+
+You can locate this file within the mounted host directory that you created.
+
+If the container is stopped, the file enables the fetcher to resume from the exact point at which it was interrupted.
+
+
+
 </div>
 <!-- tab:end -->
 

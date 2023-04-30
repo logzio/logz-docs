@@ -4941,28 +4941,28 @@ paths:
           required: true
           schema:
             type: object
-              properties:
-                PipelineDefinition:
-                  type: object
-                  properties:
-                    pipeLineDefinition:
-                      type: string
-                      example: "{ \"steps\": [ { \"kv\": { \"config\": { \"field\": \"hello\", \"fieldSplit\": \" \", \"valueSplit\": \"=\", \"includeKeys\": [ \"time\", \"level\", \"msg\" ] } } } ] }"
-                SampleLog:
-                  type: object
-                  properties:
-                    type:
-                       type: string
-                       example: "logType"
-                    fullMessage:
-                      type: object
-                      properties:
-                        message:
-                          type: string
-                          example: "hi"
-                        hello:
-                          type: string
-                          example: "time=\"2022-07-22T07:18:28Z\" level=info msg=\"Error uploading file /var/lib/winlogbeat/test.json: BucketRegionError: incorrect region, the bucket is not in '\"us-east-1'\" region, host id: 64fD82\""
+            properties:
+              PipelineDefinition:
+                type: object
+                properties:
+                  pipeLineDefinition:
+                    type: string
+                    example: "{ \"steps\": [ { \"kv\": { \"config\": { \"field\": \"hello\", \"fieldSplit\": \" \", \"valueSplit\": \"=\", \"includeKeys\": [ \"time\", \"level\", \"msg\" ] } } } ] }"
+              SampleLog:
+                type: object
+                properties:
+                  type:
+                     type: string
+                     example: "logType"
+                  fullMessage:
+                    type: object
+                    properties:
+                      message:
+                        type: string
+                        example: "hi"
+                      hello:
+                        type: string
+                        example: "time=\"2022-07-22T07:18:28Z\" level=info msg=\"Error uploading file /var/lib/winlogbeat/test.json: BucketRegionError: incorrect region, the bucket is not in '\"us-east-1'\" region, host id: 64fD82\""
 
       responses:
         '200':

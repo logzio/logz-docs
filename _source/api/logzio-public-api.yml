@@ -4961,13 +4961,7 @@ paths:
                     hello:
                       type: string
                       example: "time=\"2022-07-22T07:18:28Z\" level=info msg=\"Error uploading file /var/lib/winlogbeat/test.json: BucketRegionError: incorrect region, the bucket is not in '\"us-east-1'\" region, host id: 64fD82\""
-          examples:
-            sampleLogs:
-              value:
-                - type: "logType"
-                  fullMessage:
-                    message: "hi"
-                    hello: "time=\"2022-07-22T07:18:28Z\" level=info msg=\"Error uploading file /var/lib/winlogbeat/test.json: BucketRegionError: incorrect region, the bucket is not in '\"us-east-1'\" region, host id: 64fD82\""
+
       responses:
         '200':
           content:

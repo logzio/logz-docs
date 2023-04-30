@@ -100,31 +100,29 @@ To do this, add the following to your IAM policy:
 
 ```json
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:ListBucket"
-            ],
-            "Resource": [
-                "arn:aws:s3:::<BUCKET_NAME>"
-            ]
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::<BUCKET_NAME>/*"
-            ]
-        }
-    ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "VisualEditor0",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket",
+        "s3:GetBucketLocation",
+        "kms:Decrypt"
+      ],
+      "Resource": [
+        "arn:aws:s3:::<BUCKET_NAME>",
+        "arn:aws:s3:::<BUCKET_NAME>/*",
+        "<<ARN_OF_THE_KMS_KEY_ROLE>>"
+      ]
+    }
+  ]
 }
 ```
 
 * Replace `<BUCKET_NAME>` with the name of your S3 bucket.
+* Replace `<<ARN_OF_THE_KMS_KEY_ROLE>>` with your ARN of the KMS key role.
 
 <!-- info-box-start:info -->
 Note that the ListBucket permission is set to the entire bucket and the GetObject permission ends with a /* suffix, so we can get files in subdirectories.

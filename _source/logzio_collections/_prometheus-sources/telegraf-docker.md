@@ -9,7 +9,7 @@ open-source:
   - title: Docker Metrics Collector
     github-repo: telegraf-docker-collector-metrics
 data-for-product-source: Metrics
-data-source: Docker metrics
+data-source: Docker metrics via Telegraf
 templates: ["docker"]
 contributors:
   - hidan

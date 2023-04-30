@@ -30,7 +30,7 @@ Your AWS S3 bucket must grant Logz.io the right permissions to support Logz.io a
 You'll set these permissions for an AWS IAM user or role,
 depending on which authentication method you choose in Logz.io.
 
-You'll also need he `logzio-verified` file in your bucket. This file is required as part of Logz.io authentication process, enabling archiving and restoring.
+You'll also need he `logzio-verified` file in your bucket. This file is **required as part of the Logz.io authentication process**, enabling archiving and restoring.
 
 We recommend allowing all the mentioned permissions
 so you won't run into any issues when you need to restore.

@@ -132,7 +132,7 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 
 <div id="intervals">
 
-#### Cloudwatch Fetcher Helm Chart
+#### Logs at user-defined intervals
 
 By using this Helm Chart, you can easily deploy Logz.io's Cloudwatch Fetcher to your K8S cluster. With the Cloudwatch Fetcher, you can define a specific time interval for fetching logs from AWS Cloudwatch and ship them to Logz.io.
 

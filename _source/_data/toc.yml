@@ -486,8 +486,8 @@ firstLevel:
   icon: li-gear
   
   secondLevel:
-  - title: Logz.io quick start guide
-    url: /getting-started.html
+  #- title: Logz.io quick start guide
+  #  url: /getting-started.html
   
   - title: Logz.io Accounts
     thirdLevel:

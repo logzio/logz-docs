@@ -31,6 +31,7 @@ In this guide:
   * [Flexible volume](/user-guide/accounts/#flexible-volume)
   * [Long-term storage](/user-guide/accounts/#long-term-storage)
   * [Archive and restore](/user-guide/accounts/#archive-and-restore-data)
+  * [Two Factor Authentication](/user-guide/accounts/#two-factor-authentication)
 * [Your account dictionary](/user-guide/accounts/#your-account-dictionary)
 * [Manage your accounts](/user-guide/accounts/#manage-your-accounts)
   * [Manage your **Log Management** account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#logs)
@@ -67,6 +68,17 @@ You can use [data optimizers](https://docs.logz.io/user-guide/optimizers/configu
 You can connect your Logz.io accounts to an S3 bucket or Azure Blob Storage to archive your logs. [Explore archiving options](https://docs.logz.io/user-guide/archive-and-restore/).
 
 Before searching archived data, you’ll need to restore it to its own temporary account. [Explore data restoring options](https://docs.logz.io/user-guide/archive-and-restore/restore-archived-logs.html).
+
+##### **Two Factor Authentication**
+
+You can add an extra layer of security to your Logz.io account by enabling the Two Factor Authentication (2FA) toggle. 
+
+2FA requires two forms of identification to access the account, and you can choose the method that works for you, whether it's a physical token, SMS verification, phone-call-based authentication, or an authenticating app.
+
+Once you toggle the 2FA option, you'll receive an email guiding you on setting up your two-factor authentication.
+
+![2fa toggle](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/2fa-toggle.png)
+
 
 ### Your account dictionary
 

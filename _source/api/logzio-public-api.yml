@@ -4939,7 +4939,7 @@ paths:
         - in: body
           name: body
           required: true
-          schemas:
+          schema:
             PipelineDefinition:
               type: object
               properties:

@@ -10,8 +10,10 @@ image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.
 templates: ["lambda-cloudwatch", "cloudformation"]
 logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/cloudwatch
 open-source:
-  - title: CloudWatch Lambda Log Shipper
+  - title: CloudWatch Lambda Log Shipper (realtime)
     github-repo: logzio_aws_serverless/tree/master/python3/cloudwatch
+  - title: CloudWatch Log Fetcher (interval)
+    github-repo: logzio/cloudwatch-fetcher
 contributors:
   - idohalevi
   - imnotashrimp

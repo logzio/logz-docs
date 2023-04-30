@@ -10,8 +10,10 @@ image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.
 templates: ["lambda-cloudwatch", "cloudformation"]
 logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/cloudwatch
 open-source:
-  - title: CloudWatch Lambda Log Shipper
+  - title: CloudWatch Lambda Log Shipper (realtime)
     github-repo: logzio_aws_serverless/tree/master/python3/cloudwatch
+  - title: CloudWatch Log Fetcher (interval)
+    github-repo: logzio/cloudwatch-fetcher
 contributors:
   - idohalevi
   - imnotashrimp
@@ -24,17 +26,18 @@ order: 110
 <!-- tabContainer:start -->
 <div class="branching-container">
 
-* [Automated CloudFormation deployment (default)](#automated-cloudformation-deployment)
+* [Logs in realtime (default)](#realtime)
+* [Logs at user-defined intervals](#intervals)
 * [Advanced configuration](#advanced)
 {:.branching-tabs}
 
 <!-- tab:start -->
 
-<div id="automated-cloudformation-deployment">
+<div id="realtime">
 
-We recommend Automated CloudFormation deployment as a default configuration. If you need to deploy this integration in a different way, please navigate to [Advanced configuration](#advanced).
+Real-time log collection is the recommended method, as it sends logs immediately as they are generated. However, if you prefer to collect logs at specific time intervals, please refer to the [Logs at user-defined intervals](#intervals) for configuring this option.
 
-#### Automated CloudFormation deployment
+#### Logs in realtime
 
 This project will create 2 Lambda functions:
 
@@ -127,7 +130,233 @@ If you still don't see your logs, see [log shipping troubleshooting]({{site.base
 <!-- tab:end -->
 
 
-<div></div>
+<!-- tab:start -->
+
+<div id="intervals">
+
+#### Logs at user-defined intervals
+
+By using this integration, you can easily deploy Logz.io's Cloudwatch Fetcher to your K8S cluster. With the Cloudwatch Fetcher, you can define a specific time interval for fetching logs from AWS Cloudwatch and ship them to Logz.io.
+
+Cloudwatch-fetcher's code can be found in the [cloudwatch-fetcher](https://github.com/logzio/cloudwatch-fetcher) Github repo.
+
+* [Using Helm](#using-helm)
+* [Using Docker](#using-docker)
+
+##### Using Helm
+
+
+**Before you begin, you'll need**:
+
+AWS access keys with permissions to:
+
+* `logs:FilterLogEvents`
+* `sts:GetCallerIdentity`
+
+
+<!-- info-box-start:info -->
+The solution can handle only one AWS account per container. If you want to monitor multiple accounts, you'll need to create multiple deployments, one for each AWS account.
+{:.info-box.important}
+<!-- info-box-end -->
+
+
+
+<div class="tasklist">
+
+
+##### Add Logz.io Helm repo:
+
+```shell
+helm repo add logzio-helm https://logzio.github.io/logzio-helm
+helm repo update
+```
+
+##### Create a configuration file
+
+Create a configuration file for the Cloudwatch fetcher. For example:
+
+```yaml
+log_groups:
+  - path: '/aws/lambda/my-lambda'
+    custom_fields:
+      key1: val1
+      key2: val2
+  - path: 'some-log-group'
+  - path: 'newloggroup'
+    custom_fields:
+      hello: world
+aws_region: 'us-east-1'
+collection_interval: 10
+```
+
+| Field                      | Description                                                                                      | Required/Default |
+|----------------------------|--------------------------------------------------------------------------------------------------|------------------|
+| `log_groups`               | An array of log group configuration                                                              | **Required**     |
+| `log_groups.path`          | The AWS Cloudwatch log group you want to tail                                                    | **Required**     |
+| `log_groups.custom_fields` | Array of key-value pairs, for adding custom fields to the logs from the log group                | -                |
+| `aws_region`               | The AWS region your log groups are in. **Note** that all log groups should be in the same region | **Required**     |
+| `collection_interval`      | Interval **IN MINUTES** to fetch logs from Cloudwatch                                            | Default: `5`     |
+
+##### Deploy the Chart
+
+Use the following command, and replace the placeholders with your parameters:
+
+```shell
+helm install -n monitoring --create-namespace \                 
+--set secrets.logzioShippingToken="<<LOGZIO-LOG-SHIPPING-TOKEN>>" \
+--set secrets.logzioListener="<<LOGZIO-LISTENER>>" \
+--set secrets.awsAccessKey="<<AWS-ACCESS-KEY>>" \
+--set secrets.awsSecretKey="<<AWS-SECRET-KEY>>" \
+--set-file fetcherConfig=<<CONFIG-PATH>> \
+cloudwatch-fetcher logzio-helm/cloudwatch-fetcher
+```
+
+| Parameter | Description |
+| --- | --- |
+| `<<LOG-SHIPPING-TOKEN>>` | {% include log-shipping/log-shipping-token.html %} |
+| `<<LOGZIO-LISTENER>>` | {% include log-shipping/listener-var.html %}  |
+| `<<AWS-ACCESS-KEY>>` | Your AWS access key |
+| `<<AWS-SECRET-KEY>>` | Your AWS secret key |
+| `<<CONFIG-PATH>>` | Path to the Cloudwatch Fetcher configuration file you created in the previous step |
+
+
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/).
+
+<!-- info-box-start:info -->
+Note that the logs will have the original timestamp from Cloudwatch, so when you're searching for them, make sure that you're viewing the relevant time frame.
+{:.info-box.important}
+<!-- info-box-end -->
+
+
+###### Further Configuration
+
+The above helm install command will deploy a standard configuration version of the Chart.
+
+However, you can modify the Chart by using the --set flag in your helm install command:
+
+| Parameter | Description | Default |
+| --- | --- | --- |
+| `image` | Container image | `logzio/cloudwatch/fetcher` |
+| `imageTag` | Container image tag | `0.0.1` |
+| `secrets.enabled` | Specifies whether to create a secret for the deployment | `true` |
+| `secrets.name` | Name of the secret | `"logzio-logs-secret-cloudwatch"` |
+| `secrets.logzioShippingToken` | Your [Logz.io logs shipping token](https://app.logz.io/#/dashboard/settings/general) | `""`
+| `secrets.logzioListener` | Your logz.io [listener url](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs), for example: `listener.logz.io` | `""` (defaults to us region) |
+| `secrets.awsAccessKey` | Your AWS access key | `""` |
+| `secrets.awsSecretKey` | Your AWS secret key | `""` |
+| `persistentVolume.enabled` | Specifies whether to create a persistent volume and persistent volume claim for this release. Disabling will not allow the fetcher to continue from the last time it ran, in case the pod will be stopped | `true` |
+| `persistentVolume.storageClassName` | Storage class name | `"logzio-cloudwatch-fetcher"` |
+| `persistentVolume.capacity.storage` | Storage requirement for the PV | `50Mi` |
+| `persistentVolume.accessModes` | Access modes for the PV | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/charts/cloudwatch-fetcher/values.yaml) |
+| `persistentVolume.resources.requests.storage` | Storage request for the PVC | `30Mi` |
+| `loggingConfig` | Configuration for the logging of the fetcher | See [values.yaml](https://github.com/logzio/logzio-helm/blob/master/charts/cloudwatch-fetcher/values.yaml) |
+| `fetcherConfig` | Configuration for the fetcher | `""` |
+| `resetPositionFile` | Delete current position file | `false` |
+
+
+###### Presistent volume
+
+By default, this Helm Chart creates a Persistent Volume (PV) and a Persistent Volume Claim (PVC). These resources enable the Fetcher to save a position file, which records the last time the fetcher extracted logs from Cloudwatch. This is essential to prevent data loss in case the pod stops. If you choose to disable these resources or if your cluster does not allow their creation, some data may be lost if the pod stops.
+
+###### Uninstalling the Chart
+
+To uninstall the Cloudwatch Fetcher release:
+
+```shell
+helm uninstall -n monitoring cloudwatch-fetcher
+```
+
+</div>
+
+##### Using Docker
+
+
+<div class="tasklist">
+
+
+##### Pull Docker image
+
+```shell
+docker pull logzio/cloudwatch-fetcher:latest
+```
+
+##### Create a data volume directory
+
+This directory will store the configuration and position files for the fetcher. The position file enables the fetcher to resume from the last point it fetched in the event that the container was stopped.
+
+```shell
+mkdir logzio-cloudwatch-fetcher \
+&& cd logzio-cloudwatch-fetcher
+``` 
+
+##### Create a configuration file
+
+In the directory you created in the previous step, create a configuration file and name it `config.yaml`.
+
+| Field                      | Description                                                                                      | Required/Default |
+|----------------------------|--------------------------------------------------------------------------------------------------|------------------|
+| `aws_region`               | The AWS region your log groups are in. **Note** that all log groups should be in the same region. | **Required**     |
+| `log_groups`               | An array of log group configuration                                                              | **Required**     |
+| `log_groups.path`          | The AWS Cloudwatch log group you want to tail                                                    | **Required**     |
+| `log_groups.custom_fields` | Array of key-value pairs, for adding custom fields to the logs from the log group                | -                |
+| `collection_interval`      | Interval **IN MINUTES** to fetch logs from Cloudwatch                                            | Default: `5`     |
+
+
+###### Configuration example
+
+**See this [config sample](https://github.com/logzio/cloudwatch-fetcher/blob/master/config.yaml) for example.**
+
+##### Run the docker container
+
+```shell
+ docker run --name logzio-cloudwatch-fetcher \
+-e AWS_ACCESS_KEY_ID=<<AWS-ACCESS-KEY>> \
+-e AWS_SECRET_ACCESS_KEY=<<AWS-SECRET-KEY>> \
+-e LOGZIO_LOG_SHIPPING_TOKEN=<<LOG-SHIPPING-TOKEN>> \
+-e LOGZIO_LISTENER=https://<<LISTENER-HOST>>:8071 \
+-v "$(pwd)":/logzio/src/shared \
+logzio/cloudwatch-fetcher:latest
+```
+
+Replace the following:
+
+| Parameter                        | Description                                                                                                                                     |
+|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
+| `<<AWS-ACCESS-KEY>>`             | Your AWS access key                                                                                                                             |
+| `<<AWS-SECRET-KEY>>`             | Your AWS secret key                                                                                                                             |
+| `<<LOG-SHIPPING-TOKEN>>` | Your [Logz.io logs shipping token](https://app.logz.io/#/dashboard/settings/general)                                                            |
+| `<<LISTENER-HOST>>`            | Your logz.io [listener url](https://app.logz.io/#/dashboard/settings/manage-tokens/data-shipping?product=logs), for example: `listener.logz.io` |
+
+##### Check Logz.io for your logs
+
+Give your logs some time to get from your system to ours, and then open [Logz.io](https://app.logz.io/).
+
+**NOTE** that the logs will have the original timestamp from Cloudwatch, so when you're searching for them, make sure that you're viewing the relevant time frame.
+
+</div>
+
+##### Stop docker container
+
+Upon stopping the container, the code will continue to run until the completion of the current iteration. To ensure the iteration finishes on time, please provide a grace period of 30 seconds when executing the 'docker stop' command:
+
+```shell
+docker stop -t 30 logzio-cloudwatch-fetcher
+```
+
+##### Position file
+
+After each successful iteration for every log group, the latest timestamp and next token obtained from AWS will be written to a file named position.yaml.
+
+You can locate this file within the mounted host directory that you created.
+
+If the container is stopped, the file enables the fetcher to resume from the exact point at which it was interrupted.
+
+
+
+</div>
+<!-- tab:end -->
 
 <!-- tab:start -->
 <div id="advanced">
@@ -566,9 +795,11 @@ You can generate test events using the Logz.io Lambda test events generator and 
 To run the test event, select **Test** in the **Test** tab. The Lambda function will run and generate the following two logs in your account:
 `[ERROR] Logz.io cloudwatch test log1` `[ERROR] Logz.io cloudwatch test log2`
 
-</div>
+
 </div>
 <!-- tab:end -->
+
+
 
 </div>
 <!-- tabContainer:end -->

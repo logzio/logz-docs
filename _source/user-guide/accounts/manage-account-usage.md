@@ -108,7 +108,7 @@ You can view the utilized traces in your Tracing account, by filtering for `logz
 |current_daily_usage_percent|A percentage view of your daily span usage.|
 |current_monthly_usage_count|The number of spans used in your account this month.|
 |current_monthly_usage_percent|A percentage view of your monthly span usage.|
-|daily_index_size_limit_suspension_factor|the property of TracingAccountSetting. The default value is 8 but this value can be changed by the user from the UI on the manage account page. The value can be set from 2 to 30.|
+|daily_index_size_limit_suspension_factor|This value indicates the multiplier available for your daily span count. The default value is 8 and can be changed per Tracing account.|
 |estimated_daily_usage_percent|A percentage estimation of how many spans will be used today.|
 |estimated_monthly_usage_percent|A percentage estimation of how many spans will be used this month.|
 |overall_budget_monthly_spans_number|The total amount of spans you can send to this account each calendar month.|

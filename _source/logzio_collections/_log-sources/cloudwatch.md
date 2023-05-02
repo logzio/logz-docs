@@ -203,8 +203,8 @@ Use the following command, and replace the placeholders with your parameters:
 
 ```shell
 helm install -n monitoring --create-namespace \                 
---set secrets.logzioShippingToken="<<LOGZIO-LOG-SHIPPING-TOKEN>>" \
---set secrets.logzioListener="<<LOGZIO-LISTENER>>" \
+--set secrets.logzioShippingToken="<<LOG-SHIPPING-TOKEN>>" \
+--set secrets.logzioListener="<<LISTENER-HOST>>" \
 --set secrets.awsAccessKey="<<AWS-ACCESS-KEY>>" \
 --set secrets.awsSecretKey="<<AWS-SECRET-KEY>>" \
 --set-file fetcherConfig=<<CONFIG-PATH>> \
@@ -214,7 +214,7 @@ cloudwatch-fetcher logzio-helm/cloudwatch-fetcher
 | Parameter | Description |
 | --- | --- |
 | `<<LOG-SHIPPING-TOKEN>>` | {% include log-shipping/log-shipping-token.html %} |
-| `<<LOGZIO-LISTENER>>` | {% include log-shipping/listener-var.html %}  |
+| `<<LISTENER-HOST>>` | {% include log-shipping/listener-var.html %}  |
 | `<<AWS-ACCESS-KEY>>` | Your AWS access key |
 | `<<AWS-SECRET-KEY>>` | Your AWS secret key |
 | `<<CONFIG-PATH>>` | Path to the Cloudwatch Fetcher configuration file you created in the previous step |

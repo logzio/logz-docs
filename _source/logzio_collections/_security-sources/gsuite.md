@@ -141,9 +141,9 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 {% include log-shipping/listener-var.html %} 
 
-* Replace `<<PATH_TO_CREDENTIALS_FILE>>` with the path to the credentials file (for example `./credentials_file.json` if the credentials file is in the same path as `filebeat.yml`).
+* Replace `<<PATH_TO_CREDENTIALS_FILE>>` with the path to the file (for example `./credentials_file.json` with credentials of the service account path that was created on the GCP. It is preferable to use the full path for the file.
 
-* Replace `<<DELEGATED_ACCOUNT_EMAIL>>` with the email address of the admin Google Workspace user (for example `user@example.com`).
+* Replace `<<DELEGATED_ACCOUNT_EMAIL>>` with the email address of the Admin (in most cases **superadmin**) that authorised the domain wide delegation function to the service account (GCP) on the **Google Workspace account**.
 
 ##### Start Filebeat
 

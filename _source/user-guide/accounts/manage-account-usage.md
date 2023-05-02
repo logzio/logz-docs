@@ -98,7 +98,11 @@ In your logs, you might see something like this: ![Flexible volume metrics](http
 
 Every Tracing account has the utilization option enabled by default, working in increments of 10 minutes. This lets you view and analyze your tracing data in real-time.
 
-You can find these logs in OpenSearch Dashboards when you filter for the `logzio_tracing_account_utilization` log type. They include the following fields:
+These logs are saved as part of your Tracing account and are visible from OpenSearch Dashboards. 
+
+Navigate to OpenSearch Dashboards and select your **Tracing account**. Next, filter for the `logzio_tracing_account_utilization` log type.
+
+Trace utilization logs include the following fields:
 
 |Field name|Description|
 |---|---|

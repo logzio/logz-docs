@@ -3,7 +3,7 @@ title: Ship Prometheus metrics from AWS CloudWatch with the OpenTelemetry Collec
 logo:
   logofile: aws-cloudwatch.svg
   orientation: vertical
-data-source: Amazon CloudWatch for Prometheus metrics
+data-source: Amazon CloudWatch exporter
 data-for-product-source: Metrics
 open-source:
   - title: CloudWatch metrics for Prometheus

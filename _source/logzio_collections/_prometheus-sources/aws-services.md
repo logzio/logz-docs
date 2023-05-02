@@ -1,10 +1,10 @@
 ---
-title: Send Amazon CloudWatch metrics
+title: Send Amazon metrics
 logo:
-  logofile: aws-cloudwatch.svg
+  logofile: aws-services.png
   orientation: vertical
 data-for-product-source: Metrics
-data-source: Amazon Cloudwatch Metrics Stream
+data-source: Amazon Services
 templates: ["docker"]
 contributors:
   - nshishkin
@@ -24,6 +24,13 @@ order: 800
 <div id="automated-cloudformation-deployment">
 
 ## Overview
+
+<!-- info-box-start:info -->
+For a much easier and more efficient way to collect and send metrics, consider using the [Logz.io telemetry collector](https://app.logz.io/#/dashboard/send-your-data/agent/new)).
+{:.info-box.note}
+<!-- info-box-end -->
+
+
 
 Deploy this integration to send your CloudWatch metrics to Logz.io.
 

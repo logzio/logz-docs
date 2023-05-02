@@ -98,25 +98,25 @@ In your logs, you might see something like this: ![Flexible volume metrics](http
 
 Every Tracing account has the utilization option enabled by default, working in increments of 10 minutes. This lets you view and analyze your tracing data in real-time.
 
-You can find the utilized traces in your tracing account when you filter for `logzio_tracing_account_utilization`, and they include the following fields:
+You can view the utilized traces in your Tracing account, by filtering for `logzio_tracing_account_utilization` log type. These logs include the following fields:
 
 |Field name|Description|
 |---|---|
-|account_monthly_spans_limit|The total number of spans you can send to the account monthly .|
-|account_plan_allocation_percent||
-|account_type|The type of your Logz.io account.|
-|current_daily_usage_count|Number of spans used in your account today.|
-|current_daily_usage_percent|Percentage of how many spans you've used today.|
-|current_monthly_usage_count|Number of spans used in your account this month.|
-|current_monthly_usage_percent|Percentage of how many spans you've used this month.|
-|daily_index_size_limit_suspension_factor|?|
-|estimated_daily_usage_percent|a percentage of how many spans you've used today.|
-|estimated_monthly_usage_percent|Percentage of how many spans used in your account this month.|
-|max_number_of_tracing_accounts|The maximum number of tracing account available in this account.|
-|overall_budget_monthly_spans_number||
-|retention|Your plan’s retention policy.|
-|tracing_account_id|Logz.io account ID|
-|type|The log type.|
+|account_monthly_spans_limit|The maximum amount of spans you can send to this account each calendar month.|
+|account_plan_allocation_percent|The percentage of the account from the overall budget.|
+|current_daily_usage_count|The number of spans used in your account today.|
+|current_daily_usage_percent|A percentage view of your daily span usage.|
+|current_monthly_usage_count|The number of spans used in your account this month.|
+|current_monthly_usage_percent|A percentage view of your monthly span usage.|
+|daily_index_size_limit_suspension_factor|the property of TracingAccountSetting. The default value is 8 but this value can be changed by the user from the UI on the manage account page. The value can be set from 2 to 30.|
+|estimated_daily_usage_percent|A percentage estimation of how many spans will be used today.|
+|estimated_monthly_usage_percent|A percentage estimation of how many spans will be used this month.|
+|overall_budget_monthly_spans_number|The total amount of spans you can send to this account each calendar month.|
+|tracing_account_id|Your Logz.io Tracing account ID|
+|type|The log type, `logzio_tracing_account_utilization`.|
+
+
+![filter by type](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/tracing-focus-log-type.png)
 
 ### Saving log size {#what-happens-when-i-save-log-size}
 

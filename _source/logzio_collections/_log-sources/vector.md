@@ -70,6 +70,12 @@ If you get a 400 error when using `json` encoding, try use port 8081 instead of 
 {:.info-box.note}
 <!-- info-box-end -->
 
+<!-- info-box-start:info -->
+If your logs are sent in batches, change the `encoding.codec` setting from `json` to `text`. 
+{:.info-box.note}
+<!-- info-box-end -->
+
+
 
 ###### Parameters
 

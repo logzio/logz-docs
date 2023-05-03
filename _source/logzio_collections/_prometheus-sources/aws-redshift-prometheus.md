@@ -39,7 +39,7 @@ This integration creates a Kinesis Data Firehose delivery stream that links to y
 
 <div class="tasklist">
 
-##### Create a Kinesis Data Firehose delivery stream
+##### Configure AWS to forward metrics to Logz.io
 
 To deploy this project, click the button that matches the region you wish to deploy your Stack to:
 

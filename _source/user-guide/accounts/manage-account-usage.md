@@ -10,11 +10,15 @@ flags:
 tags:
   - accounts
   - account-utilization
+  - utilization
+  - log utilization
+  - tracing utilization
 contributors:
   - boofinka
   - gregoryloucas
   - imnotashrimp
   - yberlinger
+  - hidan
 ---
 
 If your account is nearing its daily quota,
@@ -25,13 +29,39 @@ but what if you want to be more proactive in managing your accounts?
 For this, you have _account utilization metrics_ (which saves log size and other metadata)
 and drop filters (which allow you to stop ingestion of some logs).
 
+* toc list
+{:toc}
+
 ## What are account utilization metrics? {#what-are-account-utilization-metrics}
+{:.no_toc}
 
 Account utilization metrics capture a snapshot
-of your account usage in regular increments—every 10, 30, or 60 minutes—depending on your settings.
+of your account usage in regular increments
 Logz.io starts logging your usage after your account reaches 10 MB in size.
-You can find these logs in OpenSearch Dashboards
-when you filter for the `logzio_account_utilization` log type.
+
+### Enabling account utilization metrics and log size
+
+![Sub account settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/utilization--save-account-utilization-metrics.png)
+
+Account utilization metrics and log size are set per individual account.
+You can find these settings
+on the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page
+below **Advanced options**.
+This page is available
+only from your main account—you won't be able to make this change from a sub account.
+
+Even though you need to be an **account admin** to enable this setting,
+everyone who has access to your Logz.io account
+can see the resulting logs.
+{:.info-box.note}
+
+
+### Log utilization
+
+Once you enable log utilization, you can choose the increment that suits your needs - every 10, 30, or 60 minutes.
+
+You can find these logs in OpenSearch Dashboards when you filter for the `logzio_account_utilization` log type. They include the following fields:
+
 
 | Field name | Description |
 |---|---|
@@ -46,7 +76,7 @@ when you filter for the `logzio_account_utilization` log type.
 | utilization | Current utilization, in percent |
 | volume_in_GB | Current utilization, in GB |
 
-### Account utilization metrics for flexible accounts
+#### Account utilization metrics for flexible accounts
 
 The following fields are used for flexible volume accounts. 
 
@@ -63,7 +93,36 @@ Obviously, the value can't be negative: If you haven't used any of the shared vo
 
 In your logs, you might see something like this: ![Flexible volume metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/flex_utilizn_metrix2.png) 
 
-### What happens when I save log size? {#what-happens-when-i-save-log-size}
+
+### Tracing utilization
+
+Every Tracing account has the utilization option enabled by default, working in increments of 10 minutes. This lets you view and analyze your tracing data usage in real-time.
+
+These logs are saved as part of your Tracing account and are visible from OpenSearch Dashboards. 
+
+Navigate to OpenSearch Dashboards and select your **Tracing account**. Next, filter for the `logzio_tracing_account_utilization` log type.
+
+![filter by type](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/tracing-focus-log-type.png)
+
+Trace utilization logs include the following fields:
+
+|Field name|Description|
+|---|---|
+|account_monthly_spans_limit|The maximum amount of spans you can send to this account each calendar month.|
+|account_plan_allocation_percent|The percentage of the account from the overall budget.|
+|current_daily_usage_count|The number of spans sent to your account today.|
+|current_daily_usage_percent|A percentage that presents the number of spans sent to your account based on the account's daily limit and multiplier. You can change the multiplier per Tracing account on the [Manage accounts page](https://app.logz.io/#/dashboard/settings/manage-accounts).|
+|current_monthly_usage_count|The number of spans sent to your account this month.|
+|current_monthly_usage_percent|A percentage view of your monthly span usage.|
+|daily_index_size_limit_suspension_factor|The number represents a multiplier of your estimated daily span account. You can [configure](https://app.logz.io/#/dashboard/settings/manage-accounts) a number ranging from x2 to x30 to limit the daily spans sent to the Tracing account. The default value is 8.|
+|estimated_daily_usage_percent|A percentage estimation of how many spans will be used today.|
+|estimated_monthly_usage_percent|A percentage estimation of how many spans will be used this month.|
+|overall_budget_monthly_spans_number|The total amount of spans you can send to this account each calendar month.|
+|tracing_account_id|Your Logz.io Tracing account ID|
+|type|The log type, `logzio_tracing_account_utilization`.|
+
+
+### Saving log size {#what-happens-when-i-save-log-size}
 
 When you enable saving log size,
 a new field is added to incoming logs.
@@ -74,21 +133,6 @@ OpenSearch Dashboards doesn't recognize `LogSize` as a number right away.
 You can fix this by clicking <i class="fas fa-sync-alt"></i> (refresh mapping) for `LogSize` in OpenSearch Dashboards.
 You'll need to do this for each account where you enabled `LogSize`.
 
-### Enabling account utilization metrics and log size
-
-![Sub account settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/utilization--save-account-utilization-metrics.png)
-
-Account utilization metrics and log size are set per individual account.
-You can find these settings
-on the [Manage accounts](https://app.logz.io/#/dashboard/settings/manage-accounts) page
-below **Advanced options**.
-This page is available
-only from your main account—you won't be able to make this change from a sub account.
-
-Even though you need to be an account admin to enable this setting,
-everyone who has access to your Logz.io account
-can see the resulting logs.
-{:.info-box.note}
 
 ### Visualizing utilization with an ELK app
 

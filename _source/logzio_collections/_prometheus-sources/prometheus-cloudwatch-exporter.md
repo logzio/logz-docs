@@ -31,6 +31,11 @@ order: 400
 <!-- tab:start -->
 <div id="overview">
 
+<!-- info-box-start:info -->
+Try the [CloudWatch Stream](./aws-services) for a better and easier experience.
+{:.info-box.note}
+<!-- info-box-end -->
+
 With this integration, you can collect Cloudwatch metrics and forward them to Logz.io using the OpenTelemetry collector. We simplify the data export and collection of your metrics. You tell us the desired namespaces and regions that you want to send your data from and we fetch the most relevant metrics to display in the Logz.io pre-built infrastructure monitoring dashboards.
 
 ### Important notes

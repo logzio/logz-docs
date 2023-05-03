@@ -96,11 +96,13 @@ In your logs, you might see something like this: ![Flexible volume metrics](http
 
 ### Tracing utilization
 
-Every Tracing account has the utilization option enabled by default, working in increments of 10 minutes. This lets you view and analyze your tracing data in real-time.
+Every Tracing account has the utilization option enabled by default, working in increments of 10 minutes. This lets you view and analyze your tracing data usage in real-time.
 
 These logs are saved as part of your Tracing account and are visible from OpenSearch Dashboards. 
 
 Navigate to OpenSearch Dashboards and select your **Tracing account**. Next, filter for the `logzio_tracing_account_utilization` log type.
+
+![filter by type](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/tracing-focus-log-type.png)
 
 Trace utilization logs include the following fields:
 
@@ -108,19 +110,17 @@ Trace utilization logs include the following fields:
 |---|---|
 |account_monthly_spans_limit|The maximum amount of spans you can send to this account each calendar month.|
 |account_plan_allocation_percent|The percentage of the account from the overall budget.|
-|current_daily_usage_count|A percentage that presents the number of spans sent to your account based on the account's daily limit and multiplier. You can change the multiplier per Tracing account on the [Manage accounts page](https://app.logz.io/#/dashboard/settings/manage-accounts).|
-|current_daily_usage_percent|A percentage view of your daily span usage.|
+|current_daily_usage_count|The number of spans sent to your account today.|
+|current_daily_usage_percent|A percentage that presents the number of spans sent to your account based on the account's daily limit and multiplier. You can change the multiplier per Tracing account on the [Manage accounts page](https://app.logz.io/#/dashboard/settings/manage-accounts).|
 |current_monthly_usage_count|The number of spans sent to your account this month.|
 |current_monthly_usage_percent|A percentage view of your monthly span usage.|
-|daily_index_size_limit_suspension_factor|The number represents a multiplier of your estimated daily span account, ranging between x2 and x30, affecting the `current_daily_usage_percent` field. The default value is 8 and [can be changed per Tracing account](https://app.logz.io/#/dashboard/settings/manage-accounts).|
+|daily_index_size_limit_suspension_factor|The number represents a multiplier of your estimated daily span account. You can [configure](https://app.logz.io/#/dashboard/settings/manage-accounts) a number ranging from x2 to x30 to limit the daily spans sent to the Tracing account. The default value is 8.|
 |estimated_daily_usage_percent|A percentage estimation of how many spans will be used today.|
 |estimated_monthly_usage_percent|A percentage estimation of how many spans will be used this month.|
 |overall_budget_monthly_spans_number|The total amount of spans you can send to this account each calendar month.|
 |tracing_account_id|Your Logz.io Tracing account ID|
 |type|The log type, `logzio_tracing_account_utilization`.|
 
-
-![filter by type](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/tracing-focus-log-type.png)
 
 ### Saving log size {#what-happens-when-i-save-log-size}
 

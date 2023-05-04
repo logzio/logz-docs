@@ -569,3 +569,9 @@
   to = "/user-guide/alerts/"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/user-guide/insights/"
+  to = "/user-guide/insights/ai-insights.html"
+  status = 301
+  force = true

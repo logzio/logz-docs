@@ -4,6 +4,8 @@ title: Insights
 permalink: /user-guide/insights/
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: How to gain insights with Logz.io
+sitemap: false 
+noindex: true
 flags:
   logzio-plan: community
 tags:

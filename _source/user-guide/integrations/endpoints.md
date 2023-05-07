@@ -18,7 +18,7 @@ Configure Logz.io to send notifications to your preferred endpoints.
 Notifications are typically sent when alerts are triggered,
 when a user shares an OpenSearch Dashboards object,
 or when Logz.io
-[Insights]({{site.baseurl}}/user-guide/insights/exploring-insights.html)
+[Insights]({{site.baseurl}}/user-guide/insights/ai-insights.html)
 identifies new exceptions in your logs.
 
 ![Notification endpoints animation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/notification-endpoints/notification_endpoints_2021.gif)

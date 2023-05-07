@@ -97,12 +97,12 @@ firstLevel:
       url: /user-guide/insights/exceptions.html
     - title: AI Insights
       url: /user-guide/insights/ai-insights.html
-    - title: Exploring insights
-      url: /user-guide/insights/exploring-insights.html
-    - title: Markers
-      url: /user-guide/insights/markers.html
-    - title: Insights notifications
-      url: /user-guide/insights/insights-notifications.html
+    #- title: Exploring insights
+    #  url: /user-guide/insights/exploring-insights.html
+    #- title: Markers
+    #  url: /user-guide/insights/markers.html
+    #- title: Insights notifications
+    #  url: /user-guide/insights/insights-notifications.html
   - title: Collaboration
     thirdLevel:
     - title: Collaboration

@@ -4,6 +4,8 @@ title: Markers
 permalink: /user-guide/insights/markers.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Learn how to add and use Logz.io markers
+sitemap: false
+noindex: true
 flags:
   logzio-plan: community
 tags:

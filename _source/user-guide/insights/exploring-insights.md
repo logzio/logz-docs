@@ -4,6 +4,8 @@ title: Exploring insights
 permalink: /user-guide/insights/exploring-insights.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Learn how to explore Logz.io insights
+sitemap: false 
+noindex: true
 flags:
   logzio-plan: community
 tags:

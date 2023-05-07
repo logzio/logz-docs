@@ -240,6 +240,8 @@ If you need to specify multiple namespaces, add another `kubernetes.var.log.cont
 </match>
 ```
 
+You can exclude paths from Fluentd source that tails containers logs with `daemonset.extraExclude`, using a comma-seperated list with no spaces. [Read more](https://github.com/logzio/logzio-helm/blob/master/charts/fluentd/README.md) about changing default values in your `values.yaml` file.
+
 </div>
 <!-- tab:end -->
 

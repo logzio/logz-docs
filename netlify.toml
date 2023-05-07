@@ -575,3 +575,22 @@
   to = "/user-guide/insights/ai-insights.html"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/user-guide/insights/exploring-insights.html"
+  to = "/user-guide/insights/ai-insights.html"
+  status = 301
+  force = true
+
+
+[[redirects]]
+  from = "/user-guide/insights/markers.html"
+  to = "/user-guide/insights/ai-insights.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/user-guide/insights/insights-notifications.html"
+  to = "/user-guide/insights/ai-insights.html"
+  status = 301
+  force = true

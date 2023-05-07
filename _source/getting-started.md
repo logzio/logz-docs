@@ -99,7 +99,7 @@ The following list contains some of the common abilities available in Log Manage
 * Using **[Logz.io's pattern engine](https://docs.logz.io/user-guide/logs/log-patterns.html)** to automatically group logs with similar message fields by their frequency of occurrence
 * **[Reviewing your fields' mapping](https://docs.logz.io/user-guide/logs/mapping/)**
 * Using **[Optimizers](https://docs.logz.io/user-guide/optimizers/)** to store logs and aggregations to a timeless account
-* Predicting exceptions and critical errors with **[Insights](https://docs.logz.io/user-guide/insights/)**
+* Predicting exceptions and critical errors with **[Insights](/user-guide/insights/ai-insights.html)**
 
 
 #### Create visualizations with Logz.io's Infrastructure Monitoring

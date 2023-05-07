@@ -180,5 +180,5 @@ Learn more about [creating and managing sub accounts](/user-guide/accounts/manag
 {:.no_toc}
 
 * [Configure an alert](https://docs.logz.io/user-guide/alerts/configure-an-alert.html)
-* [Use Insights to detect new exceptions and critical errors](https://docs.logz.io/user-guide/insights/)
+* [Use Insights to detect new exceptions and critical errors](/user-guide/insights/ai-insights.html)
 * [Use Live tail to get a live view of your logs](https://docs.logz.io/user-guide/live-tail/)

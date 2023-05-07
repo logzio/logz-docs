@@ -4,6 +4,8 @@ title: Insights notifications
 permalink: /user-guide/insights/insights-notifications.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Configure insight notifications with Logz.io
+sitemap: false 
+noindex: true
 flags:
   logzio-plan: community
 tags:

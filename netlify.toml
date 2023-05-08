@@ -594,3 +594,10 @@
   to = "/user-guide/insights/ai-insights.html"
   status = 301
   force = true
+
+
+[[redirects]]
+  from = "/user-guide/infrastructure-monitoring/metrics-dashboards/"
+  to = "/user-guide/infrastructure-monitoring/"
+  status = 301
+  force = true

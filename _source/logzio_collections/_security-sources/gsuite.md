@@ -1,5 +1,7 @@
 ---
 title: Ship logs from Google Workspace
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship logs from Google Workspace to Logz.io
 logo:
   logofile: google-workspace.svg
   orientation: horizontal
@@ -8,6 +10,7 @@ data-for-product-source: Cloud SIEM
 templates: ["network-device-filebeat"]
 contributors:
   - shalper
+  - hidan
 shipping-tags:
   - gcp
 order: 630
@@ -15,10 +18,10 @@ order: 630
 Google Workspace is a collection of cloud computing, productivity and collaboration tools, software and products developed and marketed by Google. You can ship Google Workspace logs to Logz.io using Filebeat and Google Reports API.
 
 
-**Before you begin, you'll need**: [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation-configuration.html) installed
+**Before you begin, you'll need**: [Filebeat](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-installation-configuration.html) installed.
 
 <!-- info-box-start:info -->
-The GSuite module was [deprecated as of Filebeat 7.12](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-gsuite.html#filebeat-module-gsuite) and has been replaced with the [Google Workspace module](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-google_workspace.html), to bring it in line with Google's current naming. The integration itself remains the same, requiring only that you replace "- module: gsuite" with "- module: google_workspace" in the modules block.
+The GSuite module was [deprecated as of Filebeat 7.12](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-gsuite.html#filebeat-module-gsuite) and has been replaced with the [Google Workspace module](https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-module-google_workspace.html), to align with Google's current naming. The integration remains the same, requiring only that you replace "- module: gsuite" with "- module: google_workspace" in the modules block.
 {:.info-box.note}
 <!-- info-box-end -->
 
@@ -28,21 +31,39 @@ The GSuite module was [deprecated as of Filebeat 7.12](https://www.elastic.co/gu
 
 ##### Set up a Service Account
 
-Follow the official Google Workspace [tutorial](https://support.google.com/gsuitemigrate/answer/9222993?hl=en) for setting up a service account.
+
+Follow the official Google Workspace [tutorial](https://support.google.com/workspacemigrate/answer/10839762?sjid=10874551070185788155-EU#zippy=%2Cstep-use-google-cloud-to-turn-on-apis) for setting up a service account through IAM.
 
 ##### Grant access to the Admin SDK API
 
-Follow the official Google Workspace [tutorial](https://support.google.com/gsuitemigrate/answer/9222865?hl=en) for granting access to the Admin API.
+Enable access to the following APIs and services. If you can't find the API, specify the API name in **APIs & Services > Library** search box.
+
+* Admin SDK
+* People API (If you're using a Google Workspace Migrate version earlier than 2.4.2.0, use the Contacts API instead.)
+* Google Workspace Migrate API
+* Gmail API
+* Google Calendar API
+* Google Drive API
+* Groups Migration API
+* Groups Settings API
+* Google Sheets API
+* Tasks API
 
 ##### Delegate domain-wide authority to your service account
 
-* Open your Google Workspace domain’s [Admin console](http://admin.google.com/).
-* Go to **Main menu** > **Security** > **API controls**.
-* In the Domain-wide delegation pane, select **Manage Domain Wide Delegation**.
-* Click **Add new**, and fill in the details:
-    * **Client ID** - Enter the service account's Client ID - you can find it in the service account's details under **Unique ID**. It is also found in the **client_id** field of the credentials file that was auto-downloaded when you created a new key for your service account.
-    * **OAuth Scopes** - Enter [the admin's API](https://www.googleapis.com/auth/admin.reports.audit.readonly)
-    * Click **Authorize** to confirm your changes.
+Open your Google Workspace domain’s [Admin console](http://admin.google.com/). Next, navigate to **Main menu** > **Security** > **API controls**.
+
+In the Domain-wide delegation pane, select **Manage Domain Wide Delegation**. 
+
+
+If you **can't** find the Manage Domain Wide Delegation option, you will need to **switch to a super-admin** Google Workspace account.
+{:.info-box.note}
+
+Once you access the **Manage Domain Wide Delegation**, click **Add new**, and fill in the details:
+
+* **Client ID** - Enter the service account's Client ID - you can find it in the service account's details under **Unique ID**. It is also found in the **client_id** field of the credentials file that was auto-downloaded when you created a new key for your service account.
+* **OAuth Scopes** - Enter [the admin's API](https://www.googleapis.com/auth/admin.reports.audit.readonly)
+* Click **Authorize** to confirm your changes.
 
 #### Filebeat monitoring setup
 
@@ -51,7 +72,7 @@ Follow the official Google Workspace [tutorial](https://support.google.com/gsuit
 ##### Configure Filebeat
 
 Open the Filebeat configuration file (the default path `/etc/filebeat/filebeat.yml`) with your preferred text editor.
-Copy and paste the code block below, overwriting the previous contens.
+Copy and paste the code block below, overwriting the previous contents.
 
 {% include log-shipping/filebeat-input-extension.md %}
 
@@ -64,6 +85,9 @@ Copy and paste the code block below, overwriting the previous contens.
 fields:
   logzio_codec: json
   token: <<LOG-SHIPPING-TOKEN>>
+  # Replace <<LOG-SHIPPING-TOKEN>> with the token of the account you want to ship to.
+
+
   type: google_workspace
 fields_under_root: true
 encoding: utf-8
@@ -73,8 +97,12 @@ ignore_older: 3h
 filebeat.modules:
 - module: google_workspace
   saml:
+
+  # Replace <<PATH_TO_CREDENTIALS_FILE>> with the path to the file. See examples below.
+  # Replace <<DELEGATED_ACCOUNT_EMAIL>> with the email address of the Admin (or superadmin) that authorized the domain wide delegation function. 
+
     enabled: true
-    var.jwt_file: "<<PATH_TO_CERDNTIALS_FILE>>"
+    var.jwt_file: "<<PATH_TO_CERDNTIALS_FILE>>" 
     var.delegated_account: "<<DELEGATED_ACCOUNT_EMAIL>>"
   user_accounts:
     enabled: true
@@ -126,7 +154,10 @@ processors:
 
 ### Output 
 output.logstash:
-  hosts: ["<<LISTENER-HOST>>:5015"]
+  hosts: ["<<LISTENER-HOST>>:5015"] 
+  # Replace <<LISTENER-HOST>> with the host for your region. For example, listener.logz.io if your account is hosted on AWS US East, or listener-nl.logz.io if hosted on Azure West Europe. The required port depends whether HTTP or HTTPS is used: HTTP = 8070, HTTPS = 8071.
+
+
   ssl:
     certificate_authorities: ['/etc/pki/tls/certs/COMODORSADomainValidationSecureServerCA.crt']
 ```
@@ -143,7 +174,7 @@ Still in the same configuration file, replace the placeholders to match your spe
 
 * Replace `<<PATH_TO_CREDENTIALS_FILE>>` with the path to the file (for example `./credentials_file.json` with credentials of the service account path that was created on the GCP. It is preferable to use the full path for the file.
 
-* Replace `<<DELEGATED_ACCOUNT_EMAIL>>` with the email address of the Admin (in most cases **superadmin**) that authorised the domain wide delegation function to the service account (GCP) on the **Google Workspace account**.
+* Replace `<<DELEGATED_ACCOUNT_EMAIL>>` with the email address of the Admin (in most cases **superadmin**) that authorized the domain wide delegation function to the service account (GCP) on the **Google Workspace account**.
 
 ##### Start Filebeat
 

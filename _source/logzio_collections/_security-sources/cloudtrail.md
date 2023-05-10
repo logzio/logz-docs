@@ -51,9 +51,10 @@ The configuration wizard will open.
 3. Provide the **S3 bucket name**
 4. Provide your **Prefix**. That is your CloudTrail path. See further details below.
 5. There is no **Region** selection box because it is not needed. Logz.io will pull data from all regions in AWS for the specified bucket and account.
-6. **Save** your information.
+6. Choose whether you want to include the **source file path**. This saves the path of the file as a field in your log.
+7. **Save** your information.
 
-![S3 bucket configuration wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-configuration-wizard-no-region.png)
+![S3 bucket configuration wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/iam-role-configuration.png)
 
 
 ###### Getting the information from your CloudTrail AWS path

@@ -23,11 +23,12 @@ Learn more about how you can enhance and optimze your Logz.io account:
 -->
 
 
-Whether you are a new user or looking for a refresher, you are invited to join us for live training on the Logz.io platform!
-
-We offer weekly group training sessions, covering everything from how to send your data to Logz.io to how to take advantage of our advanced features.
+Whether you are a new user or looking for a refresher, we're here to help you get the most out of your data.  At any time you can request a training session for yourself or your team by reaching out to support.  We will setup a session and review the areas you need help in.
 
 Best of all, we'll share some logging and monitoring best practices.
+
+Each session is generally 60 minutes.
+Below, we have an example agenda:
 
 #### Scheduled meeting times
 

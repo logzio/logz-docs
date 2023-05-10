@@ -30,14 +30,6 @@ Best of all, we'll share some logging and monitoring best practices.
 Each session is generally 60 minutes.
 Below, we have an example agenda:
 
-#### Scheduled meeting times
-
-If you’d like to join us, simply register using this [Calendly link](https://calendly.com/stevemccabe-logz/logz-io-training-101).
-
-Sessions run on Mondays at 12:30 PM ET and Thursdays at 9:00 AM ET. 
-
-Each session is 60 minutes.
-
 #### Training agenda
 
 **Logging with Open Search Dashboards and Logz.io**

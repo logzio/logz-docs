@@ -521,6 +521,8 @@ firstLevel:
     #  url: /user-guide/infrastructure-monitoring/data-rollups.html
     - title: On Demand pricing FAQ
       url: /user-guide/accounts/on-demand.html
+    - title: Set your landing page
+      url: /user-guide/accounts/homepage.html
       # - title: Usage and billing
   - title: Hosting Regions
     thirdLevel:

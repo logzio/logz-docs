@@ -15,47 +15,54 @@ contributors:
   - hidan
 ---
 
-You can set a custom landing page to view whenever you log into your Logz.io account.
+You can set a custom landing page to view when logging into your Logz.io account.
 
 The landing page can be any screen, dashboard, and visualization from your Logs, Metrics, or Tracing accounts.
 
 #### Set up your landing page
 
-Log into your Logz.io account and navigate to **[Settings > General Settings](https://app.logz.io/#/dashboard/settings/general)**. 
+Your default landing page is the [OpenSearch Dashboards](https://app.logz.io/#/dashboard/osd) main screen. 
 
-Your default landing page is the [Logs Discover](https://app.logz.io/#/dashboard/kibana) page. 
+To change it, navigate to **[Settings > General Settings](https://app.logz.io/#/dashboard/settings/general)**.
 
-![Main landing page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/main-landing-page.png)
+Open the drop down list to view all of the available options you can choose from. You can either scroll through the various options or type to search a specific page or dashboard. 
 
-To change it, open the drop-down list to view all the available pages you can choose from. You can either scroll through the various options or use the text box to search for a specific page or elements.
+<!-- ![Main landing page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/landing-page-main.png) -->
 
-![Search for landing page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/choose-landing-page.png)
+![Search for landing page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/landing-page-dropdown.png)
+
+Once you choose a new landing page, a popup will appear asking you to approve the change. Clicking on **Set landing page** will confirm the change.
+
+![Popup confirmation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/change-landing-page-confirm.png)
+
+That's it! Your new landing page will appear whenever you log into Logz.io, or when you click on the Logz.io icon at the top left corner of the screen.
+
+
+##### Icon dictionary
 
 Each item on the list includes:
 
-* An **icon** representing what the item is or where it's located. It can be a page inside Logs, Metrics, or Tracing.
+* An **icon** representing where the item is located. It can be a page inside Logs, Metrics, or Tracing.
 * The **name** of the page or item.
-* A **short description** to provide more information about the page or item.
+* A **short description** providing more information about the page or item.
 
-##### Icon dictionary
+
 
 |**Icon**|**Location**|
 |![logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/logs.svg)|Logs|
 |![metrics](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/metrics.svg)|Metrics|
 |![tracing](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/tracing.svg)|Tracing|
 
-For example, **api-gateway** has the Tracing logo and a short description, stating it's part of the Tracing environment.
+For example, **Payment SLO** has the Metrics logo, stating it's part of your Metrics environment.
 
-![Landing page info](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/api-gateway.png)
-
-Once you choose a new landing page, a popup will appear asking you to approve the change. Clicking on **Set landing page** will confirm the change.
-
-![Popup confirmation](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/set-page-popup.png)
-
-That's it! Your new landing page will appear whenever you log into Logz.io, or when you click on the Logz.io icon at the top left corner of the screen.
+![Landing page info](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/landing-page-choose.png)
 
 #### Reset your landing page
 
-If you want to reset your chosen Landing page, navigate to **[Settings > General Settings](https://app.logz.io/#/dashboard/settings/general)**. Clicking on the **Reset to default** option next to the landing page will open a popup asking you to confirm the change. Once confirmed, your landing page will be the [Logs Discover](https://app.logz.io/#/dashboard/kibana) page.
+To reset your chosen Landing page, navigate to **[Settings > General Settings](https://app.logz.io/#/dashboard/settings/general)** and click on the **Reset to default** option next to the landing page.
 
-![Reset landing page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/restore-to-default.png)
+The landing page default setting is Logz.io's [OpenSearch Dashboards](https://app.logz.io/#/dashboard/osd).
+
+<!-- The landing page default setting is Logz.io's [Home Dashboard](https://app.logz.io/#/dashboard/home). -->
+
+![Reset landing page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/landing-page/landing-page-reset.png)

@@ -81,7 +81,7 @@ You can upload JSON or plain text files.
 
 ###### Limitations
 
-* Max body size is 10 MB (10,485,760 bytes)
+* Max body size is 30 MB (31,457,280 bytes)
 * Please note that if you include a `type` field in the log, it will be overridden by the type written in the request header
 
 

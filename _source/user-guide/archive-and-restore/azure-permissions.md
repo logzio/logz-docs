@@ -159,11 +159,11 @@ To limit the access to trusted networks, add the network rules as follows:
 
 
 ```shell
-az storage account network-rule add --subnet /subscriptions/ac7ee52c-3b51-43b5-b667-2498be58418b/resourceGroups/logzio-<REGION>-prod/providers/Microsoft.Network/virtualNetworks/logzio-westeurope-prod-vnet/subnets/logzio-westeurope-prod-vnet-subnet-archivers --account-name <CUSTOMER_STORAGE_ACCOUNT_NAME>
+az storage account network-rule add --subnet /subscriptions/ac7ee52c-3b51-43b5-b667-2498be58418b/resourceGroups/logzio-<REGION>-prod/providers/Microsoft.Network/virtualNetworks/logzio-<REGION>-prod-vnet/subnets/logzio-<REGION>-prod-vnet-subnet-archivers --account-name <CUSTOMER_STORAGE_ACCOUNT_NAME>
 
-az storage account network-rule add --subnet /subscriptions/ac7ee52c-3b51-43b5-b667-2498be58418b/resourceGroups/logzio-<REGION>-prod/providers/Microsoft.Network/virtualNetworks/logzio-westeurope-prod-vnet/subnets/logzio-westeurope-prod-vnet-subnet-default --account-name <CUSTOMER_STORAGE_ACCOUNT_NAME>
+az storage account network-rule add --subnet /subscriptions/ac7ee52c-3b51-43b5-b667-2498be58418b/resourceGroups/logzio-<REGION>-prod/providers/Microsoft.Network/virtualNetworks/logzio-<REGION>-prod-vnet/subnets/logzio-<REGION>-prod-vnet-subnet-default --account-name <CUSTOMER_STORAGE_ACCOUNT_NAME>
 
-az storage account network-rule add --subnet /subscriptions/ac7ee52c-3b51-43b5-b667-2498be58418b/resourceGroups/logzio-<REGION>-prod/providers/Microsoft.Network/virtualNetworks/logzio-westeurope-prod-vnet/subnets/logzio-westeurope-prod-vnet-subnet-aks-services --account-name <CUSTOMER_STORAGE_ACCOUNT_NAME>
+az storage account network-rule add --subnet /subscriptions/ac7ee52c-3b51-43b5-b667-2498be58418b/resourceGroups/logzio-<REGION>-prod/providers/Microsoft.Network/virtualNetworks/logzio-<REGION>-prod-vnet/subnets/logzio-<REGION>-prod-vnet-subnet-aks-services --account-name <CUSTOMER_STORAGE_ACCOUNT_NAME>
 ```
 
 Replace `<REGION>` with the region of your account and `<CUSTOMER_STORAGE_ACCOUNT_NAME>` with the name of your storage account.

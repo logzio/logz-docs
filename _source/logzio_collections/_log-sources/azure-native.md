@@ -38,7 +38,7 @@ To learn more about this solution, refer to [Logz.io documentation on SSO](https
 
 ### Manage the platform options
 
-Purchases using CSP subscriptions is not supported at the moment.
+Purchases using CSP subscriptions are not supported at the moment.
 {:.info-box.note}
 
 Logz.io's Cloud-Native Observability Platform provides a variety of different options to manage the monitoring of your Azure environment.

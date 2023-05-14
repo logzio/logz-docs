@@ -6,10 +6,11 @@ The configuration wizard will open.
 3. Select the hosting region from the dropdown list.
 4. Provide the **S3 bucket name**
 5. _Optional_ You have the option to add a prefix.
-6. **Save** your information.
+6. Choose whether you want to include the **source file path**. This saves the path of the file as a field in your log.
+7. **Save** your information.
 
-![S3 bucket IAM authentication wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-iam_role_authentication1.png)
-![S3 bucket keyaccess authentication wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-keyaccess_config1.png)
+![S3 bucket IAM authentication wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-add-bucket.png)
+![S3 bucket keyaccess authentication wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/key-access-config-basic.png)
 
 <!-- info-box-start:info -->
 Logz.io fetches logs that are generated after configuring an S3 bucket.

@@ -10,7 +10,7 @@ The configuration wizard will open.
 7. **Save** your information.
 
 ![S3 bucket IAM authentication wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-add-bucket.png)
-![S3 bucket keyaccess authentication wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/key-access-configuration-panel.png)
+![S3 bucket keyaccess authentication wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/key-access-config-basic.png)
 
 <!-- info-box-start:info -->
 Logz.io fetches logs that are generated after configuring an S3 bucket.

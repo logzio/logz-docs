@@ -155,6 +155,8 @@ Paste the policy in your text editor.
 
 Keep this information available so you can use it in AWS.
 
+Choose whether you want to include the **source file path**. This saves the path of the file as a field in your log.
+
 ##### Create the IAM Role in AWS
 
 Go to your [IAM roles](https://console.aws.amazon.com/iam/home#/roles) page in your AWS admin console.
@@ -257,7 +259,7 @@ The configuration wizard will open.
 6. Choose whether you want to include the **source file path**. This saves the path of the file as a field in your log.
 7. **Save** your information.
 
-![S3 bucket keyaccess authentication wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/key-access-configuration-panel.png)
+![S3 bucket keyaccess authentication wizard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/key-access-config-basic.png)
 
 <!-- info-box-start:info -->
 Logz.io fetches logs that are generated after configuring an S3 bucket.

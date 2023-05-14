@@ -140,7 +140,7 @@ Select the relevant AWS resource from the left menu.
 
 Click **+ Add a bucket** and select the option to **Authenticate with a role**
 
-![Connect Logz.io to an AWS resource](https://dytvr9ot2sszz.cloudfront.net/logz-docs/access-and-authentication/s3-add-bucket-ids.png)
+![Connect Logz.io to an AWS resource](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/s3-add-bucket-ids.png)
 
 Copy and paste the **Account ID** and **External ID** in your text editor.
 

@@ -99,11 +99,12 @@ You can upload JSON or plain text files.
 ```shell
 Invoke-RestMethod -method POST -Uri https://<<LISTENER-HOST>>:8022/file_upload/<<LOG-SHIPPING-TOKEN>>/<<LOG-TYPE>> -InFile <<PATH/TO/LOG/FILE>>
 ```
+Replace the placeholders to match your specifics. (They are indicated by the double angle brackets `<< >>`):
 
-
-{% include /general-shipping/replace-placeholders.html %}
+* Replace `<<LOG-SHIPPING-TOKEN>>` with the token of the account you want to ship to.
 
 * {% include log-shipping/type.md %} Otherwise, the default `type` is `http-bulk`.
+
 * Replace `<<PATH/TO/LOG/FILE>>` with the path to your log file.
 
 ##### Check Logz.io for your logs

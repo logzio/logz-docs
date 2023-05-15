@@ -1,5 +1,7 @@
 ---
 title: Ship Kinesis metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Kinesis metrics to Logz.io
 logo:
   logofile: Amazon-Kinesis.svg
   orientation: vertical

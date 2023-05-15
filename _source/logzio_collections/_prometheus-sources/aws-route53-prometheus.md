@@ -1,5 +1,7 @@
 ---
 title: Ship Route53 metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Route53 metrics to Logz.io
 logo:
   logofile: Amazon-Route-53.svg
   orientation: vertical

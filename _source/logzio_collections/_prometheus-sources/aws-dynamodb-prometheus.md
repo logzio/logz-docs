@@ -1,5 +1,7 @@
 ---
 title: Ship AWS DynamoDB metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship AWS DynamoDB metrics to Logz.io
 logo:
   logofile: aws-dynamodb.svg
   orientation: vertical

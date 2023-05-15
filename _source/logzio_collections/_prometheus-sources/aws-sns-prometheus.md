@@ -1,5 +1,7 @@
 ---
 title: Ship Amazon SNS metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Amazon SNS metrics to Logz.io
 logo:
   logofile: aws-sns.svg
   orientation: vertical

@@ -1,5 +1,7 @@
 ---
 title: Ship Amazon SES metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Amazon SES metrics to Logz.io
 logo:
   logofile: aws-ses.png
   orientation: vertical

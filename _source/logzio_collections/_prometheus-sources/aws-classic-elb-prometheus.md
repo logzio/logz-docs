@@ -1,5 +1,7 @@
 ---
 title: Ship AWS Classic ELB metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship AWS Classic ELB metrics to Logz.io
 logo:
   logofile: aws-classic-elb.svg
   orientation: vertical

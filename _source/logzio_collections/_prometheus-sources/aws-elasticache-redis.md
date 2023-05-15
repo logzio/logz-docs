@@ -1,5 +1,7 @@
 ---
 title: Ship Amazon ElastiCache for Redis metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Amazon ElastiCache for Redis metrics to Logz.io
 logo:
   logofile: aws-redis-logo.png
   orientation: vertical

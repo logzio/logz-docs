@@ -1,5 +1,7 @@
 ---
 title: Send Amazon metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Send Amazon metrics to Logz.io
 logo:
   logofile: aws-services.png
   orientation: vertical

@@ -1,5 +1,7 @@
 ---
 title: Ship Kinesis Data Firehose metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Kinesis Data Firehose metrics to Logz.io
 logo:
   logofile: Amazon-Kinesis-Data-Firehose.svg
   orientation: vertical

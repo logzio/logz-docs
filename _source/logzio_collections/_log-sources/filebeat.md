@@ -48,6 +48,8 @@ Filebeat is often the easiest way to get logs from your system to Logz.io. Logz.
 
 {% include log-shipping/certificate.md %}
 
+{% include log-shipping/filebeat-ssl.md %}
+
 ##### Configure Filebeat using the dedicated Logz.io configuration wizard
 
 {% include log-shipping/filebeat-input-extension.md %}
@@ -110,6 +112,8 @@ Download the
 [Logz.io public certificate]({% include log-shipping/certificate-path.md %})
 to `C:\ProgramData\Filebeat\Logzio.crt`
 on your machine.
+
+{% include log-shipping/filebeat-ssl.md %}
 
 
 ##### Configure Filebeat using the dedicated Logz.io configuration wizard

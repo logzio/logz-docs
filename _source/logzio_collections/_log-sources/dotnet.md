@@ -256,7 +256,7 @@ To change or add fields to your logs, inherit the appender and override the `Ext
 ```csharp
 public class MyAppLogzioAppender : LogzioAppender
 {
-  protected override void ExtendValues(LoggingEvent loggingEvent, Dictionary<string, string> values)
+  protected override void ExtendValues(LoggingEvent loggingEvent, Dictionary<string, object> values)
   {
     values["logger"] = "MyPrefix." + values["logger"];
     values["myAppClientId"] = new ClientIdProvider().Get();
@@ -491,7 +491,7 @@ To change or add fields to your logs, inherit the appender and override the `Ext
 [Target("MyAppLogzio")]
 public class MyAppLogzioTarget : LogzioTarget
 {
-  protected override void ExtendValues(LogEventInfo logEvent, Dictionary<string, string> values)
+  protected override void ExtendValues(LogEventInfo logEvent, Dictionary<string, object> values)
   {
     values["logger"] = "MyPrefix." + values["logger"];
     values["myAppClientId"] = new ClientIdProvider().Get();
@@ -780,7 +780,7 @@ To change or add fields to your logs, inherit the appender and override the `Ext
 ```csharp
 public class MyAppLogzioAppender : LogzioAppender
 {
-  protected override void ExtendValues(LoggingEvent loggingEvent, Dictionary<string, string> values)
+  protected override void ExtendValues(LoggingEvent loggingEvent, Dictionary<string, object> values)
   {
     values["logger"] = "MyPrefix." + values["logger"];
     values["myAppClientId"] = new ClientIdProvider().Get();

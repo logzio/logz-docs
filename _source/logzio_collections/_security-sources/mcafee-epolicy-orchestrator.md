@@ -1,5 +1,7 @@
 ---
 title: Ship logs from McAfee ePolicy Orchestrator
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship logs from McAfee ePolicy Orchestrator to Logz.io
 logo:
   logofile: mcafee.svg
   orientation: vertical

@@ -1,5 +1,7 @@
 ---
 title: Ship logs from Palo Alto Networks
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship logs from Palo Alto Networks to Logz.io
 logo:
   logofile: palo-alto-networks.svg
   orientation: horizontal

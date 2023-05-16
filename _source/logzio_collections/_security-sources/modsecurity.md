@@ -1,5 +1,7 @@
 ---
 title: Ship ModSecurity logs
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship ModSecurity logs to Logz.io
 logo:
   logofile: modsec.png
   orientation: horizontal

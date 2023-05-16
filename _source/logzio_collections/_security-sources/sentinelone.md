@@ -1,5 +1,7 @@
 ---
 title: Ship logs from SentinelOne
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship logs from SentinelOne to Logz.io
 logo:
   logofile: sentintelone-icon.png
   orientation: vertical

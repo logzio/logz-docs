@@ -1,5 +1,7 @@
 ---
 title: Ship Azure activity logs
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Azure activity logs to Logz.io
 open-source:
   - title: logzio-azure-serverless
     github-repo: logzio-azure-serverless

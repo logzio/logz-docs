@@ -1,5 +1,7 @@
 ---
 title: Ship logs from Wazuh
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship logs from Wazuh to Logz.io
 logo:
   logofile: wazuh.svg
   orientation: vertical

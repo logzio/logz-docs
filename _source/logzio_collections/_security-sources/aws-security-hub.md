@@ -1,5 +1,7 @@
 ---
 title: AWS Security Hub 
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship events from AWS Security Hub to Logz.io
 logo:
   logofile: aws.svg
   orientation: vertical

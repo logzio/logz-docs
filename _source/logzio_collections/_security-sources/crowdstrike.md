@@ -1,5 +1,7 @@
 ---
 title: Ship events from Crowdstrike
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship events from Crowdstrike to Logz.io
 logo:
   logofile: crowdstrike-logo.svg
   orientation: vertical

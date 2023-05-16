@@ -1,5 +1,7 @@
 ---
 title: Ship OneLogin logs
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship OneLogin logs to Logz.io
 logo:
   logofile: onelogin.png
   orientation: vertical

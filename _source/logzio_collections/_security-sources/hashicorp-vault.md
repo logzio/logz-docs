@@ -1,5 +1,7 @@
 ---
 title: Ship logs from HashiCorp Vault
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship logs from HashiCorp Vault to Logz.io
 logo:
   logofile: hashicorp-vault.svg
   orientation: horizontal

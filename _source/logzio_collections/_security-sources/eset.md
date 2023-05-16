@@ -1,5 +1,7 @@
 ---
 title: Ship logs from ESET
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship logs from ESET to Logz.io
 logo:
   logofile: eset.png
   orientation: vertical

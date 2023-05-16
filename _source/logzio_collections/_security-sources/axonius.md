@@ -1,5 +1,7 @@
 ---
 title: Ship logs from Axonius
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship logs from Axonius to Logz.io
 logo:
   logofile: axonius.png
   orientation: vertical

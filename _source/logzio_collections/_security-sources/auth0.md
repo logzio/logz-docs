@@ -1,5 +1,7 @@
 ---
 title: Ship Auth0 events
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Auth0 events to Logz.io
 logo:
   logofile: auth0.png
   orientation: vertical

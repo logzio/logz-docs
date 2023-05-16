@@ -1,5 +1,7 @@
 ---
 title: Ship logs from Sophos
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship logs from Sophos to Logz.io
 logo:
   logofile: sophos-shield.png
   orientation: vertical

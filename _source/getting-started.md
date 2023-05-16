@@ -33,7 +33,7 @@ One unified SaaS platform to collect and analyze logs, metrics, and traces, comb
 * [Manage your Logz.io account](/getting-started.html#manage-your-logzio-account) -->
 
 
-Whether you are a new user or looking for a refresher on Logz.io, you are invited to join one of our engineers for a **[live training on the Logz.io platform](https://calendly.com/stevemccabe-logz/logz-io-training-101)**!
+Whether you are a new user or looking for a refresher on Logz.io, you are invited to join one of our engineers for a **[training session on the Logz.io platform](https://docs.logz.io/training/)**!
 {:.info-box.note}
 
 #### Send your data to Logz.io

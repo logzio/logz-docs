@@ -81,7 +81,7 @@ You can upload JSON or plain text files.
 
 ###### Limitations
 
-* Max body size is 10 MB (10,485,760 bytes)
+* Max body size is 30 MB (31,457,280 bytes)
 * Please note that if you include a `type` field in the log, it will be overridden by the type written in the request header
 
 
@@ -99,8 +99,9 @@ You can upload JSON or plain text files.
 curl -T /path/to/log/file https://<<LISTENER-HOST>>:8022/file_upload/<<LOG-SHIPPING-TOKEN>>/<<LOG-TYPE>>
 ```
 
+Replace the placeholders to match your specifics. (They are indicated by the double angle brackets `<< >>`):
 
-{% include /general-shipping/replace-placeholders.html %}
+* Replace `<<LOG-SHIPPING-TOKEN>>` with the token of the account you want to ship to.
 
 * {% include log-shipping/type.md %} Otherwise, the default `type` is `http-bulk`.
 

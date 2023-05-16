@@ -1,5 +1,7 @@
 ---
 title: Ship S3 metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship S3 metrics to Logz.io
 logo:
   logofile: aws-s3.svg
   orientation: vertical

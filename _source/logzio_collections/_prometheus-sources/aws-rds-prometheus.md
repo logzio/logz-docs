@@ -1,5 +1,7 @@
 ---
 title: Ship RDS metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship RDS metrics to Logz.io
 logo:
   logofile: aws-rds.svg
   orientation: vertical

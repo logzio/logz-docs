@@ -1,5 +1,7 @@
 ---
 title: Ship Network ELB metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Network ELB metrics to Logz.io
 logo:
   logofile: elb-network.svg
   orientation: vertical

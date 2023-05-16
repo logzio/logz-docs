@@ -1,5 +1,7 @@
 ---
 title: Ship ECS metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship ECS metrics to Logz.io
 logo:
   logofile: amazon-ecs.svg
   orientation: vertical

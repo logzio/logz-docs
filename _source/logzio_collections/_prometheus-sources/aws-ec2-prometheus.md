@@ -1,5 +1,7 @@
 ---
 title: Ship EC2 metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship EC2 metrics to Logz.io
 logo:
   logofile: aws-ec2.svg
   orientation: vertical

@@ -1,5 +1,7 @@
 ---
 title: Ship Amazon AppRunner metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Amazon AppRunner metrics to Logz.io
 logo:
   logofile: aws-fusion.svg   
   orientation: vertical

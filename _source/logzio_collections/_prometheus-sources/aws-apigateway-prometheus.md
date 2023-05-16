@@ -1,5 +1,7 @@
 ---
 title: Ship AWS Api Gateway metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship AWS Api Gateway metrics to Logz.io
 logo:
   logofile: aws-api-gateway.svg
   orientation: vertical

@@ -1,5 +1,7 @@
 ---
 title: Ship EFS metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship EFS metrics to Logz.io
 logo:
   logofile: aws-efs.svg
   orientation: vertical

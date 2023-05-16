@@ -1,5 +1,7 @@
 ---
 title: Ship Redshift metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Redshift metrics to Logz.io
 logo:
   logofile: Amazon-Redshift.svg
   orientation: vertical

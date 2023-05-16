@@ -1,5 +1,7 @@
 ---
 title: Ship Amazon NAT Gateway metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Amazon NAT Gateway metrics to Logz.io
 logo:
   logofile: aws-nat.png
   orientation: vertical

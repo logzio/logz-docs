@@ -1,5 +1,7 @@
 ---
 title: Ship Amazon Cloudwatch Kafka
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Amazon Cloudwatch Kafka to Logz.io
 logo:
   logofile: aws-cloudwatch.svg
   orientation: vertical

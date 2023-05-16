@@ -1,5 +1,7 @@
 ---
 title: Ship SQS metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship SQS metrics to Logz.io
 logo:
   logofile: aws-sqs.svg
   orientation: vertical

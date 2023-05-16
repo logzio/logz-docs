@@ -1,5 +1,7 @@
 ---
 title: Ship CloudFront metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship CloudFront metrics to Logz.io
 logo:
   logofile: aws-cloudfront.svg
   orientation: vertical

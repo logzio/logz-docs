@@ -1,5 +1,7 @@
 ---
 title: Ship Lambda metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Lambda metrics to Logz.io
 logo:
   logofile: AWS-Lambda.svg
   orientation: vertical

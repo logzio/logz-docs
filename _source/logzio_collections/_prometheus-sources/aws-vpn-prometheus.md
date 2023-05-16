@@ -1,5 +1,7 @@
 ---
 title: Ship Amazon VPN metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Amazon VPN metrics to Logz.io
 logo:
   logofile: aws-vpn.png
   orientation: vertical

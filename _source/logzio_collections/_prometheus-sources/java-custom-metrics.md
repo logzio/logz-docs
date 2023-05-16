@@ -1,5 +1,7 @@
 ---
 title: Send custom metrics from your Java code
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Send custom metrics from your Java code to Logz.io
 logo:
   logofile: java.svg
   orientation: vertical

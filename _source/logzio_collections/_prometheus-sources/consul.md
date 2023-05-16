@@ -1,5 +1,7 @@
 ---
 title: Ship Hashicorp Consul metrics with OpenTelemetry
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Hashicorp Consul metrics with OpenTelemetry to Logz.io
 logo:
   logofile: consul-logo.png
   orientation: vertical

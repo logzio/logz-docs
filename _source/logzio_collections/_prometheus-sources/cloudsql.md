@@ -1,5 +1,7 @@
 ---
 title: Ship Google Cloud SQL metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Cloud SQL metrics to Logz.io
 logo:
   logofile: gcpsql.png
   orientation: vertical

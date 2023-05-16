@@ -1,5 +1,7 @@
 ---
 title: Logz.io Node.js metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Logz.io Node.js metrics to Logz.io
 logo:
   logofile: nodejs.svg
   orientation: vertical

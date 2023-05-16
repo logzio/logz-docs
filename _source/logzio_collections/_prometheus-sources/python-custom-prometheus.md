@@ -1,5 +1,7 @@
 ---
 title: Send custom metrics from your Python application
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Send custom metrics from your Python application to Logz.io
 logo:
   logofile: python.svg
   orientation: vertical

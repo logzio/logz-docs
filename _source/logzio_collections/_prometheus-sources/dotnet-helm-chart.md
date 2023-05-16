@@ -1,5 +1,7 @@
 ---
 title: Ship .NET diagnostic metrics with Helm
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship .NET diagnostic metrics with Helm to Logz.io
 logo:
   logofile: dotnet-logo.png
   orientation: horizontal

@@ -1,5 +1,7 @@
 ---
 title: Ship custom metrics from your .NET Core application
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship custom metrics from your .NET Core application to Logz.io
 logo:
   logofile: dotnet-logo.png
   orientation: horizontal

@@ -1,5 +1,7 @@
 ---
 title: Ship MongoDB Atlas metrics
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship MongoDB Atlas metrics to Logz.io
 logo:
   logofile: mongoatlas-logo.png
   orientation: vertical

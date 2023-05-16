@@ -1,5 +1,7 @@
 ---
 title: Ship Prometheus metrics with the Telegraf agent
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Prometheus metrics with the Telegraf agent to Logz.io
 logo:
   logofile: mascot-telegraf.png #telegraf-tiger.png  #telegraf-logo-preview.svg
   orientation: vertical

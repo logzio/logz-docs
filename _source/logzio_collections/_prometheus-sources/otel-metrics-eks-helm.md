@@ -1,5 +1,7 @@
 ---
 title: Send EKS metrics with Helm and the OpenTelemetry Collector
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Send EKS metrics with Helm and OpenTelemetry Collector to Logz.io
 logo:
   logofile: eks-logo-new.png
   orientation: horizontal

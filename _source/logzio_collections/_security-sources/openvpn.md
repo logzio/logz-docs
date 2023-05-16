@@ -1,5 +1,7 @@
 ---
 title: Ship logs from OpenVPN
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship logs from OpenVPN to Logz.io
 logo:
   logofile: openvpn.png
   orientation: vertical

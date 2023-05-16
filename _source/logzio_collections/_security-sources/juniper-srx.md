@@ -1,5 +1,7 @@
 ---
 title: Ship Juniper SRX logs
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Juniper SRX logs to Logz.io
 logo:
   logofile: juniper.png
   orientation: horizontal

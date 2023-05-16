@@ -1,5 +1,7 @@
 ---
 title: Ship FortiGate logs
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship FortiGate logs to Logz.io
 logo:
   logofile: fortinet.svg
   orientation: vertical

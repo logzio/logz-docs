@@ -1,5 +1,7 @@
 ---
 title: Ship Cisco Meraki logs
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Cisco Meraki logs to Logz.io
 logo:
   logofile: cisco-meraki-logo.png
   orientation: horizontal

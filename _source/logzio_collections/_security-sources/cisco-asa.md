@@ -1,5 +1,7 @@
 ---
 title: Ship Cisco ASA Server logs
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Cisco ASA Server logs to Logz.io
 logo:
   logofile: cisco.svg
   orientation: vertical

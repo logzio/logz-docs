@@ -1,5 +1,7 @@
 ---
 title: Ship Check Point logs
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Check Point logs to Logz.io
 logo:
   logofile: check-point.png
   orientation: vertical

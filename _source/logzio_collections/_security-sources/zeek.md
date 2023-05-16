@@ -1,5 +1,7 @@
 ---
 title: Ship Zeek logs
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Zeek logs to Logz.io
 logo:
   logofile: zeek.png
   orientation: vertical

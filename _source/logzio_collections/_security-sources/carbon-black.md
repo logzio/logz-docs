@@ -1,5 +1,7 @@
 ---
 title: Ship logs from Carbon Black
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship logs from Carbon Black to Logz.io
 logo:
   logofile: carbon-black.png
   orientation: vertical

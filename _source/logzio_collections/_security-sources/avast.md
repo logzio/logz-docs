@@ -1,5 +1,7 @@
 ---
 title: Ship logs from Avast
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship logs from Avast to Logz.io
 logo:
   logofile: avast.png
   orientation: vertical

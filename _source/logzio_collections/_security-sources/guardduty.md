@@ -1,5 +1,7 @@
 ---
 title: Ship GuardDuty logs
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship GuardDuty logs to Logz.io
 logo:
   logofile: aws-guardduty.png
   orientation: vertical

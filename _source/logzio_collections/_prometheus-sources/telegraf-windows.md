@@ -1,5 +1,7 @@
 ---
 title: Ship Windows Services metrics via Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Windows Services metrics via Telegraf to Logz.io
 logo:
   logofile: windows.svg
   orientation: vertical

@@ -2,7 +2,6 @@
 title: Ship Google Virtual Private Cloud (VPC) metrics
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Ship Google Virtual Private Cloud (VPC) metrics to Logz.io
-
 logo:
   logofile: vpc.png
   orientation: vertical

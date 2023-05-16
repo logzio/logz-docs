@@ -1,5 +1,7 @@
 ---
 title: Ship logs from Microsoft Graph
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship logs from Microsoft Graph to Logz.io
 logo:
   logofile: azure.svg
   orientation: horizontal

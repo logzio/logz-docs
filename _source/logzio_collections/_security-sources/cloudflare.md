@@ -1,5 +1,7 @@
 ---
 title: Send Cloudflare firewall event logs
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Send Cloudflare firewall event logs to Logz.io
 short-description: Logz.io can pull new Cloudflare firewall event logs straight from your S3 bucket every few seconds.
 logo:
   logofile: cloudflare.svg 

@@ -693,7 +693,7 @@ firstLevel:
       url: /api/cookbook/managing-sub-account-capacity.html
     - title: Backing up Kibana objects to GitHub
       url: /api/cookbook/backing-up-kibana-objects-to-github.html
-    - title: Using Inspect feature on Kibana UI
+    - title: Using Inspect feature on OpenSearch Dashboards UI
       url: /api/cookbook/inspect.html
 
   ##- title: LightS - Light Synthetic Monitoring for AWS

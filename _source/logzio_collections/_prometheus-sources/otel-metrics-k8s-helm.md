@@ -1,5 +1,7 @@
 ---
 title: Send Kubernetes metrics with Helm and the OpenTelemetry Collector
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Send Kubernetes metrics with Helm and OpenTelemetry Collector to Logz.io
 logo:
   logofile: k8s-helm.svg
   orientation: horizontal

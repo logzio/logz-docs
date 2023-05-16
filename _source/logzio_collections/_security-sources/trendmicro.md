@@ -1,5 +1,7 @@
 ---
 title: Send logs from Trend Micro
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Send logs from Trend Micro to Logz.io
 logo:
   logofile: trendmicro-small-logo.png
   orientation: vertical

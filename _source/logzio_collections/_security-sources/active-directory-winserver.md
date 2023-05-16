@@ -1,5 +1,7 @@
 ---
 title: Ship Active Directory logs from Windows Server
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Active Directory logs from Windows Server to Logz.io
 logo:
   logofile: windows.svg
   orientation: vertical

@@ -1,5 +1,7 @@
 ---
 title: Ship Fail2ban logs
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Fail2ban logs to Logz.io
 logo:
   logofile: fail2ban.png
   orientation: vertical

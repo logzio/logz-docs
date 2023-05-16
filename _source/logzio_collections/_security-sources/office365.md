@@ -1,5 +1,7 @@
 ---
 title: Ship logs from Microsoft 365
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship logs from Microsoft 365 to Logz.io
 logo:
   logofile: office365.png
   orientation: vertical

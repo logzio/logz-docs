@@ -1,5 +1,7 @@
 ---
 title: Ship Falco logs
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Falco logs to Logz.io
 logo:
   logofile: falco-logo.png
   orientation: vertical

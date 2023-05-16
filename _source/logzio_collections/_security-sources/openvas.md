@@ -1,5 +1,7 @@
 ---
 title: Ship OpenVAS logs
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship OpenVAS logs to Logz.io
 logo:
   logofile: greenbone_icon.png
   orientation: vertical

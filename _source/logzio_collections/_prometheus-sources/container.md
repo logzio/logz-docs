@@ -1,5 +1,7 @@
 ---
 title: Ship Google Kubernetes Engine metrics over Telegraf
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship Google Kubernetes Engine metrics over Telegraf to Logz.io
 logo:
   logofile: gcpkubernetes.png
   orientation: vertical

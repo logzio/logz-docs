@@ -1,5 +1,7 @@
 ---
 title: Ship logs from Cynet
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship logs from Cynet to Logz.io
 logo:
   logofile: cynet.png
   orientation: vertical

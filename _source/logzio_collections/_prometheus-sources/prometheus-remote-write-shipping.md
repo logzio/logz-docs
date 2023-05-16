@@ -1,5 +1,7 @@
 ---
 title: Configuring remote write for Prometheus 
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Configuring remote write for Prometheus to Logz.io
 logo:
   logofile: prometheusio-icon.svg
   orientation: vertical

@@ -1,5 +1,7 @@
 ---
 title: Ship logs from OSSEC
+image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
+description: Ship logs from OSSEC to Logz.io
 logo:
   logofile: ossec.png
   orientation: vertical

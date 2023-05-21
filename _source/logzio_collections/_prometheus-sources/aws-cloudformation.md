@@ -1,11 +1,11 @@
 ---
-title: Ship AWS logs and metrics using CloudFormation
+title: Ship AWS Cloudwatch logs and metrics using CloudFormation
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Ship AWS logs and metrics using CloudFormation
+description: Ship AWS Cloudwatch logs and metrics using CloudFormation
 logo:
   logofile: aws-cloudformation.svg
   orientation: vertical
-data-source: Amazon CloudFormation
+data-source: Cloudwatch via CloudFormation
 data-for-product-source: Metrics
 templates: ["docker-metricbeat"]
 open-source:

@@ -1,11 +1,11 @@
 ---
-title: Ship AWS logs and metrics using CloudFormation
+title: Ship AWS Cloudwatch logs and metrics using CloudFormation
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-short-description: Sends logs from S3 buckets automatically created by AWS Control Tower to Logz.io.
+short-description: Ship AWS Cloudwatch logs and metrics using CloudFormation
 logo:
   logofile: aws-cloudformation.svg
   orientation: vertical
-data-source: Amazon CloudFormation
+data-source: Cloudwatch via CloudFormation
 data-for-product-source: Logs
 templates: ["azure-deployment-event-hubs"]
 open-source:

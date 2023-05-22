@@ -33,6 +33,12 @@ Deploy this integration to send your Amazon Cloudwatch FSx - Lustre metrics to L
 
 This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon Cloudwatch FSx - Lustre metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
 
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["6rVrCJsVXljHWg7wZo51HT"] --> 
+
+{% include metric-shipping/generic-dashboard.html %} 
+
 #### Setup
 
 **Before you begin, you'll need**:
@@ -83,3 +89,9 @@ Specify the stack details as per the table below, check the checkboxes and selec
 ##### Check Logz.io for your metrics
 
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
+
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["6rVrCJsVXljHWg7wZo51HT"] --> 
+
+{% include metric-shipping/generic-dashboard.html %} 

@@ -32,6 +32,12 @@ Deploy this integration to send your Amazon MSK metrics to Logz.io.
 
 This integration creates a Kinesis Data Firehose delivery stream that links to your Amazon MSK metrics stream and then sends the metrics to your Logz.io account. It also creates a Lambda function that adds AWS namespaces to the metric stream, and a Lambda function that collects and ships the resources' tags.
 
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["2EGM4H9wch68bVy1vm4oxb"] --> 
+
+{% include metric-shipping/generic-dashboard.html %} 
+
 #### Setup
 
 **Before you begin, you'll need**:
@@ -84,3 +90,8 @@ Specify the stack details as per the table below, check the checkboxes and selec
 Give your data some time to get from your system to ours, then log in to your Logz.io Metrics account, and open [the Logz.io Metrics tab](https://app.logz.io/#/dashboard/metrics/).
 
 
+{% include metric-shipping/custom-dashboard.html %} Install the pre-built dashboard to enhance the observability of your metrics.
+
+<!-- logzio-inject:install:grafana:dashboards ids=["2EGM4H9wch68bVy1vm4oxb"] --> 
+
+{% include metric-shipping/generic-dashboard.html %} 

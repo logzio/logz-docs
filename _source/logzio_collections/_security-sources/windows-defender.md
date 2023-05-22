@@ -20,8 +20,8 @@ Windows Defender is an anti-malware component of Microsoft Windows. This integra
 #### Configure Winlogbeat
 
 **Before you begin, you'll need**:
-[Winlogbeat 7](https://www.elastic.co/downloads/beats/winlogbeat) or
-[Winlogbeat 6](https://www.elastic.co/guide/en/beats/winlogbeat/6.8/winlogbeat-installation.html)
+[Winlogbeat 8](https://www.elastic.co/guide/en/beats/winlogbeat/8.7/winlogbeat-installation-configuration.html#installation), [Winlogbeat 7](https://www.elastic.co/downloads/beats/winlogbeat) or
+[Winlogbeat 6](https://www.elastic.co/guide/en/beats/winlogbeat/6.8/winlogbeat-installation.html).
 
 <div class="tasklist">
 
@@ -97,11 +97,11 @@ fields:
 fields_under_root: true
 ```
 
-If you're running Winlogbeat 7, paste this code block.
+If you're running Winlogbeat 7 or 8, paste this code block.
 Otherwise, you can leave it out.
 
 ```yaml
-# ... For Winlogbeat 7 only ...
+# ... For Winlogbeat 7 or 8 only ...
 processors:
   - rename:
       fields:

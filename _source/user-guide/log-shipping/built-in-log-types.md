@@ -19,7 +19,13 @@ Logz.io automatically parses logs shipped from many platforms, services, contain
 
 The shipping configuration includes a log **type** parameter that determines which pipeline is used to parse the data. In OpenSearch Dashboards, it is indicated by a field named `type`.
 
-Logz.io offers many pre-built parsing pipelines for a large number of log sources, as shown below. If you need a new pipeline created or want a customized version of an existing pipeline, contact Logz.io Support. Parsing-as-a-service is included in your package and we're happy to offer it.
+Logz.io offers many pre-built parsing pipelines for a large number of log sources, as shown below. If you need a new pipeline created or want a customized version of an existing pipeline, contact [Logz.io Support](mailto:help@logz.io). Parsing-as-a-service is included in your package and we're happy to offer it.
+
+You can replace the `@timestamp` field by sending it in a different format. The available formats are:
+
+* ISO8601 - `2023-05-21T12:45:10+00:00`.
+* UNIX - `1684662310`.
+* UNIX_MS - `1684673200471`.
 
 ## Built-in log types
 

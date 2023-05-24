@@ -21,7 +21,7 @@ The shipping configuration includes a log **type** parameter that determines whi
 
 Logz.io offers many pre-built parsing pipelines for a large number of log sources, as shown below. If you need a new pipeline created or want a customized version of an existing pipeline, contact [Logz.io Support](mailto:help@logz.io). Parsing-as-a-service is included in your package and we're happy to offer it.
 
-You can replace the `@timestamp` field by sending it in a different format. The available formats are: ISO8601 - `2023-05-21T12:45:10+00:00`, UNIX - `1684662310`, and UNIX_MS - `1684673200471`.
+You can replace the `@timestamp` field, which is the Time column in your Log analytics discover view, by sending it in a different format. The available formats are: ISO8601 - `2023-05-21T12:45:10+00:00`, UNIX - `1684662310`, and UNIX_MS - `1684673200471`.
 ![timestamp](https://dytvr9ot2sszz.cloudfront.net/logz-docs/parsing-and-mapping/timestamp.png)
 {:.info-box.tip}
 

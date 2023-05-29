@@ -15,9 +15,9 @@ contributors:
   - hidan
 ---
 
-You can set a custom landing page to view when logging into your Logz.io account.
+You can set a custom landing page to view when logging into your Logz.io account. 
 
-The landing page can be any screen, dashboard, and visualization from your Logs, Metrics, or Tracing accounts.
+Any screen, saved search, dashboard, or visualization from your Logs, Metrics, or Traces accounts can be used as a landing page, and it's **set per user**, so you can choose your own landing page that'll be available only to you, without overriding or editing your team members' landing page. 
 
 #### Set up your landing page
 

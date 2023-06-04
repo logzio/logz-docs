@@ -370,6 +370,7 @@ The advanced configuration settings for this integration include:
 * [Deployment using a module](#deployment-using-a-module)
 * [Terraform deployment](#terraform-deployment)
 * [Working with test events](#working-with-test-events)
+* [Multiline support](#multiline-support)
 
 
 
@@ -801,6 +802,12 @@ To run the test event, select **Test** in the **Test** tab. The Lambda function 
 </div>
 <!-- tab:end -->
 
+#### Multiline support
+
+
+AWS Lambda treats each log line as a separate event. However, you can use JSON in your logs as a workaround to help you gain multiline support.
+
+JSON can be used regardless of the language you're currently using, and you'll need to replace `/n` with `/r` when printing the log message. This will replace the new lines generated with a return action, allowing you to view multiline log events. 
 
 
 </div>

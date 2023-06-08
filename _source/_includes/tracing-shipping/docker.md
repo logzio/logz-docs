@@ -170,7 +170,7 @@ Mount the `config.yaml` as volume to the `docker run` command and run it as foll
 ```
 docker run  \
 --network host \
--v <PATH-TO>/config.yaml:/etc/otelcol/config.yaml \
+-v <PATH-TO>/config.yaml:/etc/otelcol-contrib/config.yaml \
 otel/opentelemetry-collector-contrib:0.78.0
 
 ```
@@ -181,7 +181,7 @@ Replace `<PATH-TO>` to the path to the `config.yaml` file on your system.
 
 ```
 docker run  \
--v <PATH-TO>/config.yaml:/etc/otelcol/config.yaml \
+-v <PATH-TO>/config.yaml:/etc/otelcol-contrib/config.yaml \
 -p 55678-55680:55678-55680 \
 -p 1777:1777 \
 -p 9411:9411 \

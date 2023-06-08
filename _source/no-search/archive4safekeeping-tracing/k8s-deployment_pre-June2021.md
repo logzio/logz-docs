@@ -93,7 +93,7 @@ spec:
         app.kubernetes.io/component: collector
     spec:
       containers:
-      - image: otel/opentelemetry-collector-contrib:0.17.0
+      - image: otel/opentelemetry-collector-contrib:0.78.0
         name: otel-collector-logzio
         ports:
         - containerPort: 1888   # pprof extension

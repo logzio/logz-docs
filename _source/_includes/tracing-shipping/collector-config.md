@@ -62,7 +62,7 @@ service:
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [opencensus, jaeger, zipkin, otlp]
+      receivers: [otlp]
       processors: [tail_sampling, batch]
       exporters: [logging, logzio/traces]
 ```

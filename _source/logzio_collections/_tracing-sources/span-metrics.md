@@ -180,7 +180,7 @@ service:
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [otlp,jaeger,opencensus,zipkin]
+      receivers: [otlp]
       processors: [spanmetrics,tail_sampling,batch]
       exporters: [logzio/traces]
     metrics/spanmetrics:
@@ -294,7 +294,7 @@ Add the following parameters to the configuration file of your OpenTelemetry col
 ```yaml
 pipelines:
     traces:
-      receivers: [otlp,jaeger,opencensus,zipkin]
+      receivers: [otlp]
       processors: [spanmetrics,tail_sampling,batch]
       exporters: [logzio/traces]
     metrics/spanmetrics:
@@ -421,7 +421,7 @@ service:
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [otlp,jaeger,opencensus,zipkin]
+      receivers: [otlp]
       processors: [spanmetrics,tail_sampling,batch]
       exporters: [logzio/traces]
     metrics/spanmetrics:
@@ -611,7 +611,7 @@ service:
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [otlp,jaeger,opencensus,zipkin]
+      receivers: [otlp]
       processors: [spanmetrics,tail_sampling,batch]
       exporters: [logzio/traces]
     metrics/spanmetrics:
@@ -726,7 +726,7 @@ Add the following parameters to the configuration file of your OpenTelemetry col
 ```yaml
 pipelines:
     traces:
-      receivers: [otlp,jaeger,opencensus,zipkin]
+      receivers: [otlp]
       processors: [spanmetrics,tail_sampling,batch]
       exporters: [logzio/traces]
     metrics/spanmetrics:
@@ -852,7 +852,7 @@ service:
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [otlp,jaeger,opencensus,zipkin]
+      receivers: [otlp]
       processors: [spanmetrics,tail_sampling,batch]
       exporters: [logzio/traces]
     metrics/spanmetrics:

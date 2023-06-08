@@ -73,7 +73,7 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 
 ##### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.60.0) that is relevant to the operating system of your host.
+Create a dedicated directory on the host of your application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/cmd%2Fbuilder%2Fv0.73.0) that is relevant to the operating system of your host.
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
 
@@ -495,7 +495,7 @@ If you are already running a Logz.io Docker image logzio/otel-collector-traces, 
 In the same Docker network as your application:
 
 ```shell
-docker pull otel/opentelemetry-collector-contrib:0.60.0
+docker pull otel/opentelemetry-collector-contrib:0.73.0
 ```
 
 
@@ -880,7 +880,7 @@ Mount the `config.yaml` as volume to the `docker run` command and run it as foll
 docker run  \
 --network host \
 -v <PATH-TO>/config.yaml:/etc/otelcol/config.yaml \
-otel/opentelemetry-collector-contrib:0.60.0
+otel/opentelemetry-collector-contrib:0.73.0
 
 ```
 
@@ -901,7 +901,7 @@ docker run  \
 -p 14268:14268 \
 -p 4317:4317 \
 -p 55681:55681 \
-otel/opentelemetry-collector-contrib:0.60.0
+otel/opentelemetry-collector-contrib:0.73.0
 ```
   
   

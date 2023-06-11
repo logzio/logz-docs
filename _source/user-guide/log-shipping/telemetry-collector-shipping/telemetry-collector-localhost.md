@@ -79,6 +79,7 @@ To manage a Localhost Telemetry Collector on your **Mac** or **Linux** machine, 
 | **Collector Config:** || `/opt/logzio-otel-collector/otel_config.yaml` |
 | **Start Service Command:** || `sudo launchctl load /Library/LaunchDaemons/com.logzio.OTELCollector.plist` |
 | **Stop Service Command:** || `sudo launchctl unload /Library/LaunchDaemons/com.logzio.OTELCollector.plist` |
+| **Delete Service Command:** || `sudo /opt/logzio-agent/logzio-otel-collector/delete_service.bash` |
 | **Show Service Command:** || `sudo launchctl list | grep com.logzio.OTELCollector` |
 | **Show Logs Command:** || `sudo tail -F /opt/logzio-otel-collector/logzio_otel_collector.log` |
 

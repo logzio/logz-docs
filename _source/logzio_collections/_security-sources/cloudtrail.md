@@ -39,6 +39,31 @@ Logz.io fetches your CloudTrail logs from an S3 bucket.
 For help with setting up a new trail, see [Overview for Creating a Trail](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-create-and-update-a-trail.html) from AWS.
 
 
+##### Verify bucket definition on AWS
+
+[Navigate to the location of your trail logs on AWS](https://console.aws.amazon.com/cloudtrail/):
+
+![Trail location](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/trail-location.png)
+
+And verify the definition of the bucket is under the CloudTrail path:
+
+![Trail definition](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/trail-object-library.png)
+
+Region data must be created under the CloudTrain path BEFORE the S3 bucket is defined on Logz.io. Otherwise, you won't be able to proceed with sending CloudTrail data to Logz.io. ![Trail regions](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/trail-regions.png)
+{:.info-box.important}
+
+Next, note the bucket's name and the way the prefix is constructed, for example:
+
+Bucket name: `aws-cloudtrail-logs-486140753397-9f0d7dbd`.
+
+Prefix name: `AWSLogs/486140753397/CloudTrail/`.
+
+You'll need these values when adding your S3 bucket information.
+
+
+![prefix](https://dytvr9ot2sszz.cloudfront.net/logz-docs/siem/prefix-trail.png)
+
+
 ##### Add your S3 bucket information
 
 <!-- logzio-inject:aws:cloudtrail -->
@@ -69,20 +94,7 @@ You may need to fill in 2 parameters when creating the bucket - {BUCKET_NAME} an
 
 * {BUCKET_NAME} is your **S3 bucket name**.
 
-* {PREFIX} is your CloudTrail path. You may or may not have a prefix. 
-
-  If you don't have a prefix, put down:
-
-  ```
-  /cloudtrail/AWSLogs/{AWS_ACCOUNT_ID}/CloudTrail/
-  ```
-
-  If you do have a prefix, put down:
-
-  ```
-  {PREFIX}/cloudtrail/AWSLogs/{AWS_ACCOUNT_ID}/CloudTrail/
-  ```
-
+* {PREFIX} is your CloudTrail path. The prefix is generate by default and represents the complete path inside the bucket up until the regions section. It should look like this: `AWSLogs/{AWS_ACCOUNT_ID}/CloudTrail/`.
 
 <!-- info-box-start:info -->
 Logz.io fetches logs that are generated after configuring an S3 bucket.

@@ -73,15 +73,21 @@ If you encounter issues in installing or running your Telemetry Collector, [cont
 
 #### Manage and remove a Telemetry Collector:
 
-To manage a Localhost Telemetry Collector on your **Mac** or **Linux** machine, you can use the following commands:
+To manage a Localhost Telemetry Collector on your **Linux** machine, you can use the following commands:
 
 | **Collector Binary:** || `/opt/logzio-otel-collector/otelcol-logzio-darwin_amd64` |
 | **Collector Config:** || `/opt/logzio-otel-collector/otel_config.yaml` |
+| **List All Services**: || `systemctl list-unit-files --type=service`|
+| **Restart the Service:** || `sudo systemctl daemon-reload`|
+| **Remove the Service:** || `sudo rm /etc/systemd/system/logzioOTELCollector.service` |
+| **Delete Service Command:** || `sudo /opt/logzio-agent/logzio-otel-collector/delete_service.bash` |
+| **Show Logs Command:** || `sudo tail -F /opt/logzio-otel-collector/logzio_otel_collector.log` |
+
+To manage a Localhost Telemetry Collector on your **Mac** machine, you can use the following commands:
+
 | **Start Service Command:** || `sudo launchctl load /Library/LaunchDaemons/com.logzio.OTELCollector.plist` |
 | **Stop Service Command:** || `sudo launchctl unload /Library/LaunchDaemons/com.logzio.OTELCollector.plist` |
-| **Delete Service Command:** || `sudo /opt/logzio-agent/logzio-otel-collector/delete_service.bash` |
 | **Show Service Command:** || `sudo launchctl list | grep com.logzio.OTELCollector` |
-| **Show Logs Command:** || `sudo tail -F /opt/logzio-otel-collector/logzio_otel_collector.log` |
 
 
 To manage a Localhost Telemetry Collector on your **Windows** machine, you can use the following commands:

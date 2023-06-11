@@ -12,8 +12,8 @@ logzio-app-url: https://app.logz.io/#/dashboard/send-your-data/log-sources/cloud
 open-source:
   - title: CloudWatch Lambda Log Shipper (realtime)
     github-repo: logzio_aws_serverless/tree/master/python3/cloudwatch
-  - title: CloudWatch Log Fetcher (interval)
-    github-repo: logzio/cloudwatch-fetcher
+  #- title: CloudWatch Log Fetcher (interval)
+    #github-repo: logzio/cloudwatch-fetcher
 contributors:
   - idohalevi
   - imnotashrimp

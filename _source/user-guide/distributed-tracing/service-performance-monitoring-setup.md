@@ -90,7 +90,7 @@ You'll need to configure your collector to extract metrics from your data. Log i
 
 You can configure the collector to ship data from a **[Local host](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/span-metrics?type=local-host)**, **[Docker](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/span-metrics?type=docker)**, or **[Kubernetes](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/span-metrics?type=kubernetes)**.
 
-Before deploying, make sure the collector you're using is version **v0.44.0** and up.
+Before deploying, make sure the collector you're using match the supported version (should be 0.73 and up).
 
 Once everything is set, restart the collector to apply the configuration changes. 
 

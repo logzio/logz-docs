@@ -14,6 +14,7 @@ or email [the Sales team](mailto:sales@logz.io).
 * [Add a Cloud SIEM account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#add-a-cloud-siem-account)
 * [Configure or update your Cloud SIEM account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#configure-or-update-a-cloud-siem-account)
 * [Delete a Cloud SIEM account](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#delete-a-cloud-siem-account-from-your-plan)
+* [Investigate security events](/user-guide/accounts/manage-the-main-account-and-sub-accounts.html#investigate-security-events)
 
 
 #### Add a Cloud SIEM account
@@ -71,4 +72,21 @@ When you first add a new account, give it a few minutes to finish setting up.
 
 2. Confirm (or **Cancel**) the action. 
   ![Confirm delete](https://dytvr9ot2sszz.cloudfront.net/logz-docs/accounts/confirm-delete-siem-acct.png)
+
+
+### Investigate security events
+
+Cloud SIEM logs a security event every time a rule triggers. The terms **triggered rules** and **security events** have the same meaning and are used interchangeably.
+
+
+Logs of security events- logs of triggered rules- are kept for 10 years. This ensures that details concerning security incidents are kept on record and can be investigated and re-visited many months and even years after the fact as new findings come to light.
+
+The event log includes details about the security incident and the rule that caused it to trigger. It also offers an **Investigate** link to pull up the logs that triggered the specific event quickly.
+
+![Logz.io Cloud SIEM Summary page](https://dytvr9ot2sszz.cloudfront.net/logz-docs/security-analytics/investigate-600px.png)
+
+[Learn more about investigating security events](/user-guide/cloud-siem/security-events.html).
+
+
+
 

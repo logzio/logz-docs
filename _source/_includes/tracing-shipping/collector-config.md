@@ -1,25 +1,25 @@
 ```yaml
 receivers:
-  jaeger:
-    protocols:
-      thrift_compact:
-        endpoint: "0.0.0.0:6831"
-      thrift_binary:
-        endpoint: "0.0.0.0:6832"
-      grpc:
-        endpoint: "0.0.0.0:14250"
-      thrift_http:
-        endpoint: "0.0.0.0:14268"
-  opencensus:
-    endpoint: "0.0.0.0:55678"
+  #jaeger:
+  #  protocols:
+  #    thrift_compact:
+  #      endpoint: "0.0.0.0:6831"
+  #    thrift_binary:
+  #      endpoint: "0.0.0.0:6832"
+  #    grpc:
+  #      endpoint: "0.0.0.0:14250"
+  #    thrift_http:
+  #      endpoint: "0.0.0.0:14268"
+  #opencensus:
+  #  endpoint: "0.0.0.0:55678"
   otlp:
     protocols:
       grpc:
         endpoint: "0.0.0.0:4317"
       http:
         endpoint: "0.0.0.0:4318"
-  zipkin:
-    endpoint: "0.0.0.0:9411"
+  #zipkin:
+  #  endpoint: "0.0.0.0:9411"
 
 
 exporters:

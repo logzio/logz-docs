@@ -73,32 +73,18 @@ This integration uses OpenTelemetry Collector Contrib, not the OpenTelemetry Col
 
 ##### Download and configure OpenTelemetry collector
 
-Create a dedicated directory on the host of your application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/v0.60.0) that is relevant to the operating system of your host.
+Create a dedicated directory on the host of your application and download the [OpenTelemetry collector](https://github.com/open-telemetry/opentelemetry-collector/releases/tag/cmd%2Fbuilder%2Fv0.73.0) that is relevant to the operating system of your host.
 
 After downloading the collector, create a configuration file `config.yaml` with the following parameters:
 
 ```yaml
 receivers:
-  jaeger:
-    protocols:
-      thrift_compact:
-        endpoint: "0.0.0.0:6831"
-      thrift_binary:
-        endpoint: "0.0.0.0:6832"
-      grpc:
-        endpoint: "0.0.0.0:14250"
-      thrift_http:
-        endpoint: "0.0.0.0:14268"
-  opencensus:
-    endpoint: "0.0.0.0:55678"
   otlp:
     protocols:
       grpc:
         endpoint: "0.0.0.0:4317"
       http:
         endpoint: "0.0.0.0:4318"
-  zipkin:
-    endpoint: "0.0.0.0:9411"
   otlp/spanmetrics:
     protocols:
       grpc:
@@ -180,7 +166,7 @@ service:
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [otlp,jaeger,opencensus,zipkin]
+      receivers: [otlp]
       processors: [spanmetrics,tail_sampling,batch]
       exporters: [logzio/traces]
     metrics/spanmetrics:
@@ -294,7 +280,7 @@ Add the following parameters to the configuration file of your OpenTelemetry col
 ```yaml
 pipelines:
     traces:
-      receivers: [otlp,jaeger,opencensus,zipkin]
+      receivers: [otlp]
       processors: [spanmetrics,tail_sampling,batch]
       exporters: [logzio/traces]
     metrics/spanmetrics:
@@ -320,26 +306,12 @@ An example configuration file looks as follows:
 ```yaml
 
 receivers:
-  jaeger:
-    protocols:
-      thrift_compact:
-        endpoint: "0.0.0.0:6831"
-      thrift_binary:
-        endpoint: "0.0.0.0:6832"
-      grpc:
-        endpoint: "0.0.0.0:14250"
-      thrift_http:
-        endpoint: "0.0.0.0:14268"
-  opencensus:
-    endpoint: "0.0.0.0:55678"
   otlp:
     protocols:
       grpc:
         endpoint: "0.0.0.0:4317"
       http:
         endpoint: "0.0.0.0:4318"
-  zipkin:
-    endpoint: "0.0.0.0:9411"
   otlp/spanmetrics:
     protocols:
       grpc:
@@ -421,7 +393,7 @@ service:
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [otlp,jaeger,opencensus,zipkin]
+      receivers: [otlp]
       processors: [spanmetrics,tail_sampling,batch]
       exporters: [logzio/traces]
     metrics/spanmetrics:
@@ -495,7 +467,7 @@ If you are already running a Logz.io Docker image logzio/otel-collector-traces, 
 In the same Docker network as your application:
 
 ```shell
-docker pull otel/opentelemetry-collector-contrib:0.60.0
+docker pull otel/opentelemetry-collector-contrib:0.73.0
 ```
 
 
@@ -510,26 +482,12 @@ Create a file `config.yaml` with the following content:
 
 ```yaml
 receivers:
-  jaeger:
-    protocols:
-      thrift_compact:
-        endpoint: "0.0.0.0:6831"
-      thrift_binary:
-        endpoint: "0.0.0.0:6832"
-      grpc:
-        endpoint: "0.0.0.0:14250"
-      thrift_http:
-        endpoint: "0.0.0.0:14268"
-  opencensus:
-    endpoint: "0.0.0.0:55678"
   otlp:
     protocols:
       grpc:
         endpoint: "0.0.0.0:4317"
       http:
         endpoint: "0.0.0.0:4318"
-  zipkin:
-    endpoint: "0.0.0.0:9411"
   otlp/spanmetrics:
     protocols:
       grpc:
@@ -611,7 +569,7 @@ service:
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [otlp,jaeger,opencensus,zipkin]
+      receivers: [otlp]
       processors: [spanmetrics,tail_sampling,batch]
       exporters: [logzio/traces]
     metrics/spanmetrics:
@@ -726,7 +684,7 @@ Add the following parameters to the configuration file of your OpenTelemetry col
 ```yaml
 pipelines:
     traces:
-      receivers: [otlp,jaeger,opencensus,zipkin]
+      receivers: [otlp]
       processors: [spanmetrics,tail_sampling,batch]
       exporters: [logzio/traces]
     metrics/spanmetrics:
@@ -751,26 +709,12 @@ An example configuration file looks as follows:
 
 ```yaml
 receivers:
-  jaeger:
-    protocols:
-      thrift_compact:
-        endpoint: "0.0.0.0:6831"
-      thrift_binary:
-        endpoint: "0.0.0.0:6832"
-      grpc:
-        endpoint: "0.0.0.0:14250"
-      thrift_http:
-        endpoint: "0.0.0.0:14268"
-  opencensus:
-    endpoint: "0.0.0.0:55678"
   otlp:
     protocols:
       grpc:
         endpoint: "0.0.0.0:4317"
       http:
         endpoint: "0.0.0.0:4318"
-  zipkin:
-    endpoint: "0.0.0.0:9411"
   otlp/spanmetrics:
     protocols:
       grpc:
@@ -852,7 +796,7 @@ service:
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [otlp,jaeger,opencensus,zipkin]
+      receivers: [otlp]
       processors: [spanmetrics,tail_sampling,batch]
       exporters: [logzio/traces]
     metrics/spanmetrics:
@@ -879,8 +823,8 @@ Mount the `config.yaml` as volume to the `docker run` command and run it as foll
 ```
 docker run  \
 --network host \
--v <PATH-TO>/config.yaml:/etc/otelcol/config.yaml \
-otel/opentelemetry-collector-contrib:0.60.0
+-v <PATH-TO>/config.yaml:/etc/otelcol-contrib/config.yaml \
+otel/opentelemetry-collector-contrib:0.73.0
 
 ```
 
@@ -890,7 +834,7 @@ Replace `<PATH-TO>` to the path to the `config.yaml` file on your system.
 
 ```
 docker run  \
--v <PATH-TO>/config.yaml:/etc/otelcol/config.yaml \
+-v <PATH-TO>/config.yaml:/etc/otelcol-contrib/config.yaml \
 -p 55678-55680:55678-55680 \
 -p 1777:1777 \
 -p 9411:9411 \
@@ -901,7 +845,7 @@ docker run  \
 -p 14268:14268 \
 -p 4317:4317 \
 -p 55681:55681 \
-otel/opentelemetry-collector-contrib:0.60.0
+otel/opentelemetry-collector-contrib:0.73.0
 ```
   
   

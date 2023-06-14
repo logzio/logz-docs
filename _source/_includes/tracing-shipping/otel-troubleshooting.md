@@ -29,26 +29,12 @@ If the collector is installed, it may not have the correct endpoint configured f
 
    ```yaml
    receivers:
-     jaeger:
-       protocols:
-         thrift_compact:
-           endpoint: "0.0.0.0:6831"
-         thrift_binary:
-           endpoint: "0.0.0.0:6832"
-         grpc:
-           endpoint: "0.0.0.0:14250"
-         thrift_http:
-           endpoint: "0.0.0.0:14268"
-     opencensus:
-       endpoint: "0.0.0.0:55678"
      otlp:
        protocols:
          grpc:
            endpoint: "0.0.0.0:4317"
          http:
            endpoint: "0.0.0.0:4318"
-     zipkin:
-       endpoint: "0.0.0.0:9411"
    ```
 
 2. In the instrumentation code, make sure that the endpoint is specified correctly. Refer to our [tracing documentation](https://app.logz.io/#/dashboard/send-your-data/collection?tag=all&collection=tracing-sources) for more on this.
@@ -81,26 +67,12 @@ The correct endpoints are:
 
 ```yaml
    receivers:
-     jaeger:
-       protocols:
-         thrift_compact:
-           endpoint: "<<COLLECTOR-URL>>:6831"
-         thrift_binary:
-           endpoint: "<<COLLECTOR-URL>>:6832"
-         grpc:
-           endpoint: "<<COLLECTOR-URL>>:14250"
-         thrift_http:
-           endpoint: "<<COLLECTOR-URL>>:14268"
-     opencensus:
-       endpoint: "<<COLLECTOR-URL>>:55678"
      otlp:
        protocols:
          grpc:
            endpoint: "<<COLLECTOR-URL>>:4317"
          http:
            endpoint: "<<COLLECTOR-URL>>:4318/v1/traces"
-     zipkin:
-       endpoint: "<<COLLECTOR-URL>>:9411/api/v2/spans"
 ```
 
 #### Suggested remedy

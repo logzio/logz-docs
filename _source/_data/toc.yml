@@ -24,10 +24,11 @@ firstLevel:
 - title: Log Management
   icon: li-bar-graph
 
-  - title: EZKonnect
-    url: /user-guide/log-shipping/ezkonnect.html
+  
 
   secondLevel:
+  - title: EZKonnect
+    url: /user-guide/log-shipping/ezkonnect.html
   - title: OpenSearch Dashboards
     thirdLevel:
     - title: Intro to OpenSearch Dashboards

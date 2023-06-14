@@ -23,7 +23,9 @@ firstLevel:
   # These docs are generally in the /user-guide folder
 - title: Log Management
   icon: li-bar-graph
-  
+
+  - title: EZKonnect
+    url: /user-guide/log-shipping/ezkonnect.html
 
   secondLevel:
   - title: OpenSearch Dashboards

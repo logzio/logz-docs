@@ -80,7 +80,7 @@ Upon deployment, the Crowdstrike connector connects to your Crowdstrike account 
 
 ##### Install Ruby gems for FluentD
 
-1. Install the **fluent-plugin_concat** gem. This gem concatenates multiline logs.
+1. Install the **fluent-plugin-concat** gem. This gem concatenates multiline logs.
 2. Install the **fluent-plugin-logzio** gem. This gem enables communication between your FluentD agent and Logz.io.
 
 

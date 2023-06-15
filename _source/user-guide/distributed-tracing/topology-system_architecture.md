@@ -13,7 +13,7 @@ contributors:
 ---
 
 ## View Topology Diagrams   
-The available diagrams are based either on the traces you search for (deep dependency graph) or are a compilation of all the current trace data available in your system (system architecture graphs).
+The available diagrams are based on the traces you search for (deep dependency graph).
 
 ### Viewing a deep dependency graph
 The deep dependency graph describes how the services in traces are connected based on the results of the trace search query you run. The graph lets you focus on the up and downstream hops of a service call and define the aggregation and graph density for the layout.
@@ -32,7 +32,7 @@ This ability is genuinely useful when it’s not possible to view that service i
 ![highlight DDG](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/ddgraph_highligh.png)
 
  
-## Viewing system architecture diagrams
+<!-- ## Viewing system architecture diagrams
 
 The system architecture diagrams are based on all the trace data in your system, compiled over a given time frame and refreshed periodically. 
 
@@ -59,4 +59,4 @@ Each line represents the interaction requests between the connected services. Th
 
 To make it easier to see values in the graph, you can grab and drag the nodes to rearrange them.
 
-![Change focus in dag](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/moving-traces.gif)
+![Change focus in dag](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/moving-traces.gif) -->

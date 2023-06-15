@@ -1,7 +1,7 @@
 ##### Pull the Docker image for the OpenTelemetry collector
 
 ```shell
-docker pull otel/opentelemetry-collector-contrib:0.60.0
+docker pull otel/opentelemetry-collector-contrib:0.78.0
 ```
 
 ##### Create a configuration file
@@ -10,27 +10,13 @@ Create a file `config.yaml` with the following content:
 
 ```yaml
 receivers:
-  jaeger:
-    protocols:
-      thrift_compact:
-        endpoint: "0.0.0.0:6831"
-      thrift_binary:
-        endpoint: "0.0.0.0:6832"
-      grpc:
-        endpoint: "0.0.0.0:14250"
-      thrift_http:
-        endpoint: "0.0.0.0:14268"
-  opencensus:
-    endpoint: "0.0.0.0:55678"
   otlp:
     protocols:
       grpc:
         endpoint: "0.0.0.0:4317"
       http:
         endpoint: "0.0.0.0:4318"
-  zipkin:
-    endpoint: "0.0.0.0:9411"
-
+  
 
 exporters:
   logzio/traces:
@@ -72,7 +58,7 @@ service:
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [opencensus, jaeger, zipkin, otlp]
+      receivers: [otlp]
       processors: [tail_sampling, batch]
       exporters: [logging, logzio/traces]
 ```
@@ -98,7 +84,7 @@ If you already have an OpenTelemetry installation, add the following parameters 
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [opencensus, jaeger, zipkin, otlp]
+      receivers: [otlp]
       processors: [tail_sampling, batch]
       exporters: [logzio/traces]
 ```
@@ -152,7 +138,7 @@ service:
   extensions: [health_check, pprof, zpages]
   pipelines:
     traces:
-      receivers: [opencensus, jaeger, zipkin, otlp]
+      receivers: [otlp]
       processors: [tail_sampling, batch]
       exporters: [logzio/traces]
 ```
@@ -170,8 +156,8 @@ Mount the `config.yaml` as volume to the `docker run` command and run it as foll
 ```
 docker run  \
 --network host \
--v <PATH-TO>/config.yaml:/etc/otelcol/config.yaml \
-otel/opentelemetry-collector-contrib:0.60.0
+-v <PATH-TO>/config.yaml:/etc/otelcol-contrib/config.yaml \
+otel/opentelemetry-collector-contrib:0.78.0
 
 ```
 
@@ -181,7 +167,7 @@ Replace `<PATH-TO>` to the path to the `config.yaml` file on your system.
 
 ```
 docker run  \
--v <PATH-TO>/config.yaml:/etc/otelcol/config.yaml \
+-v <PATH-TO>/config.yaml:/etc/otelcol-contrib/config.yaml \
 -p 55678-55680:55678-55680 \
 -p 1777:1777 \
 -p 9411:9411 \
@@ -192,5 +178,5 @@ docker run  \
 -p 14268:14268 \
 -p 4317:4317 \
 -p 55681:55681 \
-otel/opentelemetry-collector-contrib:0.60.0
+otel/opentelemetry-collector-contrib:0.78.0
 ```

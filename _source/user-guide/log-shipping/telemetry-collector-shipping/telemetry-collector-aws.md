@@ -71,12 +71,14 @@ That’s it! It might take a while for the Telemetry Collector to get up and run
 
 To manage an AWS Telemetry Collector on your **Linux** machine, you can use the following commands:
 
-| **Collector Binary:** || `/opt/logzio-otel-collector/otelcol-logzio-linux_amd64` |
-| **Collector Config:** || `/opt/logzio-otel-collector/otel_config.yaml` |
-| **Start Service Command:** || `sudo systemctl start logzioOTELCollector` |
-| **Stop Service Command:** || `sudo systemctl stop logzioOTELCollector` |
-| **Show Service Command:** || `sudo systemctl | grep logzioOTELCollector` |
-| **Show Logs Command:** || `sudo systemctl status -l logzioOTELCollector` |
+|**Collector Binary:** ||`/opt/logzio-agent/logzio-otel-collector/otelcol-logzio-linux_amd64`|
+|**Collector Config:**||`/opt/logzio-agent/logzio-otel-collector/otel_config.yaml`|
+|**Logz.io Agent Logs:** ||`/opt/logzio-agent/logzio_agent.log`|
+|**Start Service:** ||`sudo systemctl start logzioOTELCollector`|
+|**Stop Service:** ||`sudo systemctl stop logzioOTELCollector`|
+|**Delete Service:** ||`sudo /opt/logzio-agent/logzio-otel-collector/delete_service.bash`|
+|**Show Service:** ||`sudo systemctl | grep logzioOTELCollector`|
+|**Show Service Logs:** ||`sudo systemctl status -l logzioOTELCollector`|
 
 
 If you have additional questions about managing your Telemetry Collector, [contact Logz.io's Support team](mailto:help@logz.io).

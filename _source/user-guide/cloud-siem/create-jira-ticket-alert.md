@@ -51,11 +51,11 @@ To add a pre-configured notification endpoint:
 
    * If required, add a description for the endpoint.
 
-   * Provide the URL to your JIRA board as follows: https://<tenantname>.atlassian.net/rest/api/3/issue. Replace `<tenantname>` with the name of your JIRA domain stated before `.atlassian`.
+   * Provide the URL to your JIRA board as follows: `https://<tenantname>.atlassian.net/rest/api/3/issue`. Replace `<tenantname>` with the name of your JIRA domain stated before `.atlassian`.
 
    * Select **POST** from the **Method** menu.
 
-   * Enter the following header into the **Headers** field: `content-type=application/json,x-token=<YOUR-ATLASSIAN-API-TOKEN>`. Replace `<YOUR-ATLASSIAN-API-TOKEN>` with the API token to your Atlassian account.
+   * Enter the following header into the **Headers** field: `authorization: Basic <API-TOKEN>`. Replace `<API-TOKEN>` with the API token to your Atlassian account.
 
    * Add the following code as the payload:
 

@@ -9,3 +9,4 @@ node_modules
 external_js
 _export-md
 wip-gitignore
+vendor/

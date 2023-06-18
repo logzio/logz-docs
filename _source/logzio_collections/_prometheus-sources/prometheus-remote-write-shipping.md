@@ -43,7 +43,7 @@ To send your Prometheus application metrics to a Logz.io Infrastructure Monitori
 
 Configure your Prometheus yaml file or use a Helm chart: 
 
-###### To configure a Prometheus yaml file
+###### To configure a Prometheus yaml file with `bearer_token`
 
 Add the following parameters to your Prometheus yaml file:
 
@@ -69,6 +69,38 @@ remote_write:
       capacity: 10000  #default = 500
 
 ```
+
+
+###### To configure a Prometheus yaml file with `bearer_token_file`
+
+If you want to use a `bearer_token_file` to configure your Prometheus account, create a .txt file that contains the Logz.io token and use its path when configuring your yaml file:
+
+| Environment variable | Description |Required/Default|
+|---|---|---|
+| external_labels | Parameters to tag the metrics from this specific Prometheus server. |
+| p8s_logzio_name |Use the value of the parameter `p8s_logzio_name` to identify from which Prometheus environment the metrics are arriving to Logz.io. Replace the `<labelvalue>` placeholder with a label that will be added to all the metrics that are sent from this specific Prometheus server. | 
+| remote_write | The remote write section configuration sets Logz.io as the endpoint for your Prometheus metrics data. Place this section at the same indentation level as the `global` section. ||
+|url|  The Logz.io Listener URL for for your region, configured to use port **8052** for http traffic, or port **8053** for https traffic. For more details, see the [Prometheus configuration file remote write reference. ](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) | Required|
+|bearer_token_file|The file path that holds Logz.io Prometheus Metrics account token.  | Required|
+
+```yaml
+remote_write:
+  - url: https://listener.logz.io:8053
+    bearer_token_file: path/to/token.txt
+    remote_timeout: 30s
+    queue_config:
+      batch_send_deadline: 5s  #default = 5s
+      max_shards: 10  #default = 1000
+      min_shards: 1
+      max_samples_per_send: 500 #default = 100
+      capacity: 10000  #default = 500
+
+```
+
+
+
+
+
 
 ###### To configure a Helm chart
 

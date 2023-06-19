@@ -59,6 +59,9 @@ If you want to use a `bearer_token_file` to configure your Prometheus account, c
 |bearer_token_file|The file path that holds Logz.io Prometheus Metrics account token.  | Required|
 
 ```yaml
+global:
+  external_labels:
+    p8s_logzio_name: <labelvalue>
 remote_write:
   - url: https://listener.logz.io:8053
     bearer_token_file: path/to/token.txt

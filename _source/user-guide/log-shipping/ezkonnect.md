@@ -22,9 +22,9 @@ EZKonnect comprises three principal components:
 * **EZKonnect Server** - Facilitates communication between the user and the Kubernetes Instrumentor.
 * **EZKonnect UI** - Offers an intuitive graphical interface for managing and viewing your instrumentation data.
 
-The EZKonnect UI enables you to enhance your Logz.io Open 360 Observability platform by identifying and assigning log, metrics, and trace types in their pods. Simply click on the 'Add' button to select their desired type, and then click 'Deploy' to implement the changes to your Logz.io account. The UI facilitates the management of various components, such as logs, traces, applications, namespace, and log types, thereby providing comprehensive control of the observability platform.
 
-![UI](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ezkonnect/ezkonnect.png)
+
+
 
 EZKonnect supports several programming languages, including:
 
@@ -50,6 +50,59 @@ kubectl port-forward svc/ezkonnect-ui -n ezkonnect 8080:8080
 ```
 
 Then, navigate to `http://localhost:8080`.
+
+## Using EZKonnect UI
+
+
+The EZKonnect UI shows when you access the deployment at `http://localhost:8080`.
+
+
+### Logs
+
+![UI](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ezkonnect/ezkonnect-logs.png)
+
+#### Edit a log type of a log
+
+If you need to change a log type of a log collected by EZKonnect:
+
+1. In the row of the required log, click the **Log Type** dropdown.
+2. Select the required log type.
+3. Click **Deploy**.
+
+#### Add a log type
+
+If you need to add a log type to a log collected by EZKonnect:
+
+1. In the row of the required log, click the **Log Type** dropdown.
+2. Type in the required log type definition.
+3. Press Enter.
+4. Click **Add log type**.
+
+#### Remove a log type from a log
+
+If you need to change a log type of a log collected by EZKonnect:
+
+1. In the row of the required log, click the **Remove log type**.
+
+### Traces
+
+![UI](https://dytvr9ot2sszz.cloudfront.net/logz-docs/ezkonnect/ezkonnect-traces.png)
+
+#### Add instrumentation to a pod
+
+To add OpenTelemetry instrumentation to a pod:
+
+1. Select the required pod. The source code detected on the pod will be shown on the UI. THe instrumentation will be installed for this code.
+2. Click **Add instrumentation**. 
+3. Click **Deploy**.
+
+#### Remove instrumentation from a pod
+
+To remove OpenTelemetry instrumentation from a pod:
+
+1. Select the required pod.
+2. Click **Rollback**. 
+
 
 ## Configuration
 
@@ -103,3 +156,4 @@ You can override the default values by creating your own `values.yaml` file and 
 ```shell
 You can override the default values by creating your own values.yaml file and passing the --values or -f option to the Helm command. For example:
 ```
+

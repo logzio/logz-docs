@@ -27,8 +27,7 @@ firstLevel:
   
 
   secondLevel:
-  - title: EZKonnect
-    url: /user-guide/log-shipping/ezkonnect.html
+
   - title: OpenSearch Dashboards
     thirdLevel:
     - title: Intro to OpenSearch Dashboards
@@ -623,6 +622,8 @@ firstLevel:
         url: /user-guide/log-shipping/telemetry-collector-k8s.html
       - title: Send Localhost data
         url: /user-guide/log-shipping/telemetry-collector-localhost.html
+      - title: EZKonnect
+        url: /user-guide/log-shipping/ezkonnect.html
   
   
   - title: Ship your data to Logz.io

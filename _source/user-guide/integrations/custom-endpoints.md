@@ -24,7 +24,7 @@ of allowing you to customize the message body too.
 
 ##### Allow firewall access
 
-Set up your systems to receive notifications from Logz.io.
+Set up your systems to receive notifications from Logz.io. 
 
 <!-- info-box-start:info --> 
 Alerts can only be sent on **ports 80 & 443**.

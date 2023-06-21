@@ -703,6 +703,8 @@ firstLevel:
   # ===== MORE =====
 - title: ""
   secondLevel:
+  - title: Sending data to Logz.io
+    url: /user-guide/sending-data-to-logzio/
   - title: Blog
     url: https://logz.io/blog/
     external: true

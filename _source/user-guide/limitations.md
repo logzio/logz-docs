@@ -11,7 +11,7 @@ contributors:
   - hidan
 ---
 
-As part of Logz.io's [Terms of Use](https://logz.io/about-us/terms-of-use/), you agree to not interfere with, or attempt to interfere with, the access of any user, host or network, including, without limitation, sending a virus, overloading, flooding, spamming, or mail-bombing the Services, the Website or the Logz.io Platform.; 
+As part of Logz.io's [Terms of Use](https://logz.io/about-us/terms-of-use/), you agree to not interfere with, or attempt to interfere with, the access of any user, host or network, including, without limitation, sending a virus, overloading, flooding, spamming, or mail-bombing the Services, the Website or the Logz.io Platform. 
 
 **Without derogating from the generality of the above, you specifically agree not to establish an excessive number of connections from IoT or mobile devices that may impact the performance or stability of the Logz.io Platform or any other network resource**.
 

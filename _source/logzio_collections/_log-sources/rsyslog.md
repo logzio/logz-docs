@@ -104,7 +104,7 @@ if $programname == 'TYPE' then @@<<LISTENER-HOST>>:5001;logzFormatFileTagName
 if $programname == 'TYPE' then ~
 ```
 
-{% include /general-shipping/replace-placeholders.html %}
+{% include /general-shipping/replace-placeholders-rsyslog.html %}
 * `<<PATH_TO_FILE>>`: Path to your file or directory.
 * `<<TYPE>>`: {% include log-shipping/type.md %}
 
@@ -129,7 +129,6 @@ If you still don't see your logs, see our [Rsyslog troubleshooting guide](https:
 <!-- tab:start -->
 <div id="rsyslog-selinux">
 
-###### Shipping with Rsyslog and SELinux
 
 Security-Enhanced Linux (SELinux) is a security architecture for Linux based systems that allows administrators to have more control over who can access the system.
 

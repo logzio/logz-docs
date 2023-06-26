@@ -9,7 +9,7 @@ data-source: Cloudwatch via CloudFormation
 data-for-product-source: Metrics
 templates: ["docker-metricbeat"]
 open-source:
-  - title: CloudFormation logs amd metrics
+  - title: CloudFormation logs and metrics
     github-repo: cw-logs-metrics
 contributors:
   - nshishkin

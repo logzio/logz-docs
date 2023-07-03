@@ -10,6 +10,7 @@ tags:
   - log-shipping
 contributors:
   - nshishkin
+  - yotamloe
 ---
 
 EZKonnect is a deployment and configuration tool designed to assist you in effectively instrumenting Kubernetes applications with OpenTelemetry auto-instrumentation and configurable log types.
@@ -33,12 +34,17 @@ EZKonnect supports several programming languages, including:
 * Python
 * .NET
 
+### Before you start you will need:
+- Opentelemetry collector installed on your cluster
+  - works out of the box with [logzio-monitoring](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-monitoring) chart installed with traces and logs enabled (version `0.5.8` or higher for log_type)
+  - to send the data to a custom collector change the `kubernetesInstrumentor.env.monitoringServiceEndpoint` value
 
 ## Installation
 
 To install the EZKonnect Helm chart, run the following commands:
 
 ```shell
+helm repo add logzio-helm https://logzio.github.io/logzio-helm
 helm repo update
 helm install logzio-ezkonnect logzio-helm/ezkonnect -n ezkonnect --create-namespace
 ```

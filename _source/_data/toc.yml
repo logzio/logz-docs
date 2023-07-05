@@ -61,6 +61,7 @@ firstLevel:
     - title: Troubleshooting Python logs
       url: /user-guide/log-troubleshooting/python-troubleshooting.html
 
+
   - title: Log Alerts
     thirdLevel:
     - title: Intro to Log Alerts
@@ -319,6 +320,8 @@ firstLevel:
       url: /user-guide/distributed-tracing/compare-traces
     - title: Topology diagrams
       url: /user-guide/distributed-tracing/topology-system_architecture
+  - title: Service List
+    url: /user-guide/distributed-tracing/services.html
   - title: Service Performance Monitoring
     url: /user-guide/distributed-tracing/service-performance-monitoring
   - title: Set up your Service Performance Monitoring dashboard

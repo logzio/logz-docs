@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Service List
-permalink: /user-guide/logs/services.html
+permalink: /user-guide/distributed-tracing/services.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Meet Logz.io's Service List
 flags:

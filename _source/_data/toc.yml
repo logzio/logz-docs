@@ -321,7 +321,7 @@ firstLevel:
     - title: Topology diagrams
       url: /user-guide/distributed-tracing/topology-system_architecture
   - title: Service List
-    url: /user-guide/logs/services.html
+    url: /user-guide/distributed-tracing/services.html
   - title: Service Performance Monitoring
     url: /user-guide/distributed-tracing/service-performance-monitoring
   - title: Set up your Service Performance Monitoring dashboard

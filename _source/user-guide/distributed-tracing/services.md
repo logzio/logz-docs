@@ -5,8 +5,7 @@ permalink: /user-guide/distributed-tracing/services.html
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Meet Logz.io's Service List
 flags:
-  logzio-plan: pro
-  beta: false
+  logzio-plan: community
 tags:
   - insights
 contributors:

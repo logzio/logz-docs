@@ -18,7 +18,7 @@ Kubernetes 360 lets R&D and engineering teams monitor and troubleshoot applicati
 
 The platform utilizes Kubernetes' numerous advantages for R&D and dev teams, allowing you to monitor application SLOs in a simple, efficient, and actionable manner. Kubernetes 360 offers flexibility and visibility while providing service discovery, balancing load, and allowing developer autonomy and business agility.
 
-![Main dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-jul-overview.png)
+![Main dashboard](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-jul-overview-.png)
 
 ###### On this page
 {:.no_toc}
@@ -52,7 +52,7 @@ You can dive deeper into each card by clicking on it and opening the **[Quick vi
 
 You can change and adjust Kubernetes 360 application to match your monitoring and troubleshooting needs. To help you get started, we'll break down the different options, how you can access them, and how they can help you and your team.
 
-![Dashboard breakdown](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-jul-overview-numbers.png)
+![Dashboard breakdown](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-jul-overview-numbers-.png)
 
 <div class="tasklist">
 
@@ -68,13 +68,13 @@ Next, choose whether to view the environment's clusters, nodes, or both. Each dr
 
 You can switch your view to filter by the following resources: **Node**, **Pod**, **Deployment**, **Daemonset**, **Statefulset**, or **Job**.
 
-![switch view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/filter-view-jul.png)
+![switch view](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/filter-view-jul-.png)
 
 In addition, you can also switch between the **Map** and **List** views, according to your monitoring needs. Note that the Pod view can only be seen as a list.
 
 When switching between views, the main cards change to represent the different resources. Each card includes several essential measurements, such as average CPU and memory usage, and a rundown of the resource’s status. The cards help you quickly identify which resources require your attention by marking failings or issues in red.
 
-![deployments card](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/node-view-jul.png)
+![deployments card](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/node-view-jul-.png)
 
 You can dive deeper into each card by clicking on it and opening the **[Quick view](/user-guide/k360/overview.html#quick-view)** menu.
 
@@ -127,7 +127,7 @@ A **deployment** quick view includes the following fields:
 
 <!-- * **Disk** - The amount of disk space taken up by this node. -->
 
-![Quick menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/deployment-quick-view-jul.png)
+![Quick menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/deployment-quick-view-jul-.png)
 
 At the bottom of the quick view menu's **Pods** tab, you'll find a list of all pods related to this node. The table includes each pod's status, the number of containers they’re in, and how much CPU and memory they use. Clicking on one of the pods will lead you to that pod's quick view menu. 
 
@@ -161,7 +161,7 @@ A node quick view menu includes the following fields:
 * **Disk** - The amount of disk space this node takes, and how much is left.
 * **Security risks** - Number of potential security risks in this node.
 
-![Node menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/node-quick-view-jul.png)
+![Node menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/node-quick-view-jul-.png)
 
 At the top of the quick view menu, there are links that can take you directly to the relevant logs (**See Logs**), open Logz.io's Livetail for quick troubleshooting (**Open Livetail**), or see the relevant metrics (**See Metrics**).
 
@@ -182,6 +182,8 @@ The third tab, **Metrics**, presents useful data in graph form, including:
 * Memory usage per pod
 
 You can change the time frame chosen by clicking on the date bar at the top of the tab.
+
+And the **Security** tab breaks down the security risks inside the pod, including their name, location, and severity. 
 
 
 
@@ -205,7 +207,7 @@ Click on a pod to access its quick view menu and gain access to this additional 
 
 <!-- * **Deployment** - The deployment related to this pod. -->
 
-![Pod menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/pod-quick-view-jul.png)
+![Pod menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/pod-quick-view-jul-.png)
 
 At the top of the quick view menu, there are links that can take you directly to the relevant logs (**See Logs**), open Logz.io's Livetail for quick troubleshooting (**Open Livetail**), or see the relevant metrics (**See Metrics**).
 
@@ -223,8 +225,7 @@ The **Metrics** tab presents useful data in graph form, including:
 
 You can change the time frame chosen by clicking on the date bar at the top of the tab.
 
-
-
+And the **Security** tab breaks down the security risks inside the pod, including their name, location, and severity. 
 
 ### Dameonset, Statefulset, and Job quick view
 {:.no_toc}
@@ -238,7 +239,7 @@ All 3 views include the following information as part of their quick view menu:
 * **Memory** - An average percentage of how much memory was consumed.
 * **Security risks** - The number of security events in this element.
 
-![Stateful menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/daemon-quick-view-jul.png)
+![Stateful menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/daemon-quick-view-jul-.png)
 
 At the top of the quick view menu, there are links that can take you directly to the relevant metrics (**See Metrics**).
 

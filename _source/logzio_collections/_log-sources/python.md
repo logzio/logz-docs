@@ -70,7 +70,9 @@ pip install logzio-python-handler[opentelemetry-logging]
 Use the samples in the code block below as a starting point,
 and replace the sample with a configuration that matches your needs.
 
-For a complete list of options, see the [configuration parameters](#parameters).
+For a complete list of options, see the configuration [parameters](#parameters) below the code block.👇
+
+###### File Config
 
 ```python
 [handlers]
@@ -137,7 +139,7 @@ LOGGING = {
 {% include /general-shipping/replace-placeholders.html %}
 
 
-##### Parameters
+#### Parameters
 
 <!-- info-box-start:info -->
 Order matters. The arguments _must_ be configured in the order shown here. For example, to set debug-flag to `true`, you need to set every argument that comes before it.
@@ -171,6 +173,10 @@ For the LogzioFlusher to work properly, you'll need to make sure that the Logz.i
 
 
 
+#### Dynamic Extra Fields
+If you prefer, you can add extra fields to your logs dynamically, and not pre-defining them in the configuration.
+This way, you can allow different logs to have different extra fields.
+Example in the code below. 
 
 #### Code Example
 
@@ -179,6 +185,9 @@ import logging
 import logging.config
 # If you're using a serverless function, uncomment.
 # from logzio.flusher import LogzioFlusher
+
+# If you'd like to leverage the dynamic extra fields feature, uncomment.
+# from logzio.handler import ExtraFieldsLogFilter
 
 # Say I have saved my configuration as a dictionary in a variable named 'LOGGING' - see 'Dict Config' sample section
 logging.config.dictConfig(LOGGING)
@@ -194,28 +203,8 @@ def my_func():
         1/0
     except:
         logger.exception("Supporting exceptions too!")
-```
 
-#### Extra Fields
-In case you need to dynamic metadata to your logger, other then the constant metadata from the formatter, you can use the "extra" parameter.
-All key values in the dictionary passed in "extra" will be presented in Logz.io as new fields in the log you are sending.
-Please note, that you cannot override default fields by the python logger (i.e. lineno, thread, etc..)
-For example:
-
-```python
-logger.info('Warning', extra={'extra_key':'extra_value'})
-```
-
-#### Dynamic Extra Fields
-If you prefer, you can add extra fields to your logs dynamically, and not pre-defining them in the configuration.
-This way, you can allow different logs to have different extra fields.
-
-See the following code example:
-
-```python
-from logzio.handler import ExtraFieldsLogFilter
-
-def main():
+# Example additional code that demonstrates how to dynamically add/remove fields within the code, make sure class is imported.
 
     logger.info("Test log")  # Outputs: {"message":"Test log"}
     
@@ -226,20 +215,31 @@ def main():
     error_fields = {"err_msg":"Failed to run due to exception.","status_code":500}
     logger.addFilter(ExtraFieldsLogFilter(error_fields))
     logger.error("Error test log")  # Outputs: {"message":"Error test log","foo":"bar","counter":1,"err_msg":"Failed to run due to exception.","status_code":500}
+    
     # If you'd like to remove filters from future logs using the logger.removeFilter option:
     logger.removeFilter(ExtraFieldsLogFilter(error_fields))
     logger.debug("Debug test log") # Outputs: {"message":"Debug test log","foo":"bar","counter":1}
 
 ```
 
-## Trace context
+#### Extra Fields
+In case you need to dynamic metadata to a speific log and not [dynamically to the logger](#dynamic-extra-fields), other than the constant metadata from the formatter, you can use the "extra" parameter.
+All key values in the dictionary passed in "extra" will be presented in Logz.io as new fields in the log you are sending.
+Please note, that you cannot override default fields by the python logger (i.e. lineno, thread, etc..)
+For example:
+
+```python
+logger.info('Warning', extra={'extra_key':'extra_value'})
+```
+
+#### Trace context
 
 If you're sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context.
 That way, your logs will have traces data in it, such as service name, span id and trace id.
 
 Make sure to install the OpenTelemetry logging instrumentation dependecy by running the following command:
 
-```bash
+```shell
 pip install logzio-python-handler[opentelemetry-logging]
 ```
 To enable this feature, set the `add_context` param in your handler configuration to `True`, like in this example:
@@ -276,6 +276,51 @@ LOGGING = {
         }
     }
 }
+```
+
+##### Django configuration
+```python
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'logzioFormat': {
+            'format': '{"additional_field": "value"}'
+        }
+    },
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+            'level': 'DEBUG',
+            'formatter': 'verbose'
+        },
+        'logzio': {
+            'class': 'logzio.handler.LogzioHandler',
+            'level': 'INFO',
+            'formatter': 'logzioFormat',
+            'token': 'token',
+            'logzio_type': "django",
+            'logs_drain_timeout': 5,
+            'url': 'https://listener.logz.io:8071',
+            'debug': True,
+            'network_timeout': 10,
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['console', ],
+            'level': os.getenv('DJANGO_LOG_LEVEL', 'INFO')
+        },
+        'appname': {
+            'handlers': ['console', 'logzio'],
+            'level': 'INFO'
+        }
+    }
+}
+
 ```
 
 {% include /general-shipping/replace-placeholders.html %}

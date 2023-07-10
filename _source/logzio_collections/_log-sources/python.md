@@ -15,6 +15,7 @@ contributors:
   - shalper
   - imnotashrimp
   - refaelmi
+  - ralongit
 shipping-tags:
   - from-your-code
 order: 170
@@ -58,12 +59,18 @@ Navigate to your project's folder in the command line, and run this command to i
 pip install logzio-python-handler
 ```
 
+If you'd like to use [Trace context](#trace-context) then you need to install the OpenTelemetry logging instrumentation dependecy by running the following command:
+
+```shell
+pip install logzio-python-handler[opentelemetry-logging]
+```
+
 ##### Configure Logz.io Python Handler for a standard Python project
 
 Use the samples in the code block below as a starting point,
 and replace the sample with a configuration that matches your needs.
 
-For a complete list of options, see the configuration parameters below the code block.👇
+For a complete list of options, see the [configuration parameters](#parameters).
 
 ```python
 [handlers]
@@ -74,7 +81,7 @@ class=logzio.handler.LogzioHandler
 formatter=logzioFormat
 
 # Parameters must be set in order. Replace these parameters with your configuration.
-args=('<<LOG-SHIPPING-TOKEN>>', '<<LOG-TYPE>>', <<TIMEOUT>>, 'https://<<LISTENER-HOST>>:8071', <<DEBUG-FLAG>>)
+args=('<<LOG-SHIPPING-TOKEN>>', '<<LOG-TYPE>>', <<TIMEOUT>>, 'https://<<LISTENER-HOST>>:8071', <<DEBUG-FLAG>>,<<NETWORKING-TIMEOUT>>,<<RETRY-LIMIT>>,<<RETRY-TIMEOUT>>)
 
 [formatters]
 keys=logzioFormat
@@ -90,10 +97,9 @@ level=INFO
 format={"additional_field": "value"}
 ```
 
-
 ###### Dict Config
 
-This is an alternative configuration option recommended if you are using Python 3.8.
+This is an alternative configuration option recommended if you are using Python 3.8 or above.
 
 See Python's [documentation](https://docs.python.org/3/library/logging.config.html#configuration-file-format) regarding the `logging.config.dictConfig` method.
 
@@ -190,22 +196,52 @@ def my_func():
         logger.exception("Supporting exceptions too!")
 ```
 
-
-To add dynamic metadata to your logger
-other than the constant metadata from the formatter,
-you can use the `extra` parameter.
-Key-value pairs passed in `extra` are shown as new fields in Logz.io.
-You can't override default fields from the python logger,
-such as `lineno` or `thread`.
+#### Extra Fields
+In case you need to dynamic metadata to your logger, other then the constant metadata from the formatter, you can use the "extra" parameter.
+All key values in the dictionary passed in "extra" will be presented in Logz.io as new fields in the log you are sending.
+Please note, that you cannot override default fields by the python logger (i.e. lineno, thread, etc..)
+For example:
 
 ```python
 logger.info('Warning', extra={'extra_key':'extra_value'})
 ```
 
-#### Trace context
+#### Dynamic Extra Fields
+If you prefer, you can add extra fields to your logs dynamically, and not pre-defining them in the configuration.
+This way, you can allow different logs to have different extra fields.
+
+See the following code example:
+
+```python
+from logzio.handler import ExtraFieldsLogFilter
+
+def main():
+
+    logger.info("Test log")  # Outputs: {"message":"Test log"}
+    
+    extra_fields = {"foo":"bar","counter":1}
+    logger.addFilter(ExtraFieldsLogFilter(extra_fields))
+    logger.warning("Warning test log")  # Outputs: {"message":"Warning test log","foo":"bar","counter":1}
+    
+    error_fields = {"err_msg":"Failed to run due to exception.","status_code":500}
+    logger.addFilter(ExtraFieldsLogFilter(error_fields))
+    logger.error("Error test log")  # Outputs: {"message":"Error test log","foo":"bar","counter":1,"err_msg":"Failed to run due to exception.","status_code":500}
+    # If you'd like to remove filters from future logs using the logger.removeFilter option:
+    logger.removeFilter(ExtraFieldsLogFilter(error_fields))
+    logger.debug("Debug test log") # Outputs: {"message":"Debug test log","foo":"bar","counter":1}
+
+```
+
+## Trace context
 
 If you're sending traces with OpenTelemetry instrumentation (auto or manual), you can correlate your logs with the trace context.
-In this way, your logs will have traces data in it, such as service name, span id and trace id.
+That way, your logs will have traces data in it, such as service name, span id and trace id.
+
+Make sure to install the OpenTelemetry logging instrumentation dependecy by running the following command:
+
+```bash
+pip install logzio-python-handler[opentelemetry-logging]
+```
 To enable this feature, set the `add_context` param in your handler configuration to `True`, like in this example:
 
 ```python
@@ -223,10 +259,10 @@ LOGGING = {
             'class': 'logzio.handler.LogzioHandler',
             'level': 'INFO',
             'formatter': 'logzioFormat',
-            'token': '<<LOG-SHIPPING-TOKEN>>',
+            'token': '<<LOGZIO-TOKEN>>',
             'logzio_type': 'python-handler',
             'logs_drain_timeout': 5,
-            'url': 'https://<<LISTENER-HOST>>:8071',
+            'url': 'https://<<LOGZIO-URL>>:8071',
             'retries_no': 4,
             'retry_timeout': 2,
             'add_context': True

@@ -29,6 +29,8 @@ SSO (Single sign-on) simplifies access management for your Logz.io account by al
 To ensure the correct permissions are transferred, use the **exact SSO group name** declared in the SSO provider.
 {:.info-box.note}
 
+![main sso](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/main-sso-configure.png)
+
 ### Manage main account SSO groups
 
 Admin users can easily create SSO groups for the main account within Logz.io.
@@ -47,7 +49,7 @@ For example, in the image below, the **Management-Admins** SSO group has Admin a
 
 The **Management-Users** SSO group has User access, enabling search capabilities and asset sharing on all accounts.
 
-![main account sso](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/main-sso.png)
+![main account sso](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/sso-groups-main.png)
 
 ### Manage sub account SSO groups:
 
@@ -71,7 +73,7 @@ The **AppDevAdmins** SSO group has Admin access, enabling search capabilities, a
 However, the **SecurityAdmins** SSO group has Admin access, enabling search capabilities, and asset sharing - but only for the **Security** account.
 
 
-![sub account sso](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/sub-sso.png)
+![sub account sso](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/sub-account-sso.png)
 
 ## Asset and objects across main and sub accounts
 

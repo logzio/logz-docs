@@ -29,7 +29,7 @@ To enable group SSO for your main and sub accounts, contact your account manager
 * Existing SSO groups created within your SSO provider
 
 
-![main sso](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/main-sso-configure.png)
+![main sso](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/sso-groups-view-all.png)
 
 ### Manage main account SSO groups
 
@@ -39,8 +39,10 @@ To add and assign SSO groups, navigate to [Settings > Manage users](https://app.
 
 Next, click on **+ New SSO group** button, paste the name of the relevant SSO group created in your SSO provider, and choose the appropriate permissions from the dropdown list. View the detailed list of available permissions and what they include, [here](/user-guide/users/#access-level-per-role).
 
-To ensure the correct permissions are transferred, use the **exact SSO group name** declared in the SSO provider.
+To ensure the correct permissions are transferred, use the **exact SSO group name** as declared in your SSO provider.
 {:.info-box.important}
+
+![roles sso](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/main-sso-configure.png)
 
 These SSO groups will have access to all accounts connected to your main Logz.io account. Users within these groups will enjoy the following abilities:
 
@@ -52,7 +54,7 @@ For example, in the image below, the **Management-Admins** SSO group has Admin a
 
 The **Management-Users** SSO group has User access, enabling search capabilities and asset sharing on all accounts.
 
-![main account sso](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/sso-groups-main.png)
+![example main sso](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/main-sso-all-accounts.png)
 
 ### Manage sub account SSO groups:
 
@@ -62,8 +64,10 @@ To add and assign SSO groups, navigate to [Settings > Manage users](https://app.
 
 Scroll down to the second part of the page, **Sub accounts SSO groups**, and click on **+ New SSO group** button. Next, paste the name of the relevant SSO group created in your SSO provider, choose the [appropriate permissions](/user-guide/users/#access-level-per-role) from the dropdown list, and click the dropdown list to view and choose which sub accounts these users will be able to access.
 
-To ensure the correct permissions are transferred, use the **exact SSO group name** declared in the SSO provider.
+To ensure the correct permissions are transferred, use the **exact SSO group name** as declared in your SSO provider.
 {:.info-box.important}
+
+![sub account accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/sub-account-sso.png)
 
 Users within these sub account SSO groups will have access to the following abilities:
 
@@ -72,14 +76,14 @@ Users within these sub account SSO groups will have access to the following abil
 * Sharing of objects between the sub accounts
 
 
-For example, the **AppDevUsers** SSO group in the image has User access, enabling search capabilities, and asset sharing on the Dev-App and Prod-App accounts. 
+For example, in the image below, the **AppDevAdmins** SSO group has Admin access, enabling search capabilities, and asset sharing on the  Dev-App and Prod-App accounts.
 
-The **AppDevAdmins** SSO group has Admin access, enabling search capabilities, and asset sharing on the same accounts.
+The **AppDevUsers** SSO group has User access, enabling search capabilities, and asset sharing on the same accounts.
 
 However, the **SecurityAdmins** SSO group has Admin access, enabling search capabilities, and asset sharing - but only for the **Security** account.
 
 
-![sub account sso](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/sub-account-sso.png)
+![sub account sso](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/sub-account-detailed-view.png)
 
 ## Asset and objects across main and sub accounts
 

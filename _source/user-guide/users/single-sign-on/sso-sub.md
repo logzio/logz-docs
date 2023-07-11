@@ -90,3 +90,14 @@ However, the **SecurityAdmins** SSO group has Admin access, enabling search capa
 It's important to note that assets created within the main Logz.io account **will be accessible to all sub accounts**. However, sub account users will only see data corresponding to their access logs. 
 
 For example, if a dashboard is created at the main account level analyzing all alerts sent to the account, users with access to sub-account-1 can view the dashboard. However, these users will only see the data that's shared to their specific sub account.
+
+## Edit or delete SSO groups
+
+You can edit some of the elements in your existing SSO groups.
+
+For SSO groups associated with your **main account**, you can change the name and permissions by hovering over the relevant group and clicking the pencil icon on the right. Click Save to apply your changes.
+
+You can change the name, permissions, and account access for SSO groups associated with your **sub accounts**. Hover over the relevant group and click the pencil icon on the right. Click Save to apply your changes.
+
+
+![edit delete sso](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/edit-delete-sso.png)

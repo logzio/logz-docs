@@ -554,6 +554,8 @@ firstLevel:
     thirdLevel:
     - title: Single sign-on
       url: /user-guide/users/single-sign-on/
+    - title: Configure SSO access for main and sub accounts
+      url: /user-guide/users/sso-main-sub-accounts.html
     - title: Azure single sign-on
       url: /user-guide/users/single-sign-on/azure-sso.html
     - title: Azure pay-as-you-go Portal single sign-on

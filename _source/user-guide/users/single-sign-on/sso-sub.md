@@ -99,5 +99,6 @@ For SSO groups associated with your **main account**, you can change the name an
 
 You can change the name, permissions, and account access for SSO groups associated with your **sub accounts**. Hover over the relevant group and click the pencil icon on the right. Click Save to apply your changes.
 
+To delete one or more SSO groups, click the trash can icon. Note that this action can't be undone, and once deleted, all SSO group members will lose access to the relevant accounts and data.
 
 ![edit delete sso](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/edit-delete-sso.png)

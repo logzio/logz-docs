@@ -48,6 +48,17 @@ The Create SAML Integration page is displayed.
 
 Set your **App name** to "Logz.io". Click **Next** to continue to the Configure SAML tab.
 
+Okta doesn't allow multiple groups to have the same name. To resolve this issue, it's best to change the name of the groups 
+
+ Also, when searching in the resources tab under Security > Administrators if there are multiple groups with the same name, please note that Okta will only display five groups. This is an expected behavior.
+
+
+
+Admins cannot create multiple groups with the same name in Okta. This is an expected behavior.
+
+
+
+
 ##### Paste the SAML information from Support
 
 ![SAML settings](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/okta/saml-settings.png)

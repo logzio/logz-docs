@@ -32,6 +32,14 @@ Include these items in the message:
 
 The Support team will respond with the connection information you'll need to give in Okta.
 
+
+You can't assign 
+{:.info-box.important}
+
+- Update doc saying that the user should duplicate their Okta group to assign it to multiple Logz.io accounts.
+
+
+
 ##### Add Logz.io to Okta
 
 In Okta, click **Admin**.

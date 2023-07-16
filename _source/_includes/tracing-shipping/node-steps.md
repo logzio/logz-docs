@@ -58,12 +58,7 @@ const sdk = new opentelemetry.NodeSDK({
     instrumentations: [getNodeAutoInstrumentations()],
 });
 
-sdk
-    .start()
-    .then(() => {
-        console.log("Tracing initialized");
-    })
-    .catch((error) => console.log("Error initializing tracing", error));
+sdk.start()
 
 process.on("SIGTERM", () => {
     sdk

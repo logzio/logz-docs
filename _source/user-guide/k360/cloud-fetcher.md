@@ -71,20 +71,22 @@ Click **Select** to choose the app, and click **Review + assign** to confirm. Cl
 
 To connect your Azure Cloud Fetcher with Logz.io you'll need to send the following information:
 
-* Client secret value - that you created and copied in the **[Create a certificate](/user-guide/cloud-fetcher.html#create-a-certificate)** section.
+* **Client secret value** - that you created and copied in the [Create a certificate](/user-guide/cloud-fetcher.html#create-a-certificate) section.
 
-Navigate to App registration and click on the app you created. There, you'll be able to find the following information needed to complete your process:
+Navigate to App registration and click on the app you created. There, you'll be able to find the following information:
 
 * **Application (client) ID**
 * **Directory (tenant) ID**
 
 ![app ids](https://dytvr9ot2sszz.cloudfront.net/logz-docs/fetcher/app-id-for-logz.png)
 
-Next, navigate to Subscriptions and copy the **Subscription ID**
+Next, navigate to Subscriptions and copy the **Subscription ID**:
 
 ![subscription id](https://dytvr9ot2sszz.cloudfront.net/logz-docs/fetcher/subscription-id.png)
 
-* Resource Group 
+And lastley, navigate to **Resource groups** and copy the name of the group that's assicoated with the app you created.
+
+![resource group](https://dytvr9ot2sszz.cloudfront.net/logz-docs/fetcher/resource-group-copy.png)
 
 
 </div>

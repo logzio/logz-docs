@@ -33,12 +33,8 @@ Include these items in the message:
 The Support team will respond with the connection information you'll need to give in Okta.
 
 
-You can't assign 
+Each SSO group can be assigned to only one Logz.io account. To associate similar permissions with multiple Logz.io accounts, duplicate your SSO groups within your provider and assign these duplicates to the respective accounts.
 {:.info-box.important}
-
-- Update doc saying that the user should duplicate their Okta group to assign it to multiple Logz.io accounts.
-
-
 
 ##### Add Logz.io to Okta
 

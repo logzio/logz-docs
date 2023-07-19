@@ -17,6 +17,8 @@ contributors:
 
 Azure Cloud Fetcher offers a fast and efficient way to sync your Azure data with Logz.io, providing visibility and allowing you to monitor and troubleshoot your environments. With Azure Cloud Fetcher, you can monitor the performance and health of your systems in real-time, and quickly identify the root cause of issues and problems.
 
+Azure may **charge additional fees** for using this integration. [Read more about Azure API costs](https://azure.microsoft.com/en-us/pricing/details/api-management/).
+{:.info-box.important}
 
 #### Set up Azure Cloud Fetcher
 

@@ -9,6 +9,14 @@ opentelemetry-bootstrap --action=install
 pip3 install opentelemetry-exporter-otlp
 ```
 
+##### Install specific Python instrumentation for your framework and libraries
+
+Check the full list of available instrumentations [here](https://opentelemetry.io/ecosystem/registry/?language=python&component=instrumentation)
+Example for requests library
+```shell
+pip3 install opentelemetry-instrumentation-requests
+```
+
 ##### Set environment variables 
 
 After installation, configure the exporter by running the following command:

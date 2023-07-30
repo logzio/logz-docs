@@ -14,7 +14,7 @@ contributors:
   - schwin007
 ---
 
-#### To set up single sign-on for Okta
+#### To set up single sign-on for Okta 
 
 <div class="tasklist">
 

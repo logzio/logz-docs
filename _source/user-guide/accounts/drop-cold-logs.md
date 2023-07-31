@@ -17,6 +17,8 @@ contributors:
 
 Drop logs is available only as part of the Cold Search abilities. You have to pay for cold search in order to drop logs. What happens after you drop the logs? Can you search the dropped logs?
 
+Hello
+
 
 
 

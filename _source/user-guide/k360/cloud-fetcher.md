@@ -23,7 +23,7 @@ Azure may **charge additional fees** for using this integration. [Read more abou
 * [Set up Azure Cloud Fetcher](/user-guide/cloud-fetcher.html#set-up-azure-cloud-fetcher)
 * [Set up Logz.io's Azure Cloud Fetcher](/user-guide/cloud-fetcher.html#set-up-logzios-azure-cloud-fetcher)
 
-#### Set up Azure Cloud Fetcher
+#### Set up Azure Cloud Fetcher 
 
 <div class="tasklist">
 

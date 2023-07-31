@@ -118,7 +118,7 @@ Take the credentials you've copied from your Azure app and enter the required va
 * **Client Secret** - The value you've copied in the [Create a certificate](/user-guide/cloud-fetcher.html#create-a-certificate) section
 * **Subscription** - Your Azure app's subscription ID
 * *Optional* - **Resource group name** - The name of the group that's associated with the Azure app you created
-* _Optional_ - **Tags** - You can add tags that will be associated with the sent data for easier analysis and identification
+* _Optional_ - **Tags** - You can add tags associated with the sent data for easier analysis and identification
 
 Next, select the resource type you'd like to send. You can select **All services** to send all resource types of the project or manually add the relevant resources from the drop-down list.
 

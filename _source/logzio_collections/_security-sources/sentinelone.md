@@ -26,10 +26,10 @@ SentinelOne platform delivers the defenses to prevent, detect, and undo—known 
 
 <div class="tasklist">
 
-##### Install the SentinelOne certificate on your Filebeat server
+##### Create the SentinelOne certificate via OpenSSL on your Filebeat server
 
 SentinelOne sends encrypted data,
-so you'll need to create a dedicated SentinelOne certificate to decrypt the logs by the Filebeat server.
+so you'll need to create a dedicated SentinelOne certificate to decrypt the logs by the Filebeat server. This certificate (.crt file) will need to be uploaded to your SentinelOne management console interface later in this setup.
 
 ```shell
 sudo mkdir /etc/filebeat/certificates
@@ -113,8 +113,9 @@ Open the SentinelOne Admin Console. Configure SentinelOne to send logs to your S
     1. Under **Types**, select **SYSLOG**.
     2. Toggle the button to **enable SYSLOG**.
     3. **Host** - Enter your public SYSLOG server IP address and port.
-    4. **Formatting** - Select **CEF2**.
-    5. Save your changes.
+    4. Enable **TLS** and upload the .crt file created earlier as a server certificate. The other certificate options can be left blank.
+    5. **Formatting** - Select **CEF2**.
+    6. Save your changes.
 
 ![SentinelOne Admin Console configuration](https://dytvr9ot2sszz.cloudfront.net/logz-docs/log-shipping/sentinelone-admin5.png)
 

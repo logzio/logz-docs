@@ -76,7 +76,8 @@ from opentelemetry.exporter.prometheus_remote_write import (
     PrometheusRemoteWriteMetricsExporter,
 )
 from opentelemetry.sdk.metrics import MeterProvider
-
+from opentelemetry.sdk.metrics.export import PeriodicExportingMetricReader
+​
 # configure the Logz.io listener endpoint and Prometheus metrics account token
 exporter = PrometheusRemoteWriteMetricsExporter(
     endpoint="<<LISTENER-HOST>>:8053",
@@ -86,22 +87,22 @@ exporter = PrometheusRemoteWriteMetricsExporter(
 )
 # set push interval in seconds
 push_interval = 15
-
+​
 # setup metrics export pipeline
-metrics.set_meter_provider(MeterProvider())
+reader = PeriodicExportingMetricReader(exporter, 1000)
+provider = MeterProvider(metric_readers=[reader])
+metrics.set_meter_provider(provider)
 meter = metrics.get_meter(__name__)
-metrics.get_meter_provider().start_pipeline(meter, exporter, push_interval)
-
+​
 # create a counter instrument and provide the first data point
 counter = meter.create_counter(
     name="MyCounter",
     description="Description of MyCounter",
-    unit="1",
-    value_type=int
+    unit="1"
 )
 # add labels
 labels = {
-    "dimension": "value"
+    "dimension": "value",
 }
 counter.add(25, labels)
 ```
@@ -129,7 +130,6 @@ counter = meter.create_counter(
     name="MyCounter",
     description="Description of MyCounter",
     unit="1",
-    value_type=int
 )
 # add labels
 labels = {

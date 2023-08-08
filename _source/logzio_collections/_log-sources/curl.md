@@ -37,7 +37,8 @@ You can upload JSON or plain text files.
 
 * Max body size is 10 MB (10,485,760 bytes)
 * Each log line must be 500,000 bytes or less
-* If you include a `type` field in the log, it overrides `type` in the request header
+* Note that if you include a `type` field in the log, it will be overridden by the type written in the request header
+
 
 #### Upload a JSON log file
 
@@ -82,7 +83,7 @@ You can upload JSON or plain text files.
 ###### Limitations
 
 * Max body size is 30 MB (31,457,280 bytes)
-* Please note that if you include a `type` field in the log, it will be overridden by the type written in the request header
+* Note that if you include a `type` field in the log, it will be overridden by the type written in the request header
 
 
 #### Upload a plain text log file

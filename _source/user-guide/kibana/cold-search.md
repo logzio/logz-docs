@@ -76,6 +76,14 @@ To start using Cold Search, navigate to [Log analytics](https://app.logz.io/#/da
 
 Type the search term or query you'd like to use, and choose the relevant time frame. Your restored logs will only include data matching your exact search term.
 
+The search is case sensitive and supports `“`, `AND`, `OR`, and `()` operators, but you can’t use nested brackets `(())`.
+
+For example, you can run any of the following searches:
+
+* ("blue sky" OR clouds) AND rain OR "thunder storms"
+* "ATLAS" AND "Error"
+* "bucketName" AND ("Error" OR "Warning")
+
 Next, choose the time frame for your search. You can select a time frame of up to 3 days.
 
 Click on **Fetch raw logs** to generate a preview of the logs that match your criteria. If these logs are the ones you want to retrieve, click the **Re-ingest** button to re-ingest the logs. 

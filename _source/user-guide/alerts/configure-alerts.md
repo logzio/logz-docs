@@ -71,6 +71,9 @@ click **Preview** to open OpenSearch Dashboards in another tab. It can help revi
 
 ###### Group-by (order matters!)
 
+Group by must include the field to trigger it. A log without a field added to Group by will not trigger the alert even if it matches the query or filter.
+{:.info-box.important}
+
 You can apply **group by** operators to up to 3 fields. If you use this option, the alert will return the aggregated results.
 
 The order in which you add group-by fields matters. Results are grouped in the order in which the group-by fields are added. (The fields are shown from first to last from Left-To-Right.)
@@ -92,10 +95,6 @@ For example, if you set an alert to:
 You’ll be able to use these fields to create the following chart:
 
 ![Alerts to visualization](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/group-by-visualize.png)
-
-
-Group by must include the field to trigger it. A log without a field added to Group by will not trigger the alert even if it matches the query or filter.
-{:.info-box.important}
 
 ###### Accounts to search
 

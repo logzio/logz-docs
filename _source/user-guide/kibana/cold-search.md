@@ -76,7 +76,7 @@ To start using Cold Search, navigate to [Log analytics](https://app.logz.io/#/da
 
 Type the search term or query you'd like to use, and choose the relevant time frame. Your restored logs will only include data matching your exact search term.
 
-The search is case sensitive and supports `“`, `AND`, `OR`, and `()` operators, but you can’t use nested brackets `(())`.
+The search is **case sensitive** and supports `“`, `AND`, `OR`, and `()` operators, but you can’t use nested brackets `(())`.
 
 For example, you can run any of the following searches:
 

@@ -94,6 +94,8 @@ You’ll be able to use these fields to create the following chart:
 ![Alerts to visualization](https://dytvr9ot2sszz.cloudfront.net/logz-docs/correlated-alerts/group-by-visualize.png)
 
 
+Group by must include the field to trigger it. A log without a field added to Group by will not trigger the alert even if it matches the query or filter.
+{:.info-box.important}
 
 ###### Accounts to search
 

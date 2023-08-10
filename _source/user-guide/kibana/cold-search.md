@@ -74,7 +74,8 @@ To start using Cold Search, navigate to [Log analytics](https://app.logz.io/#/da
 
 ![cold search nav](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/cold-search-nav.png)
 
-Type the search term or query you'd like to use, and choose the relevant time frame. Your restored logs will only include data matching your exact search term.
+
+Type the search term or query you'd like to use, and choose the relevant time frame. Your search result will only include data matching your exact search term.
 
 The search is **case sensitive** and supports `“`, `AND`, `OR`, and `()` operators, but you can’t use nested brackets `(())`.
 
@@ -84,9 +85,10 @@ For example, you can run any of the following searches:
 * "ATLAS" AND "Error"
 * "bucketName" AND ("Error" OR "Warning")
 
+
 Next, choose the time frame for your search. You can select a time frame of up to 3 days.
 
-Click on **Fetch raw logs** to generate a preview of the logs that match your criteria. If these logs are the ones you want to retrieve, click the **Re-ingest** button to re-ingest the logs. 
+Click on **Fetch raw logs** to receive logs that match your criteria. Now, you may investigate the logs in the Cold search format or ingest them back into your account. To add the received logs to your account, click the **Re-ingest** button.
 
 The confirmation message includes important information, including the name of the new account, the chosen time frame, your query, and the estimated size of the re-ingested data. 
 

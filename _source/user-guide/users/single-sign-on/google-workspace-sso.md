@@ -35,6 +35,18 @@ Include these items in the message:
 
 The Support team will respond with the connection information needed to set up your Google Workspace SSO.
 
+##### SAML attribute mapping
+
+Log into your [Google Workspace panel](https://admin.google.com/AdminHome).
+
+In the sidebar, navigate to Apps > Web and mobile apps. Click on **Add app** and choose the **Add custom SAML** app option.
+
+
+
+
+
+
+
 ##### Set a custom SAML app in Google Workspace
 
 Log into your [Google Workspace panel](https://admin.google.com/AdminHome).

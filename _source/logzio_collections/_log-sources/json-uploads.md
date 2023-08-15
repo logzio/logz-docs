@@ -72,7 +72,7 @@ For example:
 
 * Max body size is 10 MB (10,485,760 bytes)
 * Each log line must be 500,000 bytes or less
-* Note that if you include a `type` field in the log, it will be overridden by the type written in the request header
+* Note that if you include a `type` field in the log, it will be overridden by the type written in the request parameter
 
 
 ###### Code sample

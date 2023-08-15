@@ -21,7 +21,7 @@ contributors:
 
 Archived data usually contains a lot of information, and it can take time and resources to sift through it and find what you’re looking for.
 
-With Cold search, you can seamlessly search inside your archived cold storage, view up to 1,000 raw logs that match your search query, and get the information you want. You can also re-ingest these logs to your Logz.io account to further analyze and investigate them.
+With Cold search, you can seamlessly search cold storage data you've archived, view up to 1,000 raw logs that match your search query, and get the information you want. You can also re-ingest these logs to your Logz.io account to further analyze and investigate them.
 
 
 ![cold search fetched logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/cold-search-close-up.png)

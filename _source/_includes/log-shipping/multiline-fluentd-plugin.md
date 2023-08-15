@@ -18,10 +18,12 @@ ZeroDivisionError: division by zero
 
 Fluentd's default configuration will split the above log into 4 logs, 1 for each line of the original log. In other words, each line break (`\n`) causes a split.
 
-To avoid this, you can use the `fluent-plugin-concat` and customize the configuration to meet your needs. The additional configuration is added to:
+To avoid this, you can use the `fluent-plugin-concat` and customize the configuration to meet your needs. The additional configuration is added to the `values.yml` file.
 
+<!--
 * `kubernetes.conf` for RBAC/non-RBAC DaemonSet
 * `kubernetes-containerd.conf` for Containerd DaemonSet
+-->
 
 For the above example, we could use the following regex expressions to demarcate the start and end of our example log:
 

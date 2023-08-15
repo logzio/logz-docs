@@ -19,13 +19,12 @@ contributors:
 ---
 
 
-Archived data usually contains a lot of information, and it can take time and resources to sift through it and find what you're looking for.  
+Archived data usually contains a lot of information, and it can take time and resources to sift through it and find what you’re looking for.
 
-Cold search lets you seamlessly search inside your archived S3 bucket, provides a preview of up to 100 raw logs that match your search query, and helps you understand if it's the right data you're looking for. Once you find the needle in your haystack, you can re-ingest the data into your Logz.io account, making it searchable and actionable.
+With Cold search, you can seamlessly search cold storage data you've archived, view up to 1,000 raw logs that match your search query, and get the information you want. You can also re-ingest these logs to your Logz.io account to further analyze and investigate them.
 
-With Cold search you can optimize your data restoration process, reduce costs, speed up the restore time, and minimize risks associated with restoring unnecessary data.
 
-![cold search fetched logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/fetched-raw-logs.png)
+![cold search fetched logs](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/cold-search-close-up.png)
 
 To start using Cold search, navigate to [Log analytics > Cold search](https://app.logz.io/#/dashboard/osd/discover/).
 
@@ -44,35 +43,18 @@ Click on the Cold search button to open the relevant screen.
 
 -->
 
-#### Setting up Cold search
+#### Accessing Cold search
 
-
-Cold search can **only** be used on AWS S3 bucket archived accounts.
-{:.info-box.note}
-
-To get started with Cold search, you'll need the following:
-
-* Ensure you have [AWS S3 bucket permissions & storage class required for archiving](/user-guide/archive-and-restore/set-s3-permissions.html).
-* An AWS S3 bucket that's archiving data from Logz.io.
-* Set up Cold search permissions inside your S3 bucket.
-
-
-##### Cold search permissions
-
-{% include log-shipping/cold-power-search.md %}
-
-
-Once the new policy is updated, you can use Cold search to retrieve and re-ingest logs. 
-
+To get started with Cold search, contact your account manager or [Logz.io's support team](mailto:help@logz.io).
 
 #### Using Cold search
 
 All users can fetch raw logs from Cold search. However, only **account admins** can re-ingest logs into the account.
 {:.info-box.important}
 
-To start using Cold Search, navigate to [Log analytics](https://app.logz.io/#/dashboard/osd/discover/) and choose Cold search from the navigation menu, or click the **Cold Search** button.
+To use Cold search, navigate to [Log analytics](https://app.logz.io/#/dashboard/osd/discover/), choose Cold search from the navigation menu, or click the **Cold Search** button.
 
-![cold search nav](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/cold-search-nav.png)
+![cold search nav](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/cold-search-from-nav.png)
 
 
 Type the search term or query you'd like to use, and choose the relevant time frame. Your search result will only include data matching your exact search term.
@@ -86,17 +68,40 @@ For example, you can run any of the following searches:
 * "bucketName" AND ("Error" OR "Warning")
 
 
-Next, choose the time frame for your search. You can select a time frame of up to 3 days.
+Next, choose the time frame for your search. You can select a time frame of up to 7 days.
 
-Click on **Fetch raw logs** to receive logs that match your criteria. Now, you may investigate the logs in the Cold search format or ingest them back into your account. To add the received logs to your account, click the **Re-ingest** button.
+Click on **Fetch raw logs** to receive the logs that match your query criteria. You can click on each result to get more information about each log, including:
 
-The confirmation message includes important information, including the name of the new account, the chosen time frame, your query, and the estimated size of the re-ingested data. 
+* Event ID
+* AWS region
+* Event version
+* Source IP address
+* Event source
+* Error message
+* Error code
+* User agent 
+* User identity
+* Event type
+* Type
+* Tags
+* Timestamp
 
-Note that the data will count against your daily quota and may **result in an additional charge** if you exceed your account's limit. 
+And more.
+
+![cold search log overviee](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/cold-search-log-results.png)
+
+To investigate the logs further, you can re-ingest them to your Logz.io account by clicking the **Re-ingest** button.
+
+
+**Note that the re-ingested data will count against your daily quota and may result in an additional charge if you exceed your account's limit.**
 
 You can check your account usage and daily limit by navigating to [**Settings > Manage accounts**](https://app.logz.io/#/dashboard/settings/manage-accounts).
 
-Click **Confirm** to approve and continue. 
+Once you click the **Re-ingest** button, you'll be asked to confirm your action. You can review the name of the account that will hold these re-ingested logs, the chosen time frame, your query, and the estimated size of re-ingested data. 
+
+Click **Confirm** to approve and continue with the process. 
+
+![cold search confirm](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/confirmation-message.png)
 
 This process might take a few minutes, during which you can continue using Logz.io. You'll get a notification via email once the process is complete, with a link to the relevant account in OpenSearch Dashboards.
 
@@ -110,36 +115,17 @@ You might encounter an issue while fetching raw logs or re-ingesting them. Here 
 
 ##### Issue: Exceeded max limit of restored accounts
 
-Cold search works with your archived accounts and has similar limitations. To re-ingest Cold search logs, you must have at least 1 available slot in your restored accounts. 
+Cold search works with your cold storage archived accounts and has similar limitations. To re-ingest Cold search logs, you must have at least 1 available account in your restored accounts. Note that you can restore up to 5 accounts at a time.
 
 ###### Suggested remedy
 {:.no_toc}
 
-Ensure you have at least 1 available slot in your restored account. Navigate to [Data Hub > Archive and restore > Restored account](https://app.logz.io/#/dashboard/tools/archive-and-restore) to review if you've exceeded your limit.
+Ensure you have at least 1 available account to which you can restore the data. To check how many accounts you use, navigate to [Data Hub > Archive and restore > Restored account](https://app.logz.io/#/dashboard/tools/archive-and-restore) to review if you've exceeded your limit.
 
-If you have exceeded your restored accounts limit, you'll need to delete at least one account to use Cold search. 
+If you have exceeded your restored accounts limit, you can delete one or more accounts to use Cold search. 
 
 If you wish to upgrade your existing quota, you can contact [Logz.io's support team](mailto:help@logz.io).
 
-##### Issue: Missing permissions
-
-Can't fetch raw logs due to missing permissions.
-
-###### Suggested remedy
-{:.no_toc}
-
-Ensure you've set up the proper permissions for [AWS S3 bucket and storage class data](/user-guide/archive-and-restore/set-s3-permissions.html), and for [Cold search](/user-guide/logs/cold-search.html#cold-search-permissions). 
-
-
-##### Issue: Storage class not supported
-
-Re-ingesting logs process failed due to an unsupported object storage class. This can happen if the object/file is of the Glacier storage class. 
-
-###### Suggested remedy
-{:.no_toc}
-
-
-Buckets set to cold storage (S3 Glacier and S3 Glacier Deep Archive storage classes) cannot be restored from, as the files within them are not available for real-time access. Learn more about [Amazon S3 Storage classes](https://aws.amazon.com/s3/storage-classes/), [storage classes in general and how to transition your S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/storage-class-intro.html).
 
 ##### Issue: Limit exceeded
 

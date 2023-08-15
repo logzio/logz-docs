@@ -45,7 +45,7 @@ Click on the Cold search button to open the relevant screen.
 
 #### Accessing Cold search
 
-To get started with Cold search, you'll need to contact your account manager or [Logz.io's support team](mailto:help@logz.io).
+To get started with Cold search, contact your account manager or [Logz.io's support team](mailto:help@logz.io).
 
 #### Using Cold search
 

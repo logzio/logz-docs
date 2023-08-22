@@ -139,22 +139,21 @@ The Easy Connect chart has several configurable parameters and their default val
 | `kubernetesInstrumentor.service.name` | Name of the instrumentor service | `"kubernetes-instrumentor-service"` |
 | `kubernetesInstrumentor.service.port` | Service port for the instrumentor | `8080` |
 | `kubernetesInstrumentor.service.targetPort` | Target port for the instrumentor service | `8080` |
-
-| easyConnectServer.serviceAccount| Service account name of the instrumentor deployment| `"easy-connect-server"`|
-| easyConnectServer.image.repository| Repository of the server image| `"logzio/easy-connect-server"`|
-| easyConnectServer.image.tag| Tag of the server image| `"v1.0.7"`|
-| easyConnectServer.ports.http| HTTP port for the server| `8080`|
-| easyConnectServer.service.name| Name of the server service| `"easy-connect-server"`|
-| easyConnectServer.service.port| Service port for the server| `5050`|
-| easyConnectServer.service.targetPort| Target port for the server service| `5050`|
-| easyConnectUi.image.repository| Repository of the UI image| `"logzio/easy-connect-ui"`|
-| easyConnectUi.image.tag| Tag of the UI image| `"v1.0.0"`|
-| easyConnectUi.ports.http| HTTP port for the UI| `31032`|
-| easyConnectUi.service.name| Name of the UI service| `"easy-connect-ui"`|
-| easyConnectUi.service.port| Service port for the UI| `31032`|
-| easyConnectUi.service.targetPort| Target port for the UI service| `31032`|
-| rbac.clusterRoles...| Configure the RBAC cluster roles| Refer to `values.yaml`|
-| rbac.clusterRoleBindings...| Configure the RBAC cluster role bindings| Refer to `values.yaml`|
+| `easyConnectServer.serviceAccount`| Service account name of the instrumentor deployment| `"easy-connect-server"`|
+| `easyConnectServer.image.repository`| Repository of the server image| `"logzio/easy-connect-server"`|
+| `easyConnectServer.image.tag`| Tag of the server image| `"v1.0.7"`|
+| `easyConnectServer.ports.http`| HTTP port for the server| `8080`|
+| `easyConnectServer.service.name`| Name of the server service| `"easy-connect-server"`|
+| `easyConnectServer.service.port`| Service port for the server| `5050`|
+| `easyConnectServer.service.targetPort`| Target port for the server service| `5050`|
+| `easyConnectUi.image.repository`| Repository of the UI image| `"logzio/easy-connect-ui"`|
+| `easyConnectUi.image.tag`| Tag of the UI image| `"v1.0.0"`|
+| `easyConnectUi.ports.http`| HTTP port for the UI| `31032`|
+| `easyConnectUi.service.name`| Name of the UI service| `"easy-connect-ui"`|
+| `easyConnectUi.service.port`| Service port for the UI| `31032`|
+| `easyConnectUi.service.targetPort`| Target port for the UI service| `31032`|
+| `rbac.clusterRoles...`| Configure the RBAC cluster roles| Refer to `values.yaml`|
+| `rbac.clusterRoleBindings...`| Configure the RBAC cluster role bindings| Refer to `values.yaml`|
 
 
 You can override the default values by creating your own `values.yaml` file and passing the `--values` or `-f` option to the Helm command. For example:

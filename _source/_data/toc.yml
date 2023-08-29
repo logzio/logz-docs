@@ -633,6 +633,9 @@ firstLevel:
   
   - title: Ship your data to Logz.io
     url: /shipping/
+
+  - title: Azure Cloud Fethcer
+    url: /user-guide/cloud-fetcher.html
     
   #- title: Send your data with Telemetry Collector
   #  url: /user-guide/log-shipping/telemetry-collector.html

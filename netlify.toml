@@ -601,3 +601,9 @@
   to = "/user-guide/infrastructure-monitoring/"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/user-guide/logs/cold-search.html"
+  to = "/user-guide/logs/cold-tier.html"
+  status = 301
+  force = true

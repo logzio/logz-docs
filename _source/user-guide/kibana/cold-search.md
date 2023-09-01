@@ -3,7 +3,7 @@ layout: article
 title: Cold tier
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
 description: Search your archived data before re-ingesting it with Cold tier
-permalink: /user-guide/logs/cold-search.html
+permalink: /user-guide/logs/cold-tier.html
 sitemap: false 
 noindex: true
 flags:
@@ -47,7 +47,7 @@ All users can fetch raw logs from Cold tier. However, only **account admins** ca
 
 To use Cold tier, navigate to [Log analytics](https://app.logz.io/#/dashboard/osd/discover/), choose Cold tier from the navigation menu, or click the **Cold tier** button.
 
-![cold tier nav](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/cold-search-from-nav.png)
+![cold tier nav](https://dytvr9ot2sszz.cloudfront.net/logz-docs/cold-search/cold-tier-from-menu.png)
 
 
 Type the search term or query you'd like to use, and choose the relevant time frame. Your search result will only include data matching your exact search term.

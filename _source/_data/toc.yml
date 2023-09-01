@@ -120,7 +120,7 @@ firstLevel:
     url: /user-guide/log-highlighter.html
   - title: Log usage measurement
     url: /user-guide/log-usage-measurement/
-  - title: Cold search
+  - title: Cold Tier
     url: /user-guide/logs/cold-search.html
 
 

@@ -607,3 +607,14 @@
   to = "/user-guide/logs/cold-tier.html"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/user-guide/cloud-fetcher.html"
+  to = "/user-guide/azure-native-integration.html"
+  status = 301
+  force = true
+
+
+
+
+  

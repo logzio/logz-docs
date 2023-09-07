@@ -131,6 +131,10 @@ A **deployment** quick view includes the following fields:
 
 At the bottom of the quick view menu's **Pods** tab, you'll find a list of all pods related to this node. The table includes each pod's status, the number of containers they’re in, and how much CPU and memory they use. Clicking on one of the pods will lead you to that pod's quick view menu. 
 
+In addition, you can browse throguh the following tabs:
+
+**Logs**, that includes the time, log level and message for each log in this deployment. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
+
 The **Metrics** tab presents useful data in graph form, including:
 
 * Replicas Over Time
@@ -142,9 +146,18 @@ The **Metrics** tab presents useful data in graph form, including:
 * Requests and Limits
 * Received & Transmitted Bytes
 
-You can change the time frame chosen by clicking on the date bar at the top of the tab.
+And the **Traces** tab includes all of the spans in this deployment, including the following:
 
-Use the links at the top of the quick view menu to navigate directly to the relevant metrics view (**See Metrics**), or the relevant traces view (**See Traces**).
+* Time
+* Trace ID
+* The Service related to the span
+* Which Operation ran
+* The Duration of the run, represented in miliseconds
+* Status code indicating wheather a specific HTTP request has been successfully completed
+
+For each tab you can change the time frame chosen by clicking on the date bar located at the top of the tab.
+
+In addition, you can dive deeper into the data by using the links at the top of the quick view menu and navigate directly to the relevant metrics view (**See Metrics**), or the relevant traces view (**See Traces**).
 
 ### Node quick view
 {:.no_toc}
@@ -167,7 +180,9 @@ At the top of the quick view menu, there are links that can take you directly to
 
 At the bottom of the quick view menu's **Pods** tab, you'll find a list of all pods related to this node. The table includes each pod's status, the number of containers they’re in, and how much CPU and memory they use. Clicking on one of the pods will lead you to that pod's quick view menu. 
 
-The second tab contains the **logs**, with the time, log level, and warning for each log inside the node. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
+In addition, you can browse throguh the following tabs:
+
+**Logs**, that includes the time, log level and message for each log in this node. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
 
 The third tab, **Metrics**, presents useful data in graph form, including:
 
@@ -181,10 +196,17 @@ The third tab, **Metrics**, presents useful data in graph form, including:
 * CPU usage per pod
 * Memory usage per pod
 
-You can change the time frame chosen by clicking on the date bar at the top of the tab.
 
-And the **Security** tab breaks down the security risks inside the pod, including their name, location, and severity. 
+And the **Traces** tab includes all of the spans in this deployment, including the following:
 
+* Time
+* Trace ID
+* The Service related to the span
+* Which Operation ran
+* The Duration of the run, represented in miliseconds
+* Status code indicating wheather a specific HTTP request has been successfully completed
+
+For each tab you can change the time frame chosen by clicking on the date bar located at the top of the tab.
 
 
 ### Pod quick view
@@ -223,9 +245,16 @@ The **Metrics** tab presents useful data in graph form, including:
 * Pod traffic packets
 * Pod dropped packets
 
-You can change the time frame chosen by clicking on the date bar at the top of the tab.
+And the **Traces** tab includes all of the spans in this deployment, including the following:
 
-And the **Security** tab breaks down the security risks inside the pod, including their name, location, and severity. 
+* Time
+* Trace ID
+* The Service related to the span
+* Which Operation ran
+* The Duration of the run, represented in miliseconds
+* Status code indicating wheather a specific HTTP request has been successfully completed
+
+For each tab you can change the time frame chosen by clicking on the date bar located at the top of the tab.
 
 ### Dameonset, Statefulset, and Job quick view
 {:.no_toc}
@@ -245,6 +274,10 @@ At the top of the quick view menu, there are links that can take you directly to
 
 At the bottom of the quick view menu's **Pods** tab, you'll find a list of all pods related to this node. The table includes each pod's status, the number of containers they’re in, and how much CPU and memory they use. Clicking on one of the pods will lead you to that pod's quick view menu. 
 
+In addition, you can browse throguh the following tabs:
+
+**Logs**, that includes the time, log level and message for each log in this node. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
+
 The **Metrics** tab presents useful data in graph form, including:
 
 * Nodes Available & Unavailable Over Time
@@ -254,6 +287,16 @@ The **Metrics** tab presents useful data in graph form, including:
 * CPU Usage, Requests and Limits (Cores)
 * Memory Usage, Requests and Limits
 * Received & Transmitted Bytes
+
+And the **Traces** tab includes all of the spans in this deployment, including the following:
+
+* Time
+* Trace ID
+* The Service related to the span
+* Which Operation ran
+* The Duration of the run, represented in miliseconds
+* Status code indicating wheather a specific HTTP request has been successfully completed
+
 
 You can change the time frame chosen by clicking on the date bar at the top of the tab.
 

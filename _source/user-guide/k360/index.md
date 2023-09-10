@@ -127,13 +127,13 @@ A **deployment** quick view includes the following fields:
 
 <!-- * **Disk** - The amount of disk space taken up by this node. -->
 
-![Quick menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/deployment-quick-view-jul-.png)
+![Quick menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/deployment-quick-view-sep.png)
 
 At the bottom of the quick view menu's **Pods** tab, you'll find a list of all pods related to this node. The table includes each pod's status, the number of containers they’re in, and how much CPU and memory they use. Clicking on one of the pods will lead you to that pod's quick view menu. 
 
-In addition, you can browse throguh the following tabs:
+In addition, you can browse through the following tabs:
 
-**Logs**, that includes the time, log level and message for each log in this deployment. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
+**Logs** include the time, log level, and message for each log in this deployment. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
 
 The **Metrics** tab presents useful data in graph form, including:
 
@@ -146,16 +146,16 @@ The **Metrics** tab presents useful data in graph form, including:
 * Requests and Limits
 * Received & Transmitted Bytes
 
-And the **Traces** tab includes all of the spans in this deployment, including the following:
+The **Traces** tab includes all of the spans in this deployment, including the following:
 
 * Time
 * Trace ID
 * The Service related to the span
 * Which Operation ran
-* The Duration of the run, represented in miliseconds
-* Status code indicating wheather a specific HTTP request has been successfully completed
+* The Duration of the run, represented in milliseconds
+* Status code indicating whether a specific HTTP request has been successfully completed
 
-For each tab you can change the time frame chosen by clicking on the date bar located at the top of the tab.
+For each tab, you can change the time frame chosen by clicking on the date bar at the top.
 
 In addition, you can dive deeper into the data by using the links at the top of the quick view menu and navigate directly to the relevant metrics view (**See Metrics**), or the relevant traces view (**See Traces**).
 
@@ -174,15 +174,15 @@ A node quick view menu includes the following fields:
 * **Disk** - The amount of disk space this node takes, and how much is left.
 * **Security risks** - Number of potential security risks in this node.
 
-![Node menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/node-quick-view-jul-.png)
+![Node menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/node-quick-view-sep.png)
 
 At the top of the quick view menu, there are links that can take you directly to the relevant logs (**See Logs**), open Logz.io's Livetail for quick troubleshooting (**Open Livetail**), or see the relevant metrics (**See Metrics**).
 
 At the bottom of the quick view menu's **Pods** tab, you'll find a list of all pods related to this node. The table includes each pod's status, the number of containers they’re in, and how much CPU and memory they use. Clicking on one of the pods will lead you to that pod's quick view menu. 
 
-In addition, you can browse throguh the following tabs:
+In addition, you can browse through the following tabs:
 
-**Logs**, that includes the time, log level and message for each log in this node. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
+**Logs** include the time, log level, and message for each log in this node. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
 
 The third tab, **Metrics**, presents useful data in graph form, including:
 
@@ -197,16 +197,16 @@ The third tab, **Metrics**, presents useful data in graph form, including:
 * Memory usage per pod
 
 
-And the **Traces** tab includes all of the spans in this deployment, including the following:
+The **Traces** tab includes all of the spans in this deployment, including the following:
 
 * Time
 * Trace ID
 * The Service related to the span
 * Which Operation ran
-* The Duration of the run, represented in miliseconds
-* Status code indicating wheather a specific HTTP request has been successfully completed
+* The Duration of the run, represented in milliseconds
+* Status code indicating whether a specific HTTP request has been successfully completed
 
-For each tab you can change the time frame chosen by clicking on the date bar located at the top of the tab.
+For each tab, you can change the time frame chosen by clicking on the date bar at the top.
 
 
 ### Pod quick view
@@ -229,7 +229,7 @@ Click on a pod to access its quick view menu and gain access to this additional 
 
 <!-- * **Deployment** - The deployment related to this pod. -->
 
-![Pod menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/pod-quick-view-jul-.png)
+![Pod menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/pod-quick-view-sep.png)
 
 At the top of the quick view menu, there are links that can take you directly to the relevant logs (**See Logs**), open Logz.io's Livetail for quick troubleshooting (**Open Livetail**), or see the relevant metrics (**See Metrics**).
 
@@ -251,10 +251,10 @@ And the **Traces** tab includes all of the spans in this deployment, including t
 * Trace ID
 * The Service related to the span
 * Which Operation ran
-* The Duration of the run, represented in miliseconds
-* Status code indicating wheather a specific HTTP request has been successfully completed
+* The Duration of the run, represented in milliseconds
+* Status code indicating whether a specific HTTP request has been successfully completed
 
-For each tab you can change the time frame chosen by clicking on the date bar located at the top of the tab.
+For each tab, you can change the time frame chosen by clicking on the date bar at the top.
 
 ### Dameonset, Statefulset, and Job quick view
 {:.no_toc}
@@ -268,15 +268,15 @@ All 3 views include the following information as part of their quick view menu:
 * **Memory** - An average percentage of how much memory was consumed.
 * **Security risks** - The number of security events in this element.
 
-![Stateful menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/daemon-quick-view-jul-.png)
+![Stateful menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/daemon-quick-view-sep.png)
 
 At the top of the quick view menu, there are links that can take you directly to the relevant metrics (**See Metrics**).
 
 At the bottom of the quick view menu's **Pods** tab, you'll find a list of all pods related to this node. The table includes each pod's status, the number of containers they’re in, and how much CPU and memory they use. Clicking on one of the pods will lead you to that pod's quick view menu. 
 
-In addition, you can browse throguh the following tabs:
+In addition, you can browse through the following tabs:
 
-**Logs**, that includes the time, log level and message for each log in this node. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
+**Logs** include the time, log level, and message for each log in this node. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
 
 The **Metrics** tab presents useful data in graph form, including:
 
@@ -288,17 +288,17 @@ The **Metrics** tab presents useful data in graph form, including:
 * Memory Usage, Requests and Limits
 * Received & Transmitted Bytes
 
-And the **Traces** tab includes all of the spans in this deployment, including the following:
+The **Traces** tab includes all of the spans in this deployment, including the following:
 
 * Time
 * Trace ID
 * The Service related to the span
 * Which Operation ran
-* The Duration of the run, represented in miliseconds
-* Status code indicating wheather a specific HTTP request has been successfully completed
+* The Duration of the run, represented in milliseconds
+* Status code indicating whether a specific HTTP request has been successfully completed
 
 
-You can change the time frame chosen by clicking on the date bar at the top of the tab.
+For each tab, you can change the time frame chosen by clicking on the date bar at the top.
 
 
 

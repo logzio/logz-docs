@@ -129,11 +129,22 @@ A **deployment** quick view includes the following fields:
 
 ![Quick menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/deployment-quick-view-sep.png)
 
+You can dive deeper into the data by using the links at the top of the quick view menu and navigate directly to the relevant metrics view (**See Metrics**), or the relevant traces view (**See Traces**).
+
+### Deployment Pods View
+{:.no_toc}
+
 At the bottom of the quick view menu's **Pods** tab, you'll find a list of all pods related to this node. The table includes each pod's status, the number of containers they’re in, and how much CPU and memory they use. Clicking on one of the pods will lead you to that pod's quick view menu. 
 
 In addition, you can browse through the following tabs:
 
+### Deployment Logs View
+{:.no_toc}
+
 **Logs** include the time, log level, and message for each log in this deployment. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
+
+### Deployment Metrics View
+{:.no_toc}
 
 The **Metrics** tab presents useful data in graph form, including:
 
@@ -146,6 +157,9 @@ The **Metrics** tab presents useful data in graph form, including:
 * Requests and Limits
 * Received & Transmitted Bytes
 
+### Deployment Traces View
+{:.no_toc}
+
 The **Traces** tab includes all of the spans in this deployment, including the following:
 
 * Time
@@ -157,7 +171,6 @@ The **Traces** tab includes all of the spans in this deployment, including the f
 
 For each tab, you can change the time frame chosen by clicking on the date bar at the top.
 
-In addition, you can dive deeper into the data by using the links at the top of the quick view menu and navigate directly to the relevant metrics view (**See Metrics**), or the relevant traces view (**See Traces**).
 
 ### Node quick view
 {:.no_toc}
@@ -178,11 +191,20 @@ A node quick view menu includes the following fields:
 
 At the top of the quick view menu, there are links that can take you directly to the relevant logs (**See Logs**), open Logz.io's Livetail for quick troubleshooting (**Open Livetail**), or see the relevant metrics (**See Metrics**).
 
+### Node Pods View
+{:.no_toc}
+
 At the bottom of the quick view menu's **Pods** tab, you'll find a list of all pods related to this node. The table includes each pod's status, the number of containers they’re in, and how much CPU and memory they use. Clicking on one of the pods will lead you to that pod's quick view menu. 
 
 In addition, you can browse through the following tabs:
 
+### Node Logs View
+{:.no_toc}
+
 **Logs** include the time, log level, and message for each log in this node. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
+
+### Node Metrics View
+{:.no_toc}
 
 The third tab, **Metrics**, presents useful data in graph form, including:
 
@@ -196,6 +218,8 @@ The third tab, **Metrics**, presents useful data in graph form, including:
 * CPU usage per pod
 * Memory usage per pod
 
+### Node Traces View
+{:.no_toc}
 
 The **Traces** tab includes all of the spans in this deployment, including the following:
 
@@ -233,7 +257,13 @@ Click on a pod to access its quick view menu and gain access to this additional 
 
 At the top of the quick view menu, there are links that can take you directly to the relevant logs (**See Logs**), open Logz.io's Livetail for quick troubleshooting (**Open Livetail**), or see the relevant metrics (**See Metrics**).
 
+### Pod Logs View
+{:.no_toc}
+
 At the bottom of the quick view menu's **Logs** tab you can review all relevant logs with their timestamp, log level, and message for each one. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
+
+### Pod Metrics View
+{:.no_toc}
 
 The **Metrics** tab presents useful data in graph form, including:
 
@@ -244,6 +274,9 @@ The **Metrics** tab presents useful data in graph form, including:
 * Pod traffic bytes
 * Pod traffic packets
 * Pod dropped packets
+
+### Pod Traces View
+{:.no_toc}
 
 And the **Traces** tab includes all of the spans in this deployment, including the following:
 
@@ -272,11 +305,20 @@ All 3 views include the following information as part of their quick view menu:
 
 At the top of the quick view menu, there are links that can take you directly to the relevant metrics (**See Metrics**).
 
+### Dameonset, Statefulset, and Job Pods View
+{:.no_toc}
+
 At the bottom of the quick view menu's **Pods** tab, you'll find a list of all pods related to this node. The table includes each pod's status, the number of containers they’re in, and how much CPU and memory they use. Clicking on one of the pods will lead you to that pod's quick view menu. 
 
 In addition, you can browse through the following tabs:
 
+### Dameonset, Statefulset, and Job Logs View
+{:.no_toc}
+
 **Logs** include the time, log level, and message for each log in this node. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
+
+### Dameonset, Statefulset, and Job Metrics View
+{:.no_toc}
 
 The **Metrics** tab presents useful data in graph form, including:
 
@@ -287,6 +329,9 @@ The **Metrics** tab presents useful data in graph form, including:
 * CPU Usage, Requests and Limits (Cores)
 * Memory Usage, Requests and Limits
 * Received & Transmitted Bytes
+
+### Dameonset, Statefulset, and Job Traces View
+{:.no_toc}
 
 The **Traces** tab includes all of the spans in this deployment, including the following:
 

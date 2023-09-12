@@ -111,6 +111,74 @@ By default, Kubernetes 360 provides an overview of your current environment. Use
 
 Clicking on one of the cards or rows opens the quick view menu. This menu provides additional information about each element, allowing you to investigate and understand what’s happening inside your Kubernetes environment.
 
+For each available view -  Deployment, Pod, Node, Dameonset, Statefulset, and Job - you can access the quick view to gain more information, such as: 
+
+* **Cluster** - The cluster associated with the chosen view.
+* **Namespace** - The unique namespace.
+* **Status** - Indicates whether that condition is applicable, with possible values **True**, **False**, or **Unknown**.
+* **CPU** - Amount of CPU used. If the CPU is not capped, you'll see an indicator stating **no limit**.
+* **Memory** - An average calculation of how much memory is in use.
+* **Uptime** - The duration of how long the chosen view has been running.
+* **Security risks** - The number of potential security risks. 
+
+And more. 
+
+![Quick menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/deployment-quick-view-sep.png)
+
+Each view lets you dive deeper into the data by using the links at the top of the quick view. Click on **See Metrics**, **See Traces**, or **See Logs** to navigate directly to the relevant view.
+
+### Quick view tabs
+
+To enrich your existing and newly sent data, use the [Telemetry Collector](https://app.logz.io/#/dashboard/send-your-data/agent/new) to configure and send data quickly, followed by the [Easy Connect](https://docs.logz.io/user-guide/log-shipping/ezkonnect.html) platform to effectively instrument Kubernetes applications with OpenTelemetry auto-instrumentation.
+{:.info-box.note}
+
+Each quick view includes several tabs that provide additional information you can act on. These include a **Pods** tab, with a list of all related pods, **Logs** tab where you can search for specific logs, **Metrics** tab that holds useful graphs to view the status of your data, and a **Traces** tab, with all of the related spans.
+
+![Node menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/node-quick-view-sep.png)
+
+
+
+<!-- 
+At the bottom of the quick view menu's **Pods** tab, you'll find a list of all pods related to this node. The table includes each pod's status, the number of containers they’re in, and how much CPU and memory they use. Clicking on one of the pods will lead you to that pod's quick view menu. 
+
+In addition, you can browse through the following tabs:
+
+### Deployment Logs View
+{:.no_toc}
+
+**Logs** include the time, log level, and message for each log in this deployment. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
+
+### Deployment Metrics View
+{:.no_toc}
+
+The **Metrics** tab presents useful data in graph form, including:
+
+* Replicas Over Time
+* CPU Usage (cores) per pod
+* Memory Usage Per Pod
+* CPU Usage
+* Requests and Limits (Cores)
+* Memory Usage
+* Requests and Limits
+* Received & Transmitted Bytes
+
+### Deployment Traces View
+{:.no_toc}
+
+The **Traces** tab includes all of the spans in this deployment, including the following:
+
+* Time
+* Trace ID
+* The Service related to the span
+* Which Operation ran
+* The Duration of the run, represented in milliseconds
+* Status code indicating whether a specific HTTP request has been successfully completed
+
+For each tab, you can change the time frame chosen by clicking on the date bar at the top.
+-->
+
+
+<!-- 
 ### Deployment quick view
 {:.no_toc}
 
@@ -125,12 +193,12 @@ A **deployment** quick view includes the following fields:
 * **Uptime** - The duration of how long this deployment has been running.
 * **Security risks** - The number of potential security risks in this deployment. 
 
+-->
+
 <!-- * **Disk** - The amount of disk space taken up by this node. -->
 
-![Quick menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/deployment-quick-view-sep.png)
 
-You can dive deeper into the data by using the links at the top of the quick view menu and navigate directly to the relevant metrics view (**See Metrics**), or the relevant traces view (**See Traces**).
-
+<!--
 ### Deployment Pods View
 {:.no_toc}
 
@@ -250,9 +318,10 @@ Click on a pod to access its quick view menu and gain access to this additional 
 * **CPU** - A percentile average of how much CPU has been used.
 * **Memory** - An average percentage of how much memory was consumed.
 * **Security event count** - The number of security events in this pod.
+-->
 
 <!-- * **Deployment** - The deployment related to this pod. -->
-
+<!-- 
 ![Pod menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/pod-quick-view-sep.png)
 
 At the top of the quick view menu, there are links that can take you directly to the relevant logs (**See Logs**), open Logz.io's Livetail for quick troubleshooting (**Open Livetail**), or see the relevant metrics (**See Metrics**).
@@ -344,7 +413,7 @@ The **Traces** tab includes all of the spans in this deployment, including the f
 
 
 For each tab, you can change the time frame chosen by clicking on the date bar at the top.
-
+-->
 
 
 

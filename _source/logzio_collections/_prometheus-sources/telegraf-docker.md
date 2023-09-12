@@ -1,7 +1,7 @@
 ---
-title: Send Docker metrics over Telegraf
+title: Send Docker metrics
 image: https://dytvr9ot2sszz.cloudfront.net/logz-docs/social-assets/docs-social.jpg
-description: Send Docker metrics over Telegraf to Logz.io
+description: Send Docker metrics to Logz.io
 logo:
   logofile: docker-logo.png
   orientation: vertical
@@ -21,7 +21,7 @@ order: 800
 
 ## Overview
 
-Deploy this integration to ship metrics from your Docker network using containerized Telegraf agent.
+Deploy this integration to ship metrics from your Docker network.
 
 
 <!-- logzio-inject:install:grafana:dashboards ids=["5Wbud46hwzhpFeokC69j0Z"] -->

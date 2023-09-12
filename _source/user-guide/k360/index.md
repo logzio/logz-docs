@@ -123,7 +123,7 @@ For each available view -  Deployment, Pod, Node, Dameonset, Statefulset, and Jo
 
 And more. 
 
-![Quick menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/deployment-quick-view-sep.png)
+![Pod upper menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/pod-upper-overview-sep.png)
 
 Each view lets you dive deeper into the data by using the links at the top of the quick view. Click on **See Metrics**, **See Traces**, or **See Logs** to navigate directly to the relevant view.
 
@@ -132,10 +132,42 @@ Each view lets you dive deeper into the data by using the links at the top of th
 To enrich your existing and newly sent data, use the [Telemetry Collector](https://app.logz.io/#/dashboard/send-your-data/agent/new) to configure and send data quickly, followed by the [Easy Connect](https://docs.logz.io/user-guide/log-shipping/ezkonnect.html) platform to effectively instrument Kubernetes applications with OpenTelemetry auto-instrumentation.
 {:.info-box.note}
 
-Each quick view includes several tabs that provide additional information you can act on. These include a **Pods** tab, with a list of all related pods, **Logs** tab where you can search for specific logs, **Metrics** tab that holds useful graphs to view the status of your data, and a **Traces** tab, with all of the related spans.
+Each quick view includes several tabs that provide additional information you can act on. For each tab, you can change the time frame chosen by clicking on the date bar at the top.
+
+### Pods tab
+{:.no_toc}
+
+The Pods tab provides a list of all pods related to this node. The table includes each pod's status, the number of containers they’re in, and how much CPU and memory they use. Clicking on one of the pods will lead you to that pod's quick view menu.
 
 ![Node menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/node-quick-view-sep.png)
 
+### Logs tab
+{:.no_toc}
+
+In the Logs tab you can view the time, log level, and message for each log line. You can search for specific logs using the search bar, which supports free text and Lucene queries. 
+
+![Pod menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/pod-quick-view-sep.png)
+
+### Metrics tab
+{:.no_toc}
+
+The **Metrics** tab presents useful data in graph form. These graphs provides a view of Replicas Over Time, CPU Usage (cores) per pod, Memory Usage Per Pod, CPU Usage, Requests and Limits (Cores), Memory Usage, Requests and Limits, and Received & Transmitted Bytes.
+
+![Stateful menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/metrics-quick-view.png)
+
+### Traces tab
+{:.no_toc}
+
+The **Traces** tab includes all of the spans in this deployment, including the following:
+
+* Time
+* Trace ID
+* The Service related to the span
+* Which Operation ran
+* The Duration of the run, represented in milliseconds
+* Status code indicating whether a specific HTTP request has been successfully completed
+
+![Quick menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/deployment-quick-view-sep.png)
 
 
 <!-- 

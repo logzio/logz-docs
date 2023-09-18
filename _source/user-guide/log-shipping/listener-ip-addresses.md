@@ -24,6 +24,8 @@ and that your data will be available to you as quickly as possible.
 {:.info-box.note}
 <!-- info-box-end -->
 
+You can access this list as plain text file [here](../../IPs.txt).
+
 On this page
 {:.inline-header}
 

@@ -71,7 +71,7 @@ click **Preview** to open OpenSearch Dashboards in another tab. It can help revi
 
 ###### Group-by (order matters!)
 
-Group by must include the field to trigger it. A log without a field added to Group by will not trigger the alert even if it matches the query or filter.
+Alerts won't trigger if the field added to the Group-by doesn't exist in the logs. The logs must include both the field you have in group-by and the field you use in your query/filter to trigger the alert. 
 {:.info-box.important}
 
 You can apply **group by** operators to up to 3 fields. If you use this option, the alert will return the aggregated results.

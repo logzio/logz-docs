@@ -62,7 +62,7 @@ It might take a while for the Telemetry Collector to get up and running, after w
 
 ##### Optional - Select data sources
 
-You can configure the data sources the Telemetry Collector will collect. To do so, click on Advance settings at the top of the page. Next, you can edit and change telemetries, which Logz.io will collect.
+You can configure the data sources the Telemetry Collector will collect. To do so, click on **Advance settings** at the top of the page. Next, you can edit and change telemetries, which Logz.io will collect.
 
 
 ![Select data source](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/select-data-sources-sep.png)

@@ -26,7 +26,7 @@ To configure the Telemetry Collector, you must be logged into your **main** Logz
 
 ##### Select your environment
 
-Select the your preferred Localhost platform through which you want to send your data.
+Select your preferred Localhost platform through which you want to send your data.
 
 ![Localhost select platform](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/collector-localhost-sep.png)
 
@@ -42,21 +42,20 @@ Some platforms might require additional details, such as admin privileges or pas
 
 ![Review collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/activate-collector-localhost-sep.png)
 
-It might take a while for the Telemetry Collector to get up and running, after which you’ll be able to view your logs or metrics and get full observability into your system.
-
+It might take a while for the Telemetry Collector to get up and running, after which you can view your logs or metrics and get full observability into your system.
 ##### _Optional_ - Select data sources
 
-You can configure the data sources the Telemetry Collector will collect. To do so, click on Advance settings at the top of the page. Next, you can edit and change telemetries will be collected by Logz.io.
+You can configure the data sources the Telemetry Collector will collect. To do so, click on **Advance settings** at the top of the page. Next, you can edit and change telemetries, which Logz.io will collect.
 
-You can edit the path location of your log folders from your machine, and choose which telemetries you want to collect.
+You can edit the path location of your log folders from your machine and choose which telemetries you want to collect.
 
 ![Select folder collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/configure-localhost-sep.png)
 
-If you're running on a **Windows** machine, you'll be able to choose whether you want to collect application, security, and system logs.
+If you're running on a **Windows** machine, you can choose whether you want to collect application, security, and system logs.
 
 ##### _Optional_ - Define your collector
 
-You can edit your collector’s name and description, and choose which Logs, Metrics, and Tracing accounts the data will be sent. If you don’t have active accounts, you’ll be able to review the newly generated account names before continuing.
+You can edit your collector’s name and description and choose which Logs, Metrics, and Tracing accounts to use. If you don’t have active accounts, you’ll be able to review the newly generated account names before continuing.
 
 Click **Save changes** to continue.
 

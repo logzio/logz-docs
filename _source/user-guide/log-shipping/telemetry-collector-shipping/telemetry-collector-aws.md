@@ -51,7 +51,7 @@ Each AWS environment requires different elements to collect your data.
 
 ##### Define your collector
 
-You can edit your collector’s name and description, and choose which Logs, Metrics, and Tracing accounts the data will be sent. If you don’t have active accounts, you’ll be able to review the newly generated account names before continuing.
+You can edit your collector’s name and description and choose which Logs, Metrics, and Tracing accounts to use. If you don’t have active accounts, you’ll be able to review the newly generated account names before continuing.
 
 Click **Generate collector** to continue.
 
@@ -60,7 +60,7 @@ Click **Generate collector** to continue.
 
 ##### _Optional_ - Define your EC2 collector
 
-You can configure the data sources the Telemetry Collector will collect. To do so, after choosing the EC2 Monitoring option, click on Advance settings at the top of the page. Next, you can edit and change the location of your logs, and whether you want to monitor both logs and metrics. 
+You can configure the data sources the Telemetry Collector will collect. To do so, after choosing the EC2 Monitoring option, click on **Advance settings** at the top of the page. Next, you can edit and change the location of your logs, and whether you want to monitor both logs and metrics. 
 
 
 ![configure ec2 data source](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/configure-ec2-sep.png)
@@ -69,7 +69,7 @@ You can configure the data sources the Telemetry Collector will collect. To do s
 ##### Install the Telemetry Collector
 
 
-Login to your AWS account, launch AWS stack to run stack configuration, and click on the Run AWS stack button to activate your collector. 
+Login to your AWS account, launch the AWS stack to run stack configuration and click the **Run AWS stack** button to activate your collector. 
 
 Some platforms might require additional details, such as admin privileges or passwords, to complete the installation. These details are not sent to or stored by Logz.io.
 {:.info-box.note}

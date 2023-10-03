@@ -31,17 +31,18 @@ To configure the Telemetry Collector, you must be logged into your **main** Logz
 
 <div class="tasklist">
 
-##### Select your platform
+##### Select your environment
 
 
-Select the platform through which you’d like to ship your data. Then, if required, select the relevant sub-type.
+Select the environment through which you’d like to ship your data. Then, if required, select the relevant sub-type.
 
 ![Select platform](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-collector-main-sep.png)
 
-##### Choose a platform
+##### Activate your collector
 
-Choose the platform on which you want to run the Telemetry Collector. You can choose between **Mac**, **Windows**, or **Linux**. 
+Choose the platform on which you want to run the Telemetry Collector. You can choose between **Helm**, **Mac**, **Windows**, or **Linux**. 
 
+* **Helm** users - Connectto the Kubernetes cluster from which you want to send telemetry, copy the Helm Install snippet, replace the placeholders with the relevant values, and run it in your terminal.
 * **Mac** users - Copy the snippet and run it in your terminal.
 * **Windows** users - Copy the snippet and run it in your PowerShell x64 **as Administrator** (Note that PowerShell x86 and PowerShell ISE are currently not supported).
 * **Linux** users - Copy the snippet and run it in your command line.
@@ -49,15 +50,13 @@ Choose the platform on which you want to run the Telemetry Collector. You can ch
 Some platforms might require additional details, such as admin privileges or passwords to complete the installation. These details are not sent to or stored by Logz.io.
 {:.info-box.note}
 
-![Review collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-snippet-last-step.png)
+![Review collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/activate-collector-sep.png)
 
 ##### Run the Telemetry Collector
 
 The Telemetry Collector will create all setters needed for the Helm install command to install Logz.io Helm chart and deploy the chart with the relevant parameters. Once running, the Telemetry Collector will continuously collect the relevant data from your end, and you'll be able to view and manage it in Logz.io.
 
 You can review the complete list of parameters and commands that Logz.io runs in the background [on the **Logzio Monitoring GitHub repository**](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-monitoring).
-
-##### Collect data
 
 It might take a while for the Telemetry Collector to get up and running, after which you’ll be able to view your logs, metrics, or traces and get full observability into your system.
 
@@ -70,7 +69,7 @@ You can edit the Telemetry Collector to configure which data sources it'll colle
 You can configure the data sources the Telemetry Collector will collect. To do so, click on Advance settings at the top of the page. Next, you can edit and change telemetries will be collected by Logz.io. 
 
 
-![Select data source](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/select-data-source-sep.png)
+![Select data source](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/select-data-sources-sep.png)
 
 
 <!-- *You'll have to manually [define auto-instrumentation](https://docs.logz.io/user-guide/distributed-tracing/tracing-instrumentation) to collect your **Distributed Tracing** through Logz.io’s Telemetry Collector.* -->

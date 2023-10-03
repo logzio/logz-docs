@@ -60,10 +60,6 @@ You can review the complete list of parameters and commands that Logz.io runs in
 
 It might take a while for the Telemetry Collector to get up and running, after which you’ll be able to view your logs, metrics, or traces and get full observability into your system.
 
-#### Optional - Configure your collector
-
-You can edit the Telemetry Collector to configure which data sources it'll collect
-
 ##### Optional - Select data sources
 
 You can configure the data sources the Telemetry Collector will collect. To do so, click on Advance settings at the top of the page. Next, you can edit and change telemetries will be collected by Logz.io. 

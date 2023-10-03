@@ -21,13 +21,13 @@ To start sending your Kubernetes data through the Telemetry Collector, you'll ne
 _If you're unsure whether traffic is allowed to these ports, continue the process, and Logz.io will notify you if access is restricted._
 
 
-Navigate to [Send your data](https://app.logz.io/#/dashboard/send-your-data), and click on **Start collecting**.
+Navigate to [Send your data](https://app.logz.io/#/dashboard/send-your-data), and click on **Go to the Telemetry Collector**.
 
 To configure the Telemetry Collector, you must be logged into your **main** Logz.io account.
 {:.info-box.important}
 
 
-![Start collecting button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-start-here.png)
+![Start collecting button](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/start-collecting-sep.png)
 
 <div class="tasklist">
 
@@ -36,27 +36,7 @@ To configure the Telemetry Collector, you must be logged into your **main** Logz
 
 Select the platform through which you’d like to ship your data. Then, if required, select the relevant sub-type.
 
-![Select platform](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-collector-main-aug22.png)
-
-##### Select data sources
-
-Next, select the data sources. Hover over each source to see the type of data it collects and processes.
-
-*You'll have to manually [define auto-instrumentation](https://docs.logz.io/user-guide/distributed-tracing/tracing-instrumentation) to collect your **Distributed Tracing** through Logz.io’s Telemetry Collector.*
-
-![Select data source](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-step-2.png)
-
-##### Define your collector
-
-Choose a name and write a description to help identify the collector. 
-
-Under **Accounts**, you can review the Logs, Metrics, and Tracing accounts to which the Telemetry Collector will send the data. If you don't have an existing account, you'll be able to review the account's name before continuing.
-
-Click **Generate snippet** to continue.
-
-![Define collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-step-3.png)
-
-Next, review your collector. The Summary, located on the left side of the screen, includes all of the data in the collector.
+![Select platform](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/telemetry-collector-main-sep.png)
 
 ##### Choose a platform
 
@@ -79,7 +59,32 @@ You can review the complete list of parameters and commands that Logz.io runs in
 
 ##### Collect data
 
-That’s it! It might take a while for the Telemetry Collector to get up and running, after which you’ll be able to view your logs, metrics, or traces and get full observability into your system.
+It might take a while for the Telemetry Collector to get up and running, after which you’ll be able to view your logs, metrics, or traces and get full observability into your system.
+
+#### Optional - Configure your collector
+
+You can edit the Telemetry Collector to configure which data sources it'll collect
+
+##### Optional - Select data sources
+
+You can configure the data sources the Telemetry Collector will collect. To do so, click on Advance settings at the top of the page. Next, you can edit and change telemetries will be collected by Logz.io. 
+
+
+![Select data source](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/select-data-source-sep.png)
+
+
+<!-- *You'll have to manually [define auto-instrumentation](https://docs.logz.io/user-guide/distributed-tracing/tracing-instrumentation) to collect your **Distributed Tracing** through Logz.io’s Telemetry Collector.* -->
+
+
+
+##### Optional - Define your collector
+
+You can edit your collector's name and description, and choose which Logs, Metrics, and Tracing accounts the data will be sent. If you don't have active accounts, you'll be able to review the newly generated account names before continuing.
+
+Click **Save changes** to continue.
+
+![Define collector](https://dytvr9ot2sszz.cloudfront.net/logz-docs/telemetry-agent/define-collector-sep.png)
+
 
 </div>
 

@@ -68,7 +68,7 @@ To add and assign SSO groups, navigate to [Settings > Manage users](https://app.
 Scroll down to the second part of the page, **Sub accounts SSO groups**, and click on **+ New SSO group** button. Next, paste the name of the relevant SSO group created in your SSO provider, choose the [appropriate permissions](/user-guide/users/#access-level-per-role) from the dropdown list, and click the dropdown list to view and choose which sub accounts these users will be able to access.
 
 To ensure the correct permissions are transferred, use the **exact SSO group name** as declared in your SSO provider.
-{:.info-box.important}
+{:.info-box.tip}
 
 ![sub account accounts](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/sub-account-sso.png)
 

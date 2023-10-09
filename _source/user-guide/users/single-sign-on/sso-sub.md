@@ -56,6 +56,9 @@ The **Management-Users** SSO group has User access, enabling search capabilities
 
 ![example main sso](https://dytvr9ot2sszz.cloudfront.net/logz-docs/sso-providers/main-sso-all-accounts.png)
 
+When setting SSO group permissions, you must ensure you didn’t set user permissions. If a user has both SSO group permissions and user permissions, the user permissions **may override** those of the SSO group permissions.
+{:.info-box.important}
+
 ### Manage sub account SSO groups:
 
 Admin users can create SSO groups for sub accounts in Logz.io.

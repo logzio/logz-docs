@@ -22,9 +22,11 @@ Azure may **charge additional fees** for using this integration. [Read more abou
 {:.info-box.important}
 
 * [Set up Azure Native Integration](/user-guide/azure-native-integration.html#set-up-azure-native-integration)
+  * [Set up Azure Native Integration to send logs]()
 * [Set up Logz.io's Azure Native Integration](/user-guide/azure-native-integration.html#set-up-logzios-azure-native-integration)
 
-#### Set up Azure Native Integration 
+
+#### Set up Azure Native Integration
 
 <div class="tasklist">
 
@@ -72,6 +74,24 @@ Ensure that the **User, group, or service principal** option is checked in the M
 ![add role from list](https://dytvr9ot2sszz.cloudfront.net/logz-docs/fetcher/add-role-from-list.png)
 
 Search for the name of the app you created and select it. Click **Review + assign** to confirm. Click on **Review + assign** again to apply the role.
+
+##### Collect logs with Azure Native Integration
+
+Azure Native Integration collects metrics data by default. If you wish to collect and monitor your logs, you'll need to:
+
+1. [Create a workspace in Azure](https://learn.microsoft.com/en-us/azure/machine-learning/quickstart-create-resources?view=azureml-api-2)
+2. Configure your logs and send them to the relevant workspace
+
+You can create a workspace and configure your logs in Azure in several methods, according to your Azure configuration.
+
+For example, if you have a Virtual Machine you can navigate to **Virtual Machine** > **Diagnostic settings**, choose the storage account you want to enable diagnostics for and click **Add diagnostic settings**. 
+
+Next, choose which log categories to monitor and set up the Destination details to Send to Log Analytics workspace.
+
+Once you connect your Azure Native Integration with Logz.io, it'll have access to all logs inside the workspace, which will be monitored on your Logz.io dashboard. 
+
+![configure logs in Azure](https://dytvr9ot2sszz.cloudfront.net/logz-docs/fetcher/confugure-azure-logs.png)
+
 
 ##### Send your details to Logz.io
 

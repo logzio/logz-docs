@@ -82,13 +82,13 @@ Azure Native Integration collects metrics data by default. If you wish to collec
 1. [Create a workspace in Azure](https://learn.microsoft.com/en-us/azure/machine-learning/quickstart-create-resources?view=azureml-api-2)
 2. Configure your logs via Diagnostic Settings / Data Collection Rules / Application Insights
 
-You have to configure your logs through the relevant setting, according to your Azure account. Once configured, Logz.io will be able to collect and monitor the desired logs.
+You must configure your logs through the relevant settings according to your Azure account. Once configured, Logz.io can collect and monitor the desired logs.
 
-For example, if you have a **Virtual Machine** you can configure your logs via Diagnostic Settings.
+For example, if you have a **Virtual Machine**, you can configure your logs via Diagnostic Settings.
 
 Navigate to **Virtual Machine** > **Diagnostic settings**, choose the storage account you want to enable diagnostics for and click **Add diagnostic settings**. 
 
-Next, choose which log categories to monitor and set up the Destination details to Send to Log Analytics workspace.
+Next, choose which log categories to monitor and set up the Destination details to Send to the Log Analytics workspace.
 
 Once you connect your Azure Native Integration with Logz.io, it'll have access to all logs inside the workspace, which will be monitored on your Logz.io dashboard. 
 

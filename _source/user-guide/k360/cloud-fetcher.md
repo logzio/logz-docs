@@ -80,7 +80,7 @@ Search for the name of the app you created and select it. Click **Review + assig
 Azure Native Integration collects metrics data by default. If you wish to collect and monitor your logs, you'll need to:
 
 1. [Create a workspace in Azure](https://learn.microsoft.com/en-us/azure/machine-learning/quickstart-create-resources?view=azureml-api-2)
-2. Configure your logs via Diagnostic Settings / Data Collection Rules / Application Insights
+2. Ship logs to your log analytics workspace via Diagnostic Settings / Data Collection Rules / Application Insights
 
 You must configure your logs through the relevant settings according to your Azure account. Once configured, Logz.io can collect and monitor the desired logs.
 

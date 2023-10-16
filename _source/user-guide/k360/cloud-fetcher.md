@@ -75,7 +75,7 @@ Ensure that the **User, group, or service principal** option is checked in the M
 
 Search for the name of the app you created and select it. Click **Review + assign** to confirm. Click on **Review + assign** again to apply the role.
 
-##### _Optional_ Collect logs with Azure Native Integration
+##### _(Optional)_ - Collect logs with Azure Native Integration
 
 Azure Native Integration collects metrics data by default. If you wish to collect and monitor your logs, you'll need to:
 

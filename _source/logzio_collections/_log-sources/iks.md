@@ -66,6 +66,7 @@ To determine if a node uses taints as well as to display the taint keys, run:
 kubectl get nodes -o json | jq ".items[]|{name:.metadata.name, taints:.spec.taints}"
 ```
 
+You need to use `Helm` client with version `v3.9.0` or above.
 
 ###### K8S version compatibility
 

@@ -22,7 +22,7 @@ Azure may **charge additional fees** for using this integration. [Read more abou
 {:.info-box.important}
 
 * [Set up Azure Native Integration](/user-guide/azure-native-integration.html#set-up-azure-native-integration)
-  * [Set up Azure Native Integration to send logs]()
+  * [Collect logs with Azure Native Integration](/user-guide/azure-native-integration.html#collect-logs-with-azure-native-integration)
 * [Set up Logz.io's Azure Native Integration](/user-guide/azure-native-integration.html#set-up-logzios-azure-native-integration)
 
 
@@ -75,12 +75,12 @@ Ensure that the **User, group, or service principal** option is checked in the M
 
 Search for the name of the app you created and select it. Click **Review + assign** to confirm. Click on **Review + assign** again to apply the role.
 
-##### Collect logs with Azure Native Integration
+##### _Optional_ Collect logs with Azure Native Integration
 
 Azure Native Integration collects metrics data by default. If you wish to collect and monitor your logs, you'll need to:
 
-1. [Create a workspace in Azure](https://learn.microsoft.com/en-us/azure/machine-learning/quickstart-create-resources?view=azureml-api-2)
-2. Configure your logs and send them to the relevant workspace
+* 1. [Create a workspace in Azure](https://learn.microsoft.com/en-us/azure/machine-learning/quickstart-create-resources?view=azureml-api-2)
+* 2. Configure your logs and send them to the relevant workspace
 
 You can create a workspace and configure your logs in Azure in several methods, according to your Azure configuration.
 

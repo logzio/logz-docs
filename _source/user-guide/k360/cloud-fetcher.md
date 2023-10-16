@@ -22,7 +22,7 @@ Azure may **charge additional fees** for using this integration. [Read more abou
 {:.info-box.important}
 
 * [Set up Azure Native Integration](/user-guide/azure-native-integration.html#set-up-azure-native-integration)
-  * [Collect logs with Azure Native Integration](/user-guide/azure-native-integration.html#collect-logs-with-azure-native-integration)
+  * [Collect logs with Azure Native Integration](/user-guide/azure-native-integration.html#optional---collect-logs-with-azure-native-integration)
 * [Set up Logz.io's Azure Native Integration](/user-guide/azure-native-integration.html#set-up-logzios-azure-native-integration)
 
 

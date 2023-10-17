@@ -84,9 +84,9 @@ Azure Native Integration collects metrics data by default. If you wish to collec
 
 You must configure your logs through the relevant settings according to your Azure account. Once configured, Logz.io can collect and monitor the desired logs.
 
-For example, if you have a **Virtual Machine**, you can configure your logs via Diagnostic Settings.
+For example, if you have a **Kubernetes service**, you can configure your logs via Diagnostic Settings.
 
-Navigate to **Virtual Machine** > **Diagnostic settings**, choose the storage account you want to enable diagnostics for and click **Add diagnostic settings**. 
+Navigate to **Kubernetes service** > **Diagnostic settings**, choose the storage account you want to enable diagnostics for and click **Add diagnostic settings**. 
 
 Next, choose which log categories to monitor and set up the Destination details to Send to the Log Analytics workspace.
 

@@ -92,7 +92,7 @@ Next, choose which log categories to monitor and set up the Destination details 
 
 Once you connect your Azure Native Integration with Logz.io, it'll have access to all logs inside the workspace, which will be monitored on your Logz.io dashboard. 
 
-![configure logs in Azure](https://dytvr9ot2sszz.cloudfront.net/logz-docs/fetcher/confugure-azure-logs.png)
+![configure logs in Azure](https://dytvr9ot2sszz.cloudfront.net/logz-docs/fetcher/diagnostic-settings.png)
 
 
 ##### Send your details to Logz.io

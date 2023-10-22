@@ -162,6 +162,7 @@ logzioAppender.AddListenerUrl("<<LISTENER-HOST>>");
 // logzioAppender.ActivateOptions();
 // logzioAppender.JsonKeysCamelCase(false);
 // logzioAppender.AddTraceContext(false);
+// logzioAppender.UseStaticHttpClient(false);
 logzioAppender.ActivateOptions();
 hierarchy.Root.AddAppender(logzioAppender);
 hierarchy.Root.Level = Level.All;
@@ -198,6 +199,7 @@ namespace dotnet_log4net
             // logzioAppender.ActivateOptions();
             // logzioAppender.JsonKeysCamelCase(false)
             // logzioAppender.AddTraceContext(false);
+            // logzioAppender.UseStaticHttpClient(false);
             logzioAppender.ActivateOptions();
             
             hierarchy.Root.AddAppender(logzioAppender);
@@ -231,6 +233,7 @@ namespace dotnet_log4net
 | proxyAddress | Proxy address to route your logs through. | `None` |
 | jsonKeysCamelCase | If you have custom fields keys that start with a capital letter and want to see the fields with a capital letter in Logz.io, set this field to true. | `false` |
 | addTraceContext | If want to add trace context to each log, set this field to true. | `false` |
+| useStaticHttpClient | If want to use the same static HTTP/s client for sending logs, set this field to true. | `false` |
 
 
 </div>

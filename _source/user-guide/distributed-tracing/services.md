@@ -71,6 +71,27 @@ Hovering over the graphs provides values for the specific time point, allowing y
 
 You can toggle your view between pods and nodes inside the service.
 
+### Track deployment data
+
+Your Service Overview graphs indicate the recent deployments, helping you determine if a deployment has increased response times for end-users, altered your application's memory/CPU footprint, or introduced any other performance-related changes.
+
+Deployment tracking ability is auto-enabled in your Logz.io Service dashboard, providing a quick overview of deployment releases ensuring you're always aware of recent updates and what followed them.
+
+Navigate to Services and choose one of your running services. Once inside, the deployment will appear in your graphs, marked by a dotted vertical line.
+
+[image?]
+
+You can view additional deployment data by hovering over the line. This data includes the deployment time, the associated service and environment, and a quick link to view the commit in your logs. Click the link to access the deployment logs and dive deeper into the relevant data to troubleshoot issues or anomalies.
+
+
+
+
+
+
+
+
+
+
 <!-- ### Logs overview
 
 All of the logs related to the service are shown at the bottom of the page. This view includes a graph view of the log levels and a table view with the following:

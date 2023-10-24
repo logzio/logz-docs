@@ -8969,7 +8969,7 @@ definitions:
     example: false
   DocSizeSetting:
     type: boolean
-    description: If document size is attached to logs, `true`. Otherwise, `false`.
+    description: LogSize represents the size of the log lines. Enable this to add a LogSize field.
     default: false
     example: true
 

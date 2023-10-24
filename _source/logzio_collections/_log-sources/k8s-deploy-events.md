@@ -63,14 +63,11 @@ helm install --namespace=monitoring \
 --set secrets.logzioShippingToken='<<LOG-SHIPPING-TOKEN>>' \
 --set secrets.logzioListener='<<LISTENER-HOST>>' \
 --set secrets.env_id='<<ENV-ID>>' \
---set secrets.customListener='<<CUSTOM-HOST>>' \
 logzio-k8s-events logzio-helm/logzio-k8s-events
 ```
   
-{% include log-shipping/listener-var.html %} {% include log-shipping/log-shipping-token.html %} 
-Replace `<<SHIPPING-TOKEN>>` with the [token](https://app.logz.io/#/dashboard/settings/general) of the account you want to ship to.
-
-Replace `<<LISTENER-HOST>>` with your region’s host address (for example, `listener-eu.logz.io`). For more information on finding your account’s region, see [Account region](https://docs.logz.io/user-guide/accounts/account-region.html).
+{% include log-shipping/listener-var.html %} 
+{% include log-shipping/log-shipping-token.html %} 
 
 Replace `<<ENV-ID>>` with your Kubernetes cluster name.
 
@@ -85,9 +82,9 @@ Give your logs some time to get from your system to ours, then open [Logz.io](ht
 
 
 ##### Optional Custom Listener
-If you have an HTTP/s endpoint that receives JSON input than you can override the Logz.io listener by setting the `customListener` secret. 
+If you have an HTTP/s endpoint that receives JSON input then by setting the `customListener` secret you can override the Logz.io listener output and route the data to the custom listener instead. 
 
-Replace `<<CUSTOM-HOST>>` with your endpoint URL. 
+Replace `<<CUSTOM-HOST>>` with your listener endpoint URL. 
 
 ```shell
 helm install --namespace=monitoring \

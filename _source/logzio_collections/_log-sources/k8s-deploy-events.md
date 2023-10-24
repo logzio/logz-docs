@@ -82,9 +82,9 @@ Give your logs some time to get from your system to ours, then open [Logz.io](ht
 
 
 ##### Optional Custom Listener
-If you have an HTTP/s endpoint that receives JSON input then by setting the `customListener` secret you can override the Logz.io listener output and route the data to the custom listener instead. 
+If you have a custom Logz.io listener, you can use the parameter `customListener` and override the Logz.io listener parameter and route the data to the custom listener. 
 
-Replace `<<CUSTOM-HOST>>` with your listener endpoint URL. 
+Replace `<<CUSTOM-HOST>>` with your custom endpoint URL. 
 
 ```shell
 helm install --namespace=monitoring \

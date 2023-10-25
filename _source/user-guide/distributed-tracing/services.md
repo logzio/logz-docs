@@ -83,7 +83,7 @@ Once enabled, navigate to [Services](https://app.logz.io/#/dashboard/spm/service
 
 You can view additional deployment data by clicking on the line. This data includes the deployment time, the associated service and environment, and a quick link to view the commit in your logs.
 
-Click on the commit button to access and view your own code that's related to this deployment, allowing you to probe deeper into the relevant data.
+Click **Go to commit** to access and view your own code related to this deployment, allowing you to probe deeper into the relevant data.
 
 
 <!-- ### Logs overview

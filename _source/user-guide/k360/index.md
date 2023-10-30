@@ -169,8 +169,11 @@ You can view additional deployment data by clicking on the line. This data inclu
 Click **Go to commit** to access and view your own code related to this deployment, allowing you to probe deeper into the relevant data.
 
 
-To activate the **Go to Commit** button, go to **your app or service** and add the following annotation to the metadata of each resource's versioning you want to track: https://github.com/`<account>`/`<repository>`/commit/`<commit-hash>`. For example: `https://github.com/logzio/logzio-k8s-events/commit/069c75c95caeca58dd0776405bb8dfb4eed3acb2`.
+To activate the **Go to Commit** button, go to **your app or service** and add the following annotation to the metadata of each resource's versioning you want to track: `logzio/commit_url: ""`, and the URL structure should be https://github.com/`<account>`/`<repository>`/commit/`<commit-hash>`. For example: `https://github.com/logzio/logzio-k8s-events/commit/069c75c95caeca58dd0776405bb8dfb4eed3acb2`. [Learn more](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-k8s-events#deployment-events-versioning).
 {:.info-box.note}
+
+
+logzio/commit_url: ""
 
 ![deployment menu](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-deploy.png)
 

@@ -160,13 +160,17 @@ The **Metrics** tab presents useful data in graph form. These graphs provides a 
 
 You can enrich your Kubernetes 360 graphs by adding an indication of recent deployments, helping you determine if a deployment has increased response times for end-users, altered your application's memory/CPU footprint, or introduced any other performance-related changes.
 
-To enable deployment tracking ability, run the [**Telemetry Collector**](https://app.logz.io/#/dashboard/send-your-data/agent/new) on your Kubernetes clusters. You can also activate this process **manually** by installing [Logz.io Kubernetes events Helm chart](https://app.logz.io/#/dashboard/integrations/Kubernetes:~:text=user%20guide.-,Send%20your%20deploy%20events%20logs,-This%20integration%20sends) and sending Kubernetes deploy events logs.
+To enable deployment tracking ability, run the [**Telemetry Collector**](https://app.logz.io/#/dashboard/send-your-data/agent/new) on your Kubernetes clusters. You can also activate this process **manually** by installing [Logz.io Kubernetes events Helm chart](https://app.logz.io/#/dashboard/integrations/Kubernetes:~:text=user%20guide.-,Send%20your%20deploy%20events%20logs,-This%20integration%20sends). 
 
 Once enabled, the graphs will include a deployment marker, marked by a dotted vertical line.
 
 You can view additional deployment data by clicking on the line. This data includes the deployment time, the associated service and environment, and a quick link to view the commit in your logs.
 
 Click **Go to commit** to access and view your own code related to this deployment, allowing you to probe deeper into the relevant data.
+
+
+The **Go to Commit** link is populated by adding an annotation **in your app**. Add the following annotation to the metadata of each resource its versioning you'd like to track. The URL structure is `https://github.com/<account>/<repository>/commit/<commit-hash>`. For example: `https://github.com/logzio/logzio-k8s-events/commit/069c75c95caeca58dd0776405bb8dfb4eed3acb2`.
+{:.info-box.note}
 
 ![deployment menu](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-deploy.png)
 

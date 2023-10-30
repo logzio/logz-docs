@@ -85,7 +85,7 @@ You can view additional deployment data by clicking on the line. This data inclu
 
 Click **Go to commit** to access and view your own code related to this deployment, allowing you to probe deeper into the relevant data.
 
-To activate the **Go to Commit** button, go to **your app or service** and add the following annotation to the metadata of each resource's versioning you want to track: `logzio/commit_url: ""`, and the URL structure should be https://github.com/`<account>`/`<repository>`/commit/`<commit-hash>`. [Learn more](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-k8s-events#deployment-events-versioning).
+To activate the **Go to Commit** button, go to **your app or service** and add the following annotation to the metadata of each resource's versioning you want to track: `logzio/commit_url: ""`, and the URL structure should be: "https://github.com/`<account>`/`<repository>`/commit/`<commit-hash>`". [Learn more](https://github.com/logzio/logzio-helm/tree/master/charts/logzio-k8s-events#deployment-events-versioning).
 {:.info-box.note}
 
 

@@ -155,6 +155,22 @@ The **Metrics** tab presents useful data in graph form. These graphs provides a 
 
 ![Stateful menu Overview](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/metrics-quick-view.png)
 
+#### Track Deployment Data
+{:.no_toc}
+
+You can enrich your Kubernetes 360 graphs by adding an indication of recent deployments, helping you determine if a deployment has increased response times for end-users, altered your application's memory/CPU footprint, or introduced any other performance-related changes.
+
+To enable deployment tracking ability, run the [**Telemetry Collector**](https://app.logz.io/#/dashboard/send-your-data/agent/new) on your Kubernetes clusters. You can also activate this process **manually** by installing [Logz.io Kubernetes events Helm chart](https://app.logz.io/#/dashboard/integrations/Kubernetes:~:text=user%20guide.-,Send%20your%20deploy%20events%20logs,-This%20integration%20sends) and sending Kubernetes deploy events logs.
+
+Once enabled, the graphs will include a deployment marker, marked by a dotted vertical line.
+
+You can view additional deployment data by clicking on the line. This data includes the deployment time, the associated service and environment, and a quick link to view the commit in your logs.
+
+Click **Go to commit** to access and view your own code related to this deployment, allowing you to probe deeper into the relevant data.
+
+![deployment menu](https://dytvr9ot2sszz.cloudfront.net/logz-docs/k360/k360-deploy.png)
+
+
 ### Traces tab
 {:.no_toc}
 

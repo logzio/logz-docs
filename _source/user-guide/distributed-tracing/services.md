@@ -85,7 +85,7 @@ You can view additional deployment data by clicking on the line. This data inclu
 
 Click **Go to commit** to access and view your own code related to this deployment, allowing you to probe deeper into the relevant data.
 
-The **Go to Commit** link is populated by adding an annotation **in your app**. Add the following annotation to the metadata of each resource its versioning you'd like to track. The URL structure is `https://github.com/<account>/<repository>/commit/<commit-hash>`. For example: `https://github.com/logzio/logzio-k8s-events/commit/069c75c95caeca58dd0776405bb8dfb4eed3acb2`.
+The **Go to Commit** link is populated by adding an annotation **in your app**. Add the following annotation to the metadata of each resource its versioning you'd like to track. The URL structure is `https://github.com/<account>/<repository>/commit/<commit-hash>`. </br> For example: `https://github.com/logzio/logzio-k8s-events/commit/069c75c95caeca58dd0776405bb8dfb4eed3acb2`.
 {:.info-box.note}
 
 

@@ -75,7 +75,7 @@ Logz.io captures end-to-end distributed transactions from your applications and 
 
 We recommend that you use the OpenTelemetry collector to gather trace transaction data from your system. With the merging of the OpenTracing and OpenCensus projects, OpenTelemetry is the CNCF standard. 
 
-[This link takes you to the OpenTelemetry installation.](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/opentelemetry) 
+[This link takes you to the OpenTelemetry installation.](https://app.logz.io/#/dashboard/integrations/OpenTelemetry-data) 
 The information is also available in the **Logz.io Docs**, in [**Ship your data > OpenTelemetry installation**](https://docs.logz.io/shipping/tracing-sources/opentelemetry.html).
 
 If you’re deploying distributed tracing on Kubernetes, we recommend the [Kubernetes deployment reference](https://docs.logz.io/shipping/tracing-sources/otel-traces-helm.html) topic.

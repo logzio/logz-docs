@@ -86,9 +86,9 @@ This process is only needed to activate the SPM. Once activated, the admin can r
 
 #### Configure and ship your data
 
-You'll need to configure your collector to extract metrics from your data. Log into your Logz.io account and follow these steps to **[modify the OpenTelemetry collector](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/span-metrics)**. 
+You'll need to configure your collector to extract metrics from your data. Log into your Logz.io account and follow these steps to **[modify the OpenTelemetry collector](https://app.logz.io/#/dashboard/integrations/OpenTelemetry-data)**. 
 
-You can configure the collector to ship data from a **[Local host](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/span-metrics?type=local-host)**, **[Docker](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/span-metrics?type=docker)**, or **[Kubernetes](https://app.logz.io/#/dashboard/send-your-data/tracing-sources/span-metrics?type=kubernetes)**.
+<!-- You can configure the collector to ship data from a **Local host**, **Docker**, or **Kubernetes**.-->
 
 Before deploying, make sure the collector you're using matches the supported version (should be **0.78.0** and up).
 

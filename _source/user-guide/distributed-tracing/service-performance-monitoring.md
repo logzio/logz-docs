@@ -22,7 +22,7 @@ Service Performance Monitoring helps cut down the time to identify and resolve a
 
 ##### Service Performance Monitoring dashboard
 
-The Service Performance Monitoring dashboard is part of your [Tracing account](https://app.logz.io/#/dashboard/jaeger/monitoring), located under the **Monitor** tab. You can generate a dashboard view for each of your services, and adjust the time span between 1 hour to 2 days ago.
+The Service Performance Monitoring dashboard is part of your [Tracing account](https://app.logz.io/#/dashboard/jaeger/monitor), located under the **Monitor** tab. You can generate a dashboard view for each of your services, and adjust the time span between 1 hour to 2 days ago.
 
 ![Service Performance Monitoring](https://dytvr9ot2sszz.cloudfront.net/logz-docs/distributed-tracing/jaeger-spm-dashboard.png)
 

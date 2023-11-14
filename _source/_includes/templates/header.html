@@ -15,7 +15,7 @@
     </span>
 
     <span class="docs-home-link">
-      <a href="{{site.baseurl}}/" target="_top">
+      <a href="docs.logz.io" target="_top">
         {%- case jekyll.environment -%}
           {%- when "ducks" -%}
             🦆🦆🦆
@@ -28,8 +28,8 @@
 
   <nav class="site-links">
     <ul>
-      <li><a href="{{ site.baseurl }}/shipping/" target="_top">Ship data</a></li>
-      <li><a href="{{ site.baseurl }}/api/" target="_top">API</a></li>
+      <li><a href="https://docs.logz.io/docs/category/send-your-data/" target="_top">Ship data</a></li>
+      <li><a href="https://docs.logz.io/api/" target="_top">API</a></li>
       <li><a href="http://status.logz.io/" target="_top">System status</a></li>
       <li><a href="https://logz.io/blog/" target="_top">Blog</a></li>
     </ul>
@@ -37,9 +37,6 @@
 
   <nav class="site-actions">
     <ul>
-    {% unless page.searchbox == false %}
-      <li>{% include templates/lunr/lunr-header.html %}</li>
-    {% endunless %}
       <li id="log-in"><a href="https://app.logz.io" target="_top">Log In</a></li>
     </ul>
   </nav>

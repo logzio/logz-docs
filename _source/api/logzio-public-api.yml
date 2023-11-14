@@ -12037,20 +12037,20 @@ definitions:
     properties:
       accountName:
         type: string
-        description: ?
+        description: Account name
         example:
       archiveSettingsId:
         type: integer
         format: int32
-        description: ?
+        description: Archive settings ID
         example:
       startTime:
         type: integer
         format: int64
-        description: ?
+        description: Start time
         example:
       endTime:
         type: integer
         format: int64
-        description: ?
+        description: End time
         example:

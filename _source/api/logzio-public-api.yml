@@ -8,14 +8,26 @@ swagger: '2.0'
 schemes: [ https ]
 host: api.logz.io
 x-servers:
-{%- for region in site.data.logzio-regions %}
-  - url: https://api
-  {%- if region.suffix -%}
-    -{{region.suffix}}
-  {%- endif -%}
-  .logz.io/
-    description: {{region.title}}
-{% endfor -%}
+  - url: https://api.logz.io/
+    description: US East (Northern Virginia)
+
+  - url: https://api-au.logz.io/
+    description: Asia Pacific (Sydney)
+
+  - url: https://api-ca.logz.io/
+    description: Canada (Central)
+
+  - url: https://api-eu.logz.io/
+    description: Europe (Frankfurt)
+
+  - url: https://api-nl.logz.io/
+    description: West Europe (Netherlands)
+
+  - url: https://api-uk.logz.io/
+    description: Europe (London)
+
+  - url: https://api-wa.logz.io/
+    description: West US 2 (Washington)
 basePath: /
 produces: [ application/json ]
 consumes: [ application/json ]
@@ -12037,20 +12049,20 @@ definitions:
     properties:
       accountName:
         type: string
-        description: ?
+        description: Name of Account
         example:
       archiveSettingsId:
         type: integer
         format: int32
-        description: ?
+        description: Archive Settings Id
         example:
       startTime:
         type: integer
         format: int64
-        description: ?
+        description: Restore Start Time
         example:
       endTime:
         type: integer
         format: int64
-        description: ?
+        description: Restore End Time
         example:

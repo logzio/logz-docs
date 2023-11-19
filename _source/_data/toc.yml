@@ -382,6 +382,8 @@ firstLevel:
       url: /user-guide/cloud-siem/manage-feeds.html
     - title: Select dashboards for your Cloud SIEM Summary page
       url: /user-guide/cloud-siem/select-dashboards.html
+    - title: Anomaly detection
+      url: /user-guide/cloud-siem/anomaly-detection.html
 
 
 

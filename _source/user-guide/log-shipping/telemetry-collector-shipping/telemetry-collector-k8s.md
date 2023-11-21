@@ -125,6 +125,66 @@ This snippet removes the collector from Logz.io and stops sending your data. Of 
 If you have additional questions about managing your Telemetry Collector, [contact Logz.io's Support team](mailto:help@logz.io).
 
 
+#### Add or remove specific services
+
+##### Logs services
+
+Add:
+
+```shell
+helm upgrade -n monitoring logzio-monitoring logzio-helm/logzio-monitoring --reuse-values --set logzio-k8s-logs.enabled=true --set logzio-k8s-logs.logzio-log-shipping-token=<<LOG-SHIPPING-TOKEN>>
+```
+
+Remove:
+
+```shell
+helm upgrade -n monitoring logzio-monitoring logzio-helm/logzio-monitoring --reuse-values --set logzio-k8s-logs.enabled=false
+```
+
+##### Metrics services
+
+Add:
+
+```shell
+helm upgrade -n monitoring logzio-monitoring logzio-helm/logzio-monitoring --reuse-values --set logzio-k8s-metrics.enabled=true --set logzio-k8s-metrics.logzio-metrics-shipping-token=<<PROMETHEUS-METRICS-SHIPPING-TOKEN>>
+```
+
+Remove:
+
+```shell
+helm upgrade -n monitoring logzio-monitoring logzio-helm/logzio-monitoring --reuse-values --set logzio-k8s-metrics.enabled=false
+```
+
+##### Tracing services
+
+Add:
+
+```shell
+helm upgrade -n monitoring logzio-monitoring logzio-helm/logzio-monitoring --reuse-values --set logzio-k8s-tracing.enabled=true --set logzio-k8s-tracing.logzio-tracing-shipping-token=<<TRACING-SHIPPING-TOKEN>>
+```
+
+Remove:
+
+```shell
+helm upgrade -n monitoring logzio-monitoring logzio-helm/logzio-monitoring --reuse-values --set logzio-k8s-tracing.enabled=false
+```
+
+##### SPM services
+
+Add:
+
+```shell
+helm upgrade -n monitoring logzio-monitoring logzio-helm/logzio-monitoring --reuse-values --set logzio-k8s-telemetry.spm.enabled=true --set logzio-k8s-telemetry.secrets.SpmToken=<<SPM-METRICS-SHIPPING-TOKEN>>
+```
+
+Remove:
+
+```shell
+helm upgrade -n monitoring logzio-monitoring logzio-helm/logzio-monitoring --reuse-values --set logzio-k8s-telemetry.spm.enabled=false
+```
+
+
+
 ##### Additional resources
 
 * [View Telemetry Collector on GitHub](https://github.com/logzio/logzio-agent-manifest)

@@ -19,7 +19,7 @@ order: 1380
 ---
 
 
-AWS Fargate is a serverless compute engine for building applications without managing servers. This integration will create a new container that will run your image to send your AWS ECS Fargate logs to Logz.io using AWS OTel Collector. The integration will automatically create the replica.
+AWS Fargate is a serverless compute engine for building applications without managing servers. This integration will create a new container that will run your image to send your AWS ECS Fargate traces and metrics to Logz.io using AWS OTel Collector. The integration will automatically create the replica.
 
 
 Only `awsecscontainermetrics` receiver metrics are collected by default.
@@ -150,6 +150,7 @@ service:
     logs:
       level: "debug"
 ```
+To change the configuration, go to the created ssm parameter and edit the yaml content to apply any custom opentelemetry configuration
 
 ##### IAM Roles
 {:.no_toc}
